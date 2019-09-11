@@ -137,34 +137,36 @@
                 android:id="@+id/textViewTrainingPreferences"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="@string/ChceCw"
+                android:visibility="visible" />
 
             <RadioGroup
                 android:id="@+id/radioGroupTrainingPreferences"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">>
+                android:orientation="horizontal"
+                android:visibility="visible">>
 
                 <RadioButton
                     android:id="@+id/radioButtonGym"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/Zmiejszyć" />
+                    android:text="@string/NaSilowni" />
 
                 <RadioButton
                     android:id="@+id/radioButtonStreetWorkout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/Utrzymać" />
+                    android:text="@string/WPSW" />
 
                 <RadioButton
                     android:id="@+id/radioButtonHome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/Zwiększyć" />
+                    android:text="@string/WDomu" />
             </RadioGroup>
 
         </LinearLayout>

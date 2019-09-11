@@ -21,12 +21,19 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.WindowManager;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private TextView trainingPreferences ;
+    private CheckBox checkBoxMusculature;
+    private RadioGroup radioGroupTrainingPreferences;
 
     // this will be key for the key value pair
     public static final String ButtonStateMale = "ButtonStateMale";
@@ -35,6 +42,10 @@ public class MainActivity extends AppCompatActivity
     public static final String ButtonStateDecrease = "ButtonStateDecrease";
     public static final String ButtonStateMaintain = "ButtonStateMaintain";
     public static final String ButtonStateIncrease = "ButtonStateIncrease";
+
+    public static final String ButtonStateGym = "ButtonStateGym ";
+    public static final String ButtonStateStreetWorkout= "ButtonStaterStreetWorkout";
+    public static final String ButtonStateHome = "ButtonStateHome";
 
     // this is name of shared preferences file, must be same whenever accessing
     // the key value pair.
@@ -71,6 +82,10 @@ public class MainActivity extends AppCompatActivity
 
 
 
+        trainingPreferences = (TextView) findViewById(R.id.textViewTrainingPreferences) ;
+        checkBoxMusculature = (CheckBox)findViewById(R.id.checkBoxMusculature);
+        radioGroupTrainingPreferences =  (RadioGroup)findViewById(R.id.radioGroupTrainingPreferences);
+
 
         // helper method to open up the file.
         sharedpreferences = getSharedPreferences(MyPreferences, Context.MODE_PRIVATE);
@@ -84,6 +99,11 @@ public class MainActivity extends AppCompatActivity
         Boolean lastButtonStateIncrease = sharedpreferences.getBoolean(ButtonStateIncrease, false);
 
 
+        Boolean lastButtonStateGym= sharedpreferences.getBoolean(ButtonStateGym, false);
+        Boolean lastButtonStateStreetWorkout = sharedpreferences.getBoolean(ButtonStateStreetWorkout, false);
+        Boolean lastButtonStateHome = sharedpreferences.getBoolean(ButtonStateHome, false);
+
+
 
 
         final RadioButton radioButtonMale = (RadioButton) findViewById(R.id.radioButtonMale);
@@ -94,6 +114,12 @@ public class MainActivity extends AppCompatActivity
         final RadioButton radioButtonMaintain = (RadioButton) findViewById(R.id.radioButtonMaintain);
         final RadioButton radioButtonIncrease = (RadioButton) findViewById(R.id.radioButtonIncrease);
 
+
+        final RadioButton radioButtonGym = (RadioButton) findViewById(R.id.radioButtonGym);
+        final RadioButton radioButtonStreetWorkout = (RadioButton) findViewById(R.id.radioButtonStreetWorkout);
+        final RadioButton radioButtonHome = (RadioButton) findViewById(R.id.radioButtonHome);
+
+
         // restore previous state
         radioButtonMale.setChecked(lastButtonStateMale);
         radioButtonFemale.setChecked(lastButtonStateFemale);
@@ -102,7 +128,9 @@ public class MainActivity extends AppCompatActivity
         radioButtonMaintain.setChecked(lastButtonStateMaintain);
         radioButtonIncrease.setChecked(lastButtonStateIncrease);
 
-
+        radioButtonGym.setChecked(lastButtonStateGym);
+        radioButtonStreetWorkout.setChecked(lastButtonStateStreetWorkout);
+        radioButtonHome.setChecked(lastButtonStateHome);
 
 
         // set a listener
@@ -207,6 +235,66 @@ public class MainActivity extends AppCompatActivity
         });
 
 
+        radioButtonGym.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // call this to enable editing of the shared preferences file
+                // in the event of a change
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                Boolean isCheckedGym = radioButtonGym.isChecked();
+                Boolean isCheckedStreetWorkout = radioButtonStreetWorkout.isChecked();
+                Boolean isCheckedHome = radioButtonHome.isChecked();
+                // use this to add the new state
+                editor.putBoolean(ButtonStateGym, isCheckedGym);
+                editor.putBoolean(ButtonStateStreetWorkout, isCheckedStreetWorkout);
+                editor.putBoolean(ButtonStateHome, isCheckedHome);
+                // save
+                editor.apply();
+            }
+
+
+        });
+
+        radioButtonStreetWorkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // call this to enable editing of the shared preferences file
+                // in the event of a change
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                Boolean isCheckedGym = radioButtonGym.isChecked();
+                Boolean isCheckedStreetWorkout = radioButtonStreetWorkout.isChecked();
+                Boolean isCheckedHome = radioButtonHome.isChecked();
+                // use this to add the new state
+                editor.putBoolean(ButtonStateGym, isCheckedGym);
+                editor.putBoolean(ButtonStateStreetWorkout, isCheckedStreetWorkout);
+                editor.putBoolean(ButtonStateHome, isCheckedHome);
+                // save
+                editor.apply();
+            }
+
+
+        });
+
+        radioButtonHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // call this to enable editing of the shared preferences file
+                // in the event of a change
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                Boolean isCheckedGym = radioButtonGym.isChecked();
+                Boolean isCheckedStreetWorkout = radioButtonStreetWorkout.isChecked();
+                Boolean isCheckedHome = radioButtonHome.isChecked();
+                // use this to add the new state
+                editor.putBoolean(ButtonStateGym, isCheckedGym);
+                editor.putBoolean(ButtonStateStreetWorkout, isCheckedStreetWorkout);
+                editor.putBoolean(ButtonStateHome, isCheckedHome);
+                // save
+                editor.apply();
+            }
+
+
+        });
+
 
 
 
@@ -287,27 +375,30 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        //trainingPreferences = (TextView) findViewById(R.id.textViewTrainingPreferences) ;
+
+
+
+        checkBoxMusculature.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(((CompoundButton) view).isChecked()){
+
+                    trainingPreferences.setVisibility(View.VISIBLE);
+                    radioGroupTrainingPreferences.setVisibility(View.VISIBLE);
+
+                } else {
+
+                    trainingPreferences.setVisibility(View.GONE);
+                    radioGroupTrainingPreferences.setVisibility(View.GONE);
+                }
+            }
+        });
     }
 
 
 
 
-//    public void onCheckboxClicked(View view) {
-//        // Is the view now checked?
-//        boolean checked = ((CheckBox) view).isChecked();
-//
-//        // Check which checkbox was clicked
-//        switch(view.getId()) {
-//            case R.id.checkBoxMusculature:
-//                if (checked)
-//                    inHomeInt=1;
-//
-//                else
-//                    inHomeInt=0;
-//
-//        }
-//    }
+
 
     @Override
     public void onBackPressed() {

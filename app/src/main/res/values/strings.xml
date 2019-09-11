@@ -25,7 +25,10 @@
     <string name="Zwiększyć">Zwiększyć</string>
     <string name="Utrzymać">Utrzymać</string>
     <string name="ChcePM">Chcę poprwaić swoją muskulaturę</string>
-
+    <string name="ChceCw">Chcę ćwiczyć:</string>
+    <string name="NaSilowni">Na siłowni</string>
+    <string name="WPSW">W parku street workout</string>
+    <string name="WDomu">W domu</string>
 
 
 </resources>
