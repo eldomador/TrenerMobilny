@@ -47,6 +47,9 @@ public class MainActivity extends AppCompatActivity
     public static final String ButtonStateStreetWorkout= "ButtonStaterStreetWorkout";
     public static final String ButtonStateHome = "ButtonStateHome";
 
+    public static final String CheckBoxStateMusculature = "CheckBoxStateMusculature";
+    public static final String NoCheckBoxStateMusculature = "NoCheckBoxStateMusculature";
+
     // this is name of shared preferences file, must be same whenever accessing
     // the key value pair.
     public static final String MyPreferences = "MyPrefs" ;
@@ -103,6 +106,9 @@ public class MainActivity extends AppCompatActivity
         Boolean lastButtonStateStreetWorkout = sharedpreferences.getBoolean(ButtonStateStreetWorkout, false);
         Boolean lastButtonStateHome = sharedpreferences.getBoolean(ButtonStateHome, false);
 
+        Boolean lastCheckBoxStateMusculature = sharedpreferences.getBoolean(CheckBoxStateMusculature, false);
+        Boolean lastNoCheckBoxStateMusculature = sharedpreferences.getBoolean(NoCheckBoxStateMusculature, false);
+
 
 
 
@@ -120,6 +126,8 @@ public class MainActivity extends AppCompatActivity
         final RadioButton radioButtonHome = (RadioButton) findViewById(R.id.radioButtonHome);
 
 
+
+
         // restore previous state
         radioButtonMale.setChecked(lastButtonStateMale);
         radioButtonFemale.setChecked(lastButtonStateFemale);
@@ -131,6 +139,8 @@ public class MainActivity extends AppCompatActivity
         radioButtonGym.setChecked(lastButtonStateGym);
         radioButtonStreetWorkout.setChecked(lastButtonStateStreetWorkout);
         radioButtonHome.setChecked(lastButtonStateHome);
+
+        checkBoxMusculature.setChecked(lastCheckBoxStateMusculature);
 
 
         // set a listener
@@ -386,10 +396,24 @@ public class MainActivity extends AppCompatActivity
                     trainingPreferences.setVisibility(View.VISIBLE);
                     radioGroupTrainingPreferences.setVisibility(View.VISIBLE);
 
+                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                    Boolean isChecked = checkBoxMusculature.isChecked();
+                    // use this to add the new state
+                    editor.putBoolean(CheckBoxStateMusculature, isChecked);
+                    // save
+                    editor.apply();
+
                 } else {
 
                     trainingPreferences.setVisibility(View.GONE);
                     radioGroupTrainingPreferences.setVisibility(View.GONE);
+
+                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                    Boolean isChecked = checkBoxMusculature.isChecked();
+                    // use this to add the new state
+                    editor.putBoolean(CheckBoxStateMusculature, isChecked);
+                    // save
+                    editor.apply();
                 }
             }
         });
