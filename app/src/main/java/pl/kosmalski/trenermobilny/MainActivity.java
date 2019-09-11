@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity
     public static final String ButtonStateHome = "ButtonStateHome";
 
     public static final String CheckBoxStateMusculature = "CheckBoxStateMusculature";
-    public static final String NoCheckBoxStateMusculature = "NoCheckBoxStateMusculature";
+
 
     // this is name of shared preferences file, must be same whenever accessing
     // the key value pair.
@@ -107,9 +107,6 @@ public class MainActivity extends AppCompatActivity
         Boolean lastButtonStateHome = sharedpreferences.getBoolean(ButtonStateHome, false);
 
         Boolean lastCheckBoxStateMusculature = sharedpreferences.getBoolean(CheckBoxStateMusculature, false);
-        Boolean lastNoCheckBoxStateMusculature = sharedpreferences.getBoolean(NoCheckBoxStateMusculature, false);
-
-
 
 
         final RadioButton radioButtonMale = (RadioButton) findViewById(R.id.radioButtonMale);
@@ -124,8 +121,6 @@ public class MainActivity extends AppCompatActivity
         final RadioButton radioButtonGym = (RadioButton) findViewById(R.id.radioButtonGym);
         final RadioButton radioButtonStreetWorkout = (RadioButton) findViewById(R.id.radioButtonStreetWorkout);
         final RadioButton radioButtonHome = (RadioButton) findViewById(R.id.radioButtonHome);
-
-
 
 
         // restore previous state
@@ -417,7 +412,26 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         });
+
+
+        {
+            //code to check if this checkbox is checked!
+
+            if(checkBoxMusculature.isChecked()){
+
+                trainingPreferences.setVisibility(View.VISIBLE);
+                radioGroupTrainingPreferences.setVisibility(View.VISIBLE);
+            }
+
+            else{
+                trainingPreferences.setVisibility(View.GONE);
+                radioGroupTrainingPreferences.setVisibility(View.GONE);
+            }
+        }
+
+
     }
+
 
 
 
