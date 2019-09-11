@@ -14,16 +14,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-
-
-
-
-
-
-
-
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
 
 
             >
@@ -110,7 +102,7 @@
                 android:id="@+id/radioGroupWeightPreferences"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"> >
+                android:orientation="horizontal">>
 
                 <RadioButton
                     android:id="@+id/radioButtonDecrease"
@@ -133,6 +125,48 @@
                     android:layout_weight="1"
                     android:text="@string/Zwiększyć" />
             </RadioGroup>
+
+
+            <CheckBox
+                android:id="@+id/checkBoxMusculature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ChcePM" />
+
+            <TextView
+                android:id="@+id/textViewTrainingPreferences"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupTrainingPreferences"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">>
+
+                <RadioButton
+                    android:id="@+id/radioButtonGym"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Zmiejszyć" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonStreetWorkout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Utrzymać" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Zwiększyć" />
+            </RadioGroup>
+
         </LinearLayout>
     </ScrollView>
 

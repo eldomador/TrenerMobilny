@@ -20,8 +20,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.WindowManager;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -285,9 +287,27 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-
-
+        //trainingPreferences = (TextView) findViewById(R.id.textViewTrainingPreferences) ;
     }
+
+
+
+
+//    public void onCheckboxClicked(View view) {
+//        // Is the view now checked?
+//        boolean checked = ((CheckBox) view).isChecked();
+//
+//        // Check which checkbox was clicked
+//        switch(view.getId()) {
+//            case R.id.checkBoxMusculature:
+//                if (checked)
+//                    inHomeInt=1;
+//
+//                else
+//                    inHomeInt=0;
+//
+//        }
+//    }
 
     @Override
     public void onBackPressed() {
