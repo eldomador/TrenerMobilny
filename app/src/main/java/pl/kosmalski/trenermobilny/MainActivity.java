@@ -27,16 +27,22 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     // this will be key for the key value pair
-    public static final String BUTTON_STATE_M = "Button_State_m";
-    public static final String BUTTON_STATE_F = "Button_State_f";
+    public static final String ButtonStateMale = "ButtonStateMale";
+    public static final String ButtonStateFemale = "ButtonStateFemale";
+
+    public static final String ButtonStateDecrease = "ButtonStateDecrease";
+    public static final String ButtonStateMaintain = "ButtonStateMaintain";
+    public static final String ButtonStateIncrease = "ButtonStateIncrease";
+
     // this is name of shared preferences file, must be same whenever accessing
     // the key value pair.
-    public static final String MyPREFERENCES = "MyPrefs" ;
+    public static final String MyPreferences = "MyPrefs" ;
 
     SharedPreferences sharedpreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
 
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
@@ -62,28 +68,53 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
+
+
         // helper method to open up the file.
-        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        sharedpreferences = getSharedPreferences(MyPreferences, Context.MODE_PRIVATE);
         // grab the last saved state here on each activity start
-        Boolean lastButtonStateM = sharedpreferences.getBoolean(BUTTON_STATE_M, false);
-        Boolean lastButtonStateF = sharedpreferences.getBoolean(BUTTON_STATE_F, false);
-        final RadioButton rbm = (RadioButton) findViewById(R.id.radioButtonMale);
-        final RadioButton rbf = (RadioButton) findViewById(R.id.radioButtonFemale);
+        Boolean lastButtonStateMale = sharedpreferences.getBoolean(ButtonStateMale, false);
+        Boolean lastButtonStateFemale = sharedpreferences.getBoolean(ButtonStateFemale, false);
+
+
+        Boolean lastButtonStateDecrease = sharedpreferences.getBoolean(ButtonStateDecrease, false);
+        Boolean lastButtonStateMaintain = sharedpreferences.getBoolean(ButtonStateMaintain, false);
+        Boolean lastButtonStateIncrease = sharedpreferences.getBoolean(ButtonStateIncrease, false);
+
+
+
+
+        final RadioButton radioButtonMale = (RadioButton) findViewById(R.id.radioButtonMale);
+        final RadioButton radioButtonFemale = (RadioButton) findViewById(R.id.radioButtonFemale);
+
+
+        final RadioButton radioButtonDecrease = (RadioButton) findViewById(R.id.radioButtonDecrease);
+        final RadioButton radioButtonMaintain = (RadioButton) findViewById(R.id.radioButtonMaintain);
+        final RadioButton radioButtonIncrease = (RadioButton) findViewById(R.id.radioButtonIncrease);
+
         // restore previous state
-        rbm.setChecked(lastButtonStateM);
-        rbf.setChecked(lastButtonStateF);
+        radioButtonMale.setChecked(lastButtonStateMale);
+        radioButtonFemale.setChecked(lastButtonStateFemale);
+
+        radioButtonDecrease.setChecked(lastButtonStateDecrease);
+        radioButtonMaintain.setChecked(lastButtonStateMaintain);
+        radioButtonIncrease.setChecked(lastButtonStateIncrease);
+
+
+
+
         // set a listener
-        rbm.setOnClickListener(new View.OnClickListener() {
+        radioButtonMale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // call this to enable editing of the shared preferences file
                 // in the event of a change
                 SharedPreferences.Editor editor = sharedpreferences.edit();
-                Boolean isChecked = rbm.isChecked();
-                Boolean isNoChecked = rbf.isChecked();
+                Boolean isChecked = radioButtonMale.isChecked();
+                Boolean isNoChecked = radioButtonFemale.isChecked();
                 // use this to add the new state
-                editor.putBoolean(BUTTON_STATE_F, isNoChecked);
-                editor.putBoolean(BUTTON_STATE_M, isChecked);
+                editor.putBoolean(ButtonStateFemale, isNoChecked);
+                editor.putBoolean(ButtonStateMale, isChecked);
                 // save
                 editor.apply();
             }
@@ -92,17 +123,80 @@ public class MainActivity extends AppCompatActivity
         });
 
 
-        rbf.setOnClickListener(new View.OnClickListener() {
+        radioButtonFemale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // call this to enable editing of the shared preferences file
                 // in the event of a change
                 SharedPreferences.Editor editor = sharedpreferences.edit();
-                Boolean isChecked = rbf.isChecked();
-                Boolean isNoChecked = rbm.isChecked();
+                Boolean isChecked = radioButtonFemale.isChecked();
+                Boolean isNoChecked = radioButtonMale.isChecked();
                 // use this to add the new state
-                editor.putBoolean(BUTTON_STATE_M, isNoChecked);
-                editor.putBoolean(BUTTON_STATE_F, isChecked);
+                editor.putBoolean(ButtonStateMale, isNoChecked);
+                editor.putBoolean(ButtonStateFemale, isChecked);
+                // save
+                editor.apply();
+            }
+
+
+        });
+
+
+        radioButtonDecrease.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // call this to enable editing of the shared preferences file
+                // in the event of a change
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                Boolean isCheckedDecrease = radioButtonDecrease.isChecked();
+                Boolean isCheckedMaintain = radioButtonMaintain.isChecked();
+                Boolean isCheckedIncrease = radioButtonIncrease.isChecked();
+                // use this to add the new state
+                editor.putBoolean(ButtonStateDecrease, isCheckedDecrease);
+                editor.putBoolean(ButtonStateMaintain, isCheckedMaintain);
+                editor.putBoolean(ButtonStateIncrease, isCheckedIncrease);
+                // save
+                editor.apply();
+            }
+
+
+        });
+
+
+        radioButtonMaintain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // call this to enable editing of the shared preferences file
+                // in the event of a change
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                Boolean isCheckedDecrease = radioButtonDecrease.isChecked();
+                Boolean isCheckedMaintain = radioButtonMaintain.isChecked();
+                Boolean isCheckedIncrease = radioButtonIncrease.isChecked();
+                // use this to add the new state
+                editor.putBoolean(ButtonStateDecrease, isCheckedDecrease);
+                editor.putBoolean(ButtonStateMaintain, isCheckedMaintain);
+                editor.putBoolean(ButtonStateIncrease, isCheckedIncrease);
+                // save
+                editor.apply();
+            }
+
+
+        });
+
+
+        radioButtonIncrease.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // call this to enable editing of the shared preferences file
+                // in the event of a change
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                Boolean isCheckedDecrease = radioButtonDecrease.isChecked();
+                Boolean isCheckedMaintain = radioButtonMaintain.isChecked();
+                Boolean isCheckedIncrease = radioButtonIncrease.isChecked();
+                // use this to add the new state
+                editor.putBoolean(ButtonStateDecrease, isCheckedDecrease);
+                editor.putBoolean(ButtonStateMaintain, isCheckedMaintain);
+                editor.putBoolean(ButtonStateIncrease, isCheckedIncrease);
                 // save
                 editor.apply();
             }
@@ -116,6 +210,7 @@ public class MainActivity extends AppCompatActivity
 
         final SharedPreferences prefsAge = PreferenceManager
                 .getDefaultSharedPreferences(this);
+
 
         EditText age = (EditText) findViewById(R.id.editTextAge);
         age.setText(prefsAge.getString("autoSaveAge", ""));
