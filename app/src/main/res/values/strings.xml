@@ -27,9 +27,17 @@
 
 
     <string-array name="Workouts">
-        <item>Początkujący</item>
-        <item>Zaawansowany</item>
+        <item>Brak treningu</item>
+        <item>Trening fbw dla początkujących</item>
+        <item>Własny trenig</item>
     </string-array>
+
+
+    <string name="Konfiguracja_trening">Konfiguracja treningu</string>
+    <string name="Konfiguracja_obciążenia">Konfiguracja obciążenia</string>
+    <string name="Przysiady">Przysiady</string>
+
+
 
 
 </resources>

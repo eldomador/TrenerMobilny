@@ -31,9 +31,9 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private TextView trainingPreferences ;
-    private CheckBox checkBoxMusculature;
-    private RadioGroup radioGroupTrainingPreferences;
+//    private TextView trainingPreferences ;
+//    private CheckBox checkBoxMusculature;
+//    private RadioGroup radioGroupTrainingPreferences;
 
     // this will be key for the key value pair
     public static final String ButtonStateMale = "ButtonStateMale";

@@ -18,7 +18,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class TrainingActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
@@ -27,6 +29,8 @@ public class TrainingActivity extends AppCompatActivity
     Spinner spinnerWorkouts;
     SharedPreferences LastSelect;
     SharedPreferences.Editor editor;
+
+    private CheckBox checkBoxSquats;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +54,8 @@ public class TrainingActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
+        checkBoxSquats = (CheckBox)findViewById(R.id.checkBoxSquats);
+        checkBoxSquats.setText("Przysiady 5x"+120);
 
         LastSelect= getSharedPreferences("LastSetting", Context.MODE_PRIVATE);
         editor=LastSelect.edit();
@@ -63,6 +69,27 @@ public class TrainingActivity extends AppCompatActivity
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 editor.putInt("LastClick",position).commit();
+
+                switch (position) {
+                    case 0:
+                        Toast.makeText(getApplicationContext(),"Brak treningy", Toast.LENGTH_LONG).show();
+                        checkBoxSquats.setVisibility(View.GONE);
+                        break;
+
+                    case 1:
+                        Toast.makeText(getApplicationContext(),"FBW",Toast.LENGTH_LONG).show();
+                        checkBoxSquats.setVisibility(View.VISIBLE);
+
+                        break;
+
+                    case 2:
+                        Toast.makeText(getApplicationContext(),"Własny",Toast.LENGTH_LONG).show();
+                        break;
+                }
+
+
+
+
             }
 
             @Override
@@ -70,6 +97,7 @@ public class TrainingActivity extends AppCompatActivity
 
             }
         });
+
 
 
 
