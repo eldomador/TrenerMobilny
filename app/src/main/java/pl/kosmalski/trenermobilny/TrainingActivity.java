@@ -18,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -31,6 +32,7 @@ public class TrainingActivity extends AppCompatActivity
     SharedPreferences.Editor editor;
 
     private CheckBox checkBoxSquats;
+    private Button buttonWeightConfiguration,buttonTrainingConfiguration;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,8 +56,33 @@ public class TrainingActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
+//        Intent intentGetSquat = getIntent();
+//        final String Squat = intentGetSquat.getStringExtra("EXTRA_MESAGE_SQUAT");
+
+//        final SharedPreferences result = getSharedPreferences("autoSaveSquat",Context.MODE_PRIVATE);
+//        final String value = result.getString("autoSaveSquat", "");
+
+
         checkBoxSquats = (CheckBox)findViewById(R.id.checkBoxSquats);
-        checkBoxSquats.setText("Przysiady 5x"+120);
+        buttonWeightConfiguration=(Button)findViewById(R.id.buttonWeightConfiguration);
+        buttonTrainingConfiguration = (Button)findViewById(R.id.buttonTrainingConfiguration);
+
+        buttonWeightConfiguration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openWeightConfiguration();
+            }
+        });
+
+        buttonTrainingConfiguration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openTrainingConfiguration();
+            }
+        });
+
+
+
 
         LastSelect= getSharedPreferences("LastSetting", Context.MODE_PRIVATE);
         editor=LastSelect.edit();
@@ -74,16 +101,21 @@ public class TrainingActivity extends AppCompatActivity
                     case 0:
                         Toast.makeText(getApplicationContext(),"Brak treningy", Toast.LENGTH_LONG).show();
                         checkBoxSquats.setVisibility(View.GONE);
+                        buttonTrainingConfiguration.setVisibility(View.GONE);
+                        buttonWeightConfiguration.setVisibility(View.GONE);
                         break;
 
                     case 1:
                         Toast.makeText(getApplicationContext(),"FBW",Toast.LENGTH_LONG).show();
+                        checkBoxSquats.setText("Przysiady "+5+" x "+100);
                         checkBoxSquats.setVisibility(View.VISIBLE);
+                        buttonTrainingConfiguration.setVisibility(View.GONE);
 
                         break;
 
                     case 2:
                         Toast.makeText(getApplicationContext(),"Własny",Toast.LENGTH_LONG).show();
+                        checkBoxSquats.setVisibility(View.GONE);
                         break;
                 }
 
@@ -102,11 +134,17 @@ public class TrainingActivity extends AppCompatActivity
 
 
 
-
-
     }
 
-    @Override
+             private void openTrainingConfiguration() {
+
+             }
+
+             private void openWeightConfiguration() {
+
+             }
+
+             @Override
     public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
