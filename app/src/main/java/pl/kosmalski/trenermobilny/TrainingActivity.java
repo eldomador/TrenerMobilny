@@ -4,8 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -16,11 +19,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class TrainingActivity extends AppCompatActivity
@@ -31,10 +37,16 @@ public class TrainingActivity extends AppCompatActivity
     SharedPreferences LastSelect;
     SharedPreferences.Editor editor;
 
+
+
     private CheckBox checkBoxSquats;
-    private Button buttonWeightConfiguration,buttonTrainingConfiguration;
+    private TextView textViewMaxKg,textViewSquat;
+    private EditText editTextSquat;
+    private Button buttonWeightConfiguration,buttonTrainingConfiguration,buttonSaveWeightConfiguration,buttonFinishWorkout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_training);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -63,25 +75,72 @@ public class TrainingActivity extends AppCompatActivity
 //        final String value = result.getString("autoSaveSquat", "");
 
 
+        final EditText squatMax = (EditText) findViewById(R.id.editTextSquat);
         checkBoxSquats = (CheckBox)findViewById(R.id.checkBoxSquats);
         buttonWeightConfiguration=(Button)findViewById(R.id.buttonWeightConfiguration);
         buttonTrainingConfiguration = (Button)findViewById(R.id.buttonTrainingConfiguration);
+        buttonSaveWeightConfiguration =(Button)findViewById(R.id.buttonSaveWeightConfiguration);
+        buttonFinishWorkout =(Button)findViewById(R.id.buttonFinishWorkout);
+        textViewMaxKg =(TextView)findViewById(R.id.textViewMaxKg);
+        textViewSquat =(TextView)findViewById(R.id.textViewSquat);
+        editTextSquat = (EditText)findViewById(R.id.editTextSquat);
+
+
 
         buttonWeightConfiguration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openWeightConfiguration();
+                textViewMaxKg.setVisibility(View.VISIBLE);
+                textViewSquat.setVisibility(View.VISIBLE);
+                editTextSquat.setVisibility(View.VISIBLE);
+                buttonSaveWeightConfiguration.setVisibility(View.VISIBLE);
+               // openWeightConfiguration();
             }
         });
 
         buttonTrainingConfiguration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openTrainingConfiguration();
+
+                //openTrainingConfiguration();
             }
         });
 
 
+        buttonSaveWeightConfiguration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                textViewMaxKg.setVisibility(View.GONE);
+                textViewSquat.setVisibility(View.GONE);
+                editTextSquat.setVisibility(View.GONE);
+                buttonSaveWeightConfiguration.setVisibility(View.GONE);
+
+                calcWeightConfiguration();
+            }
+        });
+
+        buttonFinishWorkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (editTextSquat.getText().length() != 0 && checkBoxSquats.isChecked()){
+                   double n1 = Double.parseDouble(editTextSquat.getText().toString());
+                   double nSeries = (n1*0.80)+2;
+                   double nMax = (nSeries/80)*100;
+
+                    checkBoxSquats.setText("Przysiady "+5+" x "+nSeries);
+                    editTextSquat.setText(""+nMax);
+                    Toast.makeText(getApplicationContext(),nSeries+"TEST "+nMax,Toast.LENGTH_LONG).show();
+                }
+                else {
+                    //checkBoxSquats.setText("brak konfiguracji obciążenia dla Przysiadów");
+                    Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                }
+
+
+            }
+        });
 
 
         LastSelect= getSharedPreferences("LastSetting", Context.MODE_PRIVATE);
@@ -103,19 +162,37 @@ public class TrainingActivity extends AppCompatActivity
                         checkBoxSquats.setVisibility(View.GONE);
                         buttonTrainingConfiguration.setVisibility(View.GONE);
                         buttonWeightConfiguration.setVisibility(View.GONE);
+                        buttonFinishWorkout.setVisibility(View.GONE);
+                        textViewMaxKg.setVisibility(View.GONE);
+                        textViewSquat.setVisibility(View.GONE);
+                        editTextSquat.setVisibility(View.GONE);
+                        buttonSaveWeightConfiguration.setVisibility(View.GONE);
                         break;
 
                     case 1:
                         Toast.makeText(getApplicationContext(),"FBW",Toast.LENGTH_LONG).show();
-                        checkBoxSquats.setText("Przysiady "+5+" x "+100);
                         checkBoxSquats.setVisibility(View.VISIBLE);
                         buttonTrainingConfiguration.setVisibility(View.GONE);
+                        buttonWeightConfiguration.setVisibility(View.VISIBLE);
+                        buttonFinishWorkout.setVisibility(View.VISIBLE);
+                        textViewMaxKg.setVisibility(View.GONE);
+                        textViewSquat.setVisibility(View.GONE);
+                        editTextSquat.setVisibility(View.GONE);
+                        buttonSaveWeightConfiguration.setVisibility(View.GONE);
+                        calcWeightConfiguration();
 
                         break;
 
                     case 2:
                         Toast.makeText(getApplicationContext(),"Własny",Toast.LENGTH_LONG).show();
                         checkBoxSquats.setVisibility(View.GONE);
+                        buttonTrainingConfiguration.setVisibility(View.VISIBLE);
+                        buttonWeightConfiguration.setVisibility(View.VISIBLE);
+                        buttonFinishWorkout.setVisibility(View.GONE);
+                        textViewMaxKg.setVisibility(View.GONE);
+                        textViewSquat.setVisibility(View.GONE);
+                        editTextSquat.setVisibility(View.GONE);
+                        buttonSaveWeightConfiguration.setVisibility(View.GONE);
                         break;
                 }
 
@@ -133,16 +210,49 @@ public class TrainingActivity extends AppCompatActivity
 
 
 
+        final SharedPreferences prefsSquatMax = PreferenceManager.getDefaultSharedPreferences(this);
+        squatMax.setText(prefsSquatMax.getString("autoSaveSquatMax", ""));
+        squatMax.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before,
+                                      int count)
+            {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after)
+            {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+                prefsSquatMax.edit().putString("autoSaveSquatMax", s.toString()).apply();
+
+
+            }
+        });
+
 
     }
 
-             private void openTrainingConfiguration() {
+             private void calcWeightConfiguration() {
+        if (editTextSquat.getText().length() != 0){
+            double n1 = Double.parseDouble(editTextSquat.getText().toString());
+            double wyn = n1*0.80;
+            checkBoxSquats.setText("Przysiady "+5+" x "+wyn);}
+        else {
+            checkBoxSquats.setText("brak konfiguracji obciążenia dla Przysiadów");
+        }
 
              }
 
-             private void openWeightConfiguration() {
 
-             }
+//
+//             private void openWeightConfiguration() {
+//
+//             }
 
              @Override
     public void onBackPressed() {

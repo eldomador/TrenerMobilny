@@ -43,6 +43,13 @@
                 android:visibility="visible" />
 
             <Button
+                android:id="@+id/buttonFinishWorkout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/Zakoncz_trening" />
+
+            <Button
                 android:id="@+id/buttonTrainingConfiguration"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,7 +68,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="@string/Maksymalne_obciążenie" />
+
+            <TextView
+                android:id="@+id/textViewSquat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/Przysiad" />
+
+            <EditText
+                android:id="@+id/editTextSquat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/buttonSaveWeightConfiguration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/Zapisz_konfiguracje_obciążenia" />
 
 
         </LinearLayout>

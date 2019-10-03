@@ -33,8 +33,10 @@
     </string-array>
 
 
+    <string name="Zakoncz_trening">Zakończ trening</string>
     <string name="Konfiguracja_trening">Konfiguracja treningu</string>
     <string name="Konfiguracja_obciążenia">Konfiguracja obciążenia</string>
+    <string name="Zapisz_konfiguracje_obciążenia">Zapisz Konfigurację obciążenia</string>
     <string name="Przysiady">Przysiady</string>
     <string name="Maksymalne_obciążenie">Twoje maksymalne obciążnie:</string>
     <string name="Przysiad">Przysiad:</string>
