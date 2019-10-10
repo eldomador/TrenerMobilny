@@ -37,9 +37,28 @@
     <string name="Konfiguracja_trening">Konfiguracja treningu</string>
     <string name="Konfiguracja_obciążenia">Konfiguracja obciążenia</string>
     <string name="Zapisz_konfiguracje_obciążenia">Zapisz Konfigurację obciążenia</string>
+
+    <string name="TreningA">Trening A</string>
     <string name="Przysiady">Przysiady</string>
+    <string name="WyciskanieLeżąc">Wyciskanie Leżąc</string>
+    <string name="Wiosłowanie">Wiosłowanie</string>
+    <string name="Wznosybokiem">Wznosy bokiem</string>
+    <string name="Biceps">Biceps</string>
+    <string name="Triceps">Triceps</string>
+    <string name="Allahy">Allahy</string>
+    <string name="Łydki">Łydki</string>
+    <string name="Facepull">Facepull</string>
+
     <string name="Maksymalne_obciążenie">Twoje maksymalne obciążnie:</string>
     <string name="Przysiad">Przysiad:</string>
+    <string name="WyciskanieLeżąc2">Wyciskanie Leżąc:</string>
+    <string name="Wiosłowanie2">Wiosłowanie:</string>
+    <string name="Wznosybokiem2">Wznosy bokiem:</string>
+    <string name="Biceps2">Biceps:</string>
+    <string name="Triceps2">Triceps:</string>
+    <string name="Allahy2">Allahy:</string>
+    <string name="Łydki2">Łydki:</string>
+    <string name="Facepull2">Facepull:</string>
 
 
 </resources>
