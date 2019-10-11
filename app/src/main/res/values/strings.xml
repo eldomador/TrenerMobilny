@@ -49,6 +49,15 @@
     <string name="Łydki">Łydki</string>
     <string name="Facepull">Facepull</string>
 
+    <string name="TreningB">Trening B</string>
+    <string name="MartwyCiągKlasyczny">Martwy Ciąg Klasyczny</string>
+    <string name="WyciskanieŻołnierskie">Wyciskanie Żołnierskie</string>
+    <string name="PodciąganieWąsko">Podciąganie Wąsko</string>
+    <string name="WyciskanieWąsko">Wyciskanie Wąsko</string>
+    <string name="Deska">Deska</string>
+    <string name="YRaise">Y-Raise</string>
+
+
     <string name="Maksymalne_obciążenie">Twoje maksymalne obciążnie:</string>
     <string name="Przysiad">Przysiad:</string>
     <string name="WyciskanieLeżąc2">Wyciskanie Leżąc:</string>
@@ -59,6 +68,12 @@
     <string name="Allahy2">Allah:</string>
     <string name="Łydki2">Łydki:</string>
     <string name="Facepull2">Facepull:</string>
+    <string name="MartwyCiągKlasyczny2">Martwy Ciąg Klasyczny:</string>
+    <string name="WyciskanieŻołnierskie2">Wyciskanie Żołnierskie:</string>
+    <string name="PodciąganieWąsko2">Podciąganie Wąsko:</string>
+    <string name="WyciskanieWąsko2">Wyciskanie Wąsko:</string>
+    <string name="YRaise2">Y-Raise:</string>
+
 
 
 </resources>

@@ -127,13 +127,102 @@
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/Facepull" />
 
-                <Button
-                    android:id="@+id/buttonFinishWorkout"
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutTrainingB"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewTrainingB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/Zakoncz_trening" />
+                    android:text="@string/TreningB" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxDeadliftClassic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                    android:text="@string/MartwyCiągKlasyczny"
+                    android:visibility="visible" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxOhp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                    android:text="@string/WyciskanieŻołnierskie" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxPullingUpNarrow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                    android:text="@string/PodciąganieWąsko" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxNarrowBenchPress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                    android:text="@string/WyciskanieWąsko" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxBicepsB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                    android:text="@string/Biceps" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxPlank"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                    android:text="@string/Deska" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxCalves2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                    android:text="@string/Łydki" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxYRaise"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                    android:text="@string/YRaise" />
             </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonFinishWorkout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/Zakoncz_trening" />
 
 
             <Button
@@ -277,7 +366,82 @@
                     android:text="@string/Facepull2" />
 
                 <EditText
-                    android:id="@+id/editTexFacepull"
+                    android:id="@+id/editTextFacepull"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/textViewDeadliftClassic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/MartwyCiągKlasyczny2" />
+
+                <EditText
+                    android:id="@+id/editTextDeadliftClassic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/textViewOhp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/WyciskanieŻołnierskie2" />
+
+                <EditText
+                    android:id="@+id/editTextOhp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/textViewPullingUpNarrow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/PodciąganieWąsko2" />
+
+                <EditText
+                    android:id="@+id/editTextPullingUpNarrow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/textViewNarrowBenchPress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/WyciskanieWąsko2" />
+
+                <EditText
+                    android:id="@+id/editTextNarrowBenchPress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/textViewYRaise"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/YRaise2" />
+
+                <EditText
+                    android:id="@+id/editTextNarrowYRaise"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

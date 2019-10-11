@@ -102,7 +102,7 @@ public class TrainingActivity extends AppCompatActivity
         editTextBiceps  = (EditText)findViewById(R.id.editTextBiceps);
         editTextTriceps  = (EditText)findViewById(R.id.editTextTriceps);
         editTextAllahs = (EditText)findViewById(R.id.editTextAllahs);
-        editTextFacepull = (EditText)findViewById(R.id.editTexFacepull);
+        editTextFacepull = (EditText)findViewById(R.id.editTextFacepull);
 
 
 
