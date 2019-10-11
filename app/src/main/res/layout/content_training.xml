@@ -254,6 +254,36 @@
                     android:ems="10"
                     android:inputType="numberDecimal" />
 
+                <TextView
+                    android:id="@+id/textViewAllahs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Allahy2" />
+
+                <EditText
+                    android:id="@+id/editTextAllahs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/textViewFacepull"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Facepull2" />
+
+                <EditText
+                    android:id="@+id/editTexFacepull"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="numberDecimal" />
+
                 <Button
                     android:id="@+id/buttonSaveWeightConfiguration"
                     android:layout_width="match_parent"
