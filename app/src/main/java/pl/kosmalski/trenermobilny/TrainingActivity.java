@@ -41,7 +41,7 @@ public class TrainingActivity extends AppCompatActivity
     private LinearLayout linearLayoutTrainingA,linearLayoutWeightConfiguration;
     private CheckBox checkBoxSquats,checkBoxBenchPress,checkBoxRowing,checkBoxRisingSideways,checkBoxBiceps,checkBoxTriceps,checkBoxAllahs,checkBoxCalves,checkBoxFacepull;
     private TextView textViewMaxKg,textViewSquat;
-    private EditText editTextSquat,editTextBenchPress,editTextRowing,editTextRisingSideways,editTextBiceps,editTextTriceps,editTextAllahs,editTextFacepull;
+    private EditText editTextSquat,editTextBenchPress,editTextRowing,editTextRisingSideways,editTextBiceps,editTextTriceps,editTextAllahs,editTextFacepull,editTextDeadliftClassic,editTextOhp,editTextPullingUpNarrow,editTextNarrowBenchPress,editTextYRaise;
     private Button buttonWeightConfiguration,buttonTrainingConfiguration,buttonSaveWeightConfiguration,buttonFinishWorkout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +103,12 @@ public class TrainingActivity extends AppCompatActivity
         editTextTriceps  = (EditText)findViewById(R.id.editTextTriceps);
         editTextAllahs = (EditText)findViewById(R.id.editTextAllahs);
         editTextFacepull = (EditText)findViewById(R.id.editTextFacepull);
+        editTextDeadliftClassic = (EditText)findViewById(R.id.editTextDeadliftClassic);
+        editTextOhp = (EditText)findViewById(R.id.editTextOhp);
+        editTextPullingUpNarrow = (EditText)findViewById(R.id.editTextPullingUpNarrow);
+        editTextNarrowBenchPress = (EditText)findViewById(R.id.editTextNarrowBenchPress);
+        editTextYRaise = (EditText)findViewById(R.id.editTextYRaise);
+
 
 
 
@@ -200,8 +206,8 @@ public class TrainingActivity extends AppCompatActivity
 
 
 
-        final SharedPreferences prefsSquatMax = PreferenceManager.getDefaultSharedPreferences(this);
-        editTextSquat.setText(prefsSquatMax.getString("autoSaveSquatMax", ""));
+        final SharedPreferences prefsMax = PreferenceManager.getDefaultSharedPreferences(this);
+        editTextSquat.setText(prefsMax.getString("autoSaveSquatMax", ""));
         editTextSquat.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before,
@@ -218,14 +224,13 @@ public class TrainingActivity extends AppCompatActivity
             @Override
             public void afterTextChanged(Editable s)
             {
-                prefsSquatMax.edit().putString("autoSaveSquatMax", s.toString()).apply();
+                prefsMax.edit().putString("autoSaveSquatMax", s.toString()).apply();
 
 
             }
         });
 
-        final SharedPreferences prefsBenchPressMax = PreferenceManager.getDefaultSharedPreferences(this);
-        editTextBenchPress.setText(prefsSquatMax.getString("autoSaveBenchPressMax", ""));
+        editTextBenchPress.setText(prefsMax.getString("autoSaveBenchPressMax", ""));
         editTextBenchPress.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before,
@@ -242,14 +247,14 @@ public class TrainingActivity extends AppCompatActivity
             @Override
             public void afterTextChanged(Editable s)
             {
-                prefsBenchPressMax.edit().putString("autoSaveBenchPressMax", s.toString()).apply();
+                prefsMax.edit().putString("autoSaveBenchPressMax", s.toString()).apply();
 
 
             }
         });
 
-        final SharedPreferences prefsRowingMax = PreferenceManager.getDefaultSharedPreferences(this);
-        editTextRowing.setText(prefsSquatMax.getString("autoSaveRowingMax", ""));
+
+        editTextRowing.setText(prefsMax.getString("autoSaveRowingMax", ""));
         editTextRowing.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before,
@@ -266,12 +271,12 @@ public class TrainingActivity extends AppCompatActivity
             @Override
             public void afterTextChanged(Editable s)
             {
-                prefsRowingMax.edit().putString("autoSaveRowingMax", s.toString()).apply();
+                prefsMax.edit().putString("autoSaveRowingMax", s.toString()).apply();
             }
         });
 
-        final SharedPreferences prefsRisingSidewaysMax = PreferenceManager.getDefaultSharedPreferences(this);
-        editTextRisingSideways.setText(prefsSquatMax.getString("autoSaveRisingSidewaysMax", ""));
+
+        editTextRisingSideways.setText(prefsMax.getString("autoSaveRisingSidewaysMax", ""));
         editTextRisingSideways.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before,
@@ -288,13 +293,13 @@ public class TrainingActivity extends AppCompatActivity
             @Override
             public void afterTextChanged(Editable s)
             {
-                prefsRisingSidewaysMax.edit().putString("autoSaveRisingSidewaysMax", s.toString()).apply();
+                prefsMax.edit().putString("autoSaveRisingSidewaysMax", s.toString()).apply();
             }
         });
 
 
-        final SharedPreferences prefsBicepsMax = PreferenceManager.getDefaultSharedPreferences(this);
-        editTextBiceps.setText(prefsSquatMax.getString("autoSaveBicepsMax", ""));
+
+        editTextBiceps.setText(prefsMax.getString("autoSaveBicepsMax", ""));
         editTextBiceps.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before,
@@ -311,15 +316,15 @@ public class TrainingActivity extends AppCompatActivity
             @Override
             public void afterTextChanged(Editable s)
             {
-                prefsBicepsMax.edit().putString("autoSaveBicepsMax", s.toString()).apply();
+                prefsMax.edit().putString("autoSaveBicepsMax", s.toString()).apply();
             }
 
 
 
         });
 
-        final SharedPreferences prefsTricepsMax = PreferenceManager.getDefaultSharedPreferences(this);
-        editTextTriceps.setText(prefsSquatMax.getString("autoSaveTricepsMax", ""));
+
+        editTextTriceps.setText(prefsMax.getString("autoSaveTricepsMax", ""));
         editTextTriceps.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before,
@@ -336,15 +341,15 @@ public class TrainingActivity extends AppCompatActivity
             @Override
             public void afterTextChanged(Editable s)
             {
-                prefsTricepsMax.edit().putString("autoSaveTricepsMax", s.toString()).apply();
+                prefsMax.edit().putString("autoSaveTricepsMax", s.toString()).apply();
             }
 
 
 
         });
 
-        final SharedPreferences prefsAllahsMax = PreferenceManager.getDefaultSharedPreferences(this);
-        editTextAllahs.setText(prefsSquatMax.getString("autoSaveAllahsMax", ""));
+
+        editTextAllahs.setText(prefsMax.getString("autoSaveAllahsMax", ""));
         editTextAllahs.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before,
@@ -361,15 +366,15 @@ public class TrainingActivity extends AppCompatActivity
             @Override
             public void afterTextChanged(Editable s)
             {
-                prefsAllahsMax.edit().putString("autoSaveAllahsMax", s.toString()).apply();
+                prefsMax.edit().putString("autoSaveAllahsMax", s.toString()).apply();
             }
 
 
 
         });
 
-        final SharedPreferences prefsFacepullMax = PreferenceManager.getDefaultSharedPreferences(this);
-        editTextFacepull.setText(prefsSquatMax.getString("autoSaveFacepullMax", ""));
+
+        editTextFacepull.setText(prefsMax.getString("autoSaveFacepullMax", ""));
         editTextFacepull.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before,
@@ -386,12 +391,134 @@ public class TrainingActivity extends AppCompatActivity
             @Override
             public void afterTextChanged(Editable s)
             {
-                prefsFacepullMax.edit().putString("autoSaveFacepullMax", s.toString()).apply();
+                prefsMax.edit().putString("autoSaveFacepullMax", s.toString()).apply();
             }
 
 
 
         });
+
+
+        editTextDeadliftClassic.setText(prefsMax.getString("autoSaveDeadliftClassicMax", ""));
+        editTextDeadliftClassic.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before,
+                                      int count)
+            {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after)
+            {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+                prefsMax.edit().putString("autoSaveDeadliftClassicMax", s.toString()).apply();
+            }
+
+        });
+
+
+
+        editTextOhp.setText(prefsMax.getString("autoSaveOhpMax", ""));
+        editTextOhp.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before,
+                                      int count)
+            {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after)
+            {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+                prefsMax.edit().putString("autoSaveOhpMax", s.toString()).apply();
+            }
+
+        });
+
+
+        editTextPullingUpNarrow.setText(prefsMax.getString("autoSavePullingUpNarrowMax", ""));
+        editTextPullingUpNarrow.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before,
+                                      int count)
+            {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after)
+            {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+                prefsMax.edit().putString("autoSavePullingUpNarrowMax", s.toString()).apply();
+            }
+
+        });
+
+
+        editTextNarrowBenchPress.setText(prefsMax.getString("autoSaveNarrowBenchPressMax", ""));
+        editTextNarrowBenchPress.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before,
+                                      int count)
+            {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after)
+            {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+                prefsMax.edit().putString("autoSaveNarrowBenchPressMax", s.toString()).apply();
+            }
+
+        });
+
+
+        editTextYRaise.setText(prefsMax.getString("autoSaveYRaiseMax", ""));
+        editTextYRaise.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before,
+                                      int count)
+            {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after)
+            {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+                prefsMax.edit().putString("autoSaveYRaiseMax", s.toString()).apply();
+            }
+
+        });
+
+
+
+
+
+
 
 
 

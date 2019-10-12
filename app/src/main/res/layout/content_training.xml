@@ -441,7 +441,7 @@
                     android:text="@string/YRaise2" />
 
                 <EditText
-                    android:id="@+id/editTextNarrowYRaise"
+                    android:id="@+id/editTextYRaise"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
