@@ -39,7 +39,7 @@ public class TrainingActivity extends AppCompatActivity
 
 
     private LinearLayout linearLayoutTrainingA,linearLayoutWeightConfiguration;
-    private CheckBox checkBoxSquats,checkBoxBenchPress,checkBoxRowing,checkBoxRisingSideways,checkBoxBiceps,checkBoxTriceps,checkBoxAllahs,checkBoxCalves,checkBoxFacepull;
+    private CheckBox checkBoxSquats,checkBoxBenchPress,checkBoxRowing,checkBoxRisingSideways,checkBoxBiceps,checkBoxTriceps,checkBoxAllahs,checkBoxCalves,checkBoxFacepull,checkBoxDeadliftClassic,checkBoxOhp,checkBoxPullingUpNarrow,checkBoxNarrowBenchPress,checkBoxYRaise,checkBoxBicepsB;
     private TextView textViewMaxKg,textViewSquat;
     private EditText editTextSquat,editTextBenchPress,editTextRowing,editTextRisingSideways,editTextBiceps,editTextTriceps,editTextAllahs,editTextFacepull,editTextDeadliftClassic,editTextOhp,editTextPullingUpNarrow,editTextNarrowBenchPress,editTextYRaise;
     private Button buttonWeightConfiguration,buttonTrainingConfiguration,buttonSaveWeightConfiguration,buttonFinishWorkout;
@@ -83,10 +83,16 @@ public class TrainingActivity extends AppCompatActivity
         checkBoxRowing = (CheckBox)findViewById(R.id.checkBoxRowing);
         checkBoxRisingSideways = (CheckBox)findViewById(R.id.checkBoxRisingSideways);
         checkBoxBiceps = (CheckBox)findViewById(R.id.checkBoxBiceps);
+        checkBoxBicepsB = (CheckBox)findViewById(R.id.checkBoxBicepsB);
         checkBoxTriceps = (CheckBox)findViewById(R.id.checkBoxTriceps);
         checkBoxAllahs = (CheckBox)findViewById(R.id.checkBoxAllahs);
         checkBoxCalves = (CheckBox)findViewById(R.id.checkBoxCalves);
         checkBoxFacepull = (CheckBox)findViewById(R.id.checkBoxFacepull);
+        checkBoxDeadliftClassic = (CheckBox)findViewById(R.id.checkBoxDeadliftClassic);
+        checkBoxOhp = (CheckBox)findViewById(R.id.checkBoxOhp);
+        checkBoxPullingUpNarrow = (CheckBox)findViewById(R.id.checkBoxPullingUpNarrow);
+        checkBoxNarrowBenchPress = (CheckBox)findViewById(R.id.checkBoxNarrowBenchPress);
+        checkBoxYRaise = (CheckBox)findViewById(R.id.checkBoxYRaise);;
 
         buttonWeightConfiguration=(Button)findViewById(R.id.buttonWeightConfiguration);
         buttonTrainingConfiguration = (Button)findViewById(R.id.buttonTrainingConfiguration);
@@ -634,6 +640,7 @@ public class TrainingActivity extends AppCompatActivity
                      double nMax = Math.round((nSeries/80)*100);
 
                      checkBoxBiceps.setText("Biceps 5 x 5 x "+nSeries+"kg");
+                     checkBoxBicepsB.setText("Biceps 5 x 5 x "+nSeries+"kg");
                      editTextBiceps.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
@@ -644,12 +651,42 @@ public class TrainingActivity extends AppCompatActivity
 //                     double nMax = Math.round((nSeries/80)*100);
 
                      checkBoxBiceps.setText("Biceps 5 x 5 x "+nSeries+"kg");
+                     checkBoxBicepsB.setText("Biceps 5 x 5 x "+nSeries+"kg");
 //                     editTextSquat.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
                  else if(editTextBiceps.getText().length() == 0) {
                      checkBoxBiceps.setText("brak konfiguracji obciążenia dla Bicepsa");
+                     checkBoxBicepsB.setText("brak konfiguracji obciążenia dla Bicepsa");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 if (editTextBiceps.getText().length() != 0 && checkBoxBicepsB.isChecked()){
+                     double n1 = Double.parseDouble(editTextBiceps.getText().toString());
+                     double nSeries = Math.round((n1*0.80)+2);
+                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxBiceps.setText("Biceps 5 x 5 x "+nSeries+"kg");
+                     checkBoxBicepsB.setText("Biceps 5 x 5 x "+nSeries+"kg");
+                     editTextBiceps.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextBiceps.getText().length() != 0 && !checkBoxBicepsB.isChecked()){
+                     double n1 = Double.parseDouble(editTextBiceps.getText().toString());
+                     double nSeries = Math.round(n1*0.80);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxBiceps.setText("Biceps 5 x 5 x "+nSeries+"kg");
+                     checkBoxBicepsB.setText("Biceps 5 x 5 x "+nSeries+"kg");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextBiceps.getText().length() == 0) {
+                     checkBoxBiceps.setText("brak konfiguracji obciążenia dla Bicepsa");
+                     checkBoxBicepsB.setText("brak konfiguracji obciążenia dla Bicepsa");
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
@@ -725,6 +762,157 @@ public class TrainingActivity extends AppCompatActivity
 
                  else if(editTextFacepull.getText().length() == 0) {
                      checkBoxFacepull.setText("brak konfiguracji obciążenia dla Facepull");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+
+                 if (editTextDeadliftClassic.getText().length() != 0 && checkBoxDeadliftClassic.isChecked()){
+                     double n1 = Double.parseDouble(editTextDeadliftClassic.getText().toString());
+                     double nSeries = Math.round((n1*0.80)+2);
+                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxDeadliftClassic.setText("Martwy Ciąg Klasyczny 5 x 5 x "+nSeries+"kg");
+                     editTextDeadliftClassic.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextDeadliftClassic.getText().length() != 0 && !checkBoxDeadliftClassic.isChecked()){
+                     double n1 = Double.parseDouble(editTextDeadliftClassic.getText().toString());
+                     double nSeries = Math.round(n1*0.80);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxDeadliftClassic.setText("Martwy Ciąg Klasyczny 5 x 5 x "+nSeries+"kg");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextDeadliftClassic.getText().length() == 0) {
+                     checkBoxDeadliftClassic.setText("brak konfiguracji obciążenia dla Martwego Ciągu Klasycznego");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 if (editTextOhp.getText().length() != 0 && checkBoxOhp.isChecked()){
+                     double n1 = Double.parseDouble(editTextOhp.getText().toString());
+                     double nSeries = Math.round((n1*0.80)+2);
+                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxOhp.setText("Wyciskanie Żołnierskie 5 x 5 x "+nSeries+"kg");
+                     editTextOhp.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextOhp.getText().length() != 0 && !checkBoxOhp.isChecked()){
+                     double n1 = Double.parseDouble(editTextOhp.getText().toString());
+                     double nSeries = Math.round(n1*0.80);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxOhp.setText("Wyciskanie Żołnierskie 5 x 5 x "+nSeries+"kg");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextOhp.getText().length() == 0) {
+                     checkBoxOhp.setText("brak konfiguracji obciążenia dla Wyciskania Żołnierskiego");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 if (editTextOhp.getText().length() != 0 && checkBoxOhp.isChecked()){
+                     double n1 = Double.parseDouble(editTextOhp.getText().toString());
+                     double nSeries = Math.round((n1*0.80)+2);
+                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxOhp.setText("Wyciskanie Żołnierskie 5 x 5 x "+nSeries+"kg");
+                     editTextOhp.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextOhp.getText().length() != 0 && !checkBoxOhp.isChecked()){
+                     double n1 = Double.parseDouble(editTextOhp.getText().toString());
+                     double nSeries = Math.round(n1*0.80);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxOhp.setText("Wyciskanie Żołnierskie 5 x 5 x "+nSeries+"kg");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextOhp.getText().length() == 0) {
+                     checkBoxOhp.setText("brak konfiguracji obciążenia dla Wyciskania Żołnierskiego");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 if (editTextPullingUpNarrow.getText().length() != 0 && checkBoxPullingUpNarrow.isChecked()){
+                     double n1 = Double.parseDouble(editTextPullingUpNarrow.getText().toString());
+                     double nSeries = Math.round((n1*0.80)+2);
+                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxPullingUpNarrow.setText("WPodciąganie Wąsko 5 x 5 x "+nSeries+"kg");
+                     editTextPullingUpNarrow.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextPullingUpNarrow.getText().length() != 0 && !checkBoxPullingUpNarrow.isChecked()){
+                     double n1 = Double.parseDouble(editTextPullingUpNarrow.getText().toString());
+                     double nSeries = Math.round(n1*0.80);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxPullingUpNarrow.setText("Podciąganie Wąsko 5 x 5 x "+nSeries+"kg");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextPullingUpNarrow.getText().length() == 0) {
+                     checkBoxPullingUpNarrow.setText("brak konfiguracji obciążenia dla Podciągania Wąsko");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 if (editTextNarrowBenchPress.getText().length() != 0 && checkBoxNarrowBenchPress.isChecked()){
+                     double n1 = Double.parseDouble(editTextNarrowBenchPress.getText().toString());
+                     double nSeries = Math.round((n1*0.80)+2);
+                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxNarrowBenchPress.setText("Wyciskanie Wąsko 5 x 5 x "+nSeries+"kg");
+                     editTextNarrowBenchPress.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextNarrowBenchPress.getText().length() != 0 && !checkBoxNarrowBenchPress.isChecked()){
+                     double n1 = Double.parseDouble(editTextNarrowBenchPress.getText().toString());
+                     double nSeries = Math.round(n1*0.80);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxNarrowBenchPress.setText("Wyciskanie Wąsko 5 x 5 x "+nSeries+"kg");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextNarrowBenchPress.getText().length() == 0) {
+                     checkBoxNarrowBenchPress.setText("brak konfiguracji obciążenia dla Wyciskania Wąsko");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 if (editTextYRaise.getText().length() != 0 && checkBoxYRaise.isChecked()){
+                     double n1 = Double.parseDouble(editTextYRaise.getText().toString());
+                     double nSeries = Math.round((n1*0.80)+2);
+                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxYRaise.setText("Wyciskanie Wąsko 5 x 5 x "+nSeries+"kg");
+                     editTextYRaise.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextYRaise.getText().length() != 0 && !checkBoxYRaise.isChecked()){
+                     double n1 = Double.parseDouble(editTextNarrowBenchPress.getText().toString());
+                     double nSeries = Math.round(n1*0.80);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxYRaise.setText("Wyciskanie Wąsko 5 x 5 x "+nSeries+"kg");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextYRaise.getText().length() == 0) {
+                     checkBoxYRaise.setText("brak konfiguracji obciążenia dla Y-Raise");
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
