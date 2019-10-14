@@ -1,6 +1,5 @@
 package pl.kosmalski.trenermobilny;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -39,7 +38,7 @@ public class TrainingActivity extends AppCompatActivity
     SharedPreferences.Editor editor;
 
 
-    private LinearLayout linearLayoutTrainingA,linearLayoutTrainingB,linearLayoutWeightConfiguration;
+    private LinearLayout linearLayoutTrainingA,linearLayoutTrainingB,linearLayoutWeightConfiguration,linearLayoutTrainingConfiguration;
     private CheckBox checkBoxSquats,checkBoxBenchPress,checkBoxRowing,checkBoxRisingSideways,checkBoxBiceps,checkBoxTriceps,checkBoxAllahs,checkBoxCalves,checkBoxFacepull,checkBoxDeadliftClassic,checkBoxOhp,checkBoxPullingUpNarrow,checkBoxNarrowBenchPress,checkBoxYRaise,checkBoxBicepsB,checkBoxcheckBoxCalves2,checkBoxPlank;
     private TextView textViewMaxKg,textViewSquat;
     private EditText editTextSquat,editTextBenchPress,editTextRowing,editTextRisingSideways,editTextBiceps,editTextTriceps,editTextAllahs,editTextFacepull,editTextDeadliftClassic,editTextOhp,editTextPullingUpNarrow,editTextNarrowBenchPress,editTextYRaise;
@@ -80,6 +79,7 @@ public class TrainingActivity extends AppCompatActivity
         linearLayoutTrainingA = (LinearLayout)findViewById(R.id.linearLayoutTrainingA);
         linearLayoutTrainingB = (LinearLayout)findViewById(R.id.linearLayoutTrainingB);
         linearLayoutWeightConfiguration = (LinearLayout)findViewById(R.id.linearLayoutWeightConfiguration);
+        linearLayoutTrainingConfiguration = (LinearLayout)findViewById(R.id.linearLayoutTrainingConfiguration);
 
         checkBoxSquats = (CheckBox)findViewById(R.id.checkBoxSquats);
         checkBoxBenchPress = (CheckBox)findViewById(R.id.checkBoxBenchPress);
@@ -90,7 +90,7 @@ public class TrainingActivity extends AppCompatActivity
         checkBoxTriceps = (CheckBox)findViewById(R.id.checkBoxTriceps);
         checkBoxAllahs = (CheckBox)findViewById(R.id.checkBoxAllahs);
         checkBoxCalves = (CheckBox)findViewById(R.id.checkBoxCalves);
-        checkBoxcheckBoxCalves2 = (CheckBox)findViewById(R.id.checkBoxCalves2);
+        checkBoxcheckBoxCalves2 = (CheckBox)findViewById(R.id.checkBoxCalvesB);
         checkBoxFacepull = (CheckBox)findViewById(R.id.checkBoxFacepull);
         checkBoxDeadliftClassic = (CheckBox)findViewById(R.id.checkBoxDeadliftClassic);
         checkBoxOhp = (CheckBox)findViewById(R.id.checkBoxOhp);
@@ -147,6 +147,7 @@ public class TrainingActivity extends AppCompatActivity
         buttonTrainingConfiguration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                linearLayoutTrainingConfiguration.setVisibility(View.VISIBLE);
 
             }
         });
@@ -183,11 +184,10 @@ public class TrainingActivity extends AppCompatActivity
                 checkBoxYRaise.setChecked(false);
                 checkBoxYRaise.setChecked(false);
                 checkBoxPlank.setChecked(false);
-                buttonFinishWorkout.setVisibility(View.GONE);
-                buttonFinishWorkoutB.setVisibility(View.VISIBLE);
 
-                linearLayoutTrainingB.setVisibility(View.VISIBLE);
+
                 linearLayoutTrainingA.setVisibility(View.GONE);
+                linearLayoutTrainingB.setVisibility(View.VISIBLE);
                 editor.putInt("LastWorkoutState",1).commit();
             }
         });
@@ -214,10 +214,10 @@ public class TrainingActivity extends AppCompatActivity
                 checkBoxYRaise.setChecked(false);
                 checkBoxYRaise.setChecked(false);
                 checkBoxPlank.setChecked(false);
-                buttonFinishWorkout.setVisibility(View.VISIBLE);
-                buttonFinishWorkoutB.setVisibility(View.GONE);
-                linearLayoutTrainingB.setVisibility(View.GONE);
+
+
                 linearLayoutTrainingA.setVisibility(View.VISIBLE);
+                linearLayoutTrainingB.setVisibility(View.GONE);
                 editor.putInt("LastWorkoutState",0).commit();
 
 
@@ -241,30 +241,41 @@ public class TrainingActivity extends AppCompatActivity
                 switch (position) {
                     case 0:
                         linearLayoutTrainingA.setVisibility(View.GONE);
+                        linearLayoutTrainingB.setVisibility(View.GONE);
                         buttonTrainingConfiguration.setVisibility(View.GONE);
                         buttonWeightConfiguration.setVisibility(View.GONE);
                         buttonFinishWorkout.setVisibility(View.GONE);
                         linearLayoutWeightConfiguration.setVisibility(View.GONE);
-                        buttonSaveWeightConfiguration.setVisibility(View.GONE);
+                        linearLayoutTrainingConfiguration.setVisibility(View.GONE);
                         break;
 
                     case 1:
-                        linearLayoutTrainingA.setVisibility(View.VISIBLE);
                         buttonTrainingConfiguration.setVisibility(View.GONE);
                         buttonWeightConfiguration.setVisibility(View.VISIBLE);
                         buttonFinishWorkout.setVisibility(View.VISIBLE);
                         linearLayoutWeightConfiguration.setVisibility(View.GONE);
-                        buttonSaveWeightConfiguration.setVisibility(View.GONE);
+                        linearLayoutTrainingConfiguration.setVisibility(View.GONE);
                         calcWeightConfiguration();
 
+                        if (LastWorkoutState==0){
+                            linearLayoutTrainingB.setVisibility(View.GONE);
+                            linearLayoutTrainingA.setVisibility(View.VISIBLE);
+                        }
+
+                        else if (LastWorkoutState==1){
+                            linearLayoutTrainingB.setVisibility(View.VISIBLE);
+                            linearLayoutTrainingA.setVisibility(View.GONE);
+                            }
                         break;
 
                     case 2:
                         linearLayoutTrainingA.setVisibility(View.GONE);
+                        linearLayoutTrainingB.setVisibility(View.GONE);
                         buttonTrainingConfiguration.setVisibility(View.VISIBLE);
                         buttonWeightConfiguration.setVisibility(View.VISIBLE);
                         linearLayoutWeightConfiguration.setVisibility(View.GONE);
-                        buttonSaveWeightConfiguration.setVisibility(View.GONE);
+                        linearLayoutTrainingConfiguration.setVisibility(View.GONE);
+
                         break;
                 }
 
