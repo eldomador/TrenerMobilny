@@ -1,5 +1,6 @@
 package pl.kosmalski.trenermobilny;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -34,15 +35,15 @@ public class TrainingActivity extends AppCompatActivity
          {
 
     Spinner spinnerWorkouts;
-    SharedPreferences LastSelect;
+    SharedPreferences LastSelect,LastWorkout;
     SharedPreferences.Editor editor;
 
 
-    private LinearLayout linearLayoutTrainingA,linearLayoutWeightConfiguration;
-    private CheckBox checkBoxSquats,checkBoxBenchPress,checkBoxRowing,checkBoxRisingSideways,checkBoxBiceps,checkBoxTriceps,checkBoxAllahs,checkBoxCalves,checkBoxFacepull,checkBoxDeadliftClassic,checkBoxOhp,checkBoxPullingUpNarrow,checkBoxNarrowBenchPress,checkBoxYRaise,checkBoxBicepsB;
+    private LinearLayout linearLayoutTrainingA,linearLayoutTrainingB,linearLayoutWeightConfiguration;
+    private CheckBox checkBoxSquats,checkBoxBenchPress,checkBoxRowing,checkBoxRisingSideways,checkBoxBiceps,checkBoxTriceps,checkBoxAllahs,checkBoxCalves,checkBoxFacepull,checkBoxDeadliftClassic,checkBoxOhp,checkBoxPullingUpNarrow,checkBoxNarrowBenchPress,checkBoxYRaise,checkBoxBicepsB,checkBoxcheckBoxCalves2,checkBoxPlank;
     private TextView textViewMaxKg,textViewSquat;
     private EditText editTextSquat,editTextBenchPress,editTextRowing,editTextRisingSideways,editTextBiceps,editTextTriceps,editTextAllahs,editTextFacepull,editTextDeadliftClassic,editTextOhp,editTextPullingUpNarrow,editTextNarrowBenchPress,editTextYRaise;
-    private Button buttonWeightConfiguration,buttonTrainingConfiguration,buttonSaveWeightConfiguration,buttonFinishWorkout;
+    private Button buttonWeightConfiguration,buttonTrainingConfiguration,buttonSaveWeightConfiguration,buttonFinishWorkout,buttonFinishWorkoutB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
@@ -77,7 +78,9 @@ public class TrainingActivity extends AppCompatActivity
 
 
         linearLayoutTrainingA = (LinearLayout)findViewById(R.id.linearLayoutTrainingA);
+        linearLayoutTrainingB = (LinearLayout)findViewById(R.id.linearLayoutTrainingB);
         linearLayoutWeightConfiguration = (LinearLayout)findViewById(R.id.linearLayoutWeightConfiguration);
+
         checkBoxSquats = (CheckBox)findViewById(R.id.checkBoxSquats);
         checkBoxBenchPress = (CheckBox)findViewById(R.id.checkBoxBenchPress);
         checkBoxRowing = (CheckBox)findViewById(R.id.checkBoxRowing);
@@ -87,17 +90,23 @@ public class TrainingActivity extends AppCompatActivity
         checkBoxTriceps = (CheckBox)findViewById(R.id.checkBoxTriceps);
         checkBoxAllahs = (CheckBox)findViewById(R.id.checkBoxAllahs);
         checkBoxCalves = (CheckBox)findViewById(R.id.checkBoxCalves);
+        checkBoxcheckBoxCalves2 = (CheckBox)findViewById(R.id.checkBoxCalves2);
         checkBoxFacepull = (CheckBox)findViewById(R.id.checkBoxFacepull);
         checkBoxDeadliftClassic = (CheckBox)findViewById(R.id.checkBoxDeadliftClassic);
         checkBoxOhp = (CheckBox)findViewById(R.id.checkBoxOhp);
         checkBoxPullingUpNarrow = (CheckBox)findViewById(R.id.checkBoxPullingUpNarrow);
         checkBoxNarrowBenchPress = (CheckBox)findViewById(R.id.checkBoxNarrowBenchPress);
-        checkBoxYRaise = (CheckBox)findViewById(R.id.checkBoxYRaise);;
+        checkBoxYRaise = (CheckBox)findViewById(R.id.checkBoxYRaise);
+        checkBoxPlank =  (CheckBox)findViewById(R.id.checkBoxPlank);
+
+
 
         buttonWeightConfiguration=(Button)findViewById(R.id.buttonWeightConfiguration);
         buttonTrainingConfiguration = (Button)findViewById(R.id.buttonTrainingConfiguration);
         buttonSaveWeightConfiguration =(Button)findViewById(R.id.buttonSaveWeightConfiguration);
         buttonFinishWorkout =(Button)findViewById(R.id.buttonFinishWorkout);
+        buttonFinishWorkoutB =(Button)findViewById(R.id.buttonFinishWorkoutB);
+
         textViewMaxKg =(TextView)findViewById(R.id.textViewMaxKg);
         textViewSquat =(TextView)findViewById(R.id.textViewSquat);
 
@@ -116,6 +125,13 @@ public class TrainingActivity extends AppCompatActivity
         editTextYRaise = (EditText)findViewById(R.id.editTextYRaise);
 
 
+        LastSelect= getSharedPreferences("LastSetting", Context.MODE_PRIVATE);
+        editor=LastSelect.edit();
+        final int LastClick = LastSelect.getInt("LastClick",0);
+
+        LastWorkout = getSharedPreferences("LastWorkoutState", Context.MODE_PRIVATE);
+        editor=LastWorkout.edit();
+        final int LastWorkoutState= LastWorkout.getInt("LastWorkoutState",0);
 
 
 
@@ -150,14 +166,68 @@ public class TrainingActivity extends AppCompatActivity
             public void onClick(View v) {
                 calcWeightConfiguration();
 
+                checkBoxSquats.setChecked(false);
+                checkBoxBenchPress.setChecked(false);
+                checkBoxRowing.setChecked(false);
+                checkBoxRisingSideways.setChecked(false);
+                checkBoxBiceps.setChecked(false);
+                checkBoxBicepsB.setChecked(false);
+                checkBoxTriceps.setChecked(false);
+                checkBoxAllahs.setChecked(false);
+                checkBoxCalves.setChecked(false);
+                checkBoxFacepull.setChecked(false);
+                checkBoxDeadliftClassic.setChecked(false);
+                checkBoxOhp.setChecked(false);
+                checkBoxPullingUpNarrow.setChecked(false);
+                checkBoxNarrowBenchPress.setChecked(false);
+                checkBoxYRaise.setChecked(false);
+                checkBoxYRaise.setChecked(false);
+                checkBoxPlank.setChecked(false);
+                buttonFinishWorkout.setVisibility(View.GONE);
+                buttonFinishWorkoutB.setVisibility(View.VISIBLE);
+
+                linearLayoutTrainingB.setVisibility(View.VISIBLE);
+                linearLayoutTrainingA.setVisibility(View.GONE);
+                editor.putInt("LastWorkoutState",1).commit();
+            }
+        });
+
+        buttonFinishWorkoutB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calcWeightConfiguration();
+
+                checkBoxSquats.setChecked(false);
+                checkBoxBenchPress.setChecked(false);
+                checkBoxRowing.setChecked(false);
+                checkBoxRisingSideways.setChecked(false);
+                checkBoxBiceps.setChecked(false);
+                checkBoxBicepsB.setChecked(false);
+                checkBoxTriceps.setChecked(false);
+                checkBoxAllahs.setChecked(false);
+                checkBoxCalves.setChecked(false);
+                checkBoxFacepull.setChecked(false);
+                checkBoxDeadliftClassic.setChecked(false);
+                checkBoxOhp.setChecked(false);
+                checkBoxPullingUpNarrow.setChecked(false);
+                checkBoxNarrowBenchPress.setChecked(false);
+                checkBoxYRaise.setChecked(false);
+                checkBoxYRaise.setChecked(false);
+                checkBoxPlank.setChecked(false);
+                buttonFinishWorkout.setVisibility(View.VISIBLE);
+                buttonFinishWorkoutB.setVisibility(View.GONE);
+                linearLayoutTrainingB.setVisibility(View.GONE);
+                linearLayoutTrainingA.setVisibility(View.VISIBLE);
+                editor.putInt("LastWorkoutState",0).commit();
+
+
+
 
             }
         });
 
 
-        LastSelect= getSharedPreferences("LastSetting", Context.MODE_PRIVATE);
-        editor=LastSelect.edit();
-        final int LastClick = LastSelect.getInt("LastClick",0);
+
 
         spinnerWorkouts =findViewById(R.id.spinnerWorkouts);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Workouts, android.R.layout.simple_spinner_dropdown_item);
