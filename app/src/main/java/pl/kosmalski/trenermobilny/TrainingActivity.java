@@ -28,6 +28,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class TrainingActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
@@ -35,7 +36,7 @@ public class TrainingActivity extends AppCompatActivity
 
     Spinner spinnerWorkouts;
     SharedPreferences LastSelect,LastWorkout;
-    SharedPreferences.Editor editor;
+    SharedPreferences.Editor editor,editorSelect;
 
 
     private LinearLayout linearLayoutTrainingA,linearLayoutTrainingB,linearLayoutWeightConfiguration,linearLayoutTrainingConfiguration;
@@ -125,8 +126,8 @@ public class TrainingActivity extends AppCompatActivity
         editTextYRaise = (EditText)findViewById(R.id.editTextYRaise);
 
 
-        LastSelect= getSharedPreferences("LastSetting", Context.MODE_PRIVATE);
-        editor=LastSelect.edit();
+        LastSelect= getSharedPreferences("LastClick", Context.MODE_PRIVATE);
+        editorSelect=LastSelect.edit();
         final int LastClick = LastSelect.getInt("LastClick",0);
 
         LastWorkout = getSharedPreferences("LastWorkoutState", Context.MODE_PRIVATE);
@@ -189,6 +190,7 @@ public class TrainingActivity extends AppCompatActivity
                 linearLayoutTrainingA.setVisibility(View.GONE);
                 linearLayoutTrainingB.setVisibility(View.VISIBLE);
                 editor.putInt("LastWorkoutState",1).commit();
+                Toast.makeText(getApplicationContext()," TEST "+LastWorkoutState,Toast.LENGTH_LONG).show();
             }
         });
 
@@ -218,7 +220,8 @@ public class TrainingActivity extends AppCompatActivity
 
                 linearLayoutTrainingA.setVisibility(View.VISIBLE);
                 linearLayoutTrainingB.setVisibility(View.GONE);
-                editor.putInt("LastWorkoutState",0).commit();
+                editor.putInt("LastWorkoutState",0).apply();
+                Toast.makeText(getApplicationContext()," TEST "+LastWorkoutState,Toast.LENGTH_LONG).show();
 
 
 
@@ -236,7 +239,8 @@ public class TrainingActivity extends AppCompatActivity
         spinnerWorkouts.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                editor.putInt("LastClick",position).commit();
+
+
 
                 switch (position) {
                     case 0:
@@ -247,6 +251,8 @@ public class TrainingActivity extends AppCompatActivity
                         buttonFinishWorkout.setVisibility(View.GONE);
                         linearLayoutWeightConfiguration.setVisibility(View.GONE);
                         linearLayoutTrainingConfiguration.setVisibility(View.GONE);
+                        editorSelect.putInt("LastClick",0).apply();
+                        Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
                         break;
 
                     case 1:
@@ -266,6 +272,8 @@ public class TrainingActivity extends AppCompatActivity
                             linearLayoutTrainingB.setVisibility(View.VISIBLE);
                             linearLayoutTrainingA.setVisibility(View.GONE);
                             }
+                        editorSelect.putInt("LastClick",1).commit();
+                        Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
                         break;
 
                     case 2:
@@ -275,6 +283,8 @@ public class TrainingActivity extends AppCompatActivity
                         buttonWeightConfiguration.setVisibility(View.VISIBLE);
                         linearLayoutWeightConfiguration.setVisibility(View.GONE);
                         linearLayoutTrainingConfiguration.setVisibility(View.GONE);
+                        editorSelect.putInt("LastClick",2).commit();
+                        Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
 
                         break;
                 }
