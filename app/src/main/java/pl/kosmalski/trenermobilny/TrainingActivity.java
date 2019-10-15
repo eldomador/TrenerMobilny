@@ -39,8 +39,8 @@ public class TrainingActivity extends AppCompatActivity
     SharedPreferences.Editor editor,editorSelect;
 
 
-    private LinearLayout linearLayoutTrainingA,linearLayoutTrainingB,linearLayoutWeightConfiguration,linearLayoutTrainingConfiguration;
-    private CheckBox checkBoxSquats,checkBoxBenchPress,checkBoxRowing,checkBoxRisingSideways,checkBoxBiceps,checkBoxTriceps,checkBoxAllahs,checkBoxCalves,checkBoxFacepull,checkBoxDeadliftClassic,checkBoxOhp,checkBoxPullingUpNarrow,checkBoxNarrowBenchPress,checkBoxYRaise,checkBoxBicepsB,checkBoxcheckBoxCalves2,checkBoxPlank;
+    private LinearLayout linearLayoutTrainingA,linearLayoutWeightConfiguration,linearLayoutTrainingConfiguration;
+    private CheckBox checkBoxSquats,checkBoxBenchPress,checkBoxRowing,checkBoxRisingSideways,checkBoxBiceps,checkBoxTriceps,checkBoxAllahs,checkBoxCalves,checkBoxFacepull,checkBoxDeadliftClassic,checkBoxOhp,checkBoxPullingUpNarrow,checkBoxNarrowBenchPress,checkBoxYRaise,checkBoxPlank;
     private TextView textViewMaxKg,textViewSquat;
     private EditText editTextSquat,editTextBenchPress,editTextRowing,editTextRisingSideways,editTextBiceps,editTextTriceps,editTextAllahs,editTextFacepull,editTextDeadliftClassic,editTextOhp,editTextPullingUpNarrow,editTextNarrowBenchPress,editTextYRaise;
     private Button buttonWeightConfiguration,buttonTrainingConfiguration,buttonSaveWeightConfiguration,buttonFinishWorkout,buttonFinishWorkoutB;
@@ -78,7 +78,6 @@ public class TrainingActivity extends AppCompatActivity
 
 
         linearLayoutTrainingA = (LinearLayout)findViewById(R.id.linearLayoutTrainingA);
-        linearLayoutTrainingB = (LinearLayout)findViewById(R.id.linearLayoutTrainingB);
         linearLayoutWeightConfiguration = (LinearLayout)findViewById(R.id.linearLayoutWeightConfiguration);
         linearLayoutTrainingConfiguration = (LinearLayout)findViewById(R.id.linearLayoutTrainingConfiguration);
 
@@ -87,11 +86,9 @@ public class TrainingActivity extends AppCompatActivity
         checkBoxRowing = (CheckBox)findViewById(R.id.checkBoxRowing);
         checkBoxRisingSideways = (CheckBox)findViewById(R.id.checkBoxRisingSideways);
         checkBoxBiceps = (CheckBox)findViewById(R.id.checkBoxBiceps);
-        checkBoxBicepsB = (CheckBox)findViewById(R.id.checkBoxBicepsB);
         checkBoxTriceps = (CheckBox)findViewById(R.id.checkBoxTriceps);
         checkBoxAllahs = (CheckBox)findViewById(R.id.checkBoxAllahs);
         checkBoxCalves = (CheckBox)findViewById(R.id.checkBoxCalves);
-        checkBoxcheckBoxCalves2 = (CheckBox)findViewById(R.id.checkBoxCalvesB);
         checkBoxFacepull = (CheckBox)findViewById(R.id.checkBoxFacepull);
         checkBoxDeadliftClassic = (CheckBox)findViewById(R.id.checkBoxDeadliftClassic);
         checkBoxOhp = (CheckBox)findViewById(R.id.checkBoxOhp);
@@ -173,7 +170,6 @@ public class TrainingActivity extends AppCompatActivity
                 checkBoxRowing.setChecked(false);
                 checkBoxRisingSideways.setChecked(false);
                 checkBoxBiceps.setChecked(false);
-                checkBoxBicepsB.setChecked(false);
                 checkBoxTriceps.setChecked(false);
                 checkBoxAllahs.setChecked(false);
                 checkBoxCalves.setChecked(false);
@@ -187,8 +183,11 @@ public class TrainingActivity extends AppCompatActivity
                 checkBoxPlank.setChecked(false);
 
 
-                linearLayoutTrainingA.setVisibility(View.GONE);
-                linearLayoutTrainingB.setVisibility(View.VISIBLE);
+                WorkoutAVisiable();
+                WorkoutBGone();
+               // linearLayoutTrainingA.setVisibility(View.GONE);
+                //linearLayoutTrainingB.setVisibility(View.VISIBLE);
+
                 editor.putInt("LastWorkoutState",1).commit();
                 Toast.makeText(getApplicationContext()," TEST "+LastWorkoutState,Toast.LENGTH_LONG).show();
             }
@@ -204,7 +203,6 @@ public class TrainingActivity extends AppCompatActivity
                 checkBoxRowing.setChecked(false);
                 checkBoxRisingSideways.setChecked(false);
                 checkBoxBiceps.setChecked(false);
-                checkBoxBicepsB.setChecked(false);
                 checkBoxTriceps.setChecked(false);
                 checkBoxAllahs.setChecked(false);
                 checkBoxCalves.setChecked(false);
@@ -218,8 +216,11 @@ public class TrainingActivity extends AppCompatActivity
                 checkBoxPlank.setChecked(false);
 
 
-                linearLayoutTrainingA.setVisibility(View.VISIBLE);
-                linearLayoutTrainingB.setVisibility(View.GONE);
+
+                WorkoutAVisiable();
+                WorkoutBGone();
+               // linearLayoutTrainingA.setVisibility(View.VISIBLE);
+               // linearLayoutTrainingB.setVisibility(View.GONE);
                 editor.putInt("LastWorkoutState",0).apply();
                 Toast.makeText(getApplicationContext()," TEST "+LastWorkoutState,Toast.LENGTH_LONG).show();
 
@@ -244,8 +245,10 @@ public class TrainingActivity extends AppCompatActivity
 
                 switch (position) {
                     case 0:
-                        linearLayoutTrainingA.setVisibility(View.GONE);
-                        linearLayoutTrainingB.setVisibility(View.GONE);
+                        WorkoutAGone();
+                        WorkoutBGone();
+                       // linearLayoutTrainingA.setVisibility(View.GONE);
+                        //linearLayoutTrainingB.setVisibility(View.GONE);
                         buttonTrainingConfiguration.setVisibility(View.GONE);
                         buttonWeightConfiguration.setVisibility(View.GONE);
                         buttonFinishWorkout.setVisibility(View.GONE);
@@ -264,21 +267,28 @@ public class TrainingActivity extends AppCompatActivity
                         calcWeightConfiguration();
 
                         if (LastWorkoutState==0){
-                            linearLayoutTrainingB.setVisibility(View.GONE);
-                            linearLayoutTrainingA.setVisibility(View.VISIBLE);
+
+                            WorkoutAVisiable();
+                            WorkoutBGone();
+                            //linearLayoutTrainingB.setVisibility(View.GONE);
+                            //linearLayoutTrainingA.setVisibility(View.VISIBLE);
                         }
 
                         else if (LastWorkoutState==1){
-                            linearLayoutTrainingB.setVisibility(View.VISIBLE);
-                            linearLayoutTrainingA.setVisibility(View.GONE);
+                            WorkoutAGone();
+                            WorkoutBVisiable();
+                            //linearLayoutTrainingB.setVisibility(View.VISIBLE);
+                            //linearLayoutTrainingA.setVisibility(View.GONE);
                             }
                         editorSelect.putInt("LastClick",1).commit();
                         Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
                         break;
 
                     case 2:
-                        linearLayoutTrainingA.setVisibility(View.GONE);
-                        linearLayoutTrainingB.setVisibility(View.GONE);
+                        WorkoutAGone();
+                        WorkoutBGone();
+                        //linearLayoutTrainingA.setVisibility(View.GONE);
+                       // linearLayoutTrainingB.setVisibility(View.GONE);
                         buttonTrainingConfiguration.setVisibility(View.VISIBLE);
                         buttonWeightConfiguration.setVisibility(View.VISIBLE);
                         linearLayoutWeightConfiguration.setVisibility(View.GONE);
@@ -612,15 +622,12 @@ public class TrainingActivity extends AppCompatActivity
         });
 
 
-
-
-
-
-
-
-
-
     }
+
+             private void WorkoutAVisiable() {}
+             private void WorkoutAGone() {}
+             private void WorkoutBVisiable() {}
+             private void WorkoutBGone() {}
 
              private void calcWeightConfiguration() {
                  if (editTextSquat.getText().length() != 0 && checkBoxSquats.isChecked()){
@@ -731,7 +738,6 @@ public class TrainingActivity extends AppCompatActivity
                      double nMax = Math.round((nSeries/80)*100);
 
                      checkBoxBiceps.setText("Biceps 5 x 5 x "+nSeries+"kg");
-                     checkBoxBicepsB.setText("Biceps 5 x 5 x "+nSeries+"kg");
                      editTextBiceps.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
@@ -742,42 +748,12 @@ public class TrainingActivity extends AppCompatActivity
 //                     double nMax = Math.round((nSeries/80)*100);
 
                      checkBoxBiceps.setText("Biceps 5 x 5 x "+nSeries+"kg");
-                     checkBoxBicepsB.setText("Biceps 5 x 5 x "+nSeries+"kg");
 //                     editTextSquat.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
                  else if(editTextBiceps.getText().length() == 0) {
                      checkBoxBiceps.setText("brak konfiguracji obciążenia dla Bicepsa");
-                     checkBoxBicepsB.setText("brak konfiguracji obciążenia dla Bicepsa");
-                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
-                 }
-
-                 if (editTextBiceps.getText().length() != 0 && checkBoxBicepsB.isChecked()){
-                     double n1 = Double.parseDouble(editTextBiceps.getText().toString());
-                     double nSeries = Math.round((n1*0.80)+2);
-                     double nMax = Math.round((nSeries/80)*100);
-
-                     checkBoxBiceps.setText("Biceps 5 x 5 x "+nSeries+"kg");
-                     checkBoxBicepsB.setText("Biceps 5 x 5 x "+nSeries+"kg");
-                     editTextBiceps.setText(""+nMax);
-                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
-                 }
-
-                 else if (editTextBiceps.getText().length() != 0 && !checkBoxBicepsB.isChecked()){
-                     double n1 = Double.parseDouble(editTextBiceps.getText().toString());
-                     double nSeries = Math.round(n1*0.80);
-//                     double nMax = Math.round((nSeries/80)*100);
-
-                     checkBoxBiceps.setText("Biceps 5 x 5 x "+nSeries+"kg");
-                     checkBoxBicepsB.setText("Biceps 5 x 5 x "+nSeries+"kg");
-//                     editTextSquat.setText(""+nMax);
-                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
-                 }
-
-                 else if(editTextBiceps.getText().length() == 0) {
-                     checkBoxBiceps.setText("brak konfiguracji obciążenia dla Bicepsa");
-                     checkBoxBicepsB.setText("brak konfiguracji obciążenia dla Bicepsa");
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
