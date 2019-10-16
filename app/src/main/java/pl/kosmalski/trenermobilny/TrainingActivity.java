@@ -665,6 +665,7 @@ public class TrainingActivity extends AppCompatActivity
                  checkBoxYRaise.setVisibility(View.GONE);
                  checkBoxYRaise.setVisibility(View.GONE);
                  checkBoxPlank.setVisibility(View.GONE);
+
              }
 
 
