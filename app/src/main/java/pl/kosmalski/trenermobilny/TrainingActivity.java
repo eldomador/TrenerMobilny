@@ -638,6 +638,7 @@ public class TrainingActivity extends AppCompatActivity
 
 
 
+
         if(preferencesTrainingConf.contains("FacepullConf") && preferencesTrainingConf.getBoolean("FacepullConf",false) == true) {
             checkBoxFacepullConf.setChecked(true);
         }else {
