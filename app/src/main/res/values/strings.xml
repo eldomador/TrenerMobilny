@@ -36,7 +36,8 @@
     <string name="Zakoncz_trening">Zakończ trening</string>
     <string name="Konfiguracja_trening">Konfiguracja treningu</string>
     <string name="Konfiguracja_obciążenia">Konfiguracja obciążenia</string>
-    <string name="Zapisz_konfiguracje_obciążenia">Zapisz Konfigurację obciążenia</string>
+    <string name="Zapisz_konfiguracje_obciążenia">Zapisz konfigurację obciążenia</string>
+    <string name="Zapisz_konfiguracje_trening">Zapisz konfigurację treningu</string>
 
     <string name="TreningA">Trening A</string>
     <string name="Przysiady">Przysiady</string>

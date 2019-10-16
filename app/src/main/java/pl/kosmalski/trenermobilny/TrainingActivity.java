@@ -49,7 +49,8 @@ public class TrainingActivity extends AppCompatActivity
     private TextView textViewMaxKg,textViewSquat,textViewTrainingA,textViewTrainingB;
     private EditText editTextSquat,editTextBenchPress,editTextRowing,editTextRisingSideways,editTextBiceps,editTextTriceps,editTextAllahs,editTextFacepull,editTextDeadliftClassic,
             editTextOhp,editTextPullingUpNarrow,editTextNarrowBenchPress,editTextYRaise;
-    private Button buttonWeightConfiguration,buttonTrainingConfiguration,buttonSaveWeightConfiguration,buttonFinishWorkout,buttonFinishWorkoutB;
+    private Button buttonWeightConfiguration,buttonTrainingConfiguration,buttonSaveWeightConfiguration,buttonFinishWorkout,buttonFinishWorkoutB,buttonSaveTrainingConfiguration;
+    private int LastClick;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
@@ -125,6 +126,7 @@ public class TrainingActivity extends AppCompatActivity
         buttonSaveWeightConfiguration =(Button)findViewById(R.id.buttonSaveWeightConfiguration);
         buttonFinishWorkout =(Button)findViewById(R.id.buttonFinishWorkout);
         buttonFinishWorkoutB =(Button)findViewById(R.id.buttonFinishWorkoutB);
+        buttonSaveTrainingConfiguration =(Button)findViewById(R.id.buttonSaveTrainingConfiguration);
 
         textViewMaxKg =(TextView)findViewById(R.id.textViewMaxKg);
         textViewSquat =(TextView)findViewById(R.id.textViewSquat);
@@ -148,7 +150,7 @@ public class TrainingActivity extends AppCompatActivity
 
         LastSelect= getSharedPreferences("LastClick", Context.MODE_PRIVATE);
         editor=LastSelect.edit();
-        final int LastClick = LastSelect.getInt("LastClick",0);
+        LastClick = LastSelect.getInt("LastClick",0);
         final int LastWorkoutState= LastSelect.getInt("LastWorkoutState",0);
 
 
@@ -177,6 +179,14 @@ public class TrainingActivity extends AppCompatActivity
                 linearLayoutWeightConfiguration.setVisibility(View.GONE);
                 buttonSaveWeightConfiguration.setVisibility(View.GONE);
                 calcWeightConfiguration();
+            }
+        });
+
+        buttonSaveTrainingConfiguration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                linearLayoutTrainingConfiguration.setVisibility(View.GONE);
+                CustomWorkout();
             }
         });
 
@@ -246,8 +256,6 @@ public class TrainingActivity extends AppCompatActivity
         });
 
 
-
-
         spinnerWorkouts =findViewById(R.id.spinnerWorkouts);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Workouts, android.R.layout.simple_spinner_dropdown_item);
         spinnerWorkouts.setAdapter(adapter);
@@ -279,6 +287,7 @@ public class TrainingActivity extends AppCompatActivity
                         linearLayoutWeightConfiguration.setVisibility(View.GONE);
                         linearLayoutTrainingConfiguration.setVisibility(View.GONE);
                         calcWeightConfiguration();
+                        CustomWorkout();
 
                         if (LastWorkoutState==0){
 
@@ -297,7 +306,7 @@ public class TrainingActivity extends AppCompatActivity
                         break;
 
                     case 2:
-                        ClearCheckboxs();
+                        CustomWorkout();
                         //linearLayoutTrainingA.setVisibility(View.GONE);
                        // linearLayoutTrainingB.setVisibility(View.GONE);
                         buttonTrainingConfiguration.setVisibility(View.VISIBLE);
@@ -1049,26 +1058,52 @@ public class TrainingActivity extends AppCompatActivity
 
              private void CustomWorkout() {
 
-                 checkBoxSquats.setVisibility(View.GONE);
-                 checkBoxBenchPress.setVisibility(View.GONE);
-                 checkBoxRowing.setVisibility(View.GONE);
-                 checkBoxRisingSideways.setVisibility(View.GONE);
-                 checkBoxBiceps.setVisibility(View.GONE);
-                 checkBoxTriceps.setVisibility(View.GONE);
-                 checkBoxAllahs.setVisibility(View.GONE);
-                 checkBoxCalves.setVisibility(View.GONE);
-                 checkBoxFacepull.setVisibility(View.GONE);
-                 textViewTrainingA.setVisibility(View.GONE);
-                 buttonFinishWorkout.setVisibility(View.GONE);
-                 checkBoxDeadliftClassic.setVisibility(View.GONE);
-                 checkBoxOhp.setVisibility(View.GONE);
-                 checkBoxPullingUpNarrow.setVisibility(View.GONE);
-                 checkBoxNarrowBenchPress.setVisibility(View.GONE);
-                 checkBoxYRaise.setVisibility(View.GONE);
-                 checkBoxYRaise.setVisibility(View.GONE);
-                 checkBoxPlank.setVisibility(View.GONE);
-                 textViewTrainingB.setVisibility(View.GONE);
-                 buttonFinishWorkoutB.setVisibility(View.GONE);
+
+                 if (LastClick==2&&checkBoxSquatsConf.isChecked()){
+                     checkBoxSquats.setVisibility(View.VISIBLE);
+                     checkBoxBenchPress.setVisibility(View.GONE);
+                     checkBoxRowing.setVisibility(View.GONE);
+                     checkBoxRisingSideways.setVisibility(View.GONE);
+                     checkBoxBiceps.setVisibility(View.GONE);
+                     checkBoxTriceps.setVisibility(View.GONE);
+                     checkBoxAllahs.setVisibility(View.GONE);
+                     checkBoxCalves.setVisibility(View.GONE);
+                     checkBoxFacepull.setVisibility(View.GONE);
+                     textViewTrainingA.setVisibility(View.GONE);
+                     buttonFinishWorkout.setVisibility(View.GONE);
+                     checkBoxDeadliftClassic.setVisibility(View.GONE);
+                     checkBoxOhp.setVisibility(View.GONE);
+                     checkBoxPullingUpNarrow.setVisibility(View.GONE);
+                     checkBoxNarrowBenchPress.setVisibility(View.GONE);
+                     checkBoxYRaise.setVisibility(View.GONE);
+                     checkBoxYRaise.setVisibility(View.GONE);
+                     checkBoxPlank.setVisibility(View.GONE);
+                     textViewTrainingB.setVisibility(View.GONE);
+                     buttonFinishWorkoutB.setVisibility(View.GONE);
+                 }
+                 else {
+                     checkBoxSquats.setVisibility(View.GONE);
+                     checkBoxBenchPress.setVisibility(View.GONE);
+                     checkBoxRowing.setVisibility(View.GONE);
+                     checkBoxRisingSideways.setVisibility(View.GONE);
+                     checkBoxBiceps.setVisibility(View.GONE);
+                     checkBoxTriceps.setVisibility(View.GONE);
+                     checkBoxAllahs.setVisibility(View.GONE);
+                     checkBoxCalves.setVisibility(View.GONE);
+                     checkBoxFacepull.setVisibility(View.GONE);
+                     textViewTrainingA.setVisibility(View.GONE);
+                     buttonFinishWorkout.setVisibility(View.GONE);
+                     checkBoxDeadliftClassic.setVisibility(View.GONE);
+                     checkBoxOhp.setVisibility(View.GONE);
+                     checkBoxPullingUpNarrow.setVisibility(View.GONE);
+                     checkBoxNarrowBenchPress.setVisibility(View.GONE);
+                     checkBoxYRaise.setVisibility(View.GONE);
+                     checkBoxYRaise.setVisibility(View.GONE);
+                     checkBoxPlank.setVisibility(View.GONE);
+                     textViewTrainingB.setVisibility(View.GONE);
+                     buttonFinishWorkoutB.setVisibility(View.GONE);
+                 }
+
 
              }
 
@@ -1434,10 +1469,7 @@ public class TrainingActivity extends AppCompatActivity
              }
 
 
-//
-//             private void openWeightConfiguration() {
-//
-//             }
+
 
              @Override
     public void onBackPressed() {

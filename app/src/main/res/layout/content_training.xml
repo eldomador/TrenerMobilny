@@ -358,6 +358,13 @@
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/Facepull" />
 
+                <Button
+                    android:id="@+id/buttonSaveTrainingConfiguration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Zapisz_konfiguracje_trening" />
+
             </LinearLayout>
 
             <Button
