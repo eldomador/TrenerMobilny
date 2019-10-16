@@ -24,6 +24,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -35,14 +36,19 @@ public class TrainingActivity extends AppCompatActivity
          {
 
     Spinner spinnerWorkouts;
-    SharedPreferences LastSelect,LastWorkout;
-    SharedPreferences.Editor editor,editorSelect;
+    SharedPreferences LastSelect;
+    SharedPreferences.Editor editor;
 
 
     private LinearLayout linearLayoutTrainingA,linearLayoutWeightConfiguration,linearLayoutTrainingConfiguration;
-    private CheckBox checkBoxSquats,checkBoxBenchPress,checkBoxRowing,checkBoxRisingSideways,checkBoxBiceps,checkBoxTriceps,checkBoxAllahs,checkBoxCalves,checkBoxFacepull,checkBoxDeadliftClassic,checkBoxOhp,checkBoxPullingUpNarrow,checkBoxNarrowBenchPress,checkBoxYRaise,checkBoxPlank;
-    private TextView textViewMaxKg,textViewSquat;
-    private EditText editTextSquat,editTextBenchPress,editTextRowing,editTextRisingSideways,editTextBiceps,editTextTriceps,editTextAllahs,editTextFacepull,editTextDeadliftClassic,editTextOhp,editTextPullingUpNarrow,editTextNarrowBenchPress,editTextYRaise;
+    private CheckBox checkBoxSquats,checkBoxBenchPress,checkBoxRowing,checkBoxRisingSideways,checkBoxBiceps,checkBoxTriceps,
+            checkBoxAllahs,checkBoxCalves,checkBoxFacepull,checkBoxDeadliftClassic,checkBoxOhp,checkBoxPullingUpNarrow,checkBoxNarrowBenchPress,checkBoxYRaise,
+            checkBoxPlank,checkBoxSquatsConf,checkBoxBenchPressConf,checkBoxRowingConf,checkBoxRisingSidewaysConf,checkBoxBicepsConf,checkBoxTricepsConf,
+            checkBoxAllahsConf,checkBoxCalvesConf,checkBoxFacepullConf,checkBoxDeadliftClassicConf,checkBoxOhpConf,checkBoxPullingUpNarrowConf,checkBoxNarrowBenchPressConf,checkBoxYRaiseConf,
+            checkBoxPlankConf;
+    private TextView textViewMaxKg,textViewSquat,textViewTrainingA,textViewTrainingB;
+    private EditText editTextSquat,editTextBenchPress,editTextRowing,editTextRisingSideways,editTextBiceps,editTextTriceps,editTextAllahs,editTextFacepull,editTextDeadliftClassic,
+            editTextOhp,editTextPullingUpNarrow,editTextNarrowBenchPress,editTextYRaise;
     private Button buttonWeightConfiguration,buttonTrainingConfiguration,buttonSaveWeightConfiguration,buttonFinishWorkout,buttonFinishWorkoutB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +104,21 @@ public class TrainingActivity extends AppCompatActivity
         checkBoxPlank =  (CheckBox)findViewById(R.id.checkBoxPlank);
 
 
+        checkBoxSquatsConf = (CheckBox)findViewById(R.id.checkBoxSquatsConf);
+        checkBoxBenchPressConf = (CheckBox)findViewById(R.id.checkBoxBenchPressConf);
+        checkBoxRowingConf = (CheckBox)findViewById(R.id.checkBoxRowingConf);
+        checkBoxRisingSidewaysConf = (CheckBox)findViewById(R.id.checkBoxRisingSidewaysConf);
+        checkBoxBicepsConf  = (CheckBox)findViewById(R.id.checkBoxBicepsConf);
+        checkBoxTricepsConf = (CheckBox)findViewById(R.id.checkBoxTricepsConf);
+        checkBoxAllahsConf = (CheckBox)findViewById(R.id.checkBoxAllahsConf);
+        checkBoxCalvesConf = (CheckBox)findViewById(R.id.checkBoxCalvesConf);
+        checkBoxFacepullConf = (CheckBox)findViewById(R.id.checkBoxFacepullConf);
+        checkBoxDeadliftClassicConf = (CheckBox)findViewById(R.id.checkBoxDeadliftClassicConf);
+        checkBoxOhpConf = (CheckBox)findViewById(R.id.checkBoxOhpConf);
+        checkBoxPullingUpNarrowConf = (CheckBox)findViewById(R.id.checkBoxPullingUpNarrowConf);
+        checkBoxNarrowBenchPressConf = (CheckBox)findViewById(R.id.checkBoxNarrowBenchPressConf);
+        checkBoxYRaiseConf = (CheckBox)findViewById(R.id.checkBoxYRaiseConf);
+        checkBoxPlankConf = (CheckBox)findViewById(R.id.checkBoxPlankConf);
 
         buttonWeightConfiguration=(Button)findViewById(R.id.buttonWeightConfiguration);
         buttonTrainingConfiguration = (Button)findViewById(R.id.buttonTrainingConfiguration);
@@ -107,6 +128,8 @@ public class TrainingActivity extends AppCompatActivity
 
         textViewMaxKg =(TextView)findViewById(R.id.textViewMaxKg);
         textViewSquat =(TextView)findViewById(R.id.textViewSquat);
+        textViewTrainingA =(TextView)findViewById(R.id.textViewTrainingA);
+        textViewTrainingB =(TextView)findViewById(R.id.textViewTrainingB);
 
         editTextSquat = (EditText)findViewById(R.id.editTextSquat);
         editTextBenchPress  = (EditText)findViewById(R.id.editTextBenchPress);
@@ -124,12 +147,9 @@ public class TrainingActivity extends AppCompatActivity
 
 
         LastSelect= getSharedPreferences("LastClick", Context.MODE_PRIVATE);
-        editorSelect=LastSelect.edit();
+        editor=LastSelect.edit();
         final int LastClick = LastSelect.getInt("LastClick",0);
-
-        LastWorkout = getSharedPreferences("LastWorkoutState", Context.MODE_PRIVATE);
-        editor=LastWorkout.edit();
-        final int LastWorkoutState= LastWorkout.getInt("LastWorkoutState",0);
+        final int LastWorkoutState= LastSelect.getInt("LastWorkoutState",0);
 
 
 
@@ -182,14 +202,12 @@ public class TrainingActivity extends AppCompatActivity
                 checkBoxYRaise.setChecked(false);
                 checkBoxPlank.setChecked(false);
 
-
-                WorkoutAVisiable();
-                WorkoutBGone();
+                FbwWorkoutB();
                // linearLayoutTrainingA.setVisibility(View.GONE);
                 //linearLayoutTrainingB.setVisibility(View.VISIBLE);
 
                 editor.putInt("LastWorkoutState",1).commit();
-                Toast.makeText(getApplicationContext()," TEST "+LastWorkoutState,Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext()," TEST "+LastWorkoutState,Toast.LENGTH_LONG).show();
             }
         });
 
@@ -211,17 +229,15 @@ public class TrainingActivity extends AppCompatActivity
                 checkBoxPullingUpNarrow.setChecked(false);
                 checkBoxNarrowBenchPress.setChecked(false);
                 checkBoxYRaise.setChecked(false);
-                checkBoxYRaise.setChecked(false);
                 checkBoxPlank.setChecked(false);
 
 
 
-                WorkoutAVisiable();
-                WorkoutBGone();
+                FbwWorkoutA();
                // linearLayoutTrainingA.setVisibility(View.VISIBLE);
                // linearLayoutTrainingB.setVisibility(View.GONE);
                 editor.putInt("LastWorkoutState",0).apply();
-                Toast.makeText(getApplicationContext()," TEST "+LastWorkoutState,Toast.LENGTH_LONG).show();
+              //  Toast.makeText(getApplicationContext()," TEST "+LastWorkoutState,Toast.LENGTH_LONG).show();
 
 
 
@@ -244,8 +260,7 @@ public class TrainingActivity extends AppCompatActivity
 
                 switch (position) {
                     case 0:
-                        WorkoutAGone();
-                        WorkoutBGone();
+                        ClearCheckboxs();
                        // linearLayoutTrainingA.setVisibility(View.GONE);
                         //linearLayoutTrainingB.setVisibility(View.GONE);
                         buttonTrainingConfiguration.setVisibility(View.GONE);
@@ -253,8 +268,8 @@ public class TrainingActivity extends AppCompatActivity
                         buttonFinishWorkout.setVisibility(View.GONE);
                         linearLayoutWeightConfiguration.setVisibility(View.GONE);
                         linearLayoutTrainingConfiguration.setVisibility(View.GONE);
-                        editorSelect.putInt("LastClick",0).apply();
-                        Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
+                        editor.putInt("LastClick",0).apply();
+                       // Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
                         break;
 
                     case 1:
@@ -267,33 +282,30 @@ public class TrainingActivity extends AppCompatActivity
 
                         if (LastWorkoutState==0){
 
-                            WorkoutAVisiable();
-                            WorkoutBGone();
+                            FbwWorkoutA();
                             //linearLayoutTrainingB.setVisibility(View.GONE);
                             //linearLayoutTrainingA.setVisibility(View.VISIBLE);
                         }
 
                         else if (LastWorkoutState==1){
-                            WorkoutAGone();
-                            WorkoutBVisiable();
+                            FbwWorkoutB();
                             //linearLayoutTrainingB.setVisibility(View.VISIBLE);
                             //linearLayoutTrainingA.setVisibility(View.GONE);
                             }
-                        editorSelect.putInt("LastClick",1).commit();
-                        Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
+                        editor.putInt("LastClick",1).commit();
+                       // Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
                         break;
 
                     case 2:
-                        WorkoutAGone();
-                        WorkoutBGone();
+                        ClearCheckboxs();
                         //linearLayoutTrainingA.setVisibility(View.GONE);
                        // linearLayoutTrainingB.setVisibility(View.GONE);
                         buttonTrainingConfiguration.setVisibility(View.VISIBLE);
                         buttonWeightConfiguration.setVisibility(View.VISIBLE);
                         linearLayoutWeightConfiguration.setVisibility(View.GONE);
                         linearLayoutTrainingConfiguration.setVisibility(View.GONE);
-                        editorSelect.putInt("LastClick",2).commit();
-                        Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
+                        editor.putInt("LastClick",2).commit();
+                       // Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
 
                         break;
                 }
@@ -306,6 +318,342 @@ public class TrainingActivity extends AppCompatActivity
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
+
+
+        SharedPreferences preferencesTrainingConf = PreferenceManager.getDefaultSharedPreferences(this);
+        final SharedPreferences.Editor editor = preferencesTrainingConf.edit();
+
+
+        if(preferencesTrainingConf.contains("SquatsConf") && preferencesTrainingConf.getBoolean("SquatsConf",false) == true) {
+            checkBoxSquatsConf.setChecked(true);
+        }else {
+            checkBoxSquatsConf.setChecked(false);
+
+        }
+        checkBoxSquatsConf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxSquatsConf.isChecked()) {
+                    editor.putBoolean("SquatsConf", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("SquatsConf", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("DeadliftClassicConf") && preferencesTrainingConf.getBoolean("DeadliftClassicConf",false) == true) {
+            checkBoxDeadliftClassicConf.setChecked(true);
+        }else {
+            checkBoxDeadliftClassicConf.setChecked(false);
+
+        }
+        checkBoxDeadliftClassicConf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxDeadliftClassicConf.isChecked()) {
+                    editor.putBoolean("DeadliftClassicConf", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("DeadliftClassicConf", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("DeadliftClassicConf") && preferencesTrainingConf.getBoolean("DeadliftClassicConf",false) == true) {
+            checkBoxDeadliftClassicConf.setChecked(true);
+        }else {
+            checkBoxDeadliftClassicConf.setChecked(false);
+
+        }
+        checkBoxDeadliftClassicConf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxDeadliftClassicConf.isChecked()) {
+                    editor.putBoolean("DeadliftClassicConf", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("DeadliftClassicConf", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("BenchPressConf") && preferencesTrainingConf.getBoolean("BenchPressConf",false) == true) {
+            checkBoxBenchPressConf.setChecked(true);
+        }else {
+            checkBoxBenchPressConf.setChecked(false);
+
+        }
+        checkBoxBenchPressConf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxBenchPressConf.isChecked()) {
+                    editor.putBoolean("BenchPressConf", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("BenchPressConf", false);
+                    editor.apply();
+                }
+            }
+        });
+
+
+        if(preferencesTrainingConf.contains("NarrowBenchPressConf") && preferencesTrainingConf.getBoolean("NarrowBenchPressConf",false) == true) {
+            checkBoxNarrowBenchPressConf.setChecked(true);
+        }else {
+            checkBoxNarrowBenchPressConf.setChecked(false);
+
+        }
+        checkBoxNarrowBenchPressConf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxNarrowBenchPressConf.isChecked()) {
+                    editor.putBoolean("NarrowBenchPressConf", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("NarrowBenchPressConf", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("OhpConf") && preferencesTrainingConf.getBoolean("OhpConf",false) == true) {
+            checkBoxOhpConf.setChecked(true);
+        }else {
+            checkBoxOhpConf.setChecked(false);
+
+        }
+        checkBoxOhpConf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxOhpConf.isChecked()) {
+                    editor.putBoolean("OhpConf", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("OhpConf", false);
+                    editor.apply();
+                }
+            }
+        });
+
+
+        if(preferencesTrainingConf.contains("RowingConf") && preferencesTrainingConf.getBoolean("RowingConf",false) == true) {
+            checkBoxRowingConf.setChecked(true);
+        }else {
+            checkBoxRowingConf.setChecked(false);
+
+        }
+        checkBoxRowingConf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxRowingConf.isChecked()) {
+                    editor.putBoolean("RowingConf", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("RowingConf", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("PullingUpNarrowConf") && preferencesTrainingConf.getBoolean("PullingUpNarrowConf",false) == true) {
+            checkBoxPullingUpNarrowConf.setChecked(true);
+        }else {
+            checkBoxPullingUpNarrowConf.setChecked(false);
+
+        }
+        checkBoxPullingUpNarrowConf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxPullingUpNarrowConf.isChecked()) {
+                    editor.putBoolean("PullingUpNarrowConf", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("PullingUpNarrowConf", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("RisingSidewaysConf") && preferencesTrainingConf.getBoolean("RisingSidewaysConf",false) == true) {
+            checkBoxRisingSidewaysConf.setChecked(true);
+        }else {
+            checkBoxRisingSidewaysConf.setChecked(false);
+
+        }
+        checkBoxRisingSidewaysConf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxRisingSidewaysConf.isChecked()) {
+                    editor.putBoolean("RisingSidewaysConf", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("RisingSidewaysConf", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("BicepsConf") && preferencesTrainingConf.getBoolean("BicepsConf",false) == true) {
+            checkBoxBicepsConf.setChecked(true);
+        }else {
+            checkBoxBicepsConf.setChecked(false);
+
+        }
+        checkBoxBicepsConf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxBicepsConf.isChecked()) {
+                    editor.putBoolean("BicepsConf", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("BicepsConf", false);
+                    editor.apply();
+                }
+            }
+        });
+
+
+        if(preferencesTrainingConf.contains("TricepsConf") && preferencesTrainingConf.getBoolean("TricepsConf",false) == true) {
+            checkBoxTricepsConf.setChecked(true);
+        }else {
+            checkBoxTricepsConf.setChecked(false);
+
+        }
+        checkBoxTricepsConf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxTricepsConf.isChecked()) {
+                    editor.putBoolean("TricepsConf", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("TricepsConf", false);
+                    editor.apply();
+                }
+            }
+        });
+
+
+        if(preferencesTrainingConf.contains("AllahsConf") && preferencesTrainingConf.getBoolean("AllahsConf",false) == true) {
+            checkBoxAllahsConf.setChecked(true);
+        }else {
+            checkBoxAllahsConf.setChecked(false);
+
+        }
+        checkBoxAllahsConf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxAllahsConf.isChecked()) {
+                    editor.putBoolean("AllahsConf", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("AllahsConf", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("AllahsConf") && preferencesTrainingConf.getBoolean("AllahsConf",false) == true) {
+            checkBoxAllahsConf.setChecked(true);
+        }else {
+            checkBoxAllahsConf.setChecked(false);
+
+        }
+        checkBoxAllahsConf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxAllahsConf.isChecked()) {
+                    editor.putBoolean("AllahsConf", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("AllahsConf", false);
+                    editor.apply();
+                }
+            }
+        });
+
+
+        if(preferencesTrainingConf.contains("PlankConf") && preferencesTrainingConf.getBoolean("PlankConf",false) == true) {
+            checkBoxPlankConf.setChecked(true);
+        }else {
+            checkBoxPlankConf.setChecked(false);
+
+        }
+        checkBoxPlankConf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxPlankConf.isChecked()) {
+                    editor.putBoolean("PlankConf", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("PlankConf", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("CalvesConf") && preferencesTrainingConf.getBoolean("CalvesConf",false) == true) {
+            checkBoxCalvesConf.setChecked(true);
+        }else {
+            checkBoxCalvesConf.setChecked(false);
+
+        }
+        checkBoxCalvesConf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxCalvesConf.isChecked()) {
+                    editor.putBoolean("CalvesConf", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("CalvesConf", false);
+                    editor.apply();
+                }
+            }
+        });
+
+
+        if(preferencesTrainingConf.contains("YRaiseConf") && preferencesTrainingConf.getBoolean("YRaiseConf",false) == true) {
+            checkBoxYRaiseConf.setChecked(true);
+        }else {
+            checkBoxYRaiseConf.setChecked(false);
+
+        }
+        checkBoxYRaiseConf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxYRaiseConf.isChecked()) {
+                    editor.putBoolean("YRaiseConf", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("YRaiseConf", false);
+                    editor.apply();
+                }
+            }
+        });
+
+
+
+        if(preferencesTrainingConf.contains("FacepullConf") && preferencesTrainingConf.getBoolean("FacepullConf",false) == true) {
+            checkBoxFacepullConf.setChecked(true);
+        }else {
+            checkBoxFacepullConf.setChecked(false);
+
+        }
+        checkBoxFacepullConf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxYRaiseConf.isChecked()) {
+                    editor.putBoolean("FacepullConf", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("FacepullConf", false);
+                    editor.apply();
+                }
             }
         });
 
@@ -623,7 +971,7 @@ public class TrainingActivity extends AppCompatActivity
 
     }
 
-             private void WorkoutAVisiable() {
+             private void FbwWorkoutA() {
                  checkBoxSquats.setVisibility(View.VISIBLE);
                  checkBoxBenchPress.setVisibility(View.VISIBLE);
                  checkBoxRowing.setVisibility(View.VISIBLE);
@@ -633,10 +981,47 @@ public class TrainingActivity extends AppCompatActivity
                  checkBoxAllahs.setVisibility(View.VISIBLE);
                  checkBoxCalves.setVisibility(View.VISIBLE);
                  checkBoxFacepull.setVisibility(View.VISIBLE);
+                 textViewTrainingA.setVisibility(View.VISIBLE);
+                 buttonFinishWorkout.setVisibility(View.VISIBLE);
 
+                 checkBoxDeadliftClassic.setVisibility(View.GONE);
+                 checkBoxOhp.setVisibility(View.GONE);
+                 checkBoxPullingUpNarrow.setVisibility(View.GONE);
+                 checkBoxNarrowBenchPress.setVisibility(View.GONE);
+                 checkBoxPlank.setVisibility(View.GONE);
+                 checkBoxYRaise.setVisibility(View.GONE);
+                 textViewTrainingB.setVisibility(View.GONE);
+                 buttonFinishWorkoutB.setVisibility(View.GONE);
 
              }
-             private void WorkoutAGone() {
+
+             private void FbwWorkoutB() {
+
+                 checkBoxDeadliftClassic.setVisibility(View.VISIBLE);
+                 checkBoxOhp.setVisibility(View.VISIBLE);
+                 checkBoxPullingUpNarrow.setVisibility(View.VISIBLE);
+                 checkBoxNarrowBenchPress.setVisibility(View.VISIBLE);
+                 checkBoxBiceps.setVisibility(View.VISIBLE);
+                 checkBoxPlank.setVisibility(View.VISIBLE);
+                 checkBoxCalves.setVisibility(View.VISIBLE);
+                 checkBoxYRaise.setVisibility(View.VISIBLE);
+                 textViewTrainingB.setVisibility(View.VISIBLE);
+                 buttonFinishWorkoutB.setVisibility(View.VISIBLE);
+
+                 checkBoxSquats.setVisibility(View.GONE);
+                 checkBoxBenchPress.setVisibility(View.GONE);
+                 checkBoxRowing.setVisibility(View.GONE);
+                 checkBoxRisingSideways.setVisibility(View.GONE);
+                 checkBoxTriceps.setVisibility(View.GONE);
+                 checkBoxAllahs.setVisibility(View.GONE);
+                 checkBoxFacepull.setVisibility(View.GONE);
+                 textViewTrainingA.setVisibility(View.GONE);
+                 buttonFinishWorkout.setVisibility(View.GONE);
+
+             }
+
+
+             private void ClearCheckboxs() {
                  checkBoxSquats.setVisibility(View.GONE);
                  checkBoxBenchPress.setVisibility(View.GONE);
                  checkBoxRowing.setVisibility(View.GONE);
@@ -646,18 +1031,8 @@ public class TrainingActivity extends AppCompatActivity
                  checkBoxAllahs.setVisibility(View.GONE);
                  checkBoxCalves.setVisibility(View.GONE);
                  checkBoxFacepull.setVisibility(View.GONE);
-             }
-             private void WorkoutBVisiable() {
-
-                 checkBoxDeadliftClassic.setVisibility(View.VISIBLE);
-                 checkBoxOhp.setVisibility(View.VISIBLE);
-                 checkBoxPullingUpNarrow.setVisibility(View.VISIBLE);
-                 checkBoxNarrowBenchPress.setVisibility(View.VISIBLE);
-                 checkBoxYRaise.setVisibility(View.VISIBLE);
-                 checkBoxYRaise.setVisibility(View.VISIBLE);
-                 checkBoxPlank.setVisibility(View.VISIBLE);
-             }
-             private void WorkoutBGone() {
+                 textViewTrainingA.setVisibility(View.GONE);
+                 buttonFinishWorkout.setVisibility(View.GONE);
                  checkBoxDeadliftClassic.setVisibility(View.GONE);
                  checkBoxOhp.setVisibility(View.GONE);
                  checkBoxPullingUpNarrow.setVisibility(View.GONE);
@@ -665,9 +1040,36 @@ public class TrainingActivity extends AppCompatActivity
                  checkBoxYRaise.setVisibility(View.GONE);
                  checkBoxYRaise.setVisibility(View.GONE);
                  checkBoxPlank.setVisibility(View.GONE);
+                 textViewTrainingB.setVisibility(View.GONE);
+                 buttonFinishWorkoutB.setVisibility(View.GONE);
 
              }
 
+
+             private void CustomWorkout() {
+
+                 checkBoxSquats.setVisibility(View.GONE);
+                 checkBoxBenchPress.setVisibility(View.GONE);
+                 checkBoxRowing.setVisibility(View.GONE);
+                 checkBoxRisingSideways.setVisibility(View.GONE);
+                 checkBoxBiceps.setVisibility(View.GONE);
+                 checkBoxTriceps.setVisibility(View.GONE);
+                 checkBoxAllahs.setVisibility(View.GONE);
+                 checkBoxCalves.setVisibility(View.GONE);
+                 checkBoxFacepull.setVisibility(View.GONE);
+                 textViewTrainingA.setVisibility(View.GONE);
+                 buttonFinishWorkout.setVisibility(View.GONE);
+                 checkBoxDeadliftClassic.setVisibility(View.GONE);
+                 checkBoxOhp.setVisibility(View.GONE);
+                 checkBoxPullingUpNarrow.setVisibility(View.GONE);
+                 checkBoxNarrowBenchPress.setVisibility(View.GONE);
+                 checkBoxYRaise.setVisibility(View.GONE);
+                 checkBoxYRaise.setVisibility(View.GONE);
+                 checkBoxPlank.setVisibility(View.GONE);
+                 textViewTrainingB.setVisibility(View.GONE);
+                 buttonFinishWorkoutB.setVisibility(View.GONE);
+
+             }
 
 
 
@@ -1005,7 +1407,7 @@ public class TrainingActivity extends AppCompatActivity
                      double nSeries = Math.round((n1*0.80)+2);
                      double nMax = Math.round((nSeries/80)*100);
 
-                     checkBoxYRaise.setText("Wyciskanie Wąsko 5 x 5 x "+nSeries+"kg");
+                     checkBoxYRaise.setText("Y-Raise 5 x 5 x "+nSeries+"kg");
                      editTextYRaise.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
@@ -1015,7 +1417,7 @@ public class TrainingActivity extends AppCompatActivity
                      double nSeries = Math.round(n1*0.80);
 //                     double nMax = Math.round((nSeries/80)*100);
 
-                     checkBoxYRaise.setText("Wyciskanie Wąsko 5 x 5 x "+nSeries+"kg");
+                     checkBoxYRaise.setText("Y-Raise 5 x 5 x "+nSeries+"kg");
 //                     editTextSquat.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }

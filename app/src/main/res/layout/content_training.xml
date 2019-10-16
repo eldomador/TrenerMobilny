@@ -82,15 +82,6 @@
                     android:text="@string/WyciskanieLeżąc" />
 
                 <CheckBox
-                    android:id="@+id/checkBoxNarrowBenchPress"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:button="@null"
-                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
-                    android:text="@string/WyciskanieWąsko" />
-
-                <CheckBox
                     android:id="@+id/checkBoxOhp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -100,15 +91,6 @@
                     android:text="@string/WyciskanieŻołnierskie" />
 
                 <CheckBox
-                    android:id="@+id/checkBoxRowing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:button="@null"
-                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
-                    android:text="@string/Wiosłowanie" />
-
-                <CheckBox
                     android:id="@+id/checkBoxPullingUpNarrow"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -116,6 +98,24 @@
                     android:button="@null"
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/PodciąganieWąsko" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxNarrowBenchPress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                    android:text="@string/WyciskanieWąsko" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxRowing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                    android:text="@string/Wiosłowanie" />
 
                 <CheckBox
                     android:id="@+id/checkBoxRisingSideways"
