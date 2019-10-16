@@ -197,7 +197,6 @@ public class TrainingActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 calcWeightConfiguration();
-
                 checkBoxSquats.setChecked(false);
                 checkBoxBenchPress.setChecked(false);
                 checkBoxRowing.setChecked(false);
@@ -624,10 +623,52 @@ public class TrainingActivity extends AppCompatActivity
 
     }
 
-             private void WorkoutAVisiable() {}
-             private void WorkoutAGone() {}
-             private void WorkoutBVisiable() {}
-             private void WorkoutBGone() {}
+             private void WorkoutAVisiable() {
+                 checkBoxSquats.setVisibility(View.VISIBLE);
+                 checkBoxBenchPress.setVisibility(View.VISIBLE);
+                 checkBoxRowing.setVisibility(View.VISIBLE);
+                 checkBoxRisingSideways.setVisibility(View.VISIBLE);
+                 checkBoxBiceps.setVisibility(View.VISIBLE);
+                 checkBoxTriceps.setVisibility(View.VISIBLE);
+                 checkBoxAllahs.setVisibility(View.VISIBLE);
+                 checkBoxCalves.setVisibility(View.VISIBLE);
+                 checkBoxFacepull.setVisibility(View.VISIBLE);
+
+
+             }
+             private void WorkoutAGone() {
+                 checkBoxSquats.setVisibility(View.GONE);
+                 checkBoxBenchPress.setVisibility(View.GONE);
+                 checkBoxRowing.setVisibility(View.GONE);
+                 checkBoxRisingSideways.setVisibility(View.GONE);
+                 checkBoxBiceps.setVisibility(View.GONE);
+                 checkBoxTriceps.setVisibility(View.GONE);
+                 checkBoxAllahs.setVisibility(View.GONE);
+                 checkBoxCalves.setVisibility(View.GONE);
+                 checkBoxFacepull.setVisibility(View.GONE);
+             }
+             private void WorkoutBVisiable() {
+
+                 checkBoxDeadliftClassic.setVisibility(View.VISIBLE);
+                 checkBoxOhp.setVisibility(View.VISIBLE);
+                 checkBoxPullingUpNarrow.setVisibility(View.VISIBLE);
+                 checkBoxNarrowBenchPress.setVisibility(View.VISIBLE);
+                 checkBoxYRaise.setVisibility(View.VISIBLE);
+                 checkBoxYRaise.setVisibility(View.VISIBLE);
+                 checkBoxPlank.setVisibility(View.VISIBLE);
+             }
+             private void WorkoutBGone() {
+                 checkBoxDeadliftClassic.setVisibility(View.GONE);
+                 checkBoxOhp.setVisibility(View.GONE);
+                 checkBoxPullingUpNarrow.setVisibility(View.GONE);
+                 checkBoxNarrowBenchPress.setVisibility(View.GONE);
+                 checkBoxYRaise.setVisibility(View.GONE);
+                 checkBoxYRaise.setVisibility(View.GONE);
+                 checkBoxPlank.setVisibility(View.GONE);
+             }
+
+
+
 
              private void calcWeightConfiguration() {
                  if (editTextSquat.getText().length() != 0 && checkBoxSquats.isChecked()){
