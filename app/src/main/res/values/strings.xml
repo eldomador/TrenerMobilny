@@ -58,6 +58,10 @@
     <string name="Deska">Deska</string>
     <string name="YRaise">Y-Raise</string>
 
+    <string name="TreningC">Trening C</string>
+    <string name="TreningD">Trening D</string>
+
+    <string name="Modyfikuj">Modyfikuj następny wariant treningu</string>
 
     <string name="Maksymalne_obciążenie">Twoje maksymalne obciążnie:</string>
     <string name="Przysiad">Przysiad:</string>
