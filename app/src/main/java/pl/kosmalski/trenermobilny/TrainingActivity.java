@@ -552,6 +552,7 @@ public class TrainingActivity extends AppCompatActivity
                 }else{
                     editor.putBoolean("BicepsConf", false);
                     editor.apply();
+
                 }
             }
         });
