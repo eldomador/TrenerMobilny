@@ -391,7 +391,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/Zapisz_konfiguracje_trening" />
+                    android:text="@string/Modyfikuj" />
 
             </LinearLayout>
 
@@ -545,7 +545,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/Zapisz_konfiguracje_trening" />
+                    android:text="@string/Modyfikuj" />
 
             </LinearLayout>
 
@@ -699,7 +699,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/Zapisz_konfiguracje_trening" />
+                    android:text="@string/Modyfikuj" />
 
             </LinearLayout>
 
