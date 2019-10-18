@@ -57,7 +57,7 @@ public class TrainingActivity extends AppCompatActivity
             editTextOhp,editTextPullingUpNarrow,editTextNarrowBenchPress,editTextYRaise;
     private Button buttonWeightConfiguration,buttonTrainingConfiguration,buttonSaveWeightConfiguration,buttonFinishWorkout,buttonFinishWorkoutB,buttonFinishWorkoutC,buttonFinishWorkoutD,
             buttonSaveTrainingConfiguration,buttonNextTrainingConfiguration,buttonNextTrainingConfigurationB,buttonNextTrainingConfigurationC;
-    private int LastClick;
+    private int LastClick,xd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
@@ -287,6 +287,7 @@ public class TrainingActivity extends AppCompatActivity
                 linearLayoutTrainingConfigurationC.setVisibility(View.GONE);
                 linearLayoutTrainingConfigurationD.setVisibility(View.GONE);
                 buttonSaveTrainingConfiguration.setVisibility(View.GONE);
+
                 CustomWorkout();
                 calcWeightConfiguration();
             }
@@ -297,14 +298,15 @@ public class TrainingActivity extends AppCompatActivity
             public void onClick(View v) {
                 calcWeightConfiguration();
                 unchekedCheckBoxes();
+                Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
 
                 if (LastClick==1){
                     FbwWorkoutB();
                 }
-                else if (LastClick==2&&checkBoxSquatsConfB.isChecked()||checkBoxDeadliftClassicConfB.isChecked()||checkBoxOhpConfB.isChecked()||checkBoxBenchPressConfB.isChecked()||
+               else if (LastClick==2&&(checkBoxSquatsConfB.isChecked()||checkBoxDeadliftClassicConfB.isChecked()||checkBoxOhpConfB.isChecked()||checkBoxBenchPressConfB.isChecked()||
                         checkBoxNarrowBenchPressConfB.isChecked()||checkBoxRisingSidewaysConfB.isChecked()||checkBoxPullingUpNarrowConfB.isChecked()||checkBoxRisingSidewaysConfB.isChecked()||
                         checkBoxBicepsConfB.isChecked()||checkBoxTricepsConfB.isChecked()||checkBoxAllahsConfB.isChecked()||checkBoxPlankConfB.isChecked()|| checkBoxCalvesConfB.isChecked()||
-                        checkBoxYRaiseConfB.isChecked()||checkBoxFacepullConfB.isChecked()){
+                        checkBoxYRaiseConfB.isChecked()||checkBoxFacepullConfB.isChecked())){
                     CustomWorkoutB();
                 }
                 else {
@@ -321,15 +323,16 @@ public class TrainingActivity extends AppCompatActivity
             public void onClick(View v) {
                 calcWeightConfiguration();
                 unchekedCheckBoxes();
+                Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
 
 
                 if (LastClick==1){
                     FbwWorkoutA();
                 }
-                else if (LastClick==2&&checkBoxSquatsConfC.isChecked()||checkBoxDeadliftClassicConfC.isChecked()||checkBoxOhpConfC.isChecked()||checkBoxBenchPressConfC.isChecked()||
+                else if (LastClick==2&&(checkBoxSquatsConfC.isChecked()||checkBoxDeadliftClassicConfC.isChecked()||checkBoxOhpConfC.isChecked()||checkBoxBenchPressConfC.isChecked()||
                         checkBoxNarrowBenchPressConfC.isChecked()||checkBoxRisingSidewaysConfC.isChecked()||checkBoxPullingUpNarrowConfC.isChecked()||checkBoxRisingSidewaysConfC.isChecked()||
                         checkBoxBicepsConfC.isChecked()||checkBoxTricepsConfC.isChecked()||checkBoxAllahsConfC.isChecked()||checkBoxPlankConfC.isChecked()|| checkBoxCalvesConfC.isChecked()||
-                        checkBoxYRaiseConfC.isChecked()||checkBoxFacepullConfC.isChecked()){
+                        checkBoxYRaiseConfC.isChecked()||checkBoxFacepullConfC.isChecked())){
                     CustomWorkoutC();
                 }
                 else {
@@ -338,12 +341,44 @@ public class TrainingActivity extends AppCompatActivity
 
                 editor.putInt("LastWorkoutState",0).apply();
 
+            }
+        });
 
+        buttonFinishWorkoutC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calcWeightConfiguration();
+                unchekedCheckBoxes();
+                Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
+
+
+
+                if (LastClick==2&&(checkBoxSquatsConfD.isChecked()||checkBoxDeadliftClassicConfD.isChecked()||checkBoxOhpConfD.isChecked()||checkBoxBenchPressConfD.isChecked()||
+                        checkBoxNarrowBenchPressConfD.isChecked()||checkBoxRisingSidewaysConfD.isChecked()||checkBoxPullingUpNarrowConfD.isChecked()||checkBoxRisingSidewaysConfD.isChecked()||
+                        checkBoxBicepsConfD.isChecked()||checkBoxTricepsConfD.isChecked()||checkBoxAllahsConfD.isChecked()||checkBoxPlankConfD.isChecked()|| checkBoxCalvesConfD.isChecked()||
+                        checkBoxYRaiseConfD.isChecked()||checkBoxFacepullConfD.isChecked())){
+                    CustomWorkoutD();
+                }
+                else {
+                    CustomWorkout();
+                }
 
 
 
             }
         });
+
+        buttonFinishWorkoutD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calcWeightConfiguration();
+                unchekedCheckBoxes();
+                CustomWorkout();
+
+
+            }
+        });
+
 
 
         spinnerWorkouts =findViewById(R.id.spinnerWorkouts);
@@ -370,8 +405,13 @@ public class TrainingActivity extends AppCompatActivity
                         linearLayoutTrainingConfigurationC.setVisibility(View.GONE);
                         linearLayoutTrainingConfigurationD.setVisibility(View.GONE);
                         buttonSaveTrainingConfiguration.setVisibility(View.GONE);
-                        editor.putInt("LastClick",0).apply();
-                       // Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
+                        editor.putInt("LastClick",0);
+                        editor.commit();
+                        LastClick = LastSelect.getInt("LastClick",0);
+
+                        //xd=0;
+                        //StateZero();
+                        //Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
                         break;
 
                     case 1:
@@ -387,8 +427,7 @@ public class TrainingActivity extends AppCompatActivity
                         textViewTrainingD.setVisibility(View.GONE);
                         buttonSaveTrainingConfiguration.setVisibility(View.GONE);
                         calcWeightConfiguration();
-                        CustomWorkout();
-
+                        //CustomWorkout();
                         if (LastWorkoutState==0){
 
                             FbwWorkoutA();
@@ -401,7 +440,13 @@ public class TrainingActivity extends AppCompatActivity
                             //linearLayoutTrainingB.setVisibility(View.VISIBLE);
                             //linearLayoutTrainingA.setVisibility(View.GONE);
                             }
-                        editor.putInt("LastClick",1).commit();
+
+                        editor.putInt("LastClick",1);
+                        editor.commit();
+                        LastClick = LastSelect.getInt("LastClick",0);
+                        //xd=1;
+                        //editor.putInt("LastClick",1).apply();
+                        //StateOne();
                        // Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
                         break;
 
@@ -418,7 +463,13 @@ public class TrainingActivity extends AppCompatActivity
                         linearLayoutTrainingConfigurationC.setVisibility(View.GONE);
                         linearLayoutTrainingConfigurationD.setVisibility(View.GONE);
                         buttonSaveTrainingConfiguration.setVisibility(View.GONE);
-                        editor.putInt("LastClick",2).commit();
+                        editor.putInt("LastClick",2);
+                        editor.commit();
+                        LastClick = LastSelect.getInt("LastClick",0);
+                        //xd=2;
+                        //StateTwo();
+                        //editor.putInt("LastClick",2).apply();
+                        // Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
                        // Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
 
                         break;
@@ -1111,6 +1162,673 @@ public class TrainingActivity extends AppCompatActivity
         });
 
 
+        if(preferencesTrainingConf.contains("SquatsConfC") && preferencesTrainingConf.getBoolean("SquatsConfC",false) == true) {
+            checkBoxSquatsConfC.setChecked(true);
+        }else {
+            checkBoxSquatsConfC.setChecked(false);
+
+        }
+        checkBoxSquatsConfC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxSquatsConfC.isChecked()) {
+                    editor.putBoolean("SquatsConfC", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("SquatsConfC", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("DeadliftClassicConfC") && preferencesTrainingConf.getBoolean("DeadliftClassicConfC",false) == true) {
+            checkBoxDeadliftClassicConfC.setChecked(true);
+        }else {
+            checkBoxDeadliftClassicConfC.setChecked(false);
+
+        }
+        checkBoxDeadliftClassicConfC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxDeadliftClassicConfC.isChecked()) {
+                    editor.putBoolean("DeadliftClassicConfC", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("DeadliftClassicConfC", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("DeadliftClassicConfC") && preferencesTrainingConf.getBoolean("DeadliftClassicConfC",false) == true) {
+            checkBoxDeadliftClassicConfC.setChecked(true);
+        }else {
+            checkBoxDeadliftClassicConfC.setChecked(false);
+
+        }
+        checkBoxDeadliftClassicConfC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxDeadliftClassicConfC.isChecked()) {
+                    editor.putBoolean("DeadliftClassicConfC", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("DeadliftClassicConfC", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("BenchPressConfC") && preferencesTrainingConf.getBoolean("BenchPressConfC",false) == true) {
+            checkBoxBenchPressConfC.setChecked(true);
+        }else {
+            checkBoxBenchPressConfC.setChecked(false);
+
+        }
+        checkBoxBenchPressConfC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxBenchPressConfC.isChecked()) {
+                    editor.putBoolean("BenchPressConfC", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("BenchPressConfC", false);
+                    editor.apply();
+                }
+            }
+        });
+
+
+        if(preferencesTrainingConf.contains("NarrowBenchPressConfC") && preferencesTrainingConf.getBoolean("NarrowBenchPressConfC",false) == true) {
+            checkBoxNarrowBenchPressConfC.setChecked(true);
+        }else {
+            checkBoxNarrowBenchPressConfC.setChecked(false);
+
+        }
+        checkBoxNarrowBenchPressConfC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxNarrowBenchPressConfC.isChecked()) {
+                    editor.putBoolean("NarrowBenchPressConfC", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("NarrowBenchPressConfC", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("OhpConfC") && preferencesTrainingConf.getBoolean("OhpConfC",false) == true) {
+            checkBoxOhpConfC.setChecked(true);
+        }else {
+            checkBoxOhpConfC.setChecked(false);
+
+        }
+        checkBoxOhpConfC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxOhpConfC.isChecked()) {
+                    editor.putBoolean("OhpConfC", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("OhpConfC", false);
+                    editor.apply();
+                }
+            }
+        });
+
+
+        if(preferencesTrainingConf.contains("RowingConfC") && preferencesTrainingConf.getBoolean("RowingConfC",false) == true) {
+            checkBoxRowingConfC.setChecked(true);
+        }else {
+            checkBoxRowingConfC.setChecked(false);
+
+        }
+        checkBoxRowingConfC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxRowingConfC.isChecked()) {
+                    editor.putBoolean("RowingConf", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("RowingConf", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("PullingUpNarrowConfC") && preferencesTrainingConf.getBoolean("PullingUpNarrowConfC",false) == true) {
+            checkBoxPullingUpNarrowConfC.setChecked(true);
+        }else {
+            checkBoxPullingUpNarrowConfC.setChecked(false);
+
+        }
+        checkBoxPullingUpNarrowConfC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxPullingUpNarrowConfC.isChecked()) {
+                    editor.putBoolean("PullingUpNarrowConfC", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("PullingUpNarrowConfC", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("RisingSidewaysConfC") && preferencesTrainingConf.getBoolean("RisingSidewaysConfC",false) == true) {
+            checkBoxRisingSidewaysConfC.setChecked(true);
+        }else {
+            checkBoxRisingSidewaysConfC.setChecked(false);
+
+        }
+        checkBoxRisingSidewaysConfC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxRisingSidewaysConfC.isChecked()) {
+                    editor.putBoolean("RisingSidewaysConfC", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("RisingSidewaysConfC", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("BicepsConfC") && preferencesTrainingConf.getBoolean("BicepsConfC",false) == true) {
+            checkBoxBicepsConfC.setChecked(true);
+        }else {
+            checkBoxBicepsConfC.setChecked(false);
+
+        }
+        checkBoxBicepsConfC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxBicepsConfC.isChecked()) {
+                    editor.putBoolean("BicepsConfC", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("BicepsConfC", false);
+                    editor.apply();
+
+                }
+            }
+        });
+
+
+        if(preferencesTrainingConf.contains("TricepsConfC") && preferencesTrainingConf.getBoolean("TricepsConfC",false) == true) {
+            checkBoxTricepsConfC.setChecked(true);
+        }else {
+            checkBoxTricepsConfC.setChecked(false);
+
+        }
+        checkBoxTricepsConfC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxTricepsConfC.isChecked()) {
+                    editor.putBoolean("TricepsConfC", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("TricepsConfC", false);
+                    editor.apply();
+                }
+            }
+        });
+
+
+        if(preferencesTrainingConf.contains("AllahsConfC") && preferencesTrainingConf.getBoolean("AllahsConfC",false) == true) {
+            checkBoxAllahsConfC.setChecked(true);
+        }else {
+            checkBoxAllahsConfC.setChecked(false);
+
+        }
+        checkBoxAllahsConfC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxAllahsConfC.isChecked()) {
+                    editor.putBoolean("AllahsConfC", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("AllahsConfC", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("AllahsConfC") && preferencesTrainingConf.getBoolean("AllahsConfC",false) == true) {
+            checkBoxAllahsConfC.setChecked(true);
+        }else {
+            checkBoxAllahsConfC.setChecked(false);
+
+        }
+        checkBoxAllahsConfC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxAllahsConfC.isChecked()) {
+                    editor.putBoolean("AllahsConfC", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("AllahsConfC", false);
+                    editor.apply();
+                }
+            }
+        });
+
+
+        if(preferencesTrainingConf.contains("PlankConfC") && preferencesTrainingConf.getBoolean("PlankConfC",false) == true) {
+            checkBoxPlankConfC.setChecked(true);
+        }else {
+            checkBoxPlankConfC.setChecked(false);
+
+        }
+        checkBoxPlankConfC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxPlankConfC.isChecked()) {
+                    editor.putBoolean("PlankConfC", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("PlankConfC", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("CalvesConfC") && preferencesTrainingConf.getBoolean("CalvesConfC",false) == true) {
+            checkBoxCalvesConfC.setChecked(true);
+        }else {
+            checkBoxCalvesConfC.setChecked(false);
+
+        }
+        checkBoxCalvesConfC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxCalvesConfC.isChecked()) {
+                    editor.putBoolean("CalvesConfC", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("CalvesConfC", false);
+                    editor.apply();
+                }
+            }
+        });
+
+
+        if(preferencesTrainingConf.contains("YRaiseConfC") && preferencesTrainingConf.getBoolean("YRaiseConfC",false) == true) {
+            checkBoxYRaiseConfC.setChecked(true);
+        }else {
+            checkBoxYRaiseConfC.setChecked(false);
+
+        }
+        checkBoxYRaiseConfC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxYRaiseConfC.isChecked()) {
+                    editor.putBoolean("YRaiseConfC", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("YRaiseConf", false);
+                    editor.apply();
+                }
+            }
+        });
+
+
+
+
+        if(preferencesTrainingConf.contains("FacepullConfC") && preferencesTrainingConf.getBoolean("FacepullConfC",false) == true) {
+            checkBoxFacepullConfC.setChecked(true);
+        }else {
+            checkBoxFacepullConfC.setChecked(false);
+
+        }
+        checkBoxFacepullConfC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxYRaiseConf.isChecked()) {
+                    editor.putBoolean("FacepullConfC", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("FacepullConfC", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("SquatsConfD") && preferencesTrainingConf.getBoolean("SquatsConfD",false) == true) {
+            checkBoxSquatsConfC.setChecked(true);
+        }else {
+            checkBoxSquatsConfC.setChecked(false);
+
+        }
+        checkBoxSquatsConfC.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxSquatsConfC.isChecked()) {
+                    editor.putBoolean("SquatsConfD", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("SquatsConfD", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("DeadliftClassicConfD") && preferencesTrainingConf.getBoolean("DeadliftClassicConfD",false) == true) {
+            checkBoxDeadliftClassicConfD.setChecked(true);
+        }else {
+            checkBoxDeadliftClassicConfD.setChecked(false);
+
+        }
+        checkBoxDeadliftClassicConfD.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxDeadliftClassicConfD.isChecked()) {
+                    editor.putBoolean("DeadliftClassicConfD", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("DeadliftClassicConfD", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("DeadliftClassicConfD") && preferencesTrainingConf.getBoolean("DeadliftClassicConfD",false) == true) {
+            checkBoxDeadliftClassicConfD.setChecked(true);
+        }else {
+            checkBoxDeadliftClassicConfD.setChecked(false);
+
+        }
+        checkBoxDeadliftClassicConfD.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxDeadliftClassicConfD.isChecked()) {
+                    editor.putBoolean("DeadliftClassicConfD", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("DeadliftClassicConfD", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("BenchPressConfD") && preferencesTrainingConf.getBoolean("BenchPressConfD",false) == true) {
+            checkBoxBenchPressConfD.setChecked(true);
+        }else {
+            checkBoxBenchPressConfD.setChecked(false);
+
+        }
+        checkBoxBenchPressConfD.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxBenchPressConfD.isChecked()) {
+                    editor.putBoolean("BenchPressConfD", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("BenchPressConfD", false);
+                    editor.apply();
+                }
+            }
+        });
+
+
+        if(preferencesTrainingConf.contains("NarrowBenchPressConfD") && preferencesTrainingConf.getBoolean("NarrowBenchPressConfD",false) == true) {
+            checkBoxNarrowBenchPressConfD.setChecked(true);
+        }else {
+            checkBoxNarrowBenchPressConfD.setChecked(false);
+
+        }
+        checkBoxNarrowBenchPressConfD.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxNarrowBenchPressConfD.isChecked()) {
+                    editor.putBoolean("NarrowBenchPressConfD", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("NarrowBenchPressConfD", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("OhpConfD") && preferencesTrainingConf.getBoolean("OhpConfD",false) == true) {
+            checkBoxOhpConfD.setChecked(true);
+        }else {
+            checkBoxOhpConfD.setChecked(false);
+
+        }
+        checkBoxOhpConfD.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxOhpConfD.isChecked()) {
+                    editor.putBoolean("OhpConfD", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("OhpConfD", false);
+                    editor.apply();
+                }
+            }
+        });
+
+
+        if(preferencesTrainingConf.contains("RowingConfD") && preferencesTrainingConf.getBoolean("RowingConfD",false) == true) {
+            checkBoxRowingConfD.setChecked(true);
+        }else {
+            checkBoxRowingConfD.setChecked(false);
+
+        }
+        checkBoxRowingConfD.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxRowingConfD.isChecked()) {
+                    editor.putBoolean("RowingConfD", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("RowingConfD", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("PullingUpNarrowConfD") && preferencesTrainingConf.getBoolean("PullingUpNarrowConfD",false) == true) {
+            checkBoxPullingUpNarrowConfD.setChecked(true);
+        }else {
+            checkBoxPullingUpNarrowConfD.setChecked(false);
+
+        }
+        checkBoxPullingUpNarrowConfD.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxPullingUpNarrowConfD.isChecked()) {
+                    editor.putBoolean("PullingUpNarrowConfD", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("PullingUpNarrowConfD", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("RisingSidewaysConfD") && preferencesTrainingConf.getBoolean("RisingSidewaysConfD",false) == true) {
+            checkBoxRisingSidewaysConfD.setChecked(true);
+        }else {
+            checkBoxRisingSidewaysConfD.setChecked(false);
+
+        }
+        checkBoxRisingSidewaysConfD.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxRisingSidewaysConfD.isChecked()) {
+                    editor.putBoolean("RisingSidewaysConfD", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("RisingSidewaysConfD", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("BicepsConfD") && preferencesTrainingConf.getBoolean("BicepsConfD",false) == true) {
+            checkBoxBicepsConfD.setChecked(true);
+        }else {
+            checkBoxBicepsConfD.setChecked(false);
+
+        }
+        checkBoxBicepsConfD.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxBicepsConfD.isChecked()) {
+                    editor.putBoolean("BicepsConfD", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("BicepsConfD", false);
+                    editor.apply();
+
+                }
+            }
+        });
+
+
+        if(preferencesTrainingConf.contains("TricepsConfD") && preferencesTrainingConf.getBoolean("TricepsConfD",false) == true) {
+            checkBoxTricepsConfD.setChecked(true);
+        }else {
+            checkBoxTricepsConfD.setChecked(false);
+
+        }
+        checkBoxTricepsConfD.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxTricepsConfD.isChecked()) {
+                    editor.putBoolean("TricepsConfD", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("TricepsConfD", false);
+                    editor.apply();
+                }
+            }
+        });
+
+
+        if(preferencesTrainingConf.contains("AllahsConfD") && preferencesTrainingConf.getBoolean("AllahsConfD",false) == true) {
+            checkBoxAllahsConfD.setChecked(true);
+        }else {
+            checkBoxAllahsConfD.setChecked(false);
+
+        }
+        checkBoxAllahsConfD.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxAllahsConfD.isChecked()) {
+                    editor.putBoolean("AllahsConfD", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("AllahsConfD", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("AllahsConfD") && preferencesTrainingConf.getBoolean("AllahsConfD",false) == true) {
+            checkBoxAllahsConfD.setChecked(true);
+        }else {
+            checkBoxAllahsConfD.setChecked(false);
+
+        }
+        checkBoxAllahsConfD.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxAllahsConfD.isChecked()) {
+                    editor.putBoolean("AllahsConfD", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("AllahsConfD", false);
+                    editor.apply();
+                }
+            }
+        });
+
+
+        if(preferencesTrainingConf.contains("PlankConfD") && preferencesTrainingConf.getBoolean("PlankConfD",false) == true) {
+            checkBoxPlankConfD.setChecked(true);
+        }else {
+            checkBoxPlankConfD.setChecked(false);
+
+        }
+        checkBoxPlankConfD.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxPlankConfD.isChecked()) {
+                    editor.putBoolean("PlankConfD", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("PlankConfD", false);
+                    editor.apply();
+                }
+            }
+        });
+
+        if(preferencesTrainingConf.contains("CalvesConfD") && preferencesTrainingConf.getBoolean("CalvesConfD",false) == true) {
+            checkBoxCalvesConfD.setChecked(true);
+        }else {
+            checkBoxCalvesConfD.setChecked(false);
+
+        }
+        checkBoxCalvesConfD.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxCalvesConfD.isChecked()) {
+                    editor.putBoolean("CalvesConfD", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("CalvesConfD", false);
+                    editor.apply();
+                }
+            }
+        });
+
+
+        if(preferencesTrainingConf.contains("YRaiseConfD") && preferencesTrainingConf.getBoolean("YRaiseConfD",false) == true) {
+            checkBoxYRaiseConfD.setChecked(true);
+        }else {
+            checkBoxYRaiseConfD.setChecked(false);
+
+        }
+        checkBoxYRaiseConfD.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxYRaiseConfD.isChecked()) {
+                    editor.putBoolean("YRaiseConfD", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("YRaiseConfD", false);
+                    editor.apply();
+                }
+            }
+        });
+
+
+
+
+        if(preferencesTrainingConf.contains("FacepullConfD") && preferencesTrainingConf.getBoolean("FacepullConfD",false) == true) {
+            checkBoxFacepullConfD.setChecked(true);
+        }else {
+            checkBoxFacepullConfD.setChecked(false);
+
+        }
+        checkBoxFacepullConfD.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(checkBoxYRaiseConfD.isChecked()) {
+                    editor.putBoolean("FacepullConfD", true);
+                    editor.apply();
+                }else{
+                    editor.putBoolean("FacepullConfD", false);
+                    editor.apply();
+                }
+            }
+        });
+
+
 
 
         final SharedPreferences prefsMax = PreferenceManager.getDefaultSharedPreferences(this);
@@ -1421,8 +2139,20 @@ public class TrainingActivity extends AppCompatActivity
 
         });
 
-
     }
+
+
+             private void StateZero(){
+                 editor.putInt("LastClick",0).apply();
+             }
+             private void StateOne(){
+                 editor.putInt("LastClick",1).apply();
+             }
+
+             private void StateTwo(){
+                 editor.putInt("LastClick",2).apply();
+             }
+
 
              private void FbwWorkoutA() {
                  checkBoxSquats.setVisibility(View.VISIBLE);
@@ -1445,6 +2175,8 @@ public class TrainingActivity extends AppCompatActivity
                  checkBoxYRaise.setVisibility(View.GONE);
                  textViewTrainingB.setVisibility(View.GONE);
                  buttonFinishWorkoutB.setVisibility(View.GONE);
+                 buttonFinishWorkoutC.setVisibility(View.GONE);
+                 buttonFinishWorkoutD.setVisibility(View.GONE);
 
              }
 
@@ -1470,6 +2202,8 @@ public class TrainingActivity extends AppCompatActivity
                  checkBoxFacepull.setVisibility(View.GONE);
                  textViewTrainingA.setVisibility(View.GONE);
                  buttonFinishWorkout.setVisibility(View.GONE);
+                 buttonFinishWorkoutC.setVisibility(View.GONE);
+                 buttonFinishWorkoutD.setVisibility(View.GONE);
 
              }
 
@@ -1901,6 +2635,139 @@ public class TrainingActivity extends AppCompatActivity
                  }
 
                  if (LastClick==2&&checkBoxPlankConfC.isChecked()){
+                     checkBoxPlank.setVisibility(View.VISIBLE);
+                 }
+                 else {
+                     checkBoxPlank.setVisibility(View.GONE);
+                 }
+
+             }
+
+
+             private void CustomWorkoutD() {
+
+
+
+                     textViewTrainingA.setVisibility(View.GONE);
+                     textViewTrainingB.setVisibility(View.GONE);
+                     textViewTrainingC.setVisibility(View.GONE);
+                     textViewTrainingD.setVisibility(View.VISIBLE);
+                     buttonFinishWorkout.setVisibility(View.GONE);
+                     buttonFinishWorkoutB.setVisibility(View.GONE);
+                     buttonFinishWorkoutC.setVisibility(View.GONE);
+                     buttonFinishWorkoutD.setVisibility(View.VISIBLE);
+
+
+
+
+
+                 if (LastClick==2&&checkBoxSquatsConfD.isChecked()){
+                     checkBoxSquats.setVisibility(View.VISIBLE);
+                 }
+                 else {
+                     checkBoxSquats.setVisibility(View.GONE);
+                 }
+
+                 if (LastClick==2&&checkBoxBenchPressConfD.isChecked()){
+                     checkBoxBenchPress.setVisibility(View.VISIBLE);
+
+                 }
+                 else {
+                     checkBoxBenchPress.setVisibility(View.GONE);
+
+                 }
+
+                 if (LastClick==2&&checkBoxRowingConfD.isChecked()){
+                     checkBoxRowing.setVisibility(View.VISIBLE);
+
+                 }
+                 else {
+                     checkBoxRowing.setVisibility(View.GONE);
+
+                 }
+
+                 if (LastClick==2&&checkBoxRisingSidewaysConfD.isChecked()){
+                     checkBoxRisingSideways.setVisibility(View.VISIBLE);
+
+                 }
+                 else {
+                     checkBoxRisingSideways.setVisibility(View.GONE);
+
+                 }
+
+                 if (LastClick==2&&checkBoxBicepsConfD.isChecked()){
+                     checkBoxBiceps.setVisibility(View.VISIBLE);
+
+                 }
+                 else {
+                     checkBoxBiceps.setVisibility(View.GONE);
+
+                 }
+
+                 if (LastClick==2&&checkBoxTricepsConfD.isChecked()){
+                     checkBoxTriceps.setVisibility(View.VISIBLE);
+
+                 }
+                 else {
+                     checkBoxTriceps.setVisibility(View.GONE);
+                 }
+
+
+                 if (LastClick==2&&checkBoxAllahsConfD.isChecked()){
+                     checkBoxAllahs.setVisibility(View.VISIBLE);
+                 }
+                 else {
+                     checkBoxAllahs.setVisibility(View.GONE);
+                 }
+
+                 if (LastClick==2&&checkBoxCalvesConfD.isChecked()){
+                 }
+                 else {
+                     checkBoxCalves.setVisibility(View.GONE);
+                 }
+
+                 if (LastClick==2&&checkBoxFacepullConfD.isChecked()){
+                 }
+                 else {
+                     checkBoxFacepull.setVisibility(View.GONE);
+                 }
+
+                 if (LastClick==2&&checkBoxDeadliftClassicConfD.isChecked()){
+                     checkBoxDeadliftClassic.setVisibility(View.VISIBLE);
+                 }
+                 else {
+                     checkBoxDeadliftClassic.setVisibility(View.GONE);
+                 }
+
+                 if (LastClick==2&&checkBoxOhpConfD.isChecked()){
+                     checkBoxOhp.setVisibility(View.VISIBLE);
+                 }
+                 else {
+                     checkBoxOhp.setVisibility(View.GONE);
+                 }
+
+                 if (LastClick==2&&checkBoxPullingUpNarrowConfD.isChecked()){
+                     checkBoxPullingUpNarrow.setVisibility(View.VISIBLE);
+                 }
+                 else {
+                     checkBoxPullingUpNarrow.setVisibility(View.GONE);
+                 }
+
+                 if (LastClick==2&&checkBoxNarrowBenchPressConfD.isChecked()){
+                     checkBoxNarrowBenchPress.setVisibility(View.VISIBLE);
+                 }
+                 else {
+                     checkBoxNarrowBenchPress.setVisibility(View.GONE);
+                 }
+
+                 if (LastClick==2&&checkBoxYRaiseConfD.isChecked()){
+                     checkBoxYRaise.setVisibility(View.VISIBLE);
+                 }
+                 else {
+                     checkBoxYRaise.setVisibility(View.GONE);
+                 }
+
+                 if (LastClick==2&&checkBoxPlankConfD.isChecked()){
                      checkBoxPlank.setVisibility(View.VISIBLE);
                  }
                  else {
