@@ -451,7 +451,6 @@ public class TrainingActivity extends AppCompatActivity
                         break;
 
                     case 2:
-                        CustomWorkout();
                         calcWeightConfiguration();
                         //linearLayoutTrainingA.setVisibility(View.GONE);
                        // linearLayoutTrainingB.setVisibility(View.GONE);
@@ -466,6 +465,7 @@ public class TrainingActivity extends AppCompatActivity
                         editor.putInt("LastClick",2);
                         editor.commit();
                         LastClick = LastSelect.getInt("LastClick",0);
+                        CustomWorkout();
                         //xd=2;
                         //StateTwo();
                         //editor.putInt("LastClick",2).apply();
