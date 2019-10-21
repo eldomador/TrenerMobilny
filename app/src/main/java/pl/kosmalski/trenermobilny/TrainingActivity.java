@@ -212,7 +212,9 @@ public class TrainingActivity extends AppCompatActivity
         LastSelect= getSharedPreferences("LastClick", Context.MODE_PRIVATE);
         editor=LastSelect.edit();
         LastClick = LastSelect.getInt("LastClick",0);
-        final int LastWorkoutState= LastSelect.getInt("LastWorkoutState",0);
+        final int LastFbwWorkoutState= LastSelect.getInt("LastFbwWorkoutState",0);
+        final int LastCustomWorkoutState= LastSelect.getInt("LastCustomWorkoutState",0);
+
 
 
 
@@ -298,22 +300,24 @@ public class TrainingActivity extends AppCompatActivity
             public void onClick(View v) {
                 calcWeightConfiguration();
                 unchekedCheckBoxes();
-                Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
 
                 if (LastClick==1){
                     FbwWorkoutB();
+                    editor.putInt("LastFbwWorkoutState",1).commit();
                 }
                else if (LastClick==2&&(checkBoxSquatsConfB.isChecked()||checkBoxDeadliftClassicConfB.isChecked()||checkBoxOhpConfB.isChecked()||checkBoxBenchPressConfB.isChecked()||
                         checkBoxNarrowBenchPressConfB.isChecked()||checkBoxRisingSidewaysConfB.isChecked()||checkBoxPullingUpNarrowConfB.isChecked()||checkBoxRisingSidewaysConfB.isChecked()||
                         checkBoxBicepsConfB.isChecked()||checkBoxTricepsConfB.isChecked()||checkBoxAllahsConfB.isChecked()||checkBoxPlankConfB.isChecked()|| checkBoxCalvesConfB.isChecked()||
                         checkBoxYRaiseConfB.isChecked()||checkBoxFacepullConfB.isChecked())){
                     CustomWorkoutB();
+                    editor.putInt("LastCustomWorkoutState",1).commit();
                 }
                 else {
                     CustomWorkout();
+                    editor.putInt("LastCustomWorkoutState",0).commit();
                 }
 
-                editor.putInt("LastWorkoutState",1).commit();
+
 
             }
         });
@@ -323,23 +327,23 @@ public class TrainingActivity extends AppCompatActivity
             public void onClick(View v) {
                 calcWeightConfiguration();
                 unchekedCheckBoxes();
-                Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
-
 
                 if (LastClick==1){
                     FbwWorkoutA();
+                    editor.putInt("LastFbwWorkoutState",0).apply();
                 }
                 else if (LastClick==2&&(checkBoxSquatsConfC.isChecked()||checkBoxDeadliftClassicConfC.isChecked()||checkBoxOhpConfC.isChecked()||checkBoxBenchPressConfC.isChecked()||
                         checkBoxNarrowBenchPressConfC.isChecked()||checkBoxRisingSidewaysConfC.isChecked()||checkBoxPullingUpNarrowConfC.isChecked()||checkBoxRisingSidewaysConfC.isChecked()||
                         checkBoxBicepsConfC.isChecked()||checkBoxTricepsConfC.isChecked()||checkBoxAllahsConfC.isChecked()||checkBoxPlankConfC.isChecked()|| checkBoxCalvesConfC.isChecked()||
                         checkBoxYRaiseConfC.isChecked()||checkBoxFacepullConfC.isChecked())){
                     CustomWorkoutC();
+                    editor.putInt("LastCustomWorkoutState",2).commit();
                 }
                 else {
                     CustomWorkout();
+                    editor.putInt("LastCustomWorkoutState",0).commit();
                 }
 
-                editor.putInt("LastWorkoutState",0).apply();
 
             }
         });
@@ -349,21 +353,18 @@ public class TrainingActivity extends AppCompatActivity
             public void onClick(View v) {
                 calcWeightConfiguration();
                 unchekedCheckBoxes();
-                Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
-
-
 
                 if (LastClick==2&&(checkBoxSquatsConfD.isChecked()||checkBoxDeadliftClassicConfD.isChecked()||checkBoxOhpConfD.isChecked()||checkBoxBenchPressConfD.isChecked()||
                         checkBoxNarrowBenchPressConfD.isChecked()||checkBoxRisingSidewaysConfD.isChecked()||checkBoxPullingUpNarrowConfD.isChecked()||checkBoxRisingSidewaysConfD.isChecked()||
                         checkBoxBicepsConfD.isChecked()||checkBoxTricepsConfD.isChecked()||checkBoxAllahsConfD.isChecked()||checkBoxPlankConfD.isChecked()|| checkBoxCalvesConfD.isChecked()||
                         checkBoxYRaiseConfD.isChecked()||checkBoxFacepullConfD.isChecked())){
                     CustomWorkoutD();
+                    editor.putInt("LastCustomWorkoutState",3).commit();
                 }
                 else {
                     CustomWorkout();
+                    editor.putInt("LastCustomWorkoutState",0).commit();
                 }
-
-
 
             }
         });
@@ -374,8 +375,7 @@ public class TrainingActivity extends AppCompatActivity
                 calcWeightConfiguration();
                 unchekedCheckBoxes();
                 CustomWorkout();
-
-
+                editor.putInt("LastCustomWorkoutState",0).commit();
             }
         });
 
@@ -428,14 +428,14 @@ public class TrainingActivity extends AppCompatActivity
                         buttonSaveTrainingConfiguration.setVisibility(View.GONE);
                         calcWeightConfiguration();
                         //CustomWorkout();
-                        if (LastWorkoutState==0){
+                        if (LastFbwWorkoutState==0){
 
                             FbwWorkoutA();
                             //linearLayoutTrainingB.setVisibility(View.GONE);
                             //linearLayoutTrainingA.setVisibility(View.VISIBLE);
                         }
 
-                        else if (LastWorkoutState==1){
+                        else if (LastFbwWorkoutState==1){
                             FbwWorkoutB();
                             //linearLayoutTrainingB.setVisibility(View.VISIBLE);
                             //linearLayoutTrainingA.setVisibility(View.GONE);
@@ -465,7 +465,18 @@ public class TrainingActivity extends AppCompatActivity
                         editor.putInt("LastClick",2);
                         editor.commit();
                         LastClick = LastSelect.getInt("LastClick",0);
-                        CustomWorkout();
+                        if (LastCustomWorkoutState==0){
+                            CustomWorkout();
+                        }
+                        else if (LastCustomWorkoutState==1){
+                            CustomWorkoutB();
+                        }
+                        else if (LastCustomWorkoutState==2){
+                            CustomWorkoutC();
+                        }
+                        else if (LastCustomWorkoutState==3){
+                            CustomWorkoutD();
+                        }
                         //xd=2;
                         //StateTwo();
                         //editor.putInt("LastClick",2).apply();
@@ -3213,7 +3224,4 @@ public class TrainingActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
-
 }
