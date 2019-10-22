@@ -9,178 +9,178 @@
     tools:showIn="@layout/app_bar_main">
 
     <ScrollView
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+
+    >
+
+    <TextView
+        android:id="@+id/textViewSex"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:text="@string/Pleć" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+    <RadioGroup
+        android:id="@+id/radioGroupSex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!--android:padding="15dp"-->
+
+        <RadioButton
+            android:id="@+id/radioButtonMale"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_weight="1"
+            android:text="@string/Mezczyzna" />
+
+        <RadioButton
+            android:id="@+id/radioButtonFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Kobieta" />
+
+        <!--android:paddingRight="10dp"-->
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textViewAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/Wiek" />
+
+    <EditText
+        android:id="@+id/editTextAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textViewHeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Wzrost" />
+
+    <EditText
+        android:id="@+id/editTextHeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textViewWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Waga" />
+
+    <EditText
+        android:id="@+id/editTextWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/WagęChcę" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupWeightPreferences"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">>
+
+        <RadioButton
+            android:id="@+id/radioButtonDecrease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Zmiejszyć" />
+
+        <RadioButton
+            android:id="@+id/radioButtonMaintain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Utrzymać" />
+
+        <RadioButton
+            android:id="@+id/radioButtonIncrease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Zwiększyć" />
+    </RadioGroup>
 
 
-            >
+    <!--<CheckBox-->
+    <!--android:id="@+id/checkBoxMusculature"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/ChcePM"-->
+    <!--android:visibility="visible" />-->
 
-            <TextView
-                android:id="@+id/textViewSex"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/Pleć" />
+    <!--<TextView-->
+    <!--android:id="@+id/textViewTrainingPreferences"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/ChceCw"-->
+    <!--android:visibility="visible" />-->
 
-            <RadioGroup
-                android:id="@+id/radioGroupSex"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+    <!--<RadioGroup-->
+    <!--android:id="@+id/radioGroupTrainingPreferences"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:visibility="visible">>-->
 
-                <!--android:padding="15dp"-->
+    <!--<RadioButton-->
+    <!--android:id="@+id/radioButtonGym"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:text="@string/NaSilowni" />-->
 
-                <RadioButton
-                    android:id="@+id/radioButtonMale"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/Mezczyzna" />
+    <!--<RadioButton-->
+    <!--android:id="@+id/radioButtonStreetWorkout"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:text="@string/WPSW" />-->
 
-                <RadioButton
-                    android:id="@+id/radioButtonFemale"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/Kobieta" />
-
-                <!--android:paddingRight="10dp"-->
-
-            </RadioGroup>
-
-            <TextView
-                android:id="@+id/textViewAge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/Wiek" />
-
-            <EditText
-                android:id="@+id/editTextAge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="number" />
-
-            <TextView
-                android:id="@+id/textViewHeight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/Wzrost" />
-
-            <EditText
-                android:id="@+id/editTextHeight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="number" />
-
-            <TextView
-                android:id="@+id/textViewWeight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/Waga" />
-
-            <EditText
-                android:id="@+id/editTextWeight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="number" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/WagęChcę" />
-
-            <RadioGroup
-                android:id="@+id/radioGroupWeightPreferences"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">>
-
-                <RadioButton
-                    android:id="@+id/radioButtonDecrease"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/Zmiejszyć" />
-
-                <RadioButton
-                    android:id="@+id/radioButtonMaintain"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/Utrzymać" />
-
-                <RadioButton
-                    android:id="@+id/radioButtonIncrease"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/Zwiększyć" />
-            </RadioGroup>
+    <!--<RadioButton-->
+    <!--android:id="@+id/radioButtonHome"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:text="@string/WDomu" />-->
+    <!--</RadioGroup>-->
 
 
-            <!--<CheckBox-->
-            <!--android:id="@+id/checkBoxMusculature"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/ChcePM"-->
-            <!--android:visibility="visible" />-->
-
-            <!--<TextView-->
-                <!--android:id="@+id/textViewTrainingPreferences"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@string/ChceCw"-->
-                <!--android:visibility="visible" />-->
-
-            <!--<RadioGroup-->
-                <!--android:id="@+id/radioGroupTrainingPreferences"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:orientation="horizontal"-->
-                <!--android:visibility="visible">>-->
-
-                <!--<RadioButton-->
-                    <!--android:id="@+id/radioButtonGym"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_weight="1"-->
-                    <!--android:text="@string/NaSilowni" />-->
-
-                <!--<RadioButton-->
-                    <!--android:id="@+id/radioButtonStreetWorkout"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_weight="1"-->
-                    <!--android:text="@string/WPSW" />-->
-
-                <!--<RadioButton-->
-                    <!--android:id="@+id/radioButtonHome"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_weight="1"-->
-                    <!--android:text="@string/WDomu" />-->
-            <!--</RadioGroup>-->
+    <!--<CheckBox-->
+    <!--android:id="@+id/checkBoxCondition"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/ChcePK"-->
+    <!--android:visibility="visible" />-->
 
 
-            <!--<CheckBox-->
-                <!--android:id="@+id/checkBoxCondition"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@string/ChcePK"-->
-                <!--android:visibility="visible" />-->
+</LinearLayout>
+</ScrollView>
 
 
-        </LinearLayout>
-    </ScrollView>
-
-
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>

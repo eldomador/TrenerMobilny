@@ -249,6 +249,13 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/textViewTrainingA2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/TreningA" />
+
                 <CheckBox
                     android:id="@+id/checkBoxSquatsConf"
                     android:layout_width="match_parent"
@@ -402,6 +409,13 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewTrainingB2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/TreningB" />
 
                 <CheckBox
                     android:id="@+id/checkBoxSquatsConfB"
@@ -557,6 +571,13 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/textViewTrainingC2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/TreningC" />
+
                 <CheckBox
                     android:id="@+id/checkBoxSquatsConfC"
                     android:layout_width="match_parent"
@@ -710,6 +731,13 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewTrainingD2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/TreningD" />
 
                 <CheckBox
                     android:id="@+id/checkBoxSquatsConfD"

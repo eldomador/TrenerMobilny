@@ -8,4 +8,30 @@
     tools:context=".DietActivity"
     tools:showIn="@layout/app_bar_diet">
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <EditText
+                android:id="@+id/editTextName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+          />
+
+            <Button
+                android:id="@+id/buttonAdd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add" />
+
+        </LinearLayout>
+    </ScrollView>
+
 </android.support.constraint.ConstraintLayout>
