@@ -23,13 +23,50 @@
                 android:id="@+id/editTextName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-          />
+                android:hint="Nazwa produktu" />
+
+            <EditText
+                android:id="@+id/editTextKcal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Kcal"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/editTextProtein"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Białko"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/editTextFat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Tłuszcze"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/editTextCarb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Węglowdany"
+                android:inputType="numberDecimal" />
 
             <Button
                 android:id="@+id/buttonAdd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Add" />
+                android:text="Dodaj" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recylerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
         </LinearLayout>
     </ScrollView>
