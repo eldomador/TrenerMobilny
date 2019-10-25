@@ -63,10 +63,29 @@
                 android:layout_height="wrap_content"
                 android:text="Dodaj" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recylerView"
+            <Button
+                android:id="@+id/buttonDelete"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content"
+                android:text="Usuń" />
+
+            <Button
+                android:id="@+id/buttonUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aktualizuj" />
+
+            <Button
+                android:id="@+id/buttonShow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pokaż prdukty" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
 
         </LinearLayout>
     </ScrollView>
