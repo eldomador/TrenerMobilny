@@ -41,7 +41,7 @@ public class DietActivity extends AppCompatActivity
     private DietAdapter mAdapter;
     private DailyDietAdapter mdAdapter;
     private String stringSearch;
-    private float proteinSum=0,fatSum=0,carbSum=0,kcalSum=0,age=0,height=0,weight=0;
+    private float proteinSum=0,fatSum=0,carbSum=0,kcalSum=0,age=0,height=0,weight=0,kcalmax=0;
     private boolean male,female,weightDecrease,weightMaintain,weightIncrease;
     private EditText editTextName,editTextKcal,editTextProtein,editTextFat,editTextCarb,editTextSearch,editTextGram;
     private TextView textViewKcalSum,textViewProteinSum,textViewFatSum,textViewCarbSum;
@@ -107,9 +107,6 @@ public class DietActivity extends AppCompatActivity
 
 
 
-
-
-
         DailyDietDBHelper dailyDietDBHelper = new DailyDietDBHelper(this);
         mdDatabase = dailyDietDBHelper.getWritableDatabase();
 
@@ -143,13 +140,19 @@ public class DietActivity extends AppCompatActivity
         proteinSum = prefs.getFloat("protein", 0.0f);
         fatSum = prefs.getFloat("fat", 0.0f);
         carbSum = prefs.getFloat("carb", 0.0f);
+
         age = Float.parseFloat(prefs.getString("autoSaveAge", ""));
         height = Float.parseFloat(prefs.getString("autoSaveHeight", ""));
         weight = Float.parseFloat(prefs.getString("autoSaveWeight", ""));
-        male  = prefs.getBoolean("ButtonStateMale", false);
-//        ,female,weightDecrease,weightMaintain,weightIncrease;
 
-        Toast.makeText(getApplicationContext(),"Chłop: "+male,Toast.LENGTH_LONG).show();
+        male  = prefs.getBoolean("ButtonStateMale", false);
+        female = prefs.getBoolean("ButtonStateFemale", false);
+
+        weightDecrease = prefs.getBoolean("ButtonStateDecrease", false);
+        weightMaintain = prefs.getBoolean("ButtonStateMaintain", false);
+        weightIncrease = prefs.getBoolean("ButtonStateIncrease", false);
+//        Toast.makeText(getApplicationContext(),"mniej "+weightDecrease+" nic "+weightMaintain+" wiecej "+weightIncrease,Toast.LENGTH_LONG).show();
+
 
         editTextSearch = findViewById(R.id.editTextSearch);
         editTextName = findViewById(R.id.editTextName);
@@ -167,10 +170,20 @@ public class DietActivity extends AppCompatActivity
         linearLayoutSearch = findViewById(R.id.linearLayoutSearch);
         linearLayoutAddModule = findViewById(R.id.linearLayoutAddModule);
         linearLayoutAddModule.setVisibility(View.GONE);
-        textViewKcalSum.setText("kcal: "+kcalSum);
         textViewProteinSum.setText("białko: "+proteinSum);
         textViewFatSum.setText("tłuszcze: "+fatSum);
         textViewCarbSum.setText("węglowodany: "+carbSum);
+
+
+        if (weight != 0 && height != 0 && age != 0 && male) {
+            kcalmax = 66 + (13.7f *weight) + (5 * height) - (6.76f * age);
+            textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
+        }
+
+        else if (weight != 0 && height != 0 && age != 0 && female) {
+            kcalmax =655 +(9.6f *weight)+(1.8f *height)-(4.7f* age);
+            textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
+        }
 
 
         buttonAddCustom.setOnClickListener(new View.OnClickListener() {
@@ -262,7 +275,7 @@ public class DietActivity extends AppCompatActivity
         kcalSum = kcalSum - kcal ;
         editor.putFloat("kcal", kcalSum);
         editor.commit();
-        textViewKcalSum.setText("kcal: "+kcalSum);
+        textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
 
         proteinSum = prefs.getFloat("protein", 0.0f);
         proteinSum = proteinSum - protein ;
@@ -316,7 +329,7 @@ public class DietActivity extends AppCompatActivity
         kcalSum = kcalSum + kcalDaily ;
         editor.putFloat("kcal", kcalSum);
         editor.commit();
-        textViewKcalSum.setText("kcal: "+kcalSum);
+        textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
 
         proteinSum = prefs.getFloat("protein", 0.0f);
         proteinSum = proteinSum + proteinDaily ;
