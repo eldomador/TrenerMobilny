@@ -30,6 +30,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+     private SharedPreferences prefs;
 
 //    private TextView trainingPreferences ;
 //    private CheckBox checkBoxMusculature;
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity
 
 
         // helper method to open up the file.
-        sharedpreferences = getSharedPreferences(MyPreferences, Context.MODE_PRIVATE);
+        sharedpreferences = getSharedPreferences("prefs", 0);
         // grab the last saved state here on each activity start
         Boolean lastButtonStateMale = sharedpreferences.getBoolean(ButtonStateMale, false);
         Boolean lastButtonStateFemale = sharedpreferences.getBoolean(ButtonStateFemale, false);
@@ -303,12 +304,9 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        final SharedPreferences prefsAge = PreferenceManager
-                .getDefaultSharedPreferences(this);
-
-
+        prefs = getSharedPreferences("prefs", 0);
         EditText age = (EditText) findViewById(R.id.editTextAge);
-        age.setText(prefsAge.getString("autoSaveAge", ""));
+        age.setText(prefs.getString("autoSaveAge", ""));
         age.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before,
@@ -325,16 +323,15 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void afterTextChanged(Editable s)
             {
-                prefsAge.edit().putString("autoSaveAge", s.toString()).apply();
+                prefs.edit().putString("autoSaveAge", s.toString()).apply();
             }
         });
 
 
-        final SharedPreferences prefsHeight = PreferenceManager
-                .getDefaultSharedPreferences(this);
+
 
         EditText height = (EditText) findViewById(R.id.editTextHeight);
-        height.setText(prefsHeight.getString("autoSaveHeight", ""));
+        height.setText(prefs.getString("autoSaveHeight", ""));
         height.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before,
@@ -351,15 +348,13 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void afterTextChanged(Editable s)
             {
-                prefsHeight.edit().putString("autoSaveHeight", s.toString()).apply();
+                prefs.edit().putString("autoSaveHeight", s.toString()).apply();
             }
         });
 
-        final SharedPreferences prefsWeight = PreferenceManager
-                .getDefaultSharedPreferences(this);
 
         EditText weight = (EditText) findViewById(R.id.editTextWeight);
-        weight.setText(prefsWeight.getString("autoSaveWeight", ""));
+        weight.setText(prefs.getString("autoSaveWeight", ""));
         weight.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before,
@@ -376,7 +371,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void afterTextChanged(Editable s)
             {
-                prefsWeight.edit().putString("autoSaveWeight", s.toString()).apply();
+                prefs.edit().putString("autoSaveWeight", s.toString()).apply();
             }
         });
 

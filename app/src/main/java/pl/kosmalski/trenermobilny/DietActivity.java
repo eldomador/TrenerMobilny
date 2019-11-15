@@ -41,7 +41,8 @@ public class DietActivity extends AppCompatActivity
     private DietAdapter mAdapter;
     private DailyDietAdapter mdAdapter;
     private String stringSearch;
-    private float proteinSum=0,fatSum=0,carbSum=0,kcalSum=0;
+    private float proteinSum=0,fatSum=0,carbSum=0,kcalSum=0,age=0,height=0,weight=0;
+    private boolean male,female,weightDecrease,weightMaintain,weightIncrease;
     private EditText editTextName,editTextKcal,editTextProtein,editTextFat,editTextCarb,editTextSearch,editTextGram;
     private TextView textViewKcalSum,textViewProteinSum,textViewFatSum,textViewCarbSum;
     private LinearLayout linearLayoutSearch,linearLayoutAddModule;
@@ -142,7 +143,13 @@ public class DietActivity extends AppCompatActivity
         proteinSum = prefs.getFloat("protein", 0.0f);
         fatSum = prefs.getFloat("fat", 0.0f);
         carbSum = prefs.getFloat("carb", 0.0f);
+        age = Float.parseFloat(prefs.getString("autoSaveAge", ""));
+        height = Float.parseFloat(prefs.getString("autoSaveHeight", ""));
+        weight = Float.parseFloat(prefs.getString("autoSaveWeight", ""));
+        male  = prefs.getBoolean("ButtonStateMale", false);
+//        ,female,weightDecrease,weightMaintain,weightIncrease;
 
+        Toast.makeText(getApplicationContext(),"Chłop: "+male,Toast.LENGTH_LONG).show();
 
         editTextSearch = findViewById(R.id.editTextSearch);
         editTextName = findViewById(R.id.editTextName);
