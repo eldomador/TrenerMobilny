@@ -19,73 +19,130 @@
             android:orientation="vertical">
 
 
-            <EditText
-                android:id="@+id/editTextName"
+            <LinearLayout
+                android:id="@+id/linearLayoutSearch"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Nazwa produktu" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/editTextSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Znajdź produkt"
+                    android:inputType="textCapSentences|textAutoCorrect" />
+
+                <Button
+                    android:id="@+id/buttonAddCustomProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Dodaj własny" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutAddModule"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:visibility="visible">
+
+                <EditText
+                    android:id="@+id/editTextName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nazwa produktu"
+                    android:inputType="textCapSentences|textAutoCorrect" />
+
+                <EditText
+                    android:id="@+id/editTextKcal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Kcal"
+                    android:inputType="numberDecimal" />
+
+                <EditText
+                    android:id="@+id/editTextProtein"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Białko"
+                    android:inputType="numberDecimal" />
+
+                <EditText
+                    android:id="@+id/editTextFat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Tłuszcze"
+                    android:inputType="numberDecimal" />
+
+                <EditText
+                    android:id="@+id/editTextCarb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Węglowdany"
+                    android:inputType="numberDecimal" />
+
+                <Button
+                    android:id="@+id/buttonAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" Dodaj" />
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+            </android.support.v7.widget.RecyclerView>
 
             <EditText
-                android:id="@+id/editTextKcal"
+                android:id="@+id/editTextGram"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Kcal"
+                android:hint="100 gram"
                 android:inputType="numberDecimal" />
-
-            <EditText
-                android:id="@+id/editTextProtein"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Białko"
-                android:inputType="numberDecimal" />
-
-            <EditText
-                android:id="@+id/editTextFat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Tłuszcze"
-                android:inputType="numberDecimal" />
-
-            <EditText
-                android:id="@+id/editTextCarb"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Węglowdany"
-                android:inputType="numberDecimal" />
-
-            <Button
-                android:id="@+id/buttonAdd"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Dodaj" />
-
-            <Button
-                android:id="@+id/buttonDelete"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Usuń" />
-
-            <Button
-                android:id="@+id/buttonUpdate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Aktualizuj" />
-
-            <Button
-                android:id="@+id/buttonShow"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Pokaż prdukty" />
 
             <TextView
                 android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dieta dzienna" />
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerviewDaily"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+            </android.support.v7.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/textViewKcalSum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="kal:" />
+
+            <TextView
+                android:id="@+id/textViewProteinSum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="białko:" />
+
+            <TextView
+                android:id="@+id/textViewfatSum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="tłuszcze:" />
+
+            <TextView
+                android:id="@+id/textViewCarbSum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="węglowodany:" />
 
         </LinearLayout>
     </ScrollView>
