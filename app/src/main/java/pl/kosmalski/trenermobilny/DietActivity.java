@@ -33,6 +33,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.math.BigDecimal;
+
 
 public class DietActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -272,10 +274,11 @@ public class DietActivity extends AppCompatActivity
 
 
         kcalSum = prefs.getFloat("kcal", 0.0f);
-        kcalSum = kcalSum - kcal ;
+        kcalSum = (float) round( kcalSum - kcal, 3, BigDecimal.ROUND_HALF_UP);
         editor.putFloat("kcal", kcalSum);
         editor.commit();
         textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
+
 
         proteinSum = prefs.getFloat("protein", 0.0f);
         proteinSum = proteinSum - protein ;
@@ -323,13 +326,18 @@ public class DietActivity extends AppCompatActivity
         float proteinDaily = (protein/100)*gram;
         float fatDaily = (fat/100)*gram;
         float carbDaily = (carb/100)*gram;
-        float kcalDaily = proteinDaily*4+fatDaily*9+carbDaily *4;
+        float kcalDaily = (float) round(proteinDaily*4+fatDaily*9+carbDaily *4, 3, BigDecimal.ROUND_HALF_UP);
+
+
+
 
         kcalSum = prefs.getFloat("kcal", 0.0f);
-        kcalSum = kcalSum + kcalDaily ;
+        kcalSum = (float) round(kcalSum + kcalDaily, 3, BigDecimal.ROUND_HALF_UP);
         editor.putFloat("kcal", kcalSum);
         editor.commit();
         textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
+
+
 
         proteinSum = prefs.getFloat("protein", 0.0f);
         proteinSum = proteinSum + proteinDaily ;
@@ -407,6 +415,13 @@ public class DietActivity extends AppCompatActivity
     }
 
 
+
+    public static double round(double unrounded, int precision, int roundingMode)
+    {
+        BigDecimal bd = new BigDecimal(unrounded);
+        BigDecimal rounded = bd.setScale(precision, roundingMode);
+        return rounded.doubleValue();
+    }
 
     @Override
     public void onBackPressed() {
