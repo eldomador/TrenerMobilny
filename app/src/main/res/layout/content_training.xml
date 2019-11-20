@@ -266,6 +266,35 @@
                     android:text="@string/Przysiady"
                     android:visibility="visible" />
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeries"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="@string/Serie"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextReps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/Powtórzenia"
+                        android:inputType="number" />
+                </LinearLayout>
+
                 <CheckBox
                     android:id="@+id/checkBoxDeadliftClassicConf"
                     android:layout_width="match_parent"
