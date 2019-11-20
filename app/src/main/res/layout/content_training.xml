@@ -293,6 +293,22 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/Powtórzenia"
                         android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgression"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Progresja"
+                        android:inputType="numberDecimal" />
+
                 </LinearLayout>
 
                 <CheckBox
