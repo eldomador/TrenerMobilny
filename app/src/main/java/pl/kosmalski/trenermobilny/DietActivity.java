@@ -253,6 +253,73 @@ public class DietActivity extends AppCompatActivity
         linearLayoutSearch.setVisibility(View.VISIBLE);
     }
 
+    private void addItemMF(long id) {
+
+        String name = " ";
+        float gram =  Float.parseFloat(editTextGram.getText().toString());
+        float kcal = 0;
+        float protein = 0;
+        float fat = 0;
+        float carb = 0;
+        Cursor csr = mDatabase.query(DietContract.DietEntry.TABLE_NAME,null,"_ID="+id,null,null,null,null);
+        if (csr.moveToFirst()) {
+            name = csr.getString(csr.getColumnIndex(DietContract.DietEntry.COLUMN_NAME));
+            kcal = csr.getFloat(csr.getColumnIndex(DietContract.DietEntry.COLUMN_KCAL));
+            protein = csr.getFloat(csr.getColumnIndex(DietContract.DietEntry.COLUMN_PROTEIN));
+            fat = csr.getFloat(csr.getColumnIndex(DietContract.DietEntry.COLUMN_FAT));
+            carb = csr.getFloat(csr.getColumnIndex(DietContract.DietEntry.COLUMN_CARB));
+        }
+
+        float proteinDaily = (float) round((protein/100)*gram, 3, BigDecimal.ROUND_HALF_UP);
+        float fatDaily = (float) round((fat/100)*gram, 3, BigDecimal.ROUND_HALF_UP);
+        float carbDaily = (float) round((carb/100)*gram, 3, BigDecimal.ROUND_HALF_UP);
+        float kcalDaily = (float) round(proteinDaily*4+fatDaily*9+carbDaily *4, 3, BigDecimal.ROUND_HALF_UP);
+
+
+
+
+        kcalSum = prefs.getFloat("kcal", 0.0f);
+        kcalSum = (float) round(kcalSum + kcalDaily, 3, BigDecimal.ROUND_HALF_UP);
+        editor.putFloat("kcal", kcalSum);
+        editor.commit();
+        textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
+
+
+
+        proteinSum = prefs.getFloat("protein", 0.0f);
+        proteinSum = (float) round(proteinSum + proteinDaily, 3, BigDecimal.ROUND_HALF_UP);
+        editor.putFloat("protein", proteinSum);
+        editor.commit();
+        textViewProteinSum.setText("białko: "+proteinSum);
+
+        fatSum = prefs.getFloat("fat", 0.0f);
+        fatSum = (float) round(fatSum + fatDaily, 3, BigDecimal.ROUND_HALF_UP);
+        editor.putFloat("fat", fatSum);
+        editor.commit();
+        textViewFatSum.setText("tłuszcze: "+fatSum);
+
+
+        carbSum = prefs.getFloat("carb", 0.0f);
+        carbSum = (float) round(carbSum +carbDaily, 3, BigDecimal.ROUND_HALF_UP);
+        editor.putFloat("carb", carbSum);
+        editor.commit();
+        textViewCarbSum.setText("węglowodant: "+carbSum);
+
+
+        ContentValues cv = new ContentValues();
+        cv.put(DailyDietContract.DietEntry.COLUMN_NAME, name);
+        cv.put(DailyDietContract.DietEntry.COLUMN_KCAL, kcalDaily);
+        cv.put(DailyDietContract.DietEntry.COLUMN_PROTEIN, proteinDaily);
+        cv.put(DailyDietContract.DietEntry.COLUMN_FAT, fatDaily);
+        cv.put(DailyDietContract.DietEntry.COLUMN_CARB, carbDaily);
+        cv.put(DailyDietContract.DietEntry.COLUMN_GRAM, gram);
+        mdDatabase.insert(DailyDietContract.DietEntry.TABLE_NAME,
+                null, cv);
+        mdAdapter.swapCursor(getAllDailyItems());
+        Toast.makeText(getApplicationContext(),"Dodano "+name+kcal+protein+fat+carb,Toast.LENGTH_LONG).show();
+        mAdapter.swapCursor(getAllItems());
+    }
+
     private void removeItem(long id) {
         mDatabase.delete(DietContract.DietEntry.TABLE_NAME,
                 DietContract.DietEntry._ID + "=" + id, null);
@@ -281,22 +348,25 @@ public class DietActivity extends AppCompatActivity
 
 
         proteinSum = prefs.getFloat("protein", 0.0f);
-        proteinSum = proteinSum - protein ;
+        proteinSum = (float) round( proteinSum - protein, 3, BigDecimal.ROUND_HALF_UP);
         editor.putFloat("protein", proteinSum);
         editor.commit();
         textViewProteinSum.setText("białko: "+proteinSum);
 
+
         fatSum = prefs.getFloat("fat", 0.0f);
-        fatSum = fatSum - fat ;
+        fatSum = (float) round( fatSum - fat, 3, BigDecimal.ROUND_HALF_UP);
         editor.putFloat("fat", fatSum);
         editor.commit();
         textViewFatSum.setText("tłuszcze: "+fatSum);
 
+
         carbSum = prefs.getFloat("carb", 0.0f);
-        carbSum = carbSum - carb ;
+        carbSum = (float) round( carbSum - carb, 3, BigDecimal.ROUND_HALF_UP);
         editor.putFloat("carb",carbSum);
         editor.commit();
         textViewCarbSum.setText("węglowodany: "+carbSum);
+
 
 
         mdDatabase.delete(DailyDietContract.DietEntry.TABLE_NAME,
@@ -306,70 +376,7 @@ public class DietActivity extends AppCompatActivity
 
     }
 
-    private void addItemMF(long id) {
 
-        String name = " ";
-        float gram =  Float.parseFloat(editTextGram.getText().toString());
-        float kcal = 0;
-        float protein = 0;
-        float fat = 0;
-        float carb = 0;
-        Cursor csr = mDatabase.query(DietContract.DietEntry.TABLE_NAME,null,"_ID="+id,null,null,null,null);
-        if (csr.moveToFirst()) {
-            name = csr.getString(csr.getColumnIndex(DietContract.DietEntry.COLUMN_NAME));
-            kcal = csr.getFloat(csr.getColumnIndex(DietContract.DietEntry.COLUMN_KCAL));
-            protein = csr.getFloat(csr.getColumnIndex(DietContract.DietEntry.COLUMN_PROTEIN));
-            fat = csr.getFloat(csr.getColumnIndex(DietContract.DietEntry.COLUMN_FAT));
-            carb = csr.getFloat(csr.getColumnIndex(DietContract.DietEntry.COLUMN_CARB));
-        }
-
-        float proteinDaily = (protein/100)*gram;
-        float fatDaily = (fat/100)*gram;
-        float carbDaily = (carb/100)*gram;
-        float kcalDaily = (float) round(proteinDaily*4+fatDaily*9+carbDaily *4, 3, BigDecimal.ROUND_HALF_UP);
-
-
-
-
-        kcalSum = prefs.getFloat("kcal", 0.0f);
-        kcalSum = (float) round(kcalSum + kcalDaily, 3, BigDecimal.ROUND_HALF_UP);
-        editor.putFloat("kcal", kcalSum);
-        editor.commit();
-        textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
-
-
-
-        proteinSum = prefs.getFloat("protein", 0.0f);
-        proteinSum = proteinSum + proteinDaily ;
-        editor.putFloat("protein", proteinSum);
-        editor.commit();
-        textViewProteinSum.setText("białko: "+proteinSum);
-
-        fatSum = prefs.getFloat("fat", 0.0f);
-        fatSum = fatSum + fatDaily ;
-        editor.putFloat("fat", fatSum);
-        editor.commit();
-        textViewFatSum.setText("tłuszcze: "+fatSum);
-
-        carbSum = prefs.getFloat("carb", 0.0f);
-        carbSum = carbSum +carbDaily ;
-        editor.putFloat("carb", carbSum);
-        editor.commit();
-        textViewCarbSum.setText("węglowodant: "+carbSum);
-
-        ContentValues cv = new ContentValues();
-        cv.put(DailyDietContract.DietEntry.COLUMN_NAME, name);
-        cv.put(DailyDietContract.DietEntry.COLUMN_KCAL, kcalDaily);
-        cv.put(DailyDietContract.DietEntry.COLUMN_PROTEIN, proteinDaily);
-        cv.put(DailyDietContract.DietEntry.COLUMN_FAT, fatDaily);
-        cv.put(DailyDietContract.DietEntry.COLUMN_CARB, carbDaily);
-        cv.put(DailyDietContract.DietEntry.COLUMN_GRAM, gram);
-        mdDatabase.insert(DailyDietContract.DietEntry.TABLE_NAME,
-                null, cv);
-        mdAdapter.swapCursor(getAllDailyItems());
-        Toast.makeText(getApplicationContext(),"Dodano "+name+kcal+protein+fat+carb,Toast.LENGTH_LONG).show();
-        mAdapter.swapCursor(getAllItems());
-    }
 
 
 
