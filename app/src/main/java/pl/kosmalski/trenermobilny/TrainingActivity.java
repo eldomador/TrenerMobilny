@@ -30,6 +30,8 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
+
 public class TrainingActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
          {
@@ -53,10 +55,10 @@ public class TrainingActivity extends AppCompatActivity
             checkBoxPlankConfD;
     private TextView textViewTrainingA,textViewTrainingB,textViewTrainingC,textViewTrainingD,textViewX,textViewPlus;
     private EditText editTextSquat,editTextBenchPress,editTextRowing,editTextRisingSideways,editTextBiceps,editTextTriceps,editTextAllahs,editTextFacepull,editTextDeadliftClassic,
-            editTextOhp,editTextPullingUpNarrow,editTextNarrowBenchPress,editTextYRaise,editTextSeries,editTextReps,editTextProgression;
+            editTextOhp,editTextPullingUpNarrow,editTextNarrowBenchPress,editTextYRaise, editTextSeriesSquat, editTextRepsSquat, editTextProgressionSquat;
     private Button buttonWeightConfiguration,buttonTrainingConfiguration,buttonSaveWeightConfiguration,buttonFinishWorkout,buttonFinishWorkoutB,buttonFinishWorkoutC,buttonFinishWorkoutD,
             buttonSaveTrainingConfiguration,buttonNextTrainingConfiguration,buttonNextTrainingConfigurationB,buttonNextTrainingConfigurationC;
-    private int LastClick, series, reps;
+    private int LastClick, seriesSquat, repsSquat;
     private float progression;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -182,8 +184,8 @@ public class TrainingActivity extends AppCompatActivity
         textViewTrainingB =(TextView)findViewById(R.id.textViewTrainingB);
         textViewTrainingC =(TextView)findViewById(R.id.textViewTrainingC);
         textViewTrainingD =(TextView)findViewById(R.id.textViewTrainingD);
-        textViewX =(TextView)findViewById(R.id.textViewX);
-        textViewPlus =(TextView)findViewById(R.id.textViewPlus);
+        textViewX =(TextView)findViewById(R.id.textViewXSquat);
+        textViewPlus =(TextView)findViewById(R.id.textViewPlusSquat);
 
 
         editTextSquat = (EditText)findViewById(R.id.editTextSquat);
@@ -199,9 +201,9 @@ public class TrainingActivity extends AppCompatActivity
         editTextPullingUpNarrow = (EditText)findViewById(R.id.editTextPullingUpNarrow);
         editTextNarrowBenchPress = (EditText)findViewById(R.id.editTextNarrowBenchPress);
         editTextYRaise = (EditText)findViewById(R.id.editTextYRaise);
-        editTextSeries = (EditText)findViewById(R.id.editTextSeries);
-        editTextReps = (EditText)findViewById(R.id.editTextReps);
-        editTextProgression = (EditText)findViewById(R.id.editTextProgression);
+        editTextSeriesSquat = (EditText)findViewById(R.id.editTextSeriesSquat);
+        editTextRepsSquat = (EditText)findViewById(R.id.editTextRepsSquat);
+        editTextProgressionSquat = (EditText)findViewById(R.id.editTextProgressionSquat);
 
 
         prefs = getSharedPreferences("LastClick", Context.MODE_PRIVATE);
@@ -2829,20 +2831,20 @@ public class TrainingActivity extends AppCompatActivity
 
                  if (editTextSquat.getText().length() != 0 && checkBoxSquats.isChecked() && LastClick==2){
                      double n1 = Double.parseDouble(editTextSquat.getText().toString());
-                     double nSeries = Math.round((n1*0.80)+progression);
+                     double nSeries = round((n1*0.80)+progression, 3, BigDecimal.ROUND_HALF_UP);
                      double nMax = Math.round((nSeries/80)*100);
 
-                     checkBoxSquats.setText("Przysiady"+series+" x "+reps+" x "+nSeries+"kg");
+                     checkBoxSquats.setText("Przysiady "+ seriesSquat +" x "+ repsSquat +" x "+nSeries+"kg");
                      editTextSquat.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
                  else if (editTextSquat.getText().length() != 0 && !checkBoxSquats.isChecked() && LastClick==2){
                      double n1 = Double.parseDouble(editTextSquat.getText().toString());
-                     double nSeries = Math.round(n1*0.80);
+                     double nSeries = round((n1*0.80), 3, BigDecimal.ROUND_HALF_UP);
 //                     double nMax = Math.round((nSeries/80)*100);
 
-                     checkBoxSquats.setText("Przysiady"+series+" x "+reps+" x "+nSeries+"kg");
+                     checkBoxSquats.setText("Przysiady "+ seriesSquat +" x "+ repsSquat +" x "+nSeries+"kg");
 //                     editTextSquat.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
@@ -3188,35 +3190,42 @@ public class TrainingActivity extends AppCompatActivity
 
              private void customWorkoutPrefs() {
 
-                 series = Integer.parseInt(editTextSeries.getText().toString());
-                 editor.putInt("Series",series);
+                 seriesSquat = Integer.parseInt(editTextSeriesSquat.getText().toString());
+                 editor.putInt("Series", seriesSquat);
                  editor.commit();
 
-                 reps = Integer.parseInt(editTextReps.getText().toString());
-                 editor.putInt("Reps",reps);
+                 repsSquat = Integer.parseInt(editTextRepsSquat.getText().toString());
+                 editor.putInt("Reps", repsSquat);
                  editor.commit();
 
-                 progression =  Float.parseFloat(editTextProgression.getText().toString());
+                 progression =  Float.parseFloat(editTextProgressionSquat.getText().toString());
                  editor.putFloat("Progression", progression);
                  editor.commit();
              }
 
              private void getCustomWorkoutPrefs() {
-                 series = prefs.getInt("Series", 0);
-                 reps = prefs.getInt("Reps", 0);
+                 seriesSquat = prefs.getInt("Series", 0);
+                 repsSquat = prefs.getInt("Reps", 0);
                  progression = prefs.getFloat("Progression", 0.0f);
 
-                 if (series!=0){
-                     editTextSeries.setText(String.valueOf(prefs.getInt("Series", 0)));
+                 if (seriesSquat !=0){
+                     editTextSeriesSquat.setText(String.valueOf(prefs.getInt("Series", 0)));
                  }
 
-                 if (reps!=0){
-                     editTextReps.setText(String.valueOf(prefs.getInt("Reps", 0)));
+                 if (repsSquat !=0){
+                     editTextRepsSquat.setText(String.valueOf(prefs.getInt("Reps", 0)));
                  }
 
                  if (progression!=0){
-                     editTextProgression.setText(String.valueOf(prefs.getFloat("Progression", 0.0f)));
+                     editTextProgressionSquat.setText(String.valueOf(prefs.getFloat("Progression", 0.0f)));
                  }
+             }
+
+             public static double round(double unrounded, int precision, int roundingMode)
+             {
+                 BigDecimal bd = new BigDecimal(unrounded);
+                 BigDecimal rounded = bd.setScale(precision, roundingMode);
+                 return rounded.doubleValue();
              }
 
 

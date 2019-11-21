@@ -273,7 +273,7 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/editTextSeries"
+                        android:id="@+id/editTextSeriesSquat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -281,28 +281,28 @@
                         android:inputType="number" />
 
                     <TextView
-                        android:id="@+id/textViewX"
+                        android:id="@+id/textViewXSquat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/x" />
 
                     <EditText
-                        android:id="@+id/editTextReps"
+                        android:id="@+id/editTextRepsSquat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="@string/Powtórzenia"
                         android:inputType="number" />
 
                     <TextView
-                        android:id="@+id/textViewPlus"
+                        android:id="@+id/textViewPlusSquat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="+" />
 
                     <EditText
-                        android:id="@+id/editTextProgression"
+                        android:id="@+id/editTextProgressionSquat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
