@@ -29,6 +29,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.math.BigDecimal;
 
@@ -55,10 +56,10 @@ public class TrainingActivity extends AppCompatActivity
             checkBoxPlankConfD;
     private TextView textViewTrainingA,textViewTrainingB,textViewTrainingC,textViewTrainingD,textViewX,textViewPlus;
     private EditText editTextSquat,editTextBenchPress,editTextRowing,editTextRisingSideways,editTextBiceps,editTextTriceps,editTextAllahs,editTextFacepull,editTextDeadliftClassic,
-            editTextOhp,editTextPullingUpNarrow,editTextNarrowBenchPress,editTextYRaise,editTextSeriesSquat,editTextRepsSquat,editTextProgressionSquat,editTextSeriesSquatB,editTextRepsSquatB,editTextProgressionSquatB;
+            editTextOhp,editTextPullingUpNarrow,editTextNarrowBenchPress,editTextYRaise,editTextSeriesSquat,editTextRepsSquat,editTextPercentSquat,editTextProgressionSquat,editTextSeriesSquatB,editTextRepsSquatB,editTextProgressionSquatB;
     private Button buttonWeightConfiguration,buttonTrainingConfiguration,buttonSaveWeightConfiguration,buttonFinishWorkout,buttonFinishWorkoutB,buttonFinishWorkoutC,buttonFinishWorkoutD,
             buttonSaveTrainingConfiguration,buttonNextTrainingConfiguration,buttonNextTrainingConfigurationB,buttonNextTrainingConfigurationC;
-    private int LastClick,seriesSquat,repsSquat,seriesSquatB,repsSquatB;
+    private int LastClick,seriesSquat,repsSquat,percentSquat,seriesSquatB,repsSquatB;
     private float progressionSquat, progressionSquatB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -203,10 +204,12 @@ public class TrainingActivity extends AppCompatActivity
         editTextYRaise = (EditText)findViewById(R.id.editTextYRaise);
         editTextSeriesSquat = (EditText)findViewById(R.id.editTextSeriesSquat);
         editTextRepsSquat = (EditText)findViewById(R.id.editTextRepsSquat);
+        editTextPercentSquat= (EditText)findViewById(R.id.editTextPercentSquat);
         editTextProgressionSquat = (EditText)findViewById(R.id.editTextProgressionSquat);
         editTextSeriesSquatB = (EditText)findViewById(R.id.editTextSeriesSquatB);
         editTextRepsSquatB = (EditText)findViewById(R.id.editTextRepsSquatB);
         editTextProgressionSquatB = (EditText)findViewById(R.id.editTextProgressionSquatB);
+
 
 
         prefs = getSharedPreferences("LastClick", Context.MODE_PRIVATE);
@@ -253,8 +256,7 @@ public class TrainingActivity extends AppCompatActivity
             public void onClick(View v) {
                 linearLayoutTrainingConfigurationB.setVisibility(View.GONE);
                 linearLayoutTrainingConfigurationC.setVisibility(View.VISIBLE);
-
-
+                customWorkoutPrefs();
 
             }
         });
@@ -265,7 +267,7 @@ public class TrainingActivity extends AppCompatActivity
 
                 linearLayoutTrainingConfigurationC.setVisibility(View.GONE);
                 linearLayoutTrainingConfigurationD.setVisibility(View.VISIBLE);
-
+                customWorkoutPrefs();
 
             }
         });
@@ -2832,7 +2834,7 @@ public class TrainingActivity extends AppCompatActivity
                  }
 
 
-                 if (editTextSquat.getText().length() != 0 && checkBoxSquats.isChecked() && LastClick==2){
+                 if (editTextSquat.getText().length() != 0 && checkBoxSquats.isChecked() && LastClick==2 && textViewTrainingA.getVisibility() == View.VISIBLE){
                      double n1 = Double.parseDouble(editTextSquat.getText().toString());
                      double nSeries = round((n1*0.80)+ progressionSquat, 3, BigDecimal.ROUND_HALF_UP);
                      double nMax = Math.round((nSeries/80)*100);
@@ -2842,7 +2844,7 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if (editTextSquat.getText().length() != 0 && !checkBoxSquats.isChecked() && LastClick==2){
+                 else if (editTextSquat.getText().length() != 0 && !checkBoxSquats.isChecked() && LastClick==2 && textViewTrainingA.getVisibility() == View.VISIBLE){
                      double n1 = Double.parseDouble(editTextSquat.getText().toString());
                      double nSeries = round((n1*0.80), 3, BigDecimal.ROUND_HALF_UP);
 //                     double nMax = Math.round((nSeries/80)*100);
@@ -2852,14 +2854,41 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if(editTextSquat.getText().length() == 0 && LastClick==2) {
+                 else if(editTextSquat.getText().length() == 0 && LastClick==2 && textViewTrainingA.getVisibility() == View.VISIBLE) {
+                     checkBoxSquats.setText("brak konfiguracji obciążenia dla Przysiadów");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+
+                 if (editTextSquat.getText().length() != 0 && checkBoxSquats.isChecked() && LastClick==2 && textViewTrainingB.getVisibility() == View.VISIBLE){
+                     double n1 = Double.parseDouble(editTextSquat.getText().toString());
+                     double nSeries = round((n1*0.80)+ progressionSquatB, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxSquats.setText("Przysiady "+ seriesSquat +" x "+ repsSquat +" x "+nSeries+"kg");
+                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextSquat.getText().length() != 0 && !checkBoxSquats.isChecked() && LastClick==2 && textViewTrainingB.getVisibility() == View.VISIBLE){
+                     double n1 = Double.parseDouble(editTextSquat.getText().toString());
+                     double nSeries = round((n1*0.80), 3, BigDecimal.ROUND_HALF_UP);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxSquats.setText("Przysiady "+ seriesSquat +" x "+ repsSquat +" x "+nSeries+"kg");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextSquat.getText().length() == 0 && LastClick==2 && textViewTrainingB.getVisibility() == View.VISIBLE) {
                      checkBoxSquats.setText("brak konfiguracji obciążenia dla Przysiadów");
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
 
 
-                  if (editTextBenchPress.getText().length() != 0 && checkBoxBenchPress.isChecked()){
+
+                 if (editTextBenchPress.getText().length() != 0 && checkBoxBenchPress.isChecked()){
                      double n1 = Double.parseDouble(editTextBenchPress.getText().toString());
                      double nSeries = Math.round((n1*0.80)+2);
                      double nMax = Math.round((nSeries/80)*100);
@@ -3193,34 +3222,57 @@ public class TrainingActivity extends AppCompatActivity
 
              private void customWorkoutPrefs() {
 
-                 seriesSquat = Integer.parseInt(editTextSeriesSquat.getText().toString());
-                 editor.putInt("SeriesSquat", seriesSquat);
-                 editor.commit();
+                 if (editTextSeriesSquat.getText().length() != 0) {
+                     seriesSquat = Integer.parseInt(editTextSeriesSquat.getText().toString());
+                     editor.putInt("SeriesSquat", seriesSquat);
+                     editor.commit();
+                 }
 
-                 repsSquat = Integer.parseInt(editTextRepsSquat.getText().toString());
-                 editor.putInt("RepsSquat", repsSquat);
-                 editor.commit();
 
-                 progressionSquat =  Float.parseFloat(editTextProgressionSquat.getText().toString());
-                 editor.putFloat("ProgressionSquat", progressionSquat);
-                 editor.commit();
+                 if (editTextRepsSquat.getText().length() != 0) {
+                     repsSquat = Integer.parseInt(editTextRepsSquat.getText().toString());
+                     editor.putInt("RepsSquat", repsSquat);
+                     editor.commit();
+                 }
 
-                 seriesSquatB = Integer.parseInt(editTextSeriesSquatB.getText().toString());
-                 editor.putInt("SeriesSquatB", seriesSquatB);
-                 editor.commit();
 
-                 repsSquatB = Integer.parseInt(editTextRepsSquatB.getText().toString());
-                 editor.putInt("RepsSquatB", repsSquatB);
-                 editor.commit();
+                 if (editTextPercentSquat.getText().length() != 0) {
+                     percentSquat = Integer.parseInt(editTextPercentSquat.getText().toString());
+                     editor.putInt("PercentSquat", percentSquat);
+                     editor.commit();
+                 }
 
-                 progressionSquatB =  Float.parseFloat(editTextProgressionSquatB.getText().toString());
-                 editor.putFloat("ProgressionSquatB", progressionSquatB);
-                 editor.commit();
-             }
+                 if (editTextProgressionSquat.getText().length() != 0) {
+                     progressionSquat =  Float.parseFloat(editTextProgressionSquat.getText().toString());
+                     editor.putFloat("ProgressionSquat", progressionSquat);
+                     editor.commit();
+                 }
+
+
+                 if (editTextProgressionSquatB.getText().length() != 0) {
+                     seriesSquatB = Integer.parseInt(editTextSeriesSquatB.getText().toString());
+                     editor.putInt("SeriesSquatB", seriesSquatB);
+                     editor.commit();
+                 }
+
+                 if (editTextRepsSquatB.getText().length() != 0) {
+                     repsSquatB = Integer.parseInt(editTextRepsSquatB.getText().toString());
+                     editor.putInt("RepsSquatB", repsSquatB);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionSquatB.getText().length() != 0) {
+                     progressionSquatB = Float.parseFloat(editTextProgressionSquatB.getText().toString());
+                     editor.putFloat("ProgressionSquatB", progressionSquatB);
+                     editor.commit();
+                 }
+         }
+
 
              private void getCustomWorkoutPrefs() {
                  seriesSquat = prefs.getInt("SeriesSquat", 0);
                  repsSquat = prefs.getInt("RepsSquat", 0);
+                 percentSquat = prefs.getInt("percentSquat", 0);
                  progressionSquat = prefs.getFloat("ProgressionSquat", 0.0f);
 
                  if (seriesSquat !=0){
@@ -3231,6 +3283,10 @@ public class TrainingActivity extends AppCompatActivity
                      editTextRepsSquat.setText(String.valueOf(prefs.getInt("RepsSquat", 0)));
                  }
 
+                 if (percentSquat !=0){
+                     editTextPercentSquat.setText(String.valueOf(prefs.getInt("percentSquat", 0)));
+                 }
+
                  if (progressionSquat !=0){
                      editTextProgressionSquat.setText(String.valueOf(prefs.getFloat("ProgressionSquat", 0.0f)));
                  }
@@ -3239,15 +3295,15 @@ public class TrainingActivity extends AppCompatActivity
                  repsSquatB = prefs.getInt("RepsSquatB", 0);
                  progressionSquatB = prefs.getFloat("ProgressionSquatB", 0.0f);
 
-                 if (seriesSquat !=0){
+                 if (seriesSquatB !=0){
                      editTextSeriesSquatB.setText(String.valueOf(prefs.getInt("SeriesSquatB", 0)));
                  }
 
-                 if (repsSquat !=0){
+                 if (repsSquatB !=0){
                      editTextRepsSquatB.setText(String.valueOf(prefs.getInt("RepsSquatB", 0)));
                  }
 
-                 if (progressionSquat !=0){
+                 if (progressionSquatB !=0){
                      editTextProgressionSquatB.setText(String.valueOf(prefs.getFloat("ProgressionSquatB", 0.0f)));
                  }
              }

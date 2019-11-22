@@ -295,6 +295,21 @@
                         android:inputType="number" />
 
                     <TextView
+                        android:id="@+id/textViewXSquat2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentSquat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="% max pow"
+                        android:inputType="number" />
+
+                    <TextView
                         android:id="@+id/textViewPlusSquat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
