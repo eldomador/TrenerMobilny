@@ -55,11 +55,11 @@ public class TrainingActivity extends AppCompatActivity
             checkBoxPlankConfD;
     private TextView textViewTrainingA,textViewTrainingB,textViewTrainingC,textViewTrainingD,textViewX,textViewPlus;
     private EditText editTextSquat,editTextBenchPress,editTextRowing,editTextRisingSideways,editTextBiceps,editTextTriceps,editTextAllahs,editTextFacepull,editTextDeadliftClassic,
-            editTextOhp,editTextPullingUpNarrow,editTextNarrowBenchPress,editTextYRaise, editTextSeriesSquat, editTextRepsSquat, editTextProgressionSquat;
+            editTextOhp,editTextPullingUpNarrow,editTextNarrowBenchPress,editTextYRaise,editTextSeriesSquat,editTextRepsSquat,editTextProgressionSquat,editTextSeriesSquatB,editTextRepsSquatB,editTextProgressionSquatB;
     private Button buttonWeightConfiguration,buttonTrainingConfiguration,buttonSaveWeightConfiguration,buttonFinishWorkout,buttonFinishWorkoutB,buttonFinishWorkoutC,buttonFinishWorkoutD,
             buttonSaveTrainingConfiguration,buttonNextTrainingConfiguration,buttonNextTrainingConfigurationB,buttonNextTrainingConfigurationC;
-    private int LastClick, seriesSquat, repsSquat;
-    private float progression;
+    private int LastClick,seriesSquat,repsSquat,seriesSquatB,repsSquatB;
+    private float progressionSquat, progressionSquatB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
@@ -204,6 +204,9 @@ public class TrainingActivity extends AppCompatActivity
         editTextSeriesSquat = (EditText)findViewById(R.id.editTextSeriesSquat);
         editTextRepsSquat = (EditText)findViewById(R.id.editTextRepsSquat);
         editTextProgressionSquat = (EditText)findViewById(R.id.editTextProgressionSquat);
+        editTextSeriesSquatB = (EditText)findViewById(R.id.editTextSeriesSquatB);
+        editTextRepsSquatB = (EditText)findViewById(R.id.editTextRepsSquatB);
+        editTextProgressionSquatB = (EditText)findViewById(R.id.editTextProgressionSquatB);
 
 
         prefs = getSharedPreferences("LastClick", Context.MODE_PRIVATE);
@@ -286,7 +289,7 @@ public class TrainingActivity extends AppCompatActivity
                 linearLayoutTrainingConfigurationC.setVisibility(View.GONE);
                 linearLayoutTrainingConfigurationD.setVisibility(View.GONE);
                 buttonSaveTrainingConfiguration.setVisibility(View.GONE);
-
+                customWorkoutPrefs();
                 CustomWorkout();
                 calcWeightConfiguration();
             }
@@ -2831,7 +2834,7 @@ public class TrainingActivity extends AppCompatActivity
 
                  if (editTextSquat.getText().length() != 0 && checkBoxSquats.isChecked() && LastClick==2){
                      double n1 = Double.parseDouble(editTextSquat.getText().toString());
-                     double nSeries = round((n1*0.80)+progression, 3, BigDecimal.ROUND_HALF_UP);
+                     double nSeries = round((n1*0.80)+ progressionSquat, 3, BigDecimal.ROUND_HALF_UP);
                      double nMax = Math.round((nSeries/80)*100);
 
                      checkBoxSquats.setText("Przysiady "+ seriesSquat +" x "+ repsSquat +" x "+nSeries+"kg");
@@ -3191,33 +3194,61 @@ public class TrainingActivity extends AppCompatActivity
              private void customWorkoutPrefs() {
 
                  seriesSquat = Integer.parseInt(editTextSeriesSquat.getText().toString());
-                 editor.putInt("Series", seriesSquat);
+                 editor.putInt("SeriesSquat", seriesSquat);
                  editor.commit();
 
                  repsSquat = Integer.parseInt(editTextRepsSquat.getText().toString());
-                 editor.putInt("Reps", repsSquat);
+                 editor.putInt("RepsSquat", repsSquat);
                  editor.commit();
 
-                 progression =  Float.parseFloat(editTextProgressionSquat.getText().toString());
-                 editor.putFloat("Progression", progression);
+                 progressionSquat =  Float.parseFloat(editTextProgressionSquat.getText().toString());
+                 editor.putFloat("ProgressionSquat", progressionSquat);
+                 editor.commit();
+
+                 seriesSquatB = Integer.parseInt(editTextSeriesSquatB.getText().toString());
+                 editor.putInt("SeriesSquatB", seriesSquatB);
+                 editor.commit();
+
+                 repsSquatB = Integer.parseInt(editTextRepsSquatB.getText().toString());
+                 editor.putInt("RepsSquatB", repsSquatB);
+                 editor.commit();
+
+                 progressionSquatB =  Float.parseFloat(editTextProgressionSquatB.getText().toString());
+                 editor.putFloat("ProgressionSquatB", progressionSquatB);
                  editor.commit();
              }
 
              private void getCustomWorkoutPrefs() {
-                 seriesSquat = prefs.getInt("Series", 0);
-                 repsSquat = prefs.getInt("Reps", 0);
-                 progression = prefs.getFloat("Progression", 0.0f);
+                 seriesSquat = prefs.getInt("SeriesSquat", 0);
+                 repsSquat = prefs.getInt("RepsSquat", 0);
+                 progressionSquat = prefs.getFloat("ProgressionSquat", 0.0f);
 
                  if (seriesSquat !=0){
-                     editTextSeriesSquat.setText(String.valueOf(prefs.getInt("Series", 0)));
+                     editTextSeriesSquat.setText(String.valueOf(prefs.getInt("SeriesSquat", 0)));
                  }
 
                  if (repsSquat !=0){
-                     editTextRepsSquat.setText(String.valueOf(prefs.getInt("Reps", 0)));
+                     editTextRepsSquat.setText(String.valueOf(prefs.getInt("RepsSquat", 0)));
                  }
 
-                 if (progression!=0){
-                     editTextProgressionSquat.setText(String.valueOf(prefs.getFloat("Progression", 0.0f)));
+                 if (progressionSquat !=0){
+                     editTextProgressionSquat.setText(String.valueOf(prefs.getFloat("ProgressionSquat", 0.0f)));
+                 }
+
+                 seriesSquatB = prefs.getInt("SeriesSquatB", 0);
+                 repsSquatB = prefs.getInt("RepsSquatB", 0);
+                 progressionSquatB = prefs.getFloat("ProgressionSquatB", 0.0f);
+
+                 if (seriesSquat !=0){
+                     editTextSeriesSquatB.setText(String.valueOf(prefs.getInt("SeriesSquatB", 0)));
+                 }
+
+                 if (repsSquat !=0){
+                     editTextRepsSquatB.setText(String.valueOf(prefs.getInt("RepsSquatB", 0)));
+                 }
+
+                 if (progressionSquat !=0){
+                     editTextProgressionSquatB.setText(String.valueOf(prefs.getFloat("ProgressionSquatB", 0.0f)));
                  }
              }
 
