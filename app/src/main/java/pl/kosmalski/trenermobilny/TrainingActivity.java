@@ -3285,17 +3285,23 @@ public class TrainingActivity extends AppCompatActivity
                      editTextSeriesSquat.setText(String.valueOf(prefs.getInt("SeriesSquat", 0)));
                  }
 
+
                  if (repsSquat !=0){
                      editTextRepsSquat.setText(String.valueOf(prefs.getInt("RepsSquat", 0)));
                  }
+
 
                  if (percentSquat !=0){
                      editTextPercentSquat.setText(String.valueOf(prefs.getInt("PercentSquat", 0)));
                  }
 
+
                  if (progressionSquat !=0){
                      editTextProgressionSquat.setText(String.valueOf(prefs.getFloat("ProgressionSquat", 0.0f)));
                  }
+
+
+
 
                  seriesSquatB = prefs.getInt("SeriesSquatB", 0);
                  repsSquatB = prefs.getInt("RepsSquatB", 0);

@@ -83,6 +83,7 @@
     <string name="Serie">Serie</string>
     <string name="x">x</string>
     <string name="Powtórzenia">Powtórzenia</string>
+    <string name="Info">Serie x powtórzenia x % max pow + prgresja (kg)</string>
 
 
 </resources>
