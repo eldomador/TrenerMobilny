@@ -2872,6 +2872,7 @@ public class TrainingActivity extends AppCompatActivity
 
                      checkBoxSquats.setText("Przysiady "+ seriesSquatB +" x "+ repsSquatB +" x "+nSeries+"kg");
                      editTextSquat.setText(""+nMax);
+
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
