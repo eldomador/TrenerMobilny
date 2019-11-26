@@ -54,12 +54,21 @@ public class TrainingActivity extends AppCompatActivity
             checkBoxPlankConfC,checkBoxSquatsConfD,checkBoxBenchPressConfD,checkBoxRowingConfD,checkBoxRisingSidewaysConfD,checkBoxBicepsConfD,checkBoxTricepsConfD,
             checkBoxAllahsConfD,checkBoxCalvesConfD,checkBoxFacepullConfD,checkBoxDeadliftClassicConfD,checkBoxOhpConfD,checkBoxPullingUpNarrowConfD,checkBoxNarrowBenchPressConfD,checkBoxYRaiseConfD,
             checkBoxPlankConfD;
-    private TextView textViewTrainingA,textViewTrainingB,textViewTrainingC,textViewTrainingD,textViewX,textViewPlus;
+    private TextView textViewTrainingA,textViewTrainingB,textViewTrainingC,textViewTrainingD;
     private EditText editTextSquat,editTextBenchPress,editTextRowing,editTextRisingSideways,editTextBiceps,editTextTriceps,editTextAllahs,editTextFacepull,editTextDeadliftClassic,
-            editTextOhp,editTextPullingUpNarrow,editTextNarrowBenchPress,editTextYRaise,editTextSeriesSquat,editTextRepsSquat,editTextPercentSquat,editTextProgressionSquat,editTextSeriesSquatB,editTextRepsSquatB,editTextProgressionSquatB;
+            editTextOhp,editTextPullingUpNarrow,editTextNarrowBenchPress,editTextYRaise,editTextSeriesSquat,editTextRepsSquat,editTextPercentSquat,editTextProgressionSquat,
+            editTextSeriesDeadliftClassic,editTextRepsDeadliftClassic,editTextPercentDeadliftClassic,editTextProgressionDeadliftClassic,editTextSeriesBenchPress,editTextRepsBenchPress,editTextPercentBenchPress,editTextProgressionBenchPress,
+            editTextSeriesNarrowBenchPress,editTextRepsNarrowBenchPress,editTextPercentNarrowBenchPress,editTextProgressionNarrowBenchPress,editTextSeriesOhp,editTextRepsOhp,editTextPercentOhp,editTextProgressionOhp,
+            editTextSeriesRowing,editTextRepsRowing,editTextPercentRowing,editTextProgressionRowing,editTextSeriesPullingUpNarrow,editTextRepsPullingUpNarrow,editTextPercentPullingUpNarrow,editTextProgressionPullingUpNarrow,
+            editTextSeriesRisingSideways,editTextRepsRisingSideways,editTextPercentRisingSideways,editTextProgressionRisingSideways,editTextSeriesBiceps,editTextRepsBiceps,editTextPercentBiceps,editTextProgressionBiceps,
+            editTextSeriesTriceps,editTextRepsTriceps,editTextPercentTriceps,editTextProgressionTriceps,editTextSeriesAllahs,editTextRepsAllahs,editTextPercentAllahs,editTextProgressionAllahs,editTextSeriesPlank,editTextSecondsPlank,editTextProgressionPlank,
+            editTextSeriesCalves,editTextRepsCalves,editTextPercentCalves,editTextProgressionCalves,editTextSeriesYRaise,editTextRepsYRaise,editTextPercentYRaise,editTextProgressionYRaise,
+            editTextSeriesFacepull,editTextRepsFacepull,editTextPercentFacepull,editTextProgressionFacepull,editTextSeriesSquatB,editTextRepsSquatB,editTextProgressionSquatB;
     private Button buttonWeightConfiguration,buttonTrainingConfiguration,buttonSaveWeightConfiguration,buttonFinishWorkout,buttonFinishWorkoutB,buttonFinishWorkoutC,buttonFinishWorkoutD,
             buttonSaveTrainingConfiguration,buttonNextTrainingConfiguration,buttonNextTrainingConfigurationB,buttonNextTrainingConfigurationC;
-    private int LastClick,LastCustomWorkoutState,seriesSquat,repsSquat,percentSquat,seriesSquatB,repsSquatB;
+    private int LastClick,LastCustomWorkoutState,seriesSquat,repsSquat,percentSquat,seriesDeadliftClassic,repsDeadliftClassic,percentDeadliftClassic,seriesBenchPress,repsBenchPress,percentBenchPress,seriesNarrowBenchPresst,repsNarrowBenchPress,
+            percentNarrowBenchPress,seriesOhp,repsOhp,percentOhp,seriesRowing,repsRowing,percentRowing,seriesPullingUpNarrow,repsPullingUpNarrow,percentPullingUpNarrow,seriesRisingSideways,repsRisingSideways,percentRisingSideways,seriesBiceps,
+            repsBiceps,percentBiceps,seriesTriceps,repsTriceps,percentTriceps,seriesAllahs,repsAllahs,percentAllahs,seriesPlank,secondsPlank,seriesFacepull,repsFacepull,percentFacepull,seriesSquatB,repsSquatB;
     private float progressionSquat, progressionSquatB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -185,8 +194,7 @@ public class TrainingActivity extends AppCompatActivity
         textViewTrainingB =(TextView)findViewById(R.id.textViewTrainingB);
         textViewTrainingC =(TextView)findViewById(R.id.textViewTrainingC);
         textViewTrainingD =(TextView)findViewById(R.id.textViewTrainingD);
-        textViewX =(TextView)findViewById(R.id.textViewXSquat);
-        textViewPlus =(TextView)findViewById(R.id.textViewPlusSquat);
+
 
 
         editTextSquat = (EditText)findViewById(R.id.editTextSquat);
@@ -206,6 +214,64 @@ public class TrainingActivity extends AppCompatActivity
         editTextRepsSquat = (EditText)findViewById(R.id.editTextRepsSquat);
         editTextPercentSquat= (EditText)findViewById(R.id.editTextPercentSquat);
         editTextProgressionSquat = (EditText)findViewById(R.id.editTextProgressionSquat);
+        editTextSeriesDeadliftClassic= (EditText)findViewById(R.id.editTextSeriesDeadliftClassic);
+        editTextRepsDeadliftClassic= (EditText)findViewById(R.id.editTextRepsDeadliftClassic);
+        editTextPercentDeadliftClassic= (EditText)findViewById(R.id.editTextPercentDeadliftClassic);
+        editTextProgressionDeadliftClassic= (EditText)findViewById(R.id.editTextProgressionDeadliftClassic);
+        editTextSeriesBenchPress= (EditText)findViewById(R.id.editTextSeriesBenchPress);
+        editTextRepsBenchPress= (EditText)findViewById(R.id.editTextRepsBenchPress);
+        editTextPercentBenchPress= (EditText)findViewById(R.id.editTextPercentBenchPress);
+        editTextProgressionBenchPress= (EditText)findViewById(R.id.editTextProgressionBenchPress);
+        editTextSeriesNarrowBenchPress= (EditText)findViewById(R.id. editTextSeriesNarrowBenchPress);
+        editTextRepsNarrowBenchPress= (EditText)findViewById(R.id.editTextRepsNarrowBenchPress);
+        editTextPercentNarrowBenchPress= (EditText)findViewById(R.id.editTextPercentNarrowBenchPress);
+        editTextProgressionNarrowBenchPress= (EditText)findViewById(R.id.editTextProgressionNarrowBenchPress);
+        editTextSeriesOhp= (EditText)findViewById(R.id.editTextSeriesOhp);
+        editTextRepsOhp= (EditText)findViewById(R.id.editTextRepsOhp);
+        editTextPercentOhp= (EditText)findViewById(R.id.editTextPercentOhp);
+        editTextProgressionOhp= (EditText)findViewById(R.id. editTextProgressionOhp);
+        editTextSeriesRowing= (EditText)findViewById(R.id.editTextSeriesRowing);
+        editTextRepsRowing= (EditText)findViewById(R.id.editTextRepsRowing);
+        editTextPercentRowing= (EditText)findViewById(R.id.editTextPercentRowing);
+        editTextProgressionRowing= (EditText)findViewById(R.id.editTextProgressionRowing);
+        editTextSeriesPullingUpNarrow= (EditText)findViewById(R.id.editTextSeriesPullingUpNarrow);
+        editTextRepsPullingUpNarrow= (EditText)findViewById(R.id.editTextRepsPullingUpNarrow);
+        editTextPercentPullingUpNarrow= (EditText)findViewById(R.id.editTextPercentPullingUpNarrow);
+        editTextProgressionPullingUpNarrow= (EditText)findViewById(R.id.editTextProgressionPullingUpNarrow);
+        editTextSeriesRisingSideways = (EditText)findViewById(R.id.editTextSeriesRisingSideways);
+        editTextRepsRisingSideways = (EditText)findViewById(R.id.editTextRepsRisingSideways);
+        editTextPercentRisingSideways = (EditText)findViewById(R.id.editTextPercentRisingSideways);
+        editTextProgressionRisingSideways = (EditText)findViewById(R.id.editTextProgressionRisingSideways);
+        editTextSeriesBiceps= (EditText)findViewById(R.id.editTextSeriesBiceps);
+        editTextRepsBiceps= (EditText)findViewById(R.id. editTextRepsBiceps);
+        editTextPercentBiceps= (EditText)findViewById(R.id. editTextPercentBiceps);
+        editTextProgressionBiceps= (EditText)findViewById(R.id.editTextProgressionBiceps);
+        editTextSeriesTriceps= (EditText)findViewById(R.id.editTextSeriesTriceps);
+        editTextRepsTriceps= (EditText)findViewById(R.id.editTextRepsTriceps);
+        editTextPercentTriceps= (EditText)findViewById(R.id.editTextPercentTriceps);
+        editTextProgressionTriceps= (EditText)findViewById(R.id.editTextProgressionTriceps);
+        editTextSeriesAllahs= (EditText)findViewById(R.id.editTextSeriesAllahs);
+        editTextRepsAllahs= (EditText)findViewById(R.id.editTextRepsAllahs);
+        editTextPercentAllahs= (EditText)findViewById(R.id. editTextPercentAllahs);
+        editTextProgressionAllahs= (EditText)findViewById(R.id.editTextProgressionAllahs);
+        editTextSeriesPlank= (EditText)findViewById(R.id.editTextSeriesPlank);
+        editTextSecondsPlank= (EditText)findViewById(R.id.editTextSecondsPlank);
+        editTextProgressionPlank= (EditText)findViewById(R.id.editTextProgressionPlank);
+        editTextSeriesCalves= (EditText)findViewById(R.id.editTextSeriesCalves);
+        editTextRepsCalves= (EditText)findViewById(R.id.editTextRepsCalves);
+        editTextPercentCalves= (EditText)findViewById(R.id.editTextPercentCalves);
+        editTextProgressionCalves= (EditText)findViewById(R.id.editTextProgressionCalves);
+        editTextSeriesYRaise= (EditText)findViewById(R.id.editTextSeriesYRaise);
+        editTextRepsYRaise= (EditText)findViewById(R.id.editTextRepsYRaise);
+        editTextPercentYRaise= (EditText)findViewById(R.id.editTextPercentYRaise);
+        editTextProgressionYRaise= (EditText)findViewById(R.id.editTextProgressionYRaise);
+        editTextSeriesFacepull= (EditText)findViewById(R.id.editTextSeriesFacepull);
+        editTextRepsFacepull= (EditText)findViewById(R.id.editTextRepsFacepull);
+        editTextPercentFacepull= (EditText)findViewById(R.id.editTextPercentFacepull);
+        editTextProgressionFacepull= (EditText)findViewById(R.id.editTextProgressionFacepull);
+
+
+
         editTextSeriesSquatB = (EditText)findViewById(R.id.editTextSeriesSquatB);
         editTextRepsSquatB = (EditText)findViewById(R.id.editTextRepsSquatB);
         editTextProgressionSquatB = (EditText)findViewById(R.id.editTextProgressionSquatB);
