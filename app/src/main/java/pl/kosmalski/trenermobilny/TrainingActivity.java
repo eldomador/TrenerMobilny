@@ -66,9 +66,15 @@ public class TrainingActivity extends AppCompatActivity
             editTextSeriesFacepull,editTextRepsFacepull,editTextPercentFacepull,editTextProgressionFacepull,editTextSeriesSquatB,editTextRepsSquatB,editTextProgressionSquatB;
     private Button buttonWeightConfiguration,buttonTrainingConfiguration,buttonSaveWeightConfiguration,buttonFinishWorkout,buttonFinishWorkoutB,buttonFinishWorkoutC,buttonFinishWorkoutD,
             buttonSaveTrainingConfiguration,buttonNextTrainingConfiguration,buttonNextTrainingConfigurationB,buttonNextTrainingConfigurationC;
-    private int LastClick,LastCustomWorkoutState,seriesSquat,repsSquat,percentSquat,seriesDeadliftClassic,repsDeadliftClassic,percentDeadliftClassic,seriesBenchPress,repsBenchPress,percentBenchPress,seriesNarrowBenchPresst,repsNarrowBenchPress,
+    private int LastClick,LastCustomWorkoutState,
+            seriesSquat,repsSquat,percentSquat,
+
+             seriesDeadliftClassic,repsDeadliftClassic,percentDeadliftClassic,seriesBenchPress,repsBenchPress,percentBenchPress,seriesNarrowBenchPresst,repsNarrowBenchPress,
             percentNarrowBenchPress,seriesOhp,repsOhp,percentOhp,seriesRowing,repsRowing,percentRowing,seriesPullingUpNarrow,repsPullingUpNarrow,percentPullingUpNarrow,seriesRisingSideways,repsRisingSideways,percentRisingSideways,seriesBiceps,
-            repsBiceps,percentBiceps,seriesTriceps,repsTriceps,percentTriceps,seriesAllahs,repsAllahs,percentAllahs,seriesPlank,secondsPlank,seriesFacepull,repsFacepull,percentFacepull,seriesSquatB,repsSquatB;
+            repsBiceps,percentBiceps,seriesTriceps,repsTriceps,percentTriceps,seriesAllahs,repsAllahs,percentAllahs,seriesPlank,secondsPlank,seriesFacepull,repsFacepull,percentFacepull,
+
+
+             seriesSquatB,repsSquatB;
     private float progressionSquat, progressionSquatB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

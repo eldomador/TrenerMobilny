@@ -1409,6 +1409,13 @@
                     android:visibility="visible" />
 
 
+                <TextView
+                    android:id="@+id/textViewInfoSquatB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -1420,7 +1427,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:hint="@string/Serie"
+                        android:hint="0"
                         android:inputType="number" />
 
                     <TextView
@@ -1434,7 +1441,22 @@
                         android:id="@+id/editTextRepsSquatB"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="@string/Powtórzenia"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXSquat2B"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentSquatB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
                         android:inputType="number" />
 
                     <TextView
@@ -1449,7 +1471,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:hint="Progresja"
+                        android:hint="0"
                         android:inputType="numberDecimal" />
 
                 </LinearLayout>
@@ -1464,6 +1486,72 @@
                     android:text="@string/MartwyCiągKlasyczny"
                     android:visibility="visible" />
 
+                <TextView
+                    android:id="@+id/textViewInfoDeadliftClassicB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesDeadliftClassicB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXDeadliftClassicB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsDeadliftClassicB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2DeadliftClassicB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentDeadliftClassicB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusDeadliftClassicB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionDeadliftClassicB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
                 <CheckBox
                     android:id="@+id/checkBoxBenchPressConfB"
                     android:layout_width="match_parent"
@@ -1472,6 +1560,72 @@
                     android:button="@null"
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/WyciskanieLeżąc" />
+
+                <TextView
+                    android:id="@+id/textViewInfoBenchPressB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesBenchPressB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXBenchPressB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsBenchPressB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2BenchPressB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentBenchPressB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusBenchPressB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionBenchPressB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
 
                 <CheckBox
                     android:id="@+id/checkBoxNarrowBenchPressConfB"
@@ -1482,6 +1636,72 @@
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/WyciskanieWąsko" />
 
+                <TextView
+                    android:id="@+id/textViewInfoNarrowBenchPressB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesNarrowBenchPressB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXNarrowBenchPressB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsNarrowBenchPressB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2NarrowBenchPressB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentNarrowBenchPressB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusNarrowBenchPressB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionNarrowBenchPressB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
+
                 <CheckBox
                     android:id="@+id/checkBoxOhpConfB"
                     android:layout_width="match_parent"
@@ -1490,7 +1710,71 @@
                     android:button="@null"
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/WyciskanieŻołnierskie" />
+                <TextView
+                    android:id="@+id/textViewInfoOhpB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
+                    <EditText
+                        android:id="@+id/editTextSeriesOhpB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXOhpB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsOhpB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2OhpB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentOhpB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusOhpB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionOhpB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
                 <CheckBox
                     android:id="@+id/checkBoxRowingConfB"
                     android:layout_width="match_parent"
@@ -1499,6 +1783,72 @@
                     android:button="@null"
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/Wiosłowanie" />
+                <TextView
+                    android:id="@+id/textViewInfoRowingB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesRowingB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXRowingB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsRowingB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2RowingB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentRowingB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusRowingB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionRowingB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
+
 
                 <CheckBox
                     android:id="@+id/checkBoxPullingUpNarrowConfB"
@@ -1509,6 +1859,72 @@
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/PodciąganieWąsko" />
 
+                <TextView
+                    android:id="@+id/textViewInfoPullingUpNarrowB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesPullingUpNarrowB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXPullingUpNarrowB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsPullingUpNarrowB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2PullingUpNarrowB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentPullingUpNarrowB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusPullingUpNarrowB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionPullingUpNarrowB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
+
                 <CheckBox
                     android:id="@+id/checkBoxRisingSidewaysConfB"
                     android:layout_width="match_parent"
@@ -1517,6 +1933,72 @@
                     android:button="@null"
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/Wznosybokiem" />
+
+                <TextView
+                    android:id="@+id/textViewInfoRisingSidewaysB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesRisingSidewaysB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXRisingSidewaysB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsRisingSidewaysB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2RisingSidewaysB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentRisingSidewaysB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusRisingSidewaysB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionRisingSidewaysB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
 
                 <CheckBox
                     android:id="@+id/checkBoxBicepsConfB"
@@ -1527,6 +2009,73 @@
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/Biceps" />
 
+                <TextView
+                    android:id="@+id/textViewInfoBicepsB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesBicepsB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXBicepsB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsBicepsB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2BicepsB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentBicepsB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusBicepsB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionBicepsB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
+
+
                 <CheckBox
                     android:id="@+id/checkBoxTricepsConfB"
                     android:layout_width="match_parent"
@@ -1535,6 +2084,73 @@
                     android:button="@null"
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/Triceps" />
+
+                <TextView
+                    android:id="@+id/textViewInfoTricepsB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesTricepsB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXTricepsB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsTricepsB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2TricepsB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentTricepsB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusTricepsB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionTricepsB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
+
 
                 <CheckBox
                     android:id="@+id/checkBoxAllahsConfB"
@@ -1545,6 +2161,72 @@
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/Allahy" />
 
+                <TextView
+                    android:id="@+id/textViewInfoAllahsB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesAllahsB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXAllahsB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsAllahsB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2AllahsB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentAllahsB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusAllahsB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionAllahsB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
+
                 <CheckBox
                     android:id="@+id/checkBoxPlankConfB"
                     android:layout_width="match_parent"
@@ -1554,6 +2236,58 @@
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/Deska" />
 
+                <TextView
+                    android:id="@+id/textViewInfoPlankB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/InfoPlank" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesPlankB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXPlankB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextSecondsPlankB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+
+                    <TextView
+                        android:id="@+id/textViewPlusPlankB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionPlankB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
+
                 <CheckBox
                     android:id="@+id/checkBoxCalvesConfB"
                     android:layout_width="match_parent"
@@ -1562,6 +2296,72 @@
                     android:button="@null"
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/Łydki" />
+                <TextView
+                    android:id="@+id/textViewInfoCalvesB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesCalvesB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXCalvesB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsCalvesB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2CalvesB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentCalvesB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusCalvesB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionCalvesB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
+
 
                 <CheckBox
                     android:id="@+id/checkBoxYRaiseConfB"
@@ -1572,6 +2372,73 @@
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/YRaise" />
 
+
+                <TextView
+                    android:id="@+id/textViewInfoYRaiseB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesYRaiseB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXYRaiseB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsYRaiseB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2YRaiseB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentYRaiseB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusYRaiseB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionYRaiseB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
+
                 <CheckBox
                     android:id="@+id/checkBoxFacepullConfB"
                     android:layout_width="match_parent"
@@ -1580,6 +2447,72 @@
                     android:button="@null"
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/Facepull" />
+
+                <TextView
+                    android:id="@+id/textViewInfoFacepullB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesFacepullB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXFacepullB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsFacepullB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2FacepullB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentFacepullB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusFacepullB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionFacepullB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/buttonNextTrainingConfigurationB"
@@ -1615,6 +2548,74 @@
                     android:text="@string/Przysiady"
                     android:visibility="visible" />
 
+                <TextView
+                    android:id="@+id/textViewInfoSquatC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesSquatC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXSquatC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsSquatC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXSquat2C"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentSquatC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusSquatC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionSquatC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
+
+
                 <CheckBox
                     android:id="@+id/checkBoxDeadliftClassicConfC"
                     android:layout_width="match_parent"
@@ -1625,6 +2626,73 @@
                     android:text="@string/MartwyCiągKlasyczny"
                     android:visibility="visible" />
 
+                <TextView
+                    android:id="@+id/textViewInfoDeadliftClassicC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesDeadliftClassicC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXDeadliftClassicC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsDeadliftClassicC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2DeadliftClassicC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentDeadliftClassicC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusDeadliftClassicC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionDeadliftClassicC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
+
                 <CheckBox
                     android:id="@+id/checkBoxBenchPressConfC"
                     android:layout_width="match_parent"
@@ -1633,6 +2701,71 @@
                     android:button="@null"
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/WyciskanieLeżąc" />
+                <TextView
+                    android:id="@+id/textViewInfoBenchPressC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesBenchPressC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXBenchPressC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsBenchPressC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2BenchPressC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentBenchPressC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusBenchPressC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionBenchPressC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
 
                 <CheckBox
                     android:id="@+id/checkBoxNarrowBenchPressConfC"
@@ -1643,6 +2776,72 @@
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/WyciskanieWąsko" />
 
+                <TextView
+                    android:id="@+id/textViewInfoNarrowBenchPressC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesNarrowBenchPressC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXNarrowBenchPressC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsNarrowBenchPressC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2NarrowBenchPressC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentNarrowBenchPressC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusNarrowBenchPressC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionNarrowBenchPressC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
+
                 <CheckBox
                     android:id="@+id/checkBoxOhpConfC"
                     android:layout_width="match_parent"
@@ -1651,6 +2850,72 @@
                     android:button="@null"
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/WyciskanieŻołnierskie" />
+
+                <TextView
+                    android:id="@+id/textViewInfoOhpC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesOhpC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXOhpC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsOhpC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2OhpC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentOhpC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusOhpC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionOhpC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
 
                 <CheckBox
                     android:id="@+id/checkBoxRowingConfC"
@@ -1661,6 +2926,72 @@
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/Wiosłowanie" />
 
+                <TextView
+                    android:id="@+id/textViewInfoRowingC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesRowingC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXRowingC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsRowingC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2RowingC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentRowingC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusRowingC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionRowingC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
+
                 <CheckBox
                     android:id="@+id/checkBoxPullingUpNarrowConfC"
                     android:layout_width="match_parent"
@@ -1669,6 +3000,72 @@
                     android:button="@null"
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/PodciąganieWąsko" />
+
+                <TextView
+                    android:id="@+id/textViewInfoPullingUpNarrowC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesPullingUpNarrowC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXPullingUpNarrowC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsPullingUpNarrowC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2PullingUpNarrowC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentPullingUpNarrowC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusPullingUpNarrowC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionPullingUpNarrowC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
 
                 <CheckBox
                     android:id="@+id/checkBoxRisingSidewaysConfC"
@@ -1679,6 +3076,72 @@
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/Wznosybokiem" />
 
+
+                <TextView
+                    android:id="@+id/textViewInfoRisingSidewaysC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesRisingSidewaysC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXRisingSidewaysC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsRisingSidewaysC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2RisingSidewaysC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentRisingSidewaysC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusRisingSidewaysC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionRisingSidewaysC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+                </LinearLayout>
+
                 <CheckBox
                     android:id="@+id/checkBoxBicepsConfC"
                     android:layout_width="match_parent"
@@ -1687,6 +3150,72 @@
                     android:button="@null"
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/Biceps" />
+
+                <TextView
+                    android:id="@+id/textViewInfoBicepsC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesBicepsC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXBicepsC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsBicepsC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2BicepsC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentBicepsC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusBicepsC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionBicepsC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
 
                 <CheckBox
                     android:id="@+id/checkBoxTricepsConfC"
@@ -1697,6 +3226,70 @@
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/Triceps" />
 
+                <TextView
+                    android:id="@+id/textViewInfoTricepsC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesTricepsC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXTricepsC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsTricepsC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2TricepsC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentTricepsC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusTricepsC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionTricepsC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+                </LinearLayout>
                 <CheckBox
                     android:id="@+id/checkBoxAllahsConfC"
                     android:layout_width="match_parent"
@@ -1705,6 +3298,72 @@
                     android:button="@null"
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/Allahy" />
+
+                <TextView
+                    android:id="@+id/textViewInfoAllahsC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesAllahsC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXAllahsC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsAllahsC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2AllahsC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentAllahsC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusAllahsC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionAllahsC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
 
                 <CheckBox
                     android:id="@+id/checkBoxPlankConfC"
@@ -1715,6 +3374,58 @@
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/Deska" />
 
+                <TextView
+                    android:id="@+id/textViewInfoPlankC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/InfoPlank" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesPlankC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXPlankC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextSecondsPlankC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+
+                    <TextView
+                        android:id="@+id/textViewPlusPlankC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionPlankC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
+
                 <CheckBox
                     android:id="@+id/checkBoxCalvesConfC"
                     android:layout_width="match_parent"
@@ -1723,6 +3434,72 @@
                     android:button="@null"
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/Łydki" />
+
+                <TextView
+                    android:id="@+id/textViewInfoCalvesC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesCalvesC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXCalvesC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsCalvesC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2CalvesC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentCalvesC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusCalvesC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionCalvesC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
 
                 <CheckBox
                     android:id="@+id/checkBoxYRaiseConfC"
@@ -1733,6 +3510,72 @@
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/YRaise" />
 
+                <TextView
+                    android:id="@+id/textViewInfoYRaiseC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesYRaiseC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXYRaiseC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsYRaiseC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2YRaiseC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentYRaiseC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusYRaiseC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionYRaiseC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
+
                 <CheckBox
                     android:id="@+id/checkBoxFacepullConfC"
                     android:layout_width="match_parent"
@@ -1741,6 +3584,72 @@
                     android:button="@null"
                     android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                     android:text="@string/Facepull" />
+
+                <TextView
+                    android:id="@+id/textViewInfoFacepullC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Info" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editTextSeriesFacepullC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewXFacepullC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextRepsFacepullC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewX2FacepullC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/x" />
+
+                    <EditText
+                        android:id="@+id/editTextPercentFacepullC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/textViewPlusFacepullC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="+" />
+
+                    <EditText
+                        android:id="@+id/editTextProgressionFacepullC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/buttonNextTrainingConfigurationC"
