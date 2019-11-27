@@ -56,14 +56,69 @@ public class TrainingActivity extends AppCompatActivity
             checkBoxPlankConfD;
     private TextView textViewTrainingA,textViewTrainingB,textViewTrainingC,textViewTrainingD;
     private EditText editTextSquat,editTextBenchPress,editTextRowing,editTextRisingSideways,editTextBiceps,editTextTriceps,editTextAllahs,editTextFacepull,editTextDeadliftClassic,
-            editTextOhp,editTextPullingUpNarrow,editTextNarrowBenchPress,editTextYRaise,editTextSeriesSquat,editTextRepsSquat,editTextPercentSquat,editTextProgressionSquat,
-            editTextSeriesDeadliftClassic,editTextRepsDeadliftClassic,editTextPercentDeadliftClassic,editTextProgressionDeadliftClassic,editTextSeriesBenchPress,editTextRepsBenchPress,editTextPercentBenchPress,editTextProgressionBenchPress,
-            editTextSeriesNarrowBenchPress,editTextRepsNarrowBenchPress,editTextPercentNarrowBenchPress,editTextProgressionNarrowBenchPress,editTextSeriesOhp,editTextRepsOhp,editTextPercentOhp,editTextProgressionOhp,
-            editTextSeriesRowing,editTextRepsRowing,editTextPercentRowing,editTextProgressionRowing,editTextSeriesPullingUpNarrow,editTextRepsPullingUpNarrow,editTextPercentPullingUpNarrow,editTextProgressionPullingUpNarrow,
-            editTextSeriesRisingSideways,editTextRepsRisingSideways,editTextPercentRisingSideways,editTextProgressionRisingSideways,editTextSeriesBiceps,editTextRepsBiceps,editTextPercentBiceps,editTextProgressionBiceps,
-            editTextSeriesTriceps,editTextRepsTriceps,editTextPercentTriceps,editTextProgressionTriceps,editTextSeriesAllahs,editTextRepsAllahs,editTextPercentAllahs,editTextProgressionAllahs,editTextSeriesPlank,editTextSecondsPlank,editTextProgressionPlank,
-            editTextSeriesCalves,editTextRepsCalves,editTextPercentCalves,editTextProgressionCalves,editTextSeriesYRaise,editTextRepsYRaise,editTextPercentYRaise,editTextProgressionYRaise,
-            editTextSeriesFacepull,editTextRepsFacepull,editTextPercentFacepull,editTextProgressionFacepull,editTextSeriesSquatB,editTextRepsSquatB,editTextProgressionSquatB;
+            editTextOhp,editTextPullingUpNarrow,editTextNarrowBenchPress,editTextYRaise,
+            editTextSeriesSquat,editTextRepsSquat,editTextPercentSquat,editTextProgressionSquat,
+            editTextSeriesDeadliftClassic,editTextRepsDeadliftClassic,editTextPercentDeadliftClassic,editTextProgressionDeadliftClassic,
+            editTextSeriesBenchPress,editTextRepsBenchPress,editTextPercentBenchPress,editTextProgressionBenchPress,
+            editTextSeriesNarrowBenchPress,editTextRepsNarrowBenchPress,editTextPercentNarrowBenchPress,editTextProgressionNarrowBenchPress,
+            editTextSeriesOhp,editTextRepsOhp,editTextPercentOhp,editTextProgressionOhp,
+            editTextSeriesRowing,editTextRepsRowing,editTextPercentRowing,editTextProgressionRowing,
+            editTextSeriesPullingUpNarrow,editTextRepsPullingUpNarrow,editTextPercentPullingUpNarrow,editTextProgressionPullingUpNarrow,
+            editTextSeriesRisingSideways,editTextRepsRisingSideways,editTextPercentRisingSideways,editTextProgressionRisingSideways,
+            editTextSeriesBiceps,editTextRepsBiceps,editTextPercentBiceps,editTextProgressionBiceps,
+            editTextSeriesTriceps,editTextRepsTriceps,editTextPercentTriceps,editTextProgressionTriceps,
+            editTextSeriesAllahs,editTextRepsAllahs,editTextPercentAllahs,editTextProgressionAllahs,
+            editTextSeriesPlank,editTextSecondsPlank,editTextProgressionPlank,
+            editTextSeriesCalves,editTextRepsCalves,editTextPercentCalves,editTextProgressionCalves,
+            editTextSeriesYRaise,editTextRepsYRaise,editTextPercentYRaise,editTextProgressionYRaise,
+            editTextSeriesFacepull,editTextRepsFacepull,editTextPercentFacepull,editTextProgressionFacepull,
+            editTextSeriesSquatB,editTextRepsSquatB,editTextPercentSquatB,editTextProgressionSquatB,
+            editTextSeriesDeadliftClassicB,editTextRepsDeadliftClassicB,editTextPercentDeadliftClassicB,editTextProgressionDeadliftClassicB,
+            editTextSeriesBenchPressB,editTextRepsBenchPressB,editTextPercentBenchPressB,editTextProgressionBenchPressB,
+            editTextSeriesNarrowBenchPressB,editTextRepsNarrowBenchPressB,editTextPercentNarrowBenchPressB,editTextProgressionNarrowBenchPressB,
+            editTextSeriesOhpB,editTextRepsOhpB,editTextPercentOhpB,editTextProgressionOhpB,
+            editTextSeriesRowingB,editTextRepsRowingB,editTextPercentRowingB,editTextProgressionRowingB,
+            editTextSeriesPullingUpNarrowB,editTextRepsPullingUpNarrowB,editTextPercentPullingUpNarrowB,editTextProgressionPullingUpNarrowB,
+            editTextSeriesRisingSidewaysB,editTextRepsRisingSidewaysB,editTextPercentRisingSidewaysB,editTextProgressionRisingSidewaysB,
+            editTextSeriesBicepsB,editTextRepsBicepsB,editTextPercentBicepsB,editTextProgressionBicepsB,
+            editTextSeriesTricepsB,editTextRepsTricepsB,editTextPercentTricepsB,editTextProgressionTricepsB,
+            editTextSeriesAllahsB,editTextRepsAllahsB,editTextPercentAllahsB,editTextProgressionAllahsB,
+            editTextSeriesPlankB,editTextSecondsPlankB,editTextProgressionPlankB,
+            editTextSeriesCalvesB,editTextRepsCalvesB,editTextPercentCalvesB,editTextProgressionCalvesB,
+            editTextSeriesYRaiseB,editTextRepsYRaiseB,editTextPercentYRaiseB,editTextProgressionYRaiseB,
+            editTextSeriesFacepullB,editTextRepsFacepullB,editTextPercentFacepullB,editTextProgressionFacepullB,
+            editTextSeriesSquatC,editTextRepsSquatC,editTextPercentSquatC,editTextProgressionSquatC,
+            editTextSeriesDeadliftClassicC,editTextRepsDeadliftClassicC,editTextPercentDeadliftClassicC,editTextProgressionDeadliftClassicC,
+            editTextSeriesBenchPressC,editTextRepsBenchPressC,editTextPercentBenchPressC,editTextProgressionBenchPressC,
+            editTextSeriesNarrowBenchPressC,editTextRepsNarrowBenchPressC,editTextPercentNarrowBenchPressC,editTextProgressionNarrowBenchPressC,
+            editTextSeriesOhpC,editTextRepsOhpC,editTextPercentOhpC,editTextProgressionOhpC,
+            editTextSeriesRowingC,editTextRepsRowingC,editTextPercentRowingC,editTextProgressionRowingC,
+            editTextSeriesPullingUpNarrowC,editTextRepsPullingUpNarrowC,editTextPercentPullingUpNarrowC,editTextProgressionPullingUpNarrowC,
+            editTextSeriesRisingSidewaysC,editTextRepsRisingSidewaysC,editTextPercentRisingSidewaysC,editTextProgressionRisingSidewaysC,
+            editTextSeriesBicepsC,editTextRepsBicepsC,editTextPercentBicepsC,editTextProgressionBicepsC,
+            editTextSeriesTricepsC,editTextRepsTricepsC,editTextPercentTricepsC,editTextProgressionTricepsC,
+            editTextSeriesAllahsC,editTextRepsAllahsC,editTextPercentAllahsC,editTextProgressionAllahsC,
+            editTextSeriesPlankC,editTextSecondsPlankC,editTextProgressionPlankC,
+            editTextSeriesCalvesC,editTextRepsCalvesC,editTextPercentCalvesC,editTextProgressionCalvesC,
+            editTextSeriesYRaiseC,editTextRepsYRaiseC,editTextPercentYRaiseC,editTextProgressionYRaiseC,
+            editTextSeriesFacepullC,editTextRepsFacepullC,editTextPercentFacepullC,editTextProgressionFacepullC,
+            editTextSeriesSquatD,editTextRepsSquatD,editTextPercentSquatD,editTextProgressionSquatD,
+            editTextSeriesDeadliftClassicD,editTextRepsDeadliftClassicD,editTextPercentDeadliftClassicD,editTextProgressionDeadliftClassicD,
+            editTextSeriesBenchPressD,editTextRepsBenchPressD,editTextPercentBenchPressD,editTextProgressionBenchPressD,
+            editTextSeriesNarrowBenchPressD,editTextRepsNarrowBenchPressD,editTextPercentNarrowBenchPressD,editTextProgressionNarrowBenchPressD,
+            editTextSeriesOhpD,editTextRepsOhpD,editTextPercentOhpD,editTextProgressionOhpD,
+            editTextSeriesRowingD,editTextRepsRowingD,editTextPercentRowingD,editTextProgressionRowingD,
+            editTextSeriesPullingUpNarrowD,editTextRepsPullingUpNarrowD,editTextPercentPullingUpNarrowD,editTextProgressionPullingUpNarrowD,
+            editTextSeriesRisingSidewaysD,editTextRepsRisingSidewaysD,editTextPercentRisingSidewaysD,editTextProgressionRisingSidewaysD,
+            editTextSeriesBicepsD,editTextRepsBicepsD,editTextPercentBicepsD,editTextProgressionBicepsD,
+            editTextSeriesTricepsD,editTextRepsTricepsD,editTextPercentTricepsD,editTextProgressionTricepsD,
+            editTextSeriesAllahsD,editTextRepsAllahsD,editTextPercentAllahsD,editTextProgressionAllahsD,
+            editTextSeriesPlankD,editTextSecondsPlankD,editTextProgressionPlankD,
+            editTextSeriesCalvesD,editTextRepsCalvesD,editTextPercentCalvesD,editTextProgressionCalvesD,
+            editTextSeriesYRaiseD,editTextRepsYRaiseD,editTextPercentYRaiseD,editTextProgressionYRaiseD,
+            editTextSeriesFacepullD,editTextRepsFacepullD,editTextPercentFacepullD,editTextProgressionFacepullD;
+
+
     private Button buttonWeightConfiguration,buttonTrainingConfiguration,buttonSaveWeightConfiguration,buttonFinishWorkout,buttonFinishWorkoutB,buttonFinishWorkoutC,buttonFinishWorkoutD,
             buttonSaveTrainingConfiguration,buttonNextTrainingConfiguration,buttonNextTrainingConfigurationB,buttonNextTrainingConfigurationC;
     private int LastClick,LastCustomWorkoutState,
@@ -79,14 +134,64 @@ public class TrainingActivity extends AppCompatActivity
             seriesTriceps,repsTriceps,percentTriceps,
             seriesAllahs,repsAllahs,percentAllahs,
             seriesPlank,secondsPlank,
-
-
+            seriesCalves,repsCalves,percentCalves,
+            seriesYRaise,repsYRaise,percentYRaise,
             seriesFacepull,repsFacepull,percentFacepull,
+            seriesSquatB,repsSquatB,percentSquatB,
+            seriesDeadliftClassicB,repsDeadliftClassicB,percentDeadliftClassicB,
+            seriesBenchPressB,repsBenchPressB,percentBenchPressB,
+            seriesNarrowBenchPressB,repsNarrowBenchPressB,percentNarrowBenchPressB,
+            seriesOhpB,repsOhpB,percentOhpB,
+            seriesRowingB,repsRowingB,percentRowingB,
+            seriesPullingUpNarrowB,repsPullingUpNarrowB,percentPullingUpNarrowB,
+            seriesRisingSidewaysB,repsRisingSidewaysB,percentRisingSidewaysB,
+            seriesBicepsB,repsBicepsB,percentBicepsB,
+            seriesTricepsB,repsTricepsB,percentTricepsB,
+            seriesAllahsB,repsAllahsB,percentAllahsB,
+            seriesPlankB,secondsPlankB,
+            seriesCalvesB,repsCalvesB,percentCalvesB,
+            seriesYRaiseB,repsYRaiseB,percentYRaiseB,
+            seriesFacepullB,repsFacepullB,percentFacepullB,
+            seriesSquatC,repsSquatC,percentSquatC,
+            seriesDeadliftClassicC,repsDeadliftClassicC,percentDeadliftClassicC,
+            seriesBenchPressC,repsBenchPressC,percentBenchPressC,
+            seriesNarrowBenchPressC,repsNarrowBenchPressC,percentNarrowBenchPressC,
+            seriesOhpC,repsOhpC,percentOhpC,
+            seriesRowingC,repsRowingC,percentRowingC,
+            seriesPullingUpNarrowC,repsPullingUpNarrowC,percentPullingUpNarrowC,
+            seriesRisingSidewaysC,repsRisingSidewaysC,percentRisingSidewaysC,
+            seriesBicepsC,repsBicepsC,percentBicepsC,
+            seriesTricepsC,repsTricepsC,percentTricepsC,
+            seriesAllahsC,repsAllahsC,percentAllahsC,
+            seriesPlankC,secondsPlankC,
+            seriesCalvesC,repsCalvesC,percentCalvesC,
+            seriesYRaiseC,repsYRaiseC,percentYRaiseC,
+            seriesFacepullC,repsFacepullC,percentFacepullC,
+            seriesSquatD,repsSquatD,percentSquatD,
+            seriesDeadliftClassicD,repsDeadliftClassicD,percentDeadliftClassicD,
+            seriesBenchPressD,repsBenchPressD,percentBenchPressD,
+            seriesNarrowBenchPressD,repsNarrowBenchPressD,percentNarrowBenchPressD,
+            seriesOhpD,repsOhpD,percentOhpD,
+            seriesRowingD,repsRowingD,percentRowingD,
+            seriesPullingUpNarrowD,repsPullingUpNarrowD,percentPullingUpNarrowD,
+            seriesRisingSidewaysD,repsRisingSidewaysD,percentRisingSidewaysD,
+            seriesBicepsD,repsBicepsD,percentBicepsD,
+            seriesTricepsD,repsTricepsD,percentTricepsD,
+            seriesAllahsD,repsAllahsD,percentAllahsD,
+            seriesPlankD,secondsPlankD,
+            seriesCalvesD,repsCalvesD,percentCalvesD,
+            seriesYRaiseD,repsYRaiseD,percentYRaiseD,
+            seriesFacepullD,repsFacepullD,percentFacepullD;
 
-
-             seriesSquatB,repsSquatB,percentSquatB;
     private float progressionSquat,progressionDeadliftClassic,progressionBenchPress,progressionNarrowBenchPress,progressionOhp,progressionRowing,
-            progressionPullingUpNarrow,progressionRisingSideways,progressionBiceps,progressionTriceps,progressionAllahs,progressionPlank,progressionFacepull,progressionSquatB;
+            progressionPullingUpNarrow,progressionRisingSideways,progressionBiceps,progressionTriceps,progressionAllahs,progressionPlank,progressionCalves,
+            progressionYRaise,progressionFacepull,progressionSquatB,progressionDeadliftClassicB,progressionBenchPressB,progressionNarrowBenchPressB,progressionOhpB,progressionRowingB,
+            progressionPullingUpNarrowB,progressionRisingSidewaysB,progressionBicepsB,progressionTricepsB,progressionAllahsB,progressionPlankB,progressionCalvesB,
+            progressionYRaiseB,progressionFacepullB,progressionSquatC,progressionDeadliftClassicC,progressionBenchPressC,progressionNarrowBenchPressC,progressionOhpC,progressionRowingC,
+            progressionPullingUpNarrowC,progressionRisingSidewaysC,progressionBicepsC,progressionTricepsC,progressionAllahsC,progressionPlankC,progressionCalvesC,
+            progressionYRaiseC,progressionFacepullC,progressionSquatD,progressionDeadliftClassicD,progressionBenchPressD,progressionNarrowBenchPressD,progressionOhpD,progressionRowingD,
+            progressionPullingUpNarrowD,progressionRisingSidewaysD,progressionBicepsD,progressionTricepsD,progressionAllahsD,progressionPlankD,progressionCalvesD,
+            progressionYRaiseD,progressionFacepullD;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
@@ -3591,7 +3696,7 @@ public class TrainingActivity extends AppCompatActivity
 
 
                  if (editTextRepsAllahs.getText().length() != 0) {
-                     repsAllahs = Integer.parseInt(editTextAllahs.getText().toString());
+                     repsAllahs = Integer.parseInt(editTextRepsAllahs.getText().toString());
                      editor.putInt("RepsAllahs", repsAllahs);
                      editor.commit();
                  }
@@ -3631,6 +3736,59 @@ public class TrainingActivity extends AppCompatActivity
                  }
 
 
+                 if (editTextSeriesCalves.getText().length() != 0) {
+                     seriesCalves = Integer.parseInt(editTextSeriesCalves.getText().toString());
+                     editor.putInt("SeriesCalves", seriesCalves);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsCalves.getText().length() != 0) {
+                     repsCalves = Integer.parseInt(editTextRepsCalves.getText().toString());
+                     editor.putInt("RepsCalves", repsCalves);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentCalves.getText().length() != 0) {
+                     percentCalves = Integer.parseInt(editTextPercentCalves.getText().toString());
+                     editor.putInt("PercentCalves", percentCalves);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionCalves.getText().length() != 0) {
+                     progressionCalves =  Float.parseFloat(editTextProgressionCalves.getText().toString());
+                     editor.putFloat("ProgressionCalves", progressionCalves);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesYRaise.getText().length() != 0) {
+                     seriesYRaise = Integer.parseInt(editTextSeriesYRaise.getText().toString());
+                     editor.putInt("SeriesYRaise", seriesYRaise);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsYRaise.getText().length() != 0) {
+                     repsYRaise = Integer.parseInt(editTextRepsYRaise.getText().toString());
+                     editor.putInt("RepsCalves", repsYRaise);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentYRaise.getText().length() != 0) {
+                     percentYRaise = Integer.parseInt(editTextPercentYRaise.getText().toString());
+                     editor.putInt("PercentYRaise", percentYRaise);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionYRaise.getText().length() != 0) {
+                     progressionYRaise =  Float.parseFloat(editTextProgressionYRaise.getText().toString());
+                     editor.putFloat("ProgressionYRaise", progressionYRaise);
+                     editor.commit();
+                 }
+
 
                  if (editTextSeriesFacepull.getText().length() != 0) {
                      seriesFacepull = Integer.parseInt(editTextSeriesFacepull.getText().toString());
@@ -3657,10 +3815,6 @@ public class TrainingActivity extends AppCompatActivity
                      editor.putFloat("ProgressionFacepull", progressionFacepull);
                      editor.commit();
                  }
-
-
-
-
 
 
                  if (editTextProgressionSquatB.getText().length() != 0) {
@@ -3747,15 +3901,6 @@ public class TrainingActivity extends AppCompatActivity
                  editTextPercentPullingUpNarrow.setText(String.valueOf(prefs.getInt("PercentPullingUpNarrow", 0)));
                  editTextProgressionPullingUpNarrow.setText(String.valueOf(prefs.getFloat("ProgressionPullingUpNarrow", 0.0f)));
 
-                 seriesPullingUpNarrow = prefs.getInt("SeriesPullingUpNarrow", 0);
-                 repsPullingUpNarrow = prefs.getInt("RepsPullingUpNarrow", 0);
-                 percentPullingUpNarrow = prefs.getInt("PercentPullingUpNarrow", 0);
-                 progressionPullingUpNarrow = prefs.getFloat("ProgressionPullingUpNarrow", 0.0f);
-                 editTextSeriesPullingUpNarrow.setText(String.valueOf(prefs.getInt("SeriesPullingUpNarrow", 0)));
-                 editTextRepsPullingUpNarrow.setText(String.valueOf(prefs.getInt("RepsPullingUpNarrow", 0)));
-                 editTextPercentPullingUpNarrow.setText(String.valueOf(prefs.getInt("PercentPullingUpNarrow", 0)));
-                 editTextProgressionPullingUpNarrow.setText(String.valueOf(prefs.getFloat("ProgressionPullingUpNarrow", 0.0f)));
-
                  seriesRisingSideways= prefs.getInt("SeriesRisingSideways", 0);
                  repsRisingSideways = prefs.getInt("RepsRisingSideways", 0);
                  percentRisingSideways = prefs.getInt("PercentRisingSideways", 0);
@@ -3798,6 +3943,24 @@ public class TrainingActivity extends AppCompatActivity
                  editTextSeriesPlank.setText(String.valueOf(prefs.getInt("SeriesAllahs", 0)));
                  editTextSecondsPlank.setText(String.valueOf(prefs.getInt("SecondsPlank", 0)));
                  editTextProgressionPlank.setText(String.valueOf(prefs.getFloat("ProgressionPlank", 0.0f)));
+
+                 seriesCalves= prefs.getInt("SeriesCalves", 0);
+                 repsCalves = prefs.getInt("RepsCalves", 0);
+                 percentCalves= prefs.getInt("PercentCalves", 0);
+                 progressionCalves = prefs.getFloat("ProgressionCalves", 0.0f);
+                 editTextSeriesCalves.setText(String.valueOf(prefs.getInt("SeriesCalves", 0)));
+                 editTextRepsCalves.setText(String.valueOf(prefs.getInt("RepsCalves", 0)));
+                 editTextPercentCalves.setText(String.valueOf(prefs.getInt("PercentCalves", 0)));
+                 editTextProgressionCalves.setText(String.valueOf(prefs.getFloat("ProgressionCalves", 0.0f)));
+
+                 seriesYRaise= prefs.getInt("SeriesYRaise", 0);
+                 repsYRaise = prefs.getInt("RepsYRaise", 0);
+                 percentYRaise= prefs.getInt("PercentYRaise", 0);
+                 progressionYRaise = prefs.getFloat("ProgressionYRaise", 0.0f);
+                 editTextSeriesYRaise.setText(String.valueOf(prefs.getInt("SeriesYRaise", 0)));
+                 editTextRepsYRaise.setText(String.valueOf(prefs.getInt("RepsYRaise", 0)));
+                 editTextPercentYRaise.setText(String.valueOf(prefs.getInt("PercentYRaise", 0)));
+                 editTextProgressionYRaise.setText(String.valueOf(prefs.getFloat("ProgressionYRaise", 0.0f)));
 
                  seriesFacepull= prefs.getInt("SeriesFacepull", 0);
                  repsFacepull = prefs.getInt("RepsFacepull", 0);
