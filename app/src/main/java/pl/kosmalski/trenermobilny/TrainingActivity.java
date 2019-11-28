@@ -3621,7 +3621,7 @@ public class TrainingActivity extends AppCompatActivity
 
 
 
-                 if (editTextDeadliftClassic.getText().length() != 0) {
+                 if (editTextSeriesDeadliftClassic.getText().length() != 0) {
                      seriesDeadliftClassic = Integer.parseInt(editTextSeriesDeadliftClassic.getText().toString());
                      editor.putInt("SeriesDeadliftClassic", seriesDeadliftClassic);
                      editor.commit();
@@ -3991,11 +3991,17 @@ public class TrainingActivity extends AppCompatActivity
                  }
 
 
-                 if (editTextProgressionSquatB.getText().length() != 0) {
+
+
+
+
+
+                 if (editTextSeriesSquatB.getText().length() != 0) {
                      seriesSquatB = Integer.parseInt(editTextSeriesSquatB.getText().toString());
                      editor.putInt("SeriesSquatB", seriesSquatB);
                      editor.commit();
                  }
+
 
                  if (editTextRepsSquatB.getText().length() != 0) {
                      repsSquatB = Integer.parseInt(editTextRepsSquatB.getText().toString());
@@ -4003,9 +4009,1185 @@ public class TrainingActivity extends AppCompatActivity
                      editor.commit();
                  }
 
+
+                 if (editTextPercentSquatB.getText().length() != 0) {
+                     percentSquatB = Integer.parseInt(editTextPercentSquatB.getText().toString());
+                     editor.putInt("PercentSquatB", percentSquatB);
+                     editor.commit();
+                 }
+
                  if (editTextProgressionSquatB.getText().length() != 0) {
-                     progressionSquatB = Float.parseFloat(editTextProgressionSquatB.getText().toString());
+                     progressionSquatB =  Float.parseFloat(editTextProgressionSquatB.getText().toString());
                      editor.putFloat("ProgressionSquatB", progressionSquatB);
+                     editor.commit();
+                 }
+
+
+
+                 if (editTextSeriesDeadliftClassicB.getText().length() != 0) {
+                     seriesDeadliftClassicB = Integer.parseInt(editTextSeriesDeadliftClassicB.getText().toString());
+                     editor.putInt("SeriesDeadliftClassicB", seriesDeadliftClassicB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsDeadliftClassicB.getText().length() != 0) {
+                     repsDeadliftClassicB = Integer.parseInt(editTextRepsDeadliftClassicB.getText().toString());
+                     editor.putInt("RepsDeadliftClassicB", repsDeadliftClassicB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentDeadliftClassicB.getText().length() != 0) {
+                     percentDeadliftClassicB = Integer.parseInt(editTextPercentDeadliftClassicB.getText().toString());
+                     editor.putInt("PercentDeadliftClassicB", percentDeadliftClassicB);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionDeadliftClassicB.getText().length() != 0) {
+                     progressionDeadliftClassicB =  Float.parseFloat(editTextProgressionDeadliftClassicB.getText().toString());
+                     editor.putFloat("ProgressionDeadliftClassicB", progressionDeadliftClassicB);
+                     editor.commit();
+                 }
+
+
+
+                 if (editTextSeriesBenchPressB.getText().length() != 0) {
+                     seriesBenchPressB = Integer.parseInt(editTextSeriesBenchPressB.getText().toString());
+                     editor.putInt("SeriesBenchPressB", seriesBenchPressB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsBenchPressB.getText().length() != 0) {
+                     repsBenchPressB = Integer.parseInt(editTextRepsBenchPressB.getText().toString());
+                     editor.putInt("RepsBenchPressB", repsBenchPressB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentBenchPressB.getText().length() != 0) {
+                     percentBenchPressB = Integer.parseInt(editTextPercentBenchPressB.getText().toString());
+                     editor.putInt("PercentBenchPressB", percentBenchPressB);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionBenchPressB.getText().length() != 0) {
+                     progressionBenchPressB =  Float.parseFloat(editTextProgressionBenchPressB.getText().toString());
+                     editor.putFloat("ProgressionBenchPressB", progressionBenchPressB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesNarrowBenchPressB.getText().length() != 0) {
+                     seriesNarrowBenchPressB = Integer.parseInt(editTextSeriesNarrowBenchPressB.getText().toString());
+                     editor.putInt("SeriesNarrowBenchPressB", seriesNarrowBenchPressB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsNarrowBenchPressB.getText().length() != 0) {
+                     repsNarrowBenchPressB = Integer.parseInt(editTextRepsNarrowBenchPressB.getText().toString());
+                     editor.putInt("RepsNarrowBenchPressB", repsNarrowBenchPressB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentNarrowBenchPressB.getText().length() != 0) {
+                     percentNarrowBenchPressB = Integer.parseInt(editTextPercentNarrowBenchPressB.getText().toString());
+                     editor.putInt("PercentNarrowBenchPressB", percentNarrowBenchPressB);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionNarrowBenchPressB.getText().length() != 0) {
+                     progressionNarrowBenchPressB =  Float.parseFloat(editTextProgressionNarrowBenchPressB.getText().toString());
+                     editor.putFloat("ProgressionNarrowBenchPressB", progressionNarrowBenchPressB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesOhpB.getText().length() != 0) {
+                     seriesOhpB = Integer.parseInt(editTextSeriesOhpB.getText().toString());
+                     editor.putInt("SeriesOhpB", seriesOhpB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsOhpB.getText().length() != 0) {
+                     repsOhpB = Integer.parseInt(editTextRepsOhpB.getText().toString());
+                     editor.putInt("RepsOhpB", repsOhpB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentOhpB.getText().length() != 0) {
+                     percentOhpB = Integer.parseInt(editTextPercentOhpB.getText().toString());
+                     editor.putInt("PercentOhpB", percentOhpB);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionOhpB.getText().length() != 0) {
+                     progressionOhpB =  Float.parseFloat(editTextProgressionOhpB.getText().toString());
+                     editor.putFloat("ProgressionOhpB", progressionOhpB);
+                     editor.commit();
+                 }
+
+                 if (editTextSeriesRowingB.getText().length() != 0) {
+                     seriesRowingB = Integer.parseInt(editTextSeriesRowingB.getText().toString());
+                     editor.putInt("SeriesRowingB", seriesRowingB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsRowingB.getText().length() != 0) {
+                     repsRowingB = Integer.parseInt(editTextRepsRowingB.getText().toString());
+                     editor.putInt("RepsRowingB", repsRowingB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentRowingB.getText().length() != 0) {
+                     percentRowingB = Integer.parseInt(editTextPercentRowingB.getText().toString());
+                     editor.putInt("PercentRowingB", percentRowingB);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionRowingB.getText().length() != 0) {
+                     progressionRowingB =  Float.parseFloat(editTextProgressionRowingB.getText().toString());
+                     editor.putFloat("ProgressionRowingB", progressionRowingB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesPullingUpNarrowB.getText().length() != 0) {
+                     seriesPullingUpNarrowB = Integer.parseInt(editTextSeriesPullingUpNarrowB.getText().toString());
+                     editor.putInt("SeriesPullingUpNarrowB", seriesPullingUpNarrowB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsPullingUpNarrowB.getText().length() != 0) {
+                     repsPullingUpNarrowB = Integer.parseInt(editTextRepsPullingUpNarrowB.getText().toString());
+                     editor.putInt("RepsPullingUpNarrowB", repsPullingUpNarrowB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentPullingUpNarrowB.getText().length() != 0) {
+                     percentPullingUpNarrowB = Integer.parseInt(editTextPercentPullingUpNarrowB.getText().toString());
+                     editor.putInt("PercentPullingUpNarrowB", percentPullingUpNarrowB);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionPullingUpNarrowB.getText().length() != 0) {
+                     progressionPullingUpNarrowB =  Float.parseFloat(editTextProgressionPullingUpNarrowB.getText().toString());
+                     editor.putFloat("ProgressionPullingUpNarrowB", progressionPullingUpNarrowB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesRisingSidewaysB.getText().length() != 0) {
+                     seriesRisingSidewaysB = Integer.parseInt(editTextSeriesRisingSidewaysB.getText().toString());
+                     editor.putInt("SeriesRisingSidewaysB", seriesRisingSidewaysB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsRisingSidewaysB.getText().length() != 0) {
+                     repsRisingSidewaysB = Integer.parseInt(editTextRepsRisingSidewaysB.getText().toString());
+                     editor.putInt("RepsRisingSidewaysB", repsRisingSidewaysB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentRisingSidewaysB.getText().length() != 0) {
+                     percentRisingSidewaysB = Integer.parseInt(editTextPercentRisingSidewaysB.getText().toString());
+                     editor.putInt("PercentRisingSidewaysB", percentRisingSidewaysB);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionRisingSidewaysB.getText().length() != 0) {
+                     progressionRisingSidewaysB =  Float.parseFloat(editTextProgressionRisingSidewaysB.getText().toString());
+                     editor.putFloat("ProgressionRisingSidewaysB", progressionRisingSidewaysB);
+                     editor.commit();
+                 }
+
+                 if (editTextSeriesBicepsB.getText().length() != 0) {
+                     seriesBicepsB = Integer.parseInt(editTextSeriesBicepsB.getText().toString());
+                     editor.putInt("SeriesBicepsB", seriesBicepsB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsBicepsB.getText().length() != 0) {
+                     repsBicepsB = Integer.parseInt(editTextRepsBicepsB.getText().toString());
+                     editor.putInt("RepsBicepsB", repsBicepsB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentBicepsB.getText().length() != 0) {
+                     percentBicepsB = Integer.parseInt(editTextPercentBicepsB.getText().toString());
+                     editor.putInt("PercentBicepsB", percentBicepsB);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionBicepsB.getText().length() != 0) {
+                     progressionBicepsB =  Float.parseFloat(editTextProgressionBicepsB.getText().toString());
+                     editor.putFloat("ProgressionBicepsB", progressionBicepsB);
+                     editor.commit();
+                 }
+
+
+
+                 if (editTextSeriesTricepsB.getText().length() != 0) {
+                     seriesTricepsB = Integer.parseInt(editTextSeriesTricepsB.getText().toString());
+                     editor.putInt("SeriesTricepsB", seriesTricepsB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsTricepsB.getText().length() != 0) {
+                     repsTricepsB = Integer.parseInt(editTextRepsTricepsB.getText().toString());
+                     editor.putInt("RepsTricepsB", repsTricepsB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentTricepsB.getText().length() != 0) {
+                     percentTricepsB = Integer.parseInt(editTextPercentTricepsB.getText().toString());
+                     editor.putInt("PercentTricepsB", percentTricepsB);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionTricepsB.getText().length() != 0) {
+                     progressionTricepsB =  Float.parseFloat(editTextProgressionTricepsB.getText().toString());
+                     editor.putFloat("ProgressionTricepsB", progressionTricepsB);
+                     editor.commit();
+                 }
+
+                 if (editTextSeriesAllahsB.getText().length() != 0) {
+                     seriesAllahsB = Integer.parseInt(editTextSeriesAllahsB.getText().toString());
+                     editor.putInt("SeriesAllahsB", seriesAllahsB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsAllahsB.getText().length() != 0) {
+                     repsAllahsB = Integer.parseInt(editTextRepsAllahsB.getText().toString());
+                     editor.putInt("RepsAllahsB", repsAllahsB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentAllahsB.getText().length() != 0) {
+                     percentAllahsB = Integer.parseInt(editTextPercentAllahsB.getText().toString());
+                     editor.putInt("PercentAllahsB", percentAllahsB);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionAllahsB.getText().length() != 0) {
+                     progressionAllahsB =  Float.parseFloat(editTextProgressionAllahsB.getText().toString());
+                     editor.putFloat("ProgressionAllahsB", progressionAllahsB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesPlankB.getText().length() != 0) {
+                     seriesPlankB = Integer.parseInt(editTextSeriesPlankB.getText().toString());
+                     editor.putInt("SeriesPlankB", seriesPlankB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSecondsPlankB.getText().length() != 0) {
+                     secondsPlankB = Integer.parseInt(editTextSecondsPlankB.getText().toString());
+                     editor.putInt("SecondsPlankB", secondsPlankB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextProgressionPlankB.getText().length() != 0) {
+                     progressionPlankB =  Float.parseFloat(editTextProgressionPlankB.getText().toString());
+                     editor.putFloat("ProgressionPlankB", progressionPlankB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesCalvesB.getText().length() != 0) {
+                     seriesCalvesB = Integer.parseInt(editTextSeriesCalvesB.getText().toString());
+                     editor.putInt("SeriesCalvesB", seriesCalvesB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsCalvesB.getText().length() != 0) {
+                     repsCalvesB = Integer.parseInt(editTextRepsCalvesB.getText().toString());
+                     editor.putInt("RepsCalvesB", repsCalvesB);
+                     editor.commit();
+                 }
+
+                 if (editTextPercentCalvesB.getText().length() != 0) {
+                     percentCalvesB = Integer.parseInt(editTextPercentCalvesB.getText().toString());
+                     editor.putInt("PercentCalvesB", percentCalvesB);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionCalvesB.getText().length() != 0) {
+                     progressionCalvesB =  Float.parseFloat(editTextProgressionCalvesB.getText().toString());
+                     editor.putFloat("ProgressionCalvesB", progressionCalvesB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesYRaiseB.getText().length() != 0) {
+                     seriesYRaiseB = Integer.parseInt(editTextSeriesYRaiseB.getText().toString());
+                     editor.putInt("SeriesYRaiseB", seriesYRaiseB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsYRaiseB.getText().length() != 0) {
+                     repsYRaiseB = Integer.parseInt(editTextRepsYRaiseB.getText().toString());
+                     editor.putInt("RepsYRaiseB", repsYRaiseB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentYRaiseB.getText().length() != 0) {
+                     percentYRaiseB = Integer.parseInt(editTextPercentYRaiseB.getText().toString());
+                     editor.putInt("PercentYRaiseB", percentYRaiseB);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionYRaiseB.getText().length() != 0) {
+                     progressionYRaiseB =  Float.parseFloat(editTextProgressionYRaiseB.getText().toString());
+                     editor.putFloat("ProgressionYRaiseB", progressionYRaiseB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesFacepullB.getText().length() != 0) {
+                     seriesFacepullB = Integer.parseInt(editTextSeriesFacepullB.getText().toString());
+                     editor.putInt("SeriesFacepullB", seriesFacepullB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsFacepullB.getText().length() != 0) {
+                     repsFacepullB = Integer.parseInt(editTextRepsFacepullB.getText().toString());
+                     editor.putInt("RepsFacepullB", repsFacepullB);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentFacepullB.getText().length() != 0) {
+                     percentFacepullB = Integer.parseInt(editTextPercentFacepullB.getText().toString());
+                     editor.putInt("PercentFacepullB", percentFacepullB);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionFacepullB.getText().length() != 0) {
+                     progressionFacepullB =  Float.parseFloat(editTextProgressionFacepullB.getText().toString());
+                     editor.putFloat("ProgressionFacepullB", progressionFacepullB);
+                     editor.commit();
+                 }
+
+
+
+                 if (editTextSeriesSquatC.getText().length() != 0) {
+                     seriesSquatC = Integer.parseInt(editTextSeriesSquatC.getText().toString());
+                     editor.putInt("SeriesSquatC", seriesSquatC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsSquatC.getText().length() != 0) {
+                     repsSquatC = Integer.parseInt(editTextRepsSquatC.getText().toString());
+                     editor.putInt("RepsSquatC", repsSquatC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentSquatC.getText().length() != 0) {
+                     percentSquatC = Integer.parseInt(editTextPercentSquatC.getText().toString());
+                     editor.putInt("PercentSquatC", percentSquatC);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionSquatC.getText().length() != 0) {
+                     progressionSquatC =  Float.parseFloat(editTextProgressionSquatC.getText().toString());
+                     editor.putFloat("ProgressionSquatC", progressionSquatC);
+                     editor.commit();
+                 }
+
+
+
+                 if (editTextSeriesDeadliftClassicC.getText().length() != 0) {
+                     seriesDeadliftClassicC = Integer.parseInt(editTextSeriesDeadliftClassicC.getText().toString());
+                     editor.putInt("SeriesDeadliftClassicC", seriesDeadliftClassicC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsDeadliftClassicC.getText().length() != 0) {
+                     repsDeadliftClassicC = Integer.parseInt(editTextRepsDeadliftClassicC.getText().toString());
+                     editor.putInt("RepsDeadliftClassicC", repsDeadliftClassicC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentDeadliftClassicC.getText().length() != 0) {
+                     percentDeadliftClassicC = Integer.parseInt(editTextPercentDeadliftClassicC.getText().toString());
+                     editor.putInt("PercentDeadliftClassicC", percentDeadliftClassicC);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionDeadliftClassicC.getText().length() != 0) {
+                     progressionDeadliftClassicC =  Float.parseFloat(editTextProgressionDeadliftClassicC.getText().toString());
+                     editor.putFloat("ProgressionDeadliftClassicC", progressionDeadliftClassicC);
+                     editor.commit();
+                 }
+
+
+
+                 if (editTextSeriesBenchPressC.getText().length() != 0) {
+                     seriesBenchPressC = Integer.parseInt(editTextSeriesBenchPressC.getText().toString());
+                     editor.putInt("SeriesBenchPressC", seriesBenchPressC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsBenchPressC.getText().length() != 0) {
+                     repsBenchPressC = Integer.parseInt(editTextRepsBenchPressC.getText().toString());
+                     editor.putInt("RepsBenchPressC", repsBenchPressC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentBenchPressC.getText().length() != 0) {
+                     percentBenchPressC = Integer.parseInt(editTextPercentBenchPressC.getText().toString());
+                     editor.putInt("PercentBenchPressC", percentBenchPressC);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionBenchPressC.getText().length() != 0) {
+                     progressionBenchPressC =  Float.parseFloat(editTextProgressionBenchPressC.getText().toString());
+                     editor.putFloat("ProgressionBenchPressC", progressionBenchPressC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesNarrowBenchPressC.getText().length() != 0) {
+                     seriesNarrowBenchPressC = Integer.parseInt(editTextSeriesNarrowBenchPressC.getText().toString());
+                     editor.putInt("SeriesNarrowBenchPressC", seriesNarrowBenchPressC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsNarrowBenchPressC.getText().length() != 0) {
+                     repsNarrowBenchPressC = Integer.parseInt(editTextRepsNarrowBenchPressC.getText().toString());
+                     editor.putInt("RepsNarrowBenchPressC", repsNarrowBenchPressC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentNarrowBenchPressC.getText().length() != 0) {
+                     percentNarrowBenchPressC = Integer.parseInt(editTextPercentNarrowBenchPressC.getText().toString());
+                     editor.putInt("PercentNarrowBenchPressC", percentNarrowBenchPressC);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionNarrowBenchPressC.getText().length() != 0) {
+                     progressionNarrowBenchPressC =  Float.parseFloat(editTextProgressionNarrowBenchPressC.getText().toString());
+                     editor.putFloat("ProgressionNarrowBenchPressC", progressionNarrowBenchPressC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesOhpC.getText().length() != 0) {
+                     seriesOhpC = Integer.parseInt(editTextSeriesOhpC.getText().toString());
+                     editor.putInt("SeriesOhpC", seriesOhpC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsOhpC.getText().length() != 0) {
+                     repsOhpC = Integer.parseInt(editTextRepsOhpC.getText().toString());
+                     editor.putInt("RepsOhpC", repsOhpC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentOhpC.getText().length() != 0) {
+                     percentOhpC = Integer.parseInt(editTextPercentOhpC.getText().toString());
+                     editor.putInt("PercentOhpC", percentOhpC);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionOhpC.getText().length() != 0) {
+                     progressionOhpC =  Float.parseFloat(editTextProgressionOhpC.getText().toString());
+                     editor.putFloat("ProgressionOhpC", progressionOhpC);
+                     editor.commit();
+                 }
+
+                 if (editTextSeriesRowingC.getText().length() != 0) {
+                     seriesRowingC = Integer.parseInt(editTextSeriesRowingC.getText().toString());
+                     editor.putInt("SeriesRowingC", seriesRowingC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsRowingC.getText().length() != 0) {
+                     repsRowingC = Integer.parseInt(editTextRepsRowingC.getText().toString());
+                     editor.putInt("RepsRowingC", repsRowingC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentRowingC.getText().length() != 0) {
+                     percentRowingC = Integer.parseInt(editTextPercentRowingC.getText().toString());
+                     editor.putInt("PercentRowingC", percentRowingC);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionRowingC.getText().length() != 0) {
+                     progressionRowingC =  Float.parseFloat(editTextProgressionRowingC.getText().toString());
+                     editor.putFloat("ProgressionRowingC", progressionRowingC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesPullingUpNarrowC.getText().length() != 0) {
+                     seriesPullingUpNarrowC = Integer.parseInt(editTextSeriesPullingUpNarrowC.getText().toString());
+                     editor.putInt("SeriesPullingUpNarrowC", seriesPullingUpNarrowC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsPullingUpNarrowC.getText().length() != 0) {
+                     repsPullingUpNarrowC = Integer.parseInt(editTextRepsPullingUpNarrowC.getText().toString());
+                     editor.putInt("RepsPullingUpNarrowC", repsPullingUpNarrowC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentPullingUpNarrowC.getText().length() != 0) {
+                     percentPullingUpNarrowC = Integer.parseInt(editTextPercentPullingUpNarrowC.getText().toString());
+                     editor.putInt("PercentPullingUpNarrowC", percentPullingUpNarrowC);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionPullingUpNarrowC.getText().length() != 0) {
+                     progressionPullingUpNarrowC =  Float.parseFloat(editTextProgressionPullingUpNarrowC.getText().toString());
+                     editor.putFloat("ProgressionPullingUpNarrowC", progressionPullingUpNarrowC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesRisingSidewaysC.getText().length() != 0) {
+                     seriesRisingSidewaysC = Integer.parseInt(editTextSeriesRisingSidewaysC.getText().toString());
+                     editor.putInt("SeriesRisingSidewaysC", seriesRisingSidewaysC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsRisingSidewaysC.getText().length() != 0) {
+                     repsRisingSidewaysC = Integer.parseInt(editTextRepsRisingSidewaysC.getText().toString());
+                     editor.putInt("RepsRisingSidewaysC", repsRisingSidewaysC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentRisingSidewaysC.getText().length() != 0) {
+                     percentRisingSidewaysC = Integer.parseInt(editTextPercentRisingSidewaysC.getText().toString());
+                     editor.putInt("PercentRisingSidewaysC", percentRisingSidewaysC);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionRisingSidewaysC.getText().length() != 0) {
+                     progressionRisingSidewaysC =  Float.parseFloat(editTextProgressionRisingSidewaysC.getText().toString());
+                     editor.putFloat("ProgressionRisingSidewaysC", progressionRisingSidewaysC);
+                     editor.commit();
+                 }
+
+                 if (editTextSeriesBicepsC.getText().length() != 0) {
+                     seriesBicepsC = Integer.parseInt(editTextSeriesBicepsC.getText().toString());
+                     editor.putInt("SeriesBicepsC", seriesBicepsC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsBicepsC.getText().length() != 0) {
+                     repsBicepsC = Integer.parseInt(editTextRepsBicepsC.getText().toString());
+                     editor.putInt("RepsBicepsC", repsBicepsC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentBicepsC.getText().length() != 0) {
+                     percentBicepsC = Integer.parseInt(editTextPercentBicepsC.getText().toString());
+                     editor.putInt("PercentBicepsC", percentBicepsC);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionBicepsC.getText().length() != 0) {
+                     progressionBicepsC =  Float.parseFloat(editTextProgressionBicepsC.getText().toString());
+                     editor.putFloat("ProgressionBicepsC", progressionBicepsC);
+                     editor.commit();
+                 }
+
+
+
+                 if (editTextSeriesTricepsC.getText().length() != 0) {
+                     seriesTricepsC = Integer.parseInt(editTextSeriesTricepsC.getText().toString());
+                     editor.putInt("SeriesTricepsC", seriesTricepsC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsTricepsC.getText().length() != 0) {
+                     repsTricepsC = Integer.parseInt(editTextRepsTricepsC.getText().toString());
+                     editor.putInt("RepsTricepsC", repsTricepsC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentTricepsC.getText().length() != 0) {
+                     percentTricepsC = Integer.parseInt(editTextPercentTricepsC.getText().toString());
+                     editor.putInt("PercentTricepsC", percentTricepsC);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionTricepsC.getText().length() != 0) {
+                     progressionTricepsC =  Float.parseFloat(editTextProgressionTricepsC.getText().toString());
+                     editor.putFloat("ProgressionTricepsC", progressionTricepsC);
+                     editor.commit();
+                 }
+
+                 if (editTextSeriesAllahsC.getText().length() != 0) {
+                     seriesAllahsC = Integer.parseInt(editTextSeriesAllahsC.getText().toString());
+                     editor.putInt("SeriesAllahsC", seriesAllahsC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsAllahsC.getText().length() != 0) {
+                     repsAllahsC = Integer.parseInt(editTextRepsAllahsC.getText().toString());
+                     editor.putInt("RepsAllahsC", repsAllahsC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentAllahsC.getText().length() != 0) {
+                     percentAllahsC = Integer.parseInt(editTextPercentAllahsC.getText().toString());
+                     editor.putInt("PercentAllahsC", percentAllahsC);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionAllahsC.getText().length() != 0) {
+                     progressionAllahsC =  Float.parseFloat(editTextProgressionAllahsC.getText().toString());
+                     editor.putFloat("ProgressionAllahsC", progressionAllahsC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesPlankC.getText().length() != 0) {
+                     seriesPlankC = Integer.parseInt(editTextSeriesPlankC.getText().toString());
+                     editor.putInt("SeriesPlankC", seriesPlankC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSecondsPlankC.getText().length() != 0) {
+                     secondsPlankC = Integer.parseInt(editTextSecondsPlankC.getText().toString());
+                     editor.putInt("SecondsPlankC", secondsPlankC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextProgressionPlankC.getText().length() != 0) {
+                     progressionPlankC =  Float.parseFloat(editTextProgressionPlankC.getText().toString());
+                     editor.putFloat("ProgressionPlankC", progressionPlankC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesCalvesC.getText().length() != 0) {
+                     seriesCalvesC = Integer.parseInt(editTextSeriesCalvesC.getText().toString());
+                     editor.putInt("SeriesCalvesC", seriesCalvesC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsCalvesC.getText().length() != 0) {
+                     repsCalvesC= Integer.parseInt(editTextRepsCalvesC.getText().toString());
+                     editor.putInt("RepsCalvesC", repsCalvesC);
+                     editor.commit();
+                 }
+
+                 if (editTextPercentCalvesC.getText().length() != 0) {
+                     percentCalvesC = Integer.parseInt(editTextPercentCalvesC.getText().toString());
+                     editor.putInt("PercentCalvesC", percentCalvesC);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionCalvesC.getText().length() != 0) {
+                     progressionCalvesC =  Float.parseFloat(editTextProgressionCalvesC.getText().toString());
+                     editor.putFloat("ProgressionCalvesC", progressionCalvesC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesYRaiseC.getText().length() != 0) {
+                     seriesYRaiseC = Integer.parseInt(editTextSeriesYRaiseC.getText().toString());
+                     editor.putInt("SeriesYRaiseC", seriesYRaiseC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsYRaiseC.getText().length() != 0) {
+                     repsYRaiseC = Integer.parseInt(editTextRepsYRaiseC.getText().toString());
+                     editor.putInt("RepsYRaiseC", repsYRaiseC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentYRaiseC.getText().length() != 0) {
+                     percentYRaiseC = Integer.parseInt(editTextPercentYRaiseC.getText().toString());
+                     editor.putInt("PercentYRaiseC", percentYRaiseC);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionYRaiseC.getText().length() != 0) {
+                     progressionYRaiseC =  Float.parseFloat(editTextProgressionYRaiseC.getText().toString());
+                     editor.putFloat("ProgressionYRaiseC", progressionYRaiseC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesFacepullC.getText().length() != 0) {
+                     seriesFacepullC = Integer.parseInt(editTextSeriesFacepullC.getText().toString());
+                     editor.putInt("SeriesFacepullC", seriesFacepullC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsFacepullC.getText().length() != 0) {
+                     repsFacepullC = Integer.parseInt(editTextRepsFacepullC.getText().toString());
+                     editor.putInt("RepsFacepullC", repsFacepullC);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentFacepullC.getText().length() != 0) {
+                     percentFacepullC = Integer.parseInt(editTextPercentFacepullC.getText().toString());
+                     editor.putInt("PercentFacepullC", percentFacepullC);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionFacepullC.getText().length() != 0) {
+                     progressionFacepullC =  Float.parseFloat(editTextProgressionFacepullC.getText().toString());
+                     editor.putFloat("ProgressionFacepullC", progressionFacepullC);
+                     editor.commit();
+                 }
+
+
+
+                 if (editTextSeriesSquatD.getText().length() != 0) {
+                     seriesSquatD = Integer.parseInt(editTextSeriesSquatD.getText().toString());
+                     editor.putInt("SeriesSquatD", seriesSquatD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsSquatD.getText().length() != 0) {
+                     repsSquatD = Integer.parseInt(editTextRepsSquatD.getText().toString());
+                     editor.putInt("RepsSquatD", repsSquatD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentSquatD.getText().length() != 0) {
+                     percentSquatD = Integer.parseInt(editTextPercentSquatD.getText().toString());
+                     editor.putInt("PercentSquatD", percentSquatD);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionSquatD.getText().length() != 0) {
+                     progressionSquatD =  Float.parseFloat(editTextProgressionSquatD.getText().toString());
+                     editor.putFloat("ProgressionSquatD", progressionSquatD);
+                     editor.commit();
+                 }
+
+
+
+                 if (editTextSeriesDeadliftClassicD.getText().length() != 0) {
+                     seriesDeadliftClassicD = Integer.parseInt(editTextSeriesDeadliftClassicD.getText().toString());
+                     editor.putInt("SeriesDeadliftClassicD", seriesDeadliftClassicD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsDeadliftClassicD.getText().length() != 0) {
+                     repsDeadliftClassicD = Integer.parseInt(editTextRepsDeadliftClassicD.getText().toString());
+                     editor.putInt("RepsDeadliftClassicD", repsDeadliftClassicD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentDeadliftClassicD.getText().length() != 0) {
+                     percentDeadliftClassicD = Integer.parseInt(editTextPercentDeadliftClassicD.getText().toString());
+                     editor.putInt("PercentDeadliftClassicD", percentDeadliftClassicD);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionDeadliftClassicD.getText().length() != 0) {
+                     progressionDeadliftClassicD =  Float.parseFloat(editTextProgressionDeadliftClassicD.getText().toString());
+                     editor.putFloat("ProgressionDeadliftClassicD", progressionDeadliftClassicD);
+                     editor.commit();
+                 }
+
+
+
+                 if (editTextSeriesBenchPressD.getText().length() != 0) {
+                     seriesBenchPressD = Integer.parseInt(editTextSeriesBenchPressD.getText().toString());
+                     editor.putInt("SeriesBenchPressD", seriesBenchPressD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsBenchPressD.getText().length() != 0) {
+                     repsBenchPressD = Integer.parseInt(editTextRepsBenchPressD.getText().toString());
+                     editor.putInt("RepsBenchPressD", repsBenchPressD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentBenchPressD.getText().length() != 0) {
+                     percentBenchPressD = Integer.parseInt(editTextPercentBenchPressD.getText().toString());
+                     editor.putInt("PercentBenchPressD", percentBenchPressD);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionBenchPressD.getText().length() != 0) {
+                     progressionBenchPressD =  Float.parseFloat(editTextProgressionBenchPressD.getText().toString());
+                     editor.putFloat("ProgressionBenchPressD", progressionBenchPressD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesNarrowBenchPressD.getText().length() != 0) {
+                     seriesNarrowBenchPressD = Integer.parseInt(editTextSeriesNarrowBenchPressD.getText().toString());
+                     editor.putInt("SeriesNarrowBenchPressD", seriesNarrowBenchPressD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsNarrowBenchPressD.getText().length() != 0) {
+                     repsNarrowBenchPressD = Integer.parseInt(editTextRepsNarrowBenchPressD.getText().toString());
+                     editor.putInt("RepsNarrowBenchPressD", repsNarrowBenchPressD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentNarrowBenchPressD.getText().length() != 0) {
+                     percentNarrowBenchPressD = Integer.parseInt(editTextPercentNarrowBenchPressD.getText().toString());
+                     editor.putInt("PercentNarrowBenchPressD", percentNarrowBenchPressD);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionNarrowBenchPressD.getText().length() != 0) {
+                     progressionNarrowBenchPressD =  Float.parseFloat(editTextProgressionNarrowBenchPressD.getText().toString());
+                     editor.putFloat("ProgressionNarrowBenchPressD", progressionNarrowBenchPressD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesOhpD.getText().length() != 0) {
+                     seriesOhpD = Integer.parseInt(editTextSeriesOhpD.getText().toString());
+                     editor.putInt("SeriesOhpD", seriesOhpD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsOhpD.getText().length() != 0) {
+                     repsOhpD = Integer.parseInt(editTextRepsOhpD.getText().toString());
+                     editor.putInt("RepsOhpD", repsOhpD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentOhpD.getText().length() != 0) {
+                     percentOhpD = Integer.parseInt(editTextPercentOhpD.getText().toString());
+                     editor.putInt("PercentOhpD", percentOhpD);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionOhpD.getText().length() != 0) {
+                     progressionOhpD =  Float.parseFloat(editTextProgressionOhpD.getText().toString());
+                     editor.putFloat("ProgressionOhpD", progressionOhpD);
+                     editor.commit();
+                 }
+
+                 if (editTextSeriesRowingD.getText().length() != 0) {
+                     seriesRowingD = Integer.parseInt(editTextSeriesRowingD.getText().toString());
+                     editor.putInt("SeriesRowingD", seriesRowingD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsRowingD.getText().length() != 0) {
+                     repsRowingD = Integer.parseInt(editTextRepsRowingD.getText().toString());
+                     editor.putInt("RepsRowingD", repsRowingD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentRowingD.getText().length() != 0) {
+                     percentRowingD = Integer.parseInt(editTextPercentRowingD.getText().toString());
+                     editor.putInt("PercentRowingD", percentRowingD);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionRowingD.getText().length() != 0) {
+                     progressionRowingD =  Float.parseFloat(editTextProgressionRowingD.getText().toString());
+                     editor.putFloat("ProgressionRowingD", progressionRowingD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesPullingUpNarrowD.getText().length() != 0) {
+                     seriesPullingUpNarrowD = Integer.parseInt(editTextSeriesPullingUpNarrowD.getText().toString());
+                     editor.putInt("SeriesPullingUpNarrowD", seriesPullingUpNarrowD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsPullingUpNarrowD.getText().length() != 0) {
+                     repsPullingUpNarrowD = Integer.parseInt(editTextRepsPullingUpNarrowD.getText().toString());
+                     editor.putInt("RepsPullingUpNarrowD", repsPullingUpNarrowD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentPullingUpNarrowD.getText().length() != 0) {
+                     percentPullingUpNarrowD = Integer.parseInt(editTextPercentPullingUpNarrowD.getText().toString());
+                     editor.putInt("PercentPullingUpNarrowD", percentPullingUpNarrowD);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionPullingUpNarrowD.getText().length() != 0) {
+                     progressionPullingUpNarrowD =  Float.parseFloat(editTextProgressionPullingUpNarrowD.getText().toString());
+                     editor.putFloat("ProgressionPullingUpNarrowD", progressionPullingUpNarrowD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesRisingSidewaysD.getText().length() != 0) {
+                     seriesRisingSidewaysD = Integer.parseInt(editTextSeriesRisingSidewaysD.getText().toString());
+                     editor.putInt("SeriesRisingSidewaysD", seriesRisingSidewaysD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsRisingSidewaysD.getText().length() != 0) {
+                     repsRisingSidewaysD = Integer.parseInt(editTextRepsRisingSidewaysD.getText().toString());
+                     editor.putInt("RepsRisingSidewaysD", repsRisingSidewaysD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentRisingSidewaysD.getText().length() != 0) {
+                     percentRisingSidewaysD = Integer.parseInt(editTextPercentRisingSidewaysD.getText().toString());
+                     editor.putInt("PercentRisingSidewaysD", percentRisingSidewaysD);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionRisingSidewaysD.getText().length() != 0) {
+                     progressionRisingSidewaysD =  Float.parseFloat(editTextProgressionRisingSidewaysD.getText().toString());
+                     editor.putFloat("ProgressionRisingSidewaysD", progressionRisingSidewaysD);
+                     editor.commit();
+                 }
+
+                 if (editTextSeriesBicepsD.getText().length() != 0) {
+                     seriesBicepsD = Integer.parseInt(editTextSeriesBicepsD.getText().toString());
+                     editor.putInt("SeriesBicepsD", seriesBicepsD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsBicepsD.getText().length() != 0) {
+                     repsBicepsD = Integer.parseInt(editTextRepsBicepsD.getText().toString());
+                     editor.putInt("RepsBicepsD", repsBicepsD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentBicepsD.getText().length() != 0) {
+                     percentBicepsD = Integer.parseInt(editTextPercentBicepsD.getText().toString());
+                     editor.putInt("PercentBicepsD", percentBicepsD);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionBicepsD.getText().length() != 0) {
+                     progressionBicepsD =  Float.parseFloat(editTextProgressionBicepsD.getText().toString());
+                     editor.putFloat("ProgressionBicepsD", progressionBicepsD);
+                     editor.commit();
+                 }
+
+
+
+                 if (editTextSeriesTricepsD.getText().length() != 0) {
+                     seriesTricepsD = Integer.parseInt(editTextSeriesTricepsD.getText().toString());
+                     editor.putInt("SeriesTricepsD", seriesTricepsD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsTricepsD.getText().length() != 0) {
+                     repsTricepsD = Integer.parseInt(editTextRepsTricepsD.getText().toString());
+                     editor.putInt("RepsTricepsD", repsTricepsD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentTricepsD.getText().length() != 0) {
+                     percentTricepsD = Integer.parseInt(editTextPercentTricepsD.getText().toString());
+                     editor.putInt("PercentTricepsD", percentTricepsD);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionTricepsD.getText().length() != 0) {
+                     progressionTricepsD =  Float.parseFloat(editTextProgressionTricepsD.getText().toString());
+                     editor.putFloat("ProgressionTricepsD", progressionTricepsD);
+                     editor.commit();
+                 }
+
+                 if (editTextSeriesAllahsD.getText().length() != 0) {
+                     seriesAllahsD = Integer.parseInt(editTextSeriesAllahsD.getText().toString());
+                     editor.putInt("SeriesAllahsD", seriesAllahsD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsAllahsD.getText().length() != 0) {
+                     repsAllahsD = Integer.parseInt(editTextRepsAllahsD.getText().toString());
+                     editor.putInt("RepsAllahsD", repsAllahsD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentAllahsD.getText().length() != 0) {
+                     percentAllahsD = Integer.parseInt(editTextPercentAllahsD.getText().toString());
+                     editor.putInt("PercentAllahsD", percentAllahsD);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionAllahsD.getText().length() != 0) {
+                     progressionAllahsD =  Float.parseFloat(editTextProgressionAllahsD.getText().toString());
+                     editor.putFloat("ProgressionAllahsD", progressionAllahsD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesPlankD.getText().length() != 0) {
+                     seriesPlankD = Integer.parseInt(editTextSeriesPlankD.getText().toString());
+                     editor.putInt("SeriesPlankD", seriesPlankD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSecondsPlankD.getText().length() != 0) {
+                     secondsPlankD = Integer.parseInt(editTextSecondsPlankD.getText().toString());
+                     editor.putInt("SecondsPlankD", secondsPlankD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextProgressionPlankD.getText().length() != 0) {
+                     progressionPlankD =  Float.parseFloat(editTextProgressionPlankD.getText().toString());
+                     editor.putFloat("ProgressionPlankD", progressionPlankD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesCalvesD.getText().length() != 0) {
+                     seriesCalvesD = Integer.parseInt(editTextSeriesCalvesD.getText().toString());
+                     editor.putInt("SeriesCalvesD", seriesCalvesD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsCalvesD.getText().length() != 0) {
+                     repsCalvesD = Integer.parseInt(editTextRepsCalvesD.getText().toString());
+                     editor.putInt("RepsCalvesD", repsCalvesD);
+                     editor.commit();
+                 }
+
+                 if (editTextPercentCalvesD.getText().length() != 0) {
+                     percentCalvesD = Integer.parseInt(editTextPercentCalvesD.getText().toString());
+                     editor.putInt("PercentCalvesD", percentCalvesD);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionCalvesD.getText().length() != 0) {
+                     progressionCalvesD =  Float.parseFloat(editTextProgressionCalvesD.getText().toString());
+                     editor.putFloat("ProgressionCalvesD", progressionCalvesD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesYRaiseD.getText().length() != 0) {
+                     seriesYRaiseD = Integer.parseInt(editTextSeriesYRaiseD.getText().toString());
+                     editor.putInt("SeriesYRaiseD", seriesYRaiseD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsYRaiseD.getText().length() != 0) {
+                     repsYRaiseD = Integer.parseInt(editTextRepsYRaiseD.getText().toString());
+                     editor.putInt("RepsYRaiseD", repsYRaiseD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentYRaiseD.getText().length() != 0) {
+                     percentYRaiseD = Integer.parseInt(editTextPercentYRaiseD.getText().toString());
+                     editor.putInt("PercentYRaiseD", percentYRaiseD);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionYRaiseD.getText().length() != 0) {
+                     progressionYRaiseD =  Float.parseFloat(editTextProgressionYRaiseD.getText().toString());
+                     editor.putFloat("ProgressionYRaiseD", progressionYRaiseD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextSeriesFacepullD.getText().length() != 0) {
+                     seriesFacepullD = Integer.parseInt(editTextSeriesFacepullD.getText().toString());
+                     editor.putInt("SeriesFacepullD", seriesFacepullD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextRepsFacepullD.getText().length() != 0) {
+                     repsFacepullD = Integer.parseInt(editTextRepsFacepullD.getText().toString());
+                     editor.putInt("RepsFacepullD", repsFacepullD);
+                     editor.commit();
+                 }
+
+
+                 if (editTextPercentFacepullD.getText().length() != 0) {
+                     percentFacepullD = Integer.parseInt(editTextPercentFacepullD.getText().toString());
+                     editor.putInt("PercentFacepullD", percentFacepullD);
+                     editor.commit();
+                 }
+
+                 if (editTextProgressionFacepullD.getText().length() != 0) {
+                     progressionFacepullD =  Float.parseFloat(editTextProgressionFacepullD.getText().toString());
+                     editor.putFloat("ProgressionFacepullD", progressionFacepullD);
                      editor.commit();
                  }
          }
@@ -4087,7 +5269,7 @@ public class TrainingActivity extends AppCompatActivity
                  seriesBiceps= prefs.getInt("SeriesBiceps", 0);
                  repsBiceps = prefs.getInt("RepsBiceps", 0);
                  percentBiceps = prefs.getInt("PercentBiceps", 0);
-                 progressionBiceps = prefs.getFloat("ProgressionBicepss", 0.0f);
+                 progressionBiceps = prefs.getFloat("ProgressionBiceps", 0.0f);
                  editTextSeriesBiceps.setText(String.valueOf(prefs.getInt("SeriesBiceps", 0)));
                  editTextRepsBiceps.setText(String.valueOf(prefs.getInt("RepsBiceps", 0)));
                  editTextPercentBiceps.setText(String.valueOf(prefs.getInt("PercentBiceps", 0)));
@@ -4114,7 +5296,7 @@ public class TrainingActivity extends AppCompatActivity
                  seriesPlank= prefs.getInt("SeriesPlank", 0);
                  secondsPlank = prefs.getInt("SecondsPlank", 0);
                  progressionPlank = prefs.getFloat("ProgressionPlank", 0.0f);
-                 editTextSeriesPlank.setText(String.valueOf(prefs.getInt("SeriesAllahs", 0)));
+                 editTextSeriesPlank.setText(String.valueOf(prefs.getInt("SeriesPlank", 0)));
                  editTextSecondsPlank.setText(String.valueOf(prefs.getInt("SecondsPlank", 0)));
                  editTextProgressionPlank.setText(String.valueOf(prefs.getFloat("ProgressionPlank", 0.0f)));
 
@@ -4144,6 +5326,421 @@ public class TrainingActivity extends AppCompatActivity
                  editTextRepsFacepull.setText(String.valueOf(prefs.getInt("RepsFacepull", 0)));
                  editTextPercentFacepull.setText(String.valueOf(prefs.getInt("PercentFacepull", 0)));
                  editTextProgressionFacepull.setText(String.valueOf(prefs.getFloat("ProgressionFacepull", 0.0f)));
+
+
+
+
+
+
+                 seriesSquatB = prefs.getInt("SeriesSquatB", 0);
+                 repsSquatB = prefs.getInt("RepsSquatB", 0);
+                 percentSquatB = prefs.getInt("PercentSquatB", 0);
+                 progressionSquatB = prefs.getFloat("ProgressionSquatB", 0.0f);
+                 editTextSeriesSquatB.setText(String.valueOf(prefs.getInt("SeriesSquatB", 0)));
+                 editTextRepsSquatB.setText(String.valueOf(prefs.getInt("RepsSquatB", 0)));
+                 editTextPercentSquatB.setText(String.valueOf(prefs.getInt("PercentSquatB", 0)));
+                 editTextProgressionSquatB.setText(String.valueOf(prefs.getFloat("ProgressionSquatB", 0.0f)));
+
+                 seriesDeadliftClassicB = prefs.getInt("SeriesDeadliftClassicB", 0);
+                 repsDeadliftClassicB = prefs.getInt("RepsDeadliftClassicB", 0);
+                 percentDeadliftClassicB = prefs.getInt("PercentDeadliftClassicB", 0);
+                 progressionDeadliftClassicB= prefs.getFloat("ProgressionDeadliftClassicB", 0.0f);
+                 editTextSeriesDeadliftClassicB.setText(String.valueOf(prefs.getInt("SeriesDeadliftClassicB", 0)));
+                 editTextRepsDeadliftClassicB.setText(String.valueOf(prefs.getInt("RepsDeadliftClassicB", 0)));
+                 editTextPercentDeadliftClassicB.setText(String.valueOf(prefs.getInt("PercentDeadliftClassicB", 0)));
+                 editTextProgressionDeadliftClassicB.setText(String.valueOf(prefs.getFloat("ProgressionDeadliftClassicB", 0.0f)));
+
+                 seriesBenchPressB = prefs.getInt("SeriesBenchPressB", 0);
+                 repsBenchPressB = prefs.getInt("RepsBenchPressB", 0);
+                 percentBenchPressB = prefs.getInt("PercentBenchPressB", 0);
+                 progressionBenchPressB = prefs.getFloat("ProgressionBenchPressB", 0.0f);
+                 editTextSeriesBenchPressB.setText(String.valueOf(prefs.getInt("SeriesBenchPressB", 0)));
+                 editTextRepsBenchPressB.setText(String.valueOf(prefs.getInt("RepsBenchPressB", 0)));
+                 editTextPercentBenchPressB.setText(String.valueOf(prefs.getInt("PercentBenchPressB", 0)));
+                 editTextProgressionBenchPressB.setText(String.valueOf(prefs.getFloat("ProgressionBenchPressB", 0.0f)));
+
+                 seriesNarrowBenchPressB = prefs.getInt("SeriesNarrowBenchPressB", 0);
+                 repsNarrowBenchPressB = prefs.getInt("RepsNarrowBenchPressB", 0);
+                 percentNarrowBenchPressB = prefs.getInt("PercentNarrowBenchPressB", 0);
+                 progressionNarrowBenchPressB = prefs.getFloat("ProgressionNarrowBenchPressB", 0.0f);
+                 editTextSeriesNarrowBenchPressB.setText(String.valueOf(prefs.getInt("SeriesNarrowBenchPressB", 0)));
+                 editTextRepsNarrowBenchPressB.setText(String.valueOf(prefs.getInt("RepsNarrowBenchPressB", 0)));
+                 editTextPercentNarrowBenchPressB.setText(String.valueOf(prefs.getInt("PercentNarrowBenchPressB", 0)));
+                 editTextProgressionNarrowBenchPressB.setText(String.valueOf(prefs.getFloat("ProgressionNarrowBenchPressB", 0.0f)));
+
+                 seriesOhpB = prefs.getInt("SeriesOhpB", 0);
+                 repsOhpB = prefs.getInt("RepsOhpB", 0);
+                 percentOhpB = prefs.getInt("PercentOhpB", 0);
+                 progressionOhpB = prefs.getFloat("ProgressionOhpB", 0.0f);
+                 editTextSeriesOhpB.setText(String.valueOf(prefs.getInt("SeriesOhpB", 0)));
+                 editTextRepsOhpB.setText(String.valueOf(prefs.getInt("RepsOhpB", 0)));
+                 editTextPercentOhpB.setText(String.valueOf(prefs.getInt("PercentOhpB", 0)));
+                 editTextProgressionOhpB.setText(String.valueOf(prefs.getFloat("ProgressionOhpB", 0.0f)));
+
+                 seriesRowingB = prefs.getInt("SeriesRowingB", 0);
+                 repsRowingB = prefs.getInt("RepsRowingB", 0);
+                 percentRowingB = prefs.getInt("PercentRowingB", 0);
+                 progressionRowingB = prefs.getFloat("ProgressionRowingB", 0.0f);
+                 editTextSeriesRowingB.setText(String.valueOf(prefs.getInt("SeriesRowingB", 0)));
+                 editTextRepsRowingB.setText(String.valueOf(prefs.getInt("RepsRowingB", 0)));
+                 editTextPercentRowingB.setText(String.valueOf(prefs.getInt("PercentRowingB", 0)));
+                 editTextProgressionRowingB.setText(String.valueOf(prefs.getFloat("ProgressionRowingB", 0.0f)));
+
+                 seriesPullingUpNarrowB = prefs.getInt("SeriesPullingUpNarrowB", 0);
+                 repsPullingUpNarrowB = prefs.getInt("RepsPullingUpNarrowB", 0);
+                 percentPullingUpNarrowB = prefs.getInt("PercentPullingUpNarrowB", 0);
+                 progressionPullingUpNarrowB = prefs.getFloat("ProgressionPullingUpNarrowB", 0.0f);
+                 editTextSeriesPullingUpNarrowB.setText(String.valueOf(prefs.getInt("SeriesPullingUpNarrowB", 0)));
+                 editTextRepsPullingUpNarrowB.setText(String.valueOf(prefs.getInt("RepsPullingUpNarrowB", 0)));
+                 editTextPercentPullingUpNarrowB.setText(String.valueOf(prefs.getInt("PercentPullingUpNarrowB", 0)));
+                 editTextProgressionPullingUpNarrowB.setText(String.valueOf(prefs.getFloat("ProgressionPullingUpNarrowB", 0.0f)));
+
+                 seriesRisingSidewaysB = prefs.getInt("SeriesRisingSidewaysB", 0);
+                 repsRisingSidewaysB = prefs.getInt("RepsRisingSidewaysB", 0);
+                 percentRisingSidewaysB = prefs.getInt("PercentRisingSidewaysB", 0);
+                 progressionRisingSidewaysB = prefs.getFloat("ProgressionRisingSidewaysB", 0.0f);
+                 editTextSeriesRisingSidewaysB.setText(String.valueOf(prefs.getInt("SeriesRisingSidewaysB", 0)));
+                 editTextRepsRisingSidewaysB.setText(String.valueOf(prefs.getInt("RepsRisingSidewaysB", 0)));
+                 editTextPercentRisingSidewaysB.setText(String.valueOf(prefs.getInt("PercentRisingSidewaysB", 0)));
+                 editTextProgressionRisingSidewaysB.setText(String.valueOf(prefs.getFloat("ProgressionRisingSidewaysB", 0.0f)));
+
+                 seriesBicepsB= prefs.getInt("SeriesBicepsB", 0);
+                 repsBicepsB = prefs.getInt("RepsBicepsB", 0);
+                 percentBicepsB = prefs.getInt("PercentBicepsB", 0);
+                 progressionBicepsB = prefs.getFloat("ProgressionBicepsB", 0.0f);
+                 editTextSeriesBicepsB.setText(String.valueOf(prefs.getInt("SeriesBicepsB", 0)));
+                 editTextRepsBicepsB.setText(String.valueOf(prefs.getInt("RepsBicepsB", 0)));
+                 editTextPercentBicepsB.setText(String.valueOf(prefs.getInt("PercentBicepsB", 0)));
+                 editTextProgressionBicepsB.setText(String.valueOf(prefs.getFloat("ProgressionBicepsB", 0.0f)));
+
+                 seriesTricepsB= prefs.getInt("SeriesTricepsB", 0);
+                 repsTricepsB = prefs.getInt("RepsTricepsB", 0);
+                 percentTricepsB= prefs.getInt("PercentTricepsB", 0);
+                 progressionTricepsB = prefs.getFloat("ProgressionTricepsB", 0.0f);
+                 editTextSeriesTricepsB.setText(String.valueOf(prefs.getInt("SeriesTricepsB", 0)));
+                 editTextRepsTricepsB.setText(String.valueOf(prefs.getInt("RepsTricepsB", 0)));
+                 editTextPercentTricepsB.setText(String.valueOf(prefs.getInt("PercentTricepsB", 0)));
+                 editTextProgressionTricepsB.setText(String.valueOf(prefs.getFloat("ProgressionTricepsB", 0.0f)));
+
+                 seriesAllahsB= prefs.getInt("SeriesAllahsB", 0);
+                 repsAllahsB = prefs.getInt("RepsAllahsB", 0);
+                 percentAllahsB= prefs.getInt("PercentAllahsB", 0);
+                 progressionAllahsB = prefs.getFloat("ProgressionAllahsB", 0.0f);
+                 editTextSeriesAllahsB.setText(String.valueOf(prefs.getInt("SeriesAllahsB", 0)));
+                 editTextRepsAllahsB.setText(String.valueOf(prefs.getInt("RepsAllahsB", 0)));
+                 editTextPercentAllahsB.setText(String.valueOf(prefs.getInt("PercentAllahsB", 0)));
+                 editTextProgressionAllahsB.setText(String.valueOf(prefs.getFloat("ProgressionAllahsB", 0.0f)));
+
+                 seriesPlankB= prefs.getInt("SeriesPlankB", 0);
+                 secondsPlankB = prefs.getInt("SecondsPlankB", 0);
+                 progressionPlankB = prefs.getFloat("ProgressionPlankB", 0.0f);
+                 editTextSeriesPlankB.setText(String.valueOf(prefs.getInt("SeriesPlankB", 0)));
+                 editTextSecondsPlankB.setText(String.valueOf(prefs.getInt("SecondsPlankB", 0)));
+                 editTextProgressionPlankB.setText(String.valueOf(prefs.getFloat("ProgressionPlankB", 0.0f)));
+
+                 seriesCalvesB= prefs.getInt("SeriesCalvesB", 0);
+                 repsCalvesB = prefs.getInt("RepsCalvesB", 0);
+                 percentCalvesB= prefs.getInt("PercentCalvesB", 0);
+                 progressionCalvesB = prefs.getFloat("ProgressionCalvesB", 0.0f);
+                 editTextSeriesCalvesB.setText(String.valueOf(prefs.getInt("SeriesCalvesB", 0)));
+                 editTextRepsCalvesB.setText(String.valueOf(prefs.getInt("RepsCalvesB", 0)));
+                 editTextPercentCalvesB.setText(String.valueOf(prefs.getInt("PercentCalvesB", 0)));
+                 editTextProgressionCalvesB.setText(String.valueOf(prefs.getFloat("ProgressionCalvesB", 0.0f)));
+
+                 seriesYRaiseB= prefs.getInt("SeriesYRaiseB", 0);
+                 repsYRaiseB = prefs.getInt("RepsYRaiseB", 0);
+                 percentYRaiseB= prefs.getInt("PercentYRaiseB", 0);
+                 progressionYRaiseB = prefs.getFloat("ProgressionYRaiseB", 0.0f);
+                 editTextSeriesYRaiseB.setText(String.valueOf(prefs.getInt("SeriesYRaiseB", 0)));
+                 editTextRepsYRaiseB.setText(String.valueOf(prefs.getInt("RepsYRaiseB", 0)));
+                 editTextPercentYRaiseB.setText(String.valueOf(prefs.getInt("PercentYRaise", 0)));
+                 editTextProgressionYRaiseB.setText(String.valueOf(prefs.getFloat("ProgressionYRaiseB", 0.0f)));
+
+                 seriesFacepullB= prefs.getInt("SeriesFacepullB", 0);
+                 repsFacepullB = prefs.getInt("RepsFacepullB", 0);
+                 percentFacepullB= prefs.getInt("PercentFacepullB", 0);
+                 progressionFacepullB = prefs.getFloat("ProgressionFacepullB", 0.0f);
+                 editTextSeriesFacepullB.setText(String.valueOf(prefs.getInt("SeriesFacepullB", 0)));
+                 editTextRepsFacepullB.setText(String.valueOf(prefs.getInt("RepsFacepulLB", 0)));
+                 editTextPercentFacepullB.setText(String.valueOf(prefs.getInt("PercentFacepullB", 0)));
+                 editTextProgressionFacepullB.setText(String.valueOf(prefs.getFloat("ProgressionFacepullB", 0.0f)));
+
+
+
+
+
+
+                 seriesSquatC = prefs.getInt("SeriesSquatC", 0);
+                 repsSquatC = prefs.getInt("RepsSquatC", 0);
+                 percentSquatC = prefs.getInt("PercentSquatC", 0);
+                 progressionSquatC = prefs.getFloat("ProgressionSquatC", 0.0f);
+                 editTextSeriesSquatC.setText(String.valueOf(prefs.getInt("SeriesSquatC", 0)));
+                 editTextRepsSquatC.setText(String.valueOf(prefs.getInt("RepsSquatC", 0)));
+                 editTextPercentSquatC.setText(String.valueOf(prefs.getInt("PercentSquatC", 0)));
+                 editTextProgressionSquatC.setText(String.valueOf(prefs.getFloat("ProgressionSquatC", 0.0f)));
+
+                 seriesDeadliftClassicC = prefs.getInt("SeriesDeadliftClassicC", 0);
+                 repsDeadliftClassicC = prefs.getInt("RepsDeadliftClassicC", 0);
+                 percentDeadliftClassicC = prefs.getInt("PercentDeadliftClassicC", 0);
+                 progressionDeadliftClassicC = prefs.getFloat("ProgressionDeadliftClassicC", 0.0f);
+                 editTextSeriesDeadliftClassicC.setText(String.valueOf(prefs.getInt("SeriesDeadliftClassicC", 0)));
+                 editTextRepsDeadliftClassicC.setText(String.valueOf(prefs.getInt("RepsDeadliftClassicC", 0)));
+                 editTextPercentDeadliftClassicC.setText(String.valueOf(prefs.getInt("PercentDeadliftClassicC", 0)));
+                 editTextProgressionDeadliftClassicC.setText(String.valueOf(prefs.getFloat("ProgressionDeadliftClassicC", 0.0f)));
+
+                 seriesBenchPressC = prefs.getInt("SeriesBenchPressC", 0);
+                 repsBenchPressC = prefs.getInt("RepsBenchPressC", 0);
+                 percentBenchPressC = prefs.getInt("PercentBenchPressC", 0);
+                 progressionBenchPressC = prefs.getFloat("ProgressionBenchPressC", 0.0f);
+                 editTextSeriesBenchPressC.setText(String.valueOf(prefs.getInt("SeriesBenchPressC", 0)));
+                 editTextRepsBenchPressC.setText(String.valueOf(prefs.getInt("RepsBenchPressC", 0)));
+                 editTextPercentBenchPressC.setText(String.valueOf(prefs.getInt("PercentBenchPressC", 0)));
+                 editTextProgressionBenchPressC.setText(String.valueOf(prefs.getFloat("ProgressionBenchPressC", 0.0f)));
+
+                 seriesNarrowBenchPressC = prefs.getInt("SeriesNarrowBenchPressC", 0);
+                 repsNarrowBenchPressC = prefs.getInt("RepsNarrowBenchPressC", 0);
+                 percentNarrowBenchPressC = prefs.getInt("PercentNarrowBenchPressC", 0);
+                 progressionNarrowBenchPressC = prefs.getFloat("ProgressionNarrowBenchPressC", 0.0f);
+                 editTextSeriesNarrowBenchPressC.setText(String.valueOf(prefs.getInt("SeriesNarrowBenchPressC", 0)));
+                 editTextRepsNarrowBenchPressC.setText(String.valueOf(prefs.getInt("RepsNarrowBenchPressC", 0)));
+                 editTextPercentNarrowBenchPressC.setText(String.valueOf(prefs.getInt("PercentNarrowBenchPressC", 0)));
+                 editTextProgressionNarrowBenchPressC.setText(String.valueOf(prefs.getFloat("ProgressionNarrowBenchPressC", 0.0f)));
+
+                 seriesOhpC = prefs.getInt("SeriesOhpC", 0);
+                 repsOhpC = prefs.getInt("RepsOhpC", 0);
+                 percentOhpC = prefs.getInt("PercentOhpC", 0);
+                 progressionOhpC = prefs.getFloat("ProgressionOhpC", 0.0f);
+                 editTextSeriesOhpC.setText(String.valueOf(prefs.getInt("SeriesOhpC", 0)));
+                 editTextRepsOhpC.setText(String.valueOf(prefs.getInt("RepsOhpC", 0)));
+                 editTextPercentOhpC.setText(String.valueOf(prefs.getInt("PercentOhpC", 0)));
+                 editTextProgressionOhpC.setText(String.valueOf(prefs.getFloat("ProgressionOhpC", 0.0f)));
+
+                 seriesRowingC = prefs.getInt("SeriesRowingC", 0);
+                 repsRowingC = prefs.getInt("RepsRowingC", 0);
+                 percentRowingC = prefs.getInt("PercentRowingC", 0);
+                 progressionRowingC = prefs.getFloat("ProgressionRowingC", 0.0f);
+                 editTextSeriesRowingC.setText(String.valueOf(prefs.getInt("SeriesRowingC", 0)));
+                 editTextRepsRowingC.setText(String.valueOf(prefs.getInt("RepsRowingC", 0)));
+                 editTextPercentRowingC.setText(String.valueOf(prefs.getInt("PercentRowingC", 0)));
+                 editTextProgressionRowingC.setText(String.valueOf(prefs.getFloat("ProgressionRowingC", 0.0f)));
+
+                 seriesPullingUpNarrowC = prefs.getInt("SeriesPullingUpNarrowC", 0);
+                 repsPullingUpNarrowC = prefs.getInt("RepsPullingUpNarrowC", 0);
+                 percentPullingUpNarrowC = prefs.getInt("PercentPullingUpNarrowC", 0);
+                 progressionPullingUpNarrowC = prefs.getFloat("ProgressionPullingUpNarrowC", 0.0f);
+                 editTextSeriesPullingUpNarrowC.setText(String.valueOf(prefs.getInt("SeriesPullingUpNarrowC", 0)));
+                 editTextRepsPullingUpNarrowC.setText(String.valueOf(prefs.getInt("RepsPullingUpNarrowC", 0)));
+                 editTextPercentPullingUpNarrowC.setText(String.valueOf(prefs.getInt("PercentPullingUpNarrowC", 0)));
+                 editTextProgressionPullingUpNarrowC.setText(String.valueOf(prefs.getFloat("ProgressionPullingUpNarrowC", 0.0f)));
+
+                 seriesRisingSidewaysC= prefs.getInt("SeriesRisingSidewaysC", 0);
+                 repsRisingSidewaysC= prefs.getInt("RepsRisingSidewaysC", 0);
+                 percentRisingSidewaysC = prefs.getInt("PercentRisingSidewaysC", 0);
+                 progressionRisingSidewaysC = prefs.getFloat("ProgressionRisingSidewaysC", 0.0f);
+                 editTextSeriesRisingSidewaysC.setText(String.valueOf(prefs.getInt("SeriesRisingSidewaysC", 0)));
+                 editTextRepsRisingSidewaysC.setText(String.valueOf(prefs.getInt("RepsRisingSidewaysC", 0)));
+                 editTextPercentRisingSidewaysC.setText(String.valueOf(prefs.getInt("PercentRisingSidewaysC", 0)));
+                 editTextProgressionRisingSidewaysC.setText(String.valueOf(prefs.getFloat("ProgressionRisingSidewaysC", 0.0f)));
+
+                 seriesBicepsC= prefs.getInt("SeriesBicepsC", 0);
+                 repsBicepsC = prefs.getInt("RepsBicepsC", 0);
+                 percentBicepsC = prefs.getInt("PercentBicepsC", 0);
+                 progressionBicepsC = prefs.getFloat("ProgressionBicepsC", 0.0f);
+                 editTextSeriesBicepsC.setText(String.valueOf(prefs.getInt("SeriesBicepsC", 0)));
+                 editTextRepsBicepsC.setText(String.valueOf(prefs.getInt("RepsBicepsC", 0)));
+                 editTextPercentBicepsC.setText(String.valueOf(prefs.getInt("PercentBicepsC", 0)));
+                 editTextProgressionBicepsC.setText(String.valueOf(prefs.getFloat("ProgressionBicepsC", 0.0f)));
+
+                 seriesTricepsC= prefs.getInt("SeriesTricepsC", 0);
+                 repsTricepsC = prefs.getInt("RepsTricepC", 0);
+                 percentTricepsC= prefs.getInt("PercentTricepsC", 0);
+                 progressionTricepsC = prefs.getFloat("ProgressionTricepsC", 0.0f);
+                 editTextSeriesTricepsC.setText(String.valueOf(prefs.getInt("SeriesTricepsC", 0)));
+                 editTextRepsTricepsC.setText(String.valueOf(prefs.getInt("RepsTricepsC", 0)));
+                 editTextPercentTricepsC.setText(String.valueOf(prefs.getInt("PercentTricepsC", 0)));
+                 editTextProgressionTricepsC.setText(String.valueOf(prefs.getFloat("ProgressionTricepsC", 0.0f)));
+
+                 seriesAllahsC= prefs.getInt("SeriesAllahsC", 0);
+                 repsAllahsC = prefs.getInt("RepsAllahsC", 0);
+                 percentAllahsC= prefs.getInt("PercentAllahsC", 0);
+                 progressionAllahsC = prefs.getFloat("ProgressionAllahsC", 0.0f);
+                 editTextSeriesAllahsC.setText(String.valueOf(prefs.getInt("SeriesAllahsC", 0)));
+                 editTextRepsAllahsC.setText(String.valueOf(prefs.getInt("RepsAllahsC", 0)));
+                 editTextPercentAllahsC.setText(String.valueOf(prefs.getInt("PercentAllahsC", 0)));
+                 editTextProgressionAllahsC.setText(String.valueOf(prefs.getFloat("ProgressionAllahsC", 0.0f)));
+
+                 seriesPlankC= prefs.getInt("SeriesPlankC", 0);
+                 secondsPlankC = prefs.getInt("SecondsPlankC", 0);
+                 progressionPlankC = prefs.getFloat("ProgressionPlankC", 0.0f);
+                 editTextSeriesPlankC.setText(String.valueOf(prefs.getInt("SeriesPlankC", 0)));
+                 editTextSecondsPlankC.setText(String.valueOf(prefs.getInt("SecondsPlankC", 0)));
+                 editTextProgressionPlankC.setText(String.valueOf(prefs.getFloat("ProgressionPlankC", 0.0f)));
+
+                 seriesCalvesC= prefs.getInt("SeriesCalvesC", 0);
+                 repsCalvesC = prefs.getInt("RepsCalvesC", 0);
+                 percentCalvesC= prefs.getInt("PercentCalvesC", 0);
+                 progressionCalvesC = prefs.getFloat("ProgressionCalvesC", 0.0f);
+                 editTextSeriesCalvesC.setText(String.valueOf(prefs.getInt("SeriesCalvesC", 0)));
+                 editTextRepsCalvesC.setText(String.valueOf(prefs.getInt("RepsCalvesC", 0)));
+                 editTextPercentCalvesC.setText(String.valueOf(prefs.getInt("PercentCalvesC", 0)));
+                 editTextProgressionCalvesC.setText(String.valueOf(prefs.getFloat("ProgressionCalvesC", 0.0f)));
+
+                 seriesYRaiseC= prefs.getInt("SeriesYRaiseC", 0);
+                 repsYRaiseC = prefs.getInt("RepsYRaiseC", 0);
+                 percentYRaiseC= prefs.getInt("PercentYRaiseC", 0);
+                 progressionYRaiseC = prefs.getFloat("ProgressionYRaiseC", 0.0f);
+                 editTextSeriesYRaiseC.setText(String.valueOf(prefs.getInt("SeriesYRaiseC", 0)));
+                 editTextRepsYRaiseC.setText(String.valueOf(prefs.getInt("RepsYRaiseC", 0)));
+                 editTextPercentYRaiseC.setText(String.valueOf(prefs.getInt("PercentYRaiseC", 0)));
+                 editTextProgressionYRaiseC.setText(String.valueOf(prefs.getFloat("ProgressionYRaiseC", 0.0f)));
+
+                 seriesFacepullC= prefs.getInt("SeriesFacepullC", 0);
+                 repsFacepullC = prefs.getInt("RepsFacepullC", 0);
+                 percentFacepullC= prefs.getInt("PercentFacepullC", 0);
+                 progressionFacepullC = prefs.getFloat("ProgressionFacepullC", 0.0f);
+                 editTextSeriesFacepullC.setText(String.valueOf(prefs.getInt("SeriesFacepullC", 0)));
+                 editTextRepsFacepullC.setText(String.valueOf(prefs.getInt("RepsFacepullC", 0)));
+                 editTextPercentFacepullC.setText(String.valueOf(prefs.getInt("PercentFacepullC", 0)));
+                 editTextProgressionFacepullC.setText(String.valueOf(prefs.getFloat("ProgressionFacepullC", 0.0f)));
+
+
+
+
+
+
+
+                 seriesSquatD = prefs.getInt("SeriesSquatD", 0);
+                 repsSquatD = prefs.getInt("RepsSquatD", 0);
+                 percentSquatD = prefs.getInt("PercentSquatD", 0);
+                 progressionSquatD = prefs.getFloat("ProgressionSquatD", 0.0f);
+                 editTextSeriesSquatD.setText(String.valueOf(prefs.getInt("SeriesSquatD", 0)));
+                 editTextRepsSquatD.setText(String.valueOf(prefs.getInt("RepsSquatD", 0)));
+                 editTextPercentSquatD.setText(String.valueOf(prefs.getInt("PercentSquatD", 0)));
+                 editTextProgressionSquatD.setText(String.valueOf(prefs.getFloat("ProgressionSquatD", 0.0f)));
+
+                 seriesDeadliftClassicD = prefs.getInt("SeriesDeadliftClassicD", 0);
+                 repsDeadliftClassicD = prefs.getInt("RepsDeadliftClassicD", 0);
+                 percentDeadliftClassicD = prefs.getInt("PercentDeadliftClassicD", 0);
+                 progressionDeadliftClassicD = prefs.getFloat("ProgressionDeadliftClassicD", 0.0f);
+                 editTextSeriesDeadliftClassicD.setText(String.valueOf(prefs.getInt("SeriesDeadliftClassicD", 0)));
+                 editTextRepsDeadliftClassicD.setText(String.valueOf(prefs.getInt("RepsDeadliftClassicD", 0)));
+                 editTextPercentDeadliftClassicD.setText(String.valueOf(prefs.getInt("PercentDeadliftClassicD", 0)));
+                 editTextProgressionDeadliftClassicD.setText(String.valueOf(prefs.getFloat("ProgressionDeadliftClassicD", 0.0f)));
+
+                 seriesBenchPressD = prefs.getInt("SeriesBenchPressD", 0);
+                 repsBenchPressD = prefs.getInt("RepsBenchPressD", 0);
+                 percentBenchPressD = prefs.getInt("PercentBenchPressD", 0);
+                 progressionBenchPressD = prefs.getFloat("ProgressionBenchPressD", 0.0f);
+                 editTextSeriesBenchPressD.setText(String.valueOf(prefs.getInt("SeriesBenchPressD", 0)));
+                 editTextRepsBenchPressD.setText(String.valueOf(prefs.getInt("RepsBenchPressD", 0)));
+                 editTextPercentBenchPressD.setText(String.valueOf(prefs.getInt("PercentBenchPressD", 0)));
+                 editTextProgressionBenchPressD.setText(String.valueOf(prefs.getFloat("ProgressionBenchPressD", 0.0f)));
+
+                 seriesNarrowBenchPressD = prefs.getInt("SeriesNarrowBenchPressD", 0);
+                 repsNarrowBenchPressD = prefs.getInt("RepsNarrowBenchPressD", 0);
+                 percentNarrowBenchPressD = prefs.getInt("PercentNarrowBenchPressD", 0);
+                 progressionNarrowBenchPressD = prefs.getFloat("ProgressionNarrowBenchPressD", 0.0f);
+                 editTextSeriesNarrowBenchPressD.setText(String.valueOf(prefs.getInt("SeriesNarrowBenchPressD", 0)));
+                 editTextRepsNarrowBenchPressD.setText(String.valueOf(prefs.getInt("RepsNarrowBenchPressD", 0)));
+                 editTextPercentNarrowBenchPressD.setText(String.valueOf(prefs.getInt("PercentNarrowBenchPressD", 0)));
+                 editTextProgressionNarrowBenchPressD.setText(String.valueOf(prefs.getFloat("ProgressionNarrowBenchPressD", 0.0f)));
+
+                 seriesOhpD = prefs.getInt("SeriesOhpD", 0);
+                 repsOhpD = prefs.getInt("RepsOhpD", 0);
+                 percentOhpD = prefs.getInt("PercentOhpD", 0);
+                 progressionOhpD = prefs.getFloat("ProgressionOhpD", 0.0f);
+                 editTextSeriesOhpD.setText(String.valueOf(prefs.getInt("SeriesOhpD", 0)));
+                 editTextRepsOhpD.setText(String.valueOf(prefs.getInt("RepsOhpD", 0)));
+                 editTextPercentOhpD.setText(String.valueOf(prefs.getInt("PercentOhpD", 0)));
+                 editTextProgressionOhpD.setText(String.valueOf(prefs.getFloat("ProgressionOhpD", 0.0f)));
+
+                 seriesRowingD = prefs.getInt("SeriesRowingD", 0);
+                 repsRowingD = prefs.getInt("RepsRowingD", 0);
+                 percentRowingD = prefs.getInt("PercentRowingD", 0);
+                 progressionRowingD = prefs.getFloat("ProgressionRowingD", 0.0f);
+                 editTextSeriesRowingD.setText(String.valueOf(prefs.getInt("SeriesRowingD", 0)));
+                 editTextRepsRowingD.setText(String.valueOf(prefs.getInt("RepsRowingD", 0)));
+                 editTextPercentRowingD.setText(String.valueOf(prefs.getInt("PercentRowingD", 0)));
+                 editTextProgressionRowingD.setText(String.valueOf(prefs.getFloat("ProgressionRowingD", 0.0f)));
+
+                 seriesPullingUpNarrowD = prefs.getInt("SeriesPullingUpNarrowD", 0);
+                 repsPullingUpNarrowD = prefs.getInt("RepsPullingUpNarrowD", 0);
+                 percentPullingUpNarrowD = prefs.getInt("PercentPullingUpNarrowD", 0);
+                 progressionPullingUpNarrowD = prefs.getFloat("ProgressionPullingUpNarrowD", 0.0f);
+                 editTextSeriesPullingUpNarrowD.setText(String.valueOf(prefs.getInt("SeriesPullingUpNarrowD", 0)));
+                 editTextRepsPullingUpNarrowD.setText(String.valueOf(prefs.getInt("RepsPullingUpNarrowD", 0)));
+                 editTextPercentPullingUpNarrowD.setText(String.valueOf(prefs.getInt("PercentPullingUpNarrowD", 0)));
+                 editTextProgressionPullingUpNarrowD.setText(String.valueOf(prefs.getFloat("ProgressionPullingUpNarrowD", 0.0f)));
+
+                 seriesRisingSidewaysD= prefs.getInt("SeriesRisingSidewaysD", 0);
+                 repsRisingSidewaysD = prefs.getInt("RepsRisingSidewaysD", 0);
+                 percentRisingSidewaysD = prefs.getInt("PercentRisingSidewaysD", 0);
+                 progressionRisingSidewaysD = prefs.getFloat("ProgressionRisingSidewaysD", 0.0f);
+                 editTextSeriesRisingSidewaysD.setText(String.valueOf(prefs.getInt("SeriesRisingSidewaysD", 0)));
+                 editTextRepsRisingSidewaysD.setText(String.valueOf(prefs.getInt("RepsRisingSidewaysD", 0)));
+                 editTextPercentRisingSidewaysD.setText(String.valueOf(prefs.getInt("PercentRisingSidewaysD", 0)));
+                 editTextProgressionRisingSidewaysD.setText(String.valueOf(prefs.getFloat("ProgressionRisingSidewaysD", 0.0f)));
+
+                 seriesBicepsD= prefs.getInt("SeriesBicepsD", 0);
+                 repsBicepsD = prefs.getInt("RepsBicepsD", 0);
+                 percentBicepsD = prefs.getInt("PercentBicepsD", 0);
+                 progressionBicepsD = prefs.getFloat("ProgressionBicepsD", 0.0f);
+                 editTextSeriesBicepsD.setText(String.valueOf(prefs.getInt("SeriesBicepsD", 0)));
+                 editTextRepsBicepsD.setText(String.valueOf(prefs.getInt("RepsBicepsD", 0)));
+                 editTextPercentBicepsD.setText(String.valueOf(prefs.getInt("PercentBicepsD", 0)));
+                 editTextProgressionBicepsD.setText(String.valueOf(prefs.getFloat("ProgressionBicepsD", 0.0f)));
+
+                 seriesTricepsD= prefs.getInt("SeriesTricepsD", 0);
+                 repsTricepsD = prefs.getInt("RepsTricepsD", 0);
+                 percentTricepsD= prefs.getInt("PercentTricepsD", 0);
+                 progressionTricepsD = prefs.getFloat("ProgressionTricepsD", 0.0f);
+                 editTextSeriesTricepsD.setText(String.valueOf(prefs.getInt("SeriesTricepsD", 0)));
+                 editTextRepsTricepsD.setText(String.valueOf(prefs.getInt("RepsTricepsD", 0)));
+                 editTextPercentTricepsD.setText(String.valueOf(prefs.getInt("PercentTricepsD", 0)));
+                 editTextProgressionTricepsD.setText(String.valueOf(prefs.getFloat("ProgressionTricepsD", 0.0f)));
+
+                 seriesAllahsD= prefs.getInt("SeriesAllahsD", 0);
+                 repsAllahsD = prefs.getInt("RepsAllahsD", 0);
+                 percentAllahsD= prefs.getInt("PercentAllahsD", 0);
+                 progressionAllahsD = prefs.getFloat("ProgressionAllahsD", 0.0f);
+                 editTextSeriesAllahsD.setText(String.valueOf(prefs.getInt("SeriesAllahsD", 0)));
+                 editTextRepsAllahsD.setText(String.valueOf(prefs.getInt("RepsAllahsD", 0)));
+                 editTextPercentAllahsD.setText(String.valueOf(prefs.getInt("PercentAllahsD", 0)));
+                 editTextProgressionAllahsD.setText(String.valueOf(prefs.getFloat("ProgressionAllahsD", 0.0f)));
+
+                 seriesPlankD= prefs.getInt("SeriesPlankD", 0);
+                 secondsPlankD = prefs.getInt("SecondsPlankD", 0);
+                 progressionPlankD = prefs.getFloat("ProgressionPlankD", 0.0f);
+                 editTextSeriesPlankD.setText(String.valueOf(prefs.getInt("SeriesPlankD", 0)));
+                 editTextSecondsPlankD.setText(String.valueOf(prefs.getInt("SecondsPlankD", 0)));
+                 editTextProgressionPlankD.setText(String.valueOf(prefs.getFloat("ProgressionPlankD", 0.0f)));
+
+                 seriesCalvesD= prefs.getInt("SeriesCalvesD", 0);
+                 repsCalvesD = prefs.getInt("RepsCalvesD", 0);
+                 percentCalvesD= prefs.getInt("PercentCalvesD", 0);
+                 progressionCalvesD = prefs.getFloat("ProgressionCalvesD", 0.0f);
+                 editTextSeriesCalvesD.setText(String.valueOf(prefs.getInt("SeriesCalvesD", 0)));
+                 editTextRepsCalvesD.setText(String.valueOf(prefs.getInt("RepsCalvesD", 0)));
+                 editTextPercentCalvesD.setText(String.valueOf(prefs.getInt("PercentCalvesD", 0)));
+                 editTextProgressionCalvesD.setText(String.valueOf(prefs.getFloat("ProgressionCalvesD", 0.0f)));
+
+                 seriesYRaiseD= prefs.getInt("SeriesYRaiseD", 0);
+                 repsYRaiseD = prefs.getInt("RepsYRaiseD", 0);
+                 percentYRaiseD= prefs.getInt("PercentYRaiseD", 0);
+                 progressionYRaiseD = prefs.getFloat("ProgressionYRaiseD", 0.0f);
+                 editTextSeriesYRaiseD.setText(String.valueOf(prefs.getInt("SeriesYRaiseD", 0)));
+                 editTextRepsYRaiseD.setText(String.valueOf(prefs.getInt("RepsYRaiseD", 0)));
+                 editTextPercentYRaiseD.setText(String.valueOf(prefs.getInt("PercentYRaiseD", 0)));
+                 editTextProgressionYRaiseD.setText(String.valueOf(prefs.getFloat("ProgressionYRaiseD", 0.0f)));
+
+                 seriesFacepullD= prefs.getInt("SeriesFacepullD", 0);
+                 repsFacepullD = prefs.getInt("RepsFacepullD", 0);
+                 percentFacepullD= prefs.getInt("PercentFacepullD", 0);
+                 progressionFacepullD = prefs.getFloat("ProgressionFacepullD", 0.0f);
+                 editTextSeriesFacepullD.setText(String.valueOf(prefs.getInt("SeriesFacepullD", 0)));
+                 editTextRepsFacepullD.setText(String.valueOf(prefs.getInt("RepsFacepullD", 0)));
+                 editTextPercentFacepullD.setText(String.valueOf(prefs.getInt("PercentFacepullD", 0)));
+                 editTextProgressionFacepullD.setText(String.valueOf(prefs.getFloat("ProgressionFacepullD", 0.0f)));
 
 
              }
