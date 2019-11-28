@@ -332,6 +332,7 @@ public class TrainingActivity extends AppCompatActivity
         editTextPullingUpNarrow = (EditText)findViewById(R.id.editTextPullingUpNarrow);
         editTextNarrowBenchPress = (EditText)findViewById(R.id.editTextNarrowBenchPress);
         editTextYRaise = (EditText)findViewById(R.id.editTextYRaise);
+
         editTextSeriesSquat = (EditText)findViewById(R.id.editTextSeriesSquat);
         editTextRepsSquat = (EditText)findViewById(R.id.editTextRepsSquat);
         editTextPercentSquat= (EditText)findViewById(R.id.editTextPercentSquat);
@@ -393,12 +394,186 @@ public class TrainingActivity extends AppCompatActivity
         editTextProgressionFacepull= (EditText)findViewById(R.id.editTextProgressionFacepull);
 
 
-
         editTextSeriesSquatB = (EditText)findViewById(R.id.editTextSeriesSquatB);
         editTextRepsSquatB = (EditText)findViewById(R.id.editTextRepsSquatB);
+        editTextPercentSquatB= (EditText)findViewById(R.id.editTextPercentSquatB);
         editTextProgressionSquatB = (EditText)findViewById(R.id.editTextProgressionSquatB);
+        editTextSeriesDeadliftClassicB= (EditText)findViewById(R.id.editTextSeriesDeadliftClassicB);
+        editTextRepsDeadliftClassicB= (EditText)findViewById(R.id.editTextRepsDeadliftClassicB);
+        editTextPercentDeadliftClassicB= (EditText)findViewById(R.id.editTextPercentDeadliftClassicB);
+        editTextProgressionDeadliftClassicB= (EditText)findViewById(R.id.editTextProgressionDeadliftClassicB);
+        editTextSeriesBenchPressB= (EditText)findViewById(R.id.editTextSeriesBenchPressB);
+        editTextRepsBenchPressB= (EditText)findViewById(R.id.editTextRepsBenchPressB);
+        editTextPercentBenchPressB= (EditText)findViewById(R.id.editTextPercentBenchPressB);
+        editTextProgressionBenchPressB= (EditText)findViewById(R.id.editTextProgressionBenchPressB);
+        editTextSeriesNarrowBenchPressB= (EditText)findViewById(R.id. editTextSeriesNarrowBenchPressB);
+        editTextRepsNarrowBenchPressB= (EditText)findViewById(R.id.editTextRepsNarrowBenchPressB);
+        editTextPercentNarrowBenchPressB= (EditText)findViewById(R.id.editTextPercentNarrowBenchPressB);
+        editTextProgressionNarrowBenchPressB= (EditText)findViewById(R.id.editTextProgressionNarrowBenchPressB);
+        editTextSeriesOhpB= (EditText)findViewById(R.id.editTextSeriesOhpB);
+        editTextRepsOhpB= (EditText)findViewById(R.id.editTextRepsOhpB);
+        editTextPercentOhpB= (EditText)findViewById(R.id.editTextPercentOhpB);
+        editTextProgressionOhpB= (EditText)findViewById(R.id. editTextProgressionOhpB);
+        editTextSeriesRowingB= (EditText)findViewById(R.id.editTextSeriesRowingB);
+        editTextRepsRowingB= (EditText)findViewById(R.id.editTextRepsRowingB);
+        editTextPercentRowingB= (EditText)findViewById(R.id.editTextPercentRowingB);
+        editTextProgressionRowingB= (EditText)findViewById(R.id.editTextProgressionRowingB);
+        editTextSeriesPullingUpNarrowB= (EditText)findViewById(R.id.editTextSeriesPullingUpNarrowB);
+        editTextRepsPullingUpNarrowB= (EditText)findViewById(R.id.editTextRepsPullingUpNarrowB);
+        editTextPercentPullingUpNarrowB= (EditText)findViewById(R.id.editTextPercentPullingUpNarrowB);
+        editTextProgressionPullingUpNarrowB= (EditText)findViewById(R.id.editTextProgressionPullingUpNarrowB);
+        editTextSeriesRisingSidewaysB = (EditText)findViewById(R.id.editTextSeriesRisingSidewaysB);
+        editTextRepsRisingSidewaysB = (EditText)findViewById(R.id.editTextRepsRisingSidewaysB);
+        editTextPercentRisingSidewaysB = (EditText)findViewById(R.id.editTextPercentRisingSidewaysB);
+        editTextProgressionRisingSidewaysB = (EditText)findViewById(R.id.editTextProgressionRisingSidewaysB);
+        editTextSeriesBicepsB= (EditText)findViewById(R.id.editTextSeriesBicepsB);
+        editTextRepsBicepsB= (EditText)findViewById(R.id. editTextRepsBicepsB);
+        editTextPercentBicepsB= (EditText)findViewById(R.id. editTextPercentBicepsB);
+        editTextProgressionBicepsB= (EditText)findViewById(R.id.editTextProgressionBicepsB);
+        editTextSeriesTricepsB= (EditText)findViewById(R.id.editTextSeriesTricepsB);
+        editTextRepsTricepsB= (EditText)findViewById(R.id.editTextRepsTricepsB);
+        editTextPercentTricepsB= (EditText)findViewById(R.id.editTextPercentTricepsB);
+        editTextProgressionTricepsB= (EditText)findViewById(R.id.editTextProgressionTricepsB);
+        editTextSeriesAllahsB= (EditText)findViewById(R.id.editTextSeriesAllahsB);
+        editTextRepsAllahsB= (EditText)findViewById(R.id.editTextRepsAllahsB);
+        editTextPercentAllahsB= (EditText)findViewById(R.id. editTextPercentAllahsB);
+        editTextProgressionAllahsB= (EditText)findViewById(R.id.editTextProgressionAllahsB);
+        editTextSeriesPlankB= (EditText)findViewById(R.id.editTextSeriesPlankB);
+        editTextSecondsPlankB= (EditText)findViewById(R.id.editTextSecondsPlankB);
+        editTextProgressionPlankB= (EditText)findViewById(R.id.editTextProgressionPlankB);
+        editTextSeriesCalvesB= (EditText)findViewById(R.id.editTextSeriesCalvesB);
+        editTextRepsCalvesB= (EditText)findViewById(R.id.editTextRepsCalvesB);
+        editTextPercentCalvesB= (EditText)findViewById(R.id.editTextPercentCalvesB);
+        editTextProgressionCalvesB= (EditText)findViewById(R.id.editTextProgressionCalvesB);
+        editTextSeriesYRaiseB= (EditText)findViewById(R.id.editTextSeriesYRaiseB);
+        editTextRepsYRaiseB= (EditText)findViewById(R.id.editTextRepsYRaiseB);
+        editTextPercentYRaiseB= (EditText)findViewById(R.id.editTextPercentYRaiseB);
+        editTextProgressionYRaiseB= (EditText)findViewById(R.id.editTextProgressionYRaiseB);
+        editTextSeriesFacepullB= (EditText)findViewById(R.id.editTextSeriesFacepullB);
+        editTextRepsFacepullB= (EditText)findViewById(R.id.editTextRepsFacepullB);
+        editTextPercentFacepullB= (EditText)findViewById(R.id.editTextPercentFacepullB);
+        editTextProgressionFacepullB= (EditText)findViewById(R.id.editTextProgressionFacepullB);
 
 
+        editTextSeriesSquatC = (EditText)findViewById(R.id.editTextSeriesSquatC);
+        editTextRepsSquatC = (EditText)findViewById(R.id.editTextRepsSquatC);
+        editTextPercentSquatC= (EditText)findViewById(R.id.editTextPercentSquatC);
+        editTextProgressionSquatC = (EditText)findViewById(R.id.editTextProgressionSquatC);
+        editTextSeriesDeadliftClassicC= (EditText)findViewById(R.id.editTextSeriesDeadliftClassicC);
+        editTextRepsDeadliftClassicC= (EditText)findViewById(R.id.editTextRepsDeadliftClassicC);
+        editTextPercentDeadliftClassicC= (EditText)findViewById(R.id.editTextPercentDeadliftClassicC);
+        editTextProgressionDeadliftClassicC= (EditText)findViewById(R.id.editTextProgressionDeadliftClassicC);
+        editTextSeriesBenchPressC= (EditText)findViewById(R.id.editTextSeriesBenchPressC);
+        editTextRepsBenchPressC= (EditText)findViewById(R.id.editTextRepsBenchPressC);
+        editTextPercentBenchPressC= (EditText)findViewById(R.id.editTextPercentBenchPressC);
+        editTextProgressionBenchPressC= (EditText)findViewById(R.id.editTextProgressionBenchPressC);
+        editTextSeriesNarrowBenchPressC= (EditText)findViewById(R.id. editTextSeriesNarrowBenchPressC);
+        editTextRepsNarrowBenchPressC= (EditText)findViewById(R.id.editTextRepsNarrowBenchPressC);
+        editTextPercentNarrowBenchPressC= (EditText)findViewById(R.id.editTextPercentNarrowBenchPressC);
+        editTextProgressionNarrowBenchPressC= (EditText)findViewById(R.id.editTextProgressionNarrowBenchPressC);
+        editTextSeriesOhpC= (EditText)findViewById(R.id.editTextSeriesOhpC);
+        editTextRepsOhpC= (EditText)findViewById(R.id.editTextRepsOhpC);
+        editTextPercentOhpC= (EditText)findViewById(R.id.editTextPercentOhpC);
+        editTextProgressionOhpC= (EditText)findViewById(R.id. editTextProgressionOhpC);
+        editTextSeriesRowingC= (EditText)findViewById(R.id.editTextSeriesRowingC);
+        editTextRepsRowingC= (EditText)findViewById(R.id.editTextRepsRowingC);
+        editTextPercentRowingC= (EditText)findViewById(R.id.editTextPercentRowingC);
+        editTextProgressionRowingC= (EditText)findViewById(R.id.editTextProgressionRowingC);
+        editTextSeriesPullingUpNarrowC= (EditText)findViewById(R.id.editTextSeriesPullingUpNarrowC);
+        editTextRepsPullingUpNarrowC= (EditText)findViewById(R.id.editTextRepsPullingUpNarrowC);
+        editTextPercentPullingUpNarrowC= (EditText)findViewById(R.id.editTextPercentPullingUpNarrowC);
+        editTextProgressionPullingUpNarrowC= (EditText)findViewById(R.id.editTextProgressionPullingUpNarrowC);
+        editTextSeriesRisingSidewaysC = (EditText)findViewById(R.id.editTextSeriesRisingSidewaysC);
+        editTextRepsRisingSidewaysC = (EditText)findViewById(R.id.editTextRepsRisingSidewaysC);
+        editTextPercentRisingSidewaysC = (EditText)findViewById(R.id.editTextPercentRisingSidewaysC);
+        editTextProgressionRisingSidewaysC = (EditText)findViewById(R.id.editTextProgressionRisingSidewaysC);
+        editTextSeriesBicepsC = (EditText)findViewById(R.id.editTextSeriesBicepsC);
+        editTextRepsBicepsC = (EditText)findViewById(R.id. editTextRepsBicepsC);
+        editTextPercentBicepsC = (EditText)findViewById(R.id. editTextPercentBicepsC);
+        editTextProgressionBicepsC = (EditText)findViewById(R.id.editTextProgressionBicepsC);
+        editTextSeriesTricepsC = (EditText)findViewById(R.id.editTextSeriesTricepsC);
+        editTextRepsTricepsC = (EditText)findViewById(R.id.editTextRepsTricepsC);
+        editTextPercentTricepsC = (EditText)findViewById(R.id.editTextPercentTricepsC);
+        editTextProgressionTricepsC = (EditText)findViewById(R.id.editTextProgressionTricepsC);
+        editTextSeriesAllahsC = (EditText)findViewById(R.id.editTextSeriesAllahsC);
+        editTextRepsAllahsC = (EditText)findViewById(R.id.editTextRepsAllahsC);
+        editTextPercentAllahsC = (EditText)findViewById(R.id. editTextPercentAllahsC);
+        editTextProgressionAllahsC = (EditText)findViewById(R.id.editTextProgressionAllahsC);
+        editTextSeriesPlankC = (EditText)findViewById(R.id.editTextSeriesPlankC);
+        editTextSecondsPlankC = (EditText)findViewById(R.id.editTextSecondsPlankC);
+        editTextProgressionPlankC = (EditText)findViewById(R.id.editTextProgressionPlankC);
+        editTextSeriesCalvesC = (EditText)findViewById(R.id.editTextSeriesCalvesC);
+        editTextRepsCalvesC = (EditText)findViewById(R.id.editTextRepsCalvesC);
+        editTextPercentCalvesC = (EditText)findViewById(R.id.editTextPercentCalvesC);
+        editTextProgressionCalvesC = (EditText)findViewById(R.id.editTextProgressionCalvesC);
+        editTextSeriesYRaiseC = (EditText)findViewById(R.id.editTextSeriesYRaiseC);
+        editTextRepsYRaiseC = (EditText)findViewById(R.id.editTextRepsYRaiseC);
+        editTextPercentYRaiseC = (EditText)findViewById(R.id.editTextPercentYRaiseC);
+        editTextProgressionYRaiseC = (EditText)findViewById(R.id.editTextProgressionYRaiseC);
+        editTextSeriesFacepullC = (EditText)findViewById(R.id.editTextSeriesFacepullC);
+        editTextRepsFacepullC = (EditText)findViewById(R.id.editTextRepsFacepullC);
+        editTextPercentFacepullC = (EditText)findViewById(R.id.editTextPercentFacepullC);
+        editTextProgressionFacepullC = (EditText)findViewById(R.id.editTextProgressionFacepullC);
+
+        editTextSeriesSquatD = (EditText)findViewById(R.id.editTextSeriesSquatD);
+        editTextRepsSquatD = (EditText)findViewById(R.id.editTextRepsSquatD);
+        editTextPercentSquatD = (EditText)findViewById(R.id.editTextPercentSquatD);
+        editTextProgressionSquatD = (EditText)findViewById(R.id.editTextProgressionSquatD);
+        editTextSeriesDeadliftClassicD = (EditText)findViewById(R.id.editTextSeriesDeadliftClassicD);
+        editTextRepsDeadliftClassicD = (EditText)findViewById(R.id.editTextRepsDeadliftClassicD);
+        editTextPercentDeadliftClassicD = (EditText)findViewById(R.id.editTextPercentDeadliftClassicD);
+        editTextProgressionDeadliftClassicD = (EditText)findViewById(R.id.editTextProgressionDeadliftClassicD);
+        editTextSeriesBenchPressD = (EditText)findViewById(R.id.editTextSeriesBenchPressD);
+        editTextRepsBenchPressD = (EditText)findViewById(R.id.editTextRepsBenchPressD);
+        editTextPercentBenchPressD = (EditText)findViewById(R.id.editTextPercentBenchPressD);
+        editTextProgressionBenchPressD = (EditText)findViewById(R.id.editTextProgressionBenchPressD);
+        editTextSeriesNarrowBenchPressD = (EditText)findViewById(R.id. editTextSeriesNarrowBenchPressD);
+        editTextRepsNarrowBenchPressD = (EditText)findViewById(R.id.editTextRepsNarrowBenchPressD);
+        editTextPercentNarrowBenchPressD = (EditText)findViewById(R.id.editTextPercentNarrowBenchPressD);
+        editTextProgressionNarrowBenchPressD = (EditText)findViewById(R.id.editTextProgressionNarrowBenchPressD);
+        editTextSeriesOhpD = (EditText)findViewById(R.id.editTextSeriesOhpD);
+        editTextRepsOhpD = (EditText)findViewById(R.id.editTextRepsOhpD);
+        editTextPercentOhpD = (EditText)findViewById(R.id.editTextPercentOhpD);
+        editTextProgressionOhpD = (EditText)findViewById(R.id. editTextProgressionOhpD);
+        editTextSeriesRowingD = (EditText)findViewById(R.id.editTextSeriesRowingD);
+        editTextRepsRowingD = (EditText)findViewById(R.id.editTextRepsRowingD);
+        editTextPercentRowingD = (EditText)findViewById(R.id.editTextPercentRowingD);
+        editTextProgressionRowingD = (EditText)findViewById(R.id.editTextProgressionRowingD);
+        editTextSeriesPullingUpNarrowD = (EditText)findViewById(R.id.editTextSeriesPullingUpNarrowD);
+        editTextRepsPullingUpNarrowD = (EditText)findViewById(R.id.editTextRepsPullingUpNarrowD);
+        editTextPercentPullingUpNarrowD = (EditText)findViewById(R.id.editTextPercentPullingUpNarrowD);
+        editTextProgressionPullingUpNarrowD = (EditText)findViewById(R.id.editTextProgressionPullingUpNarrowD);
+        editTextSeriesRisingSidewaysD = (EditText)findViewById(R.id.editTextSeriesRisingSidewaysD);
+        editTextRepsRisingSidewaysD = (EditText)findViewById(R.id.editTextRepsRisingSidewaysD);
+        editTextPercentRisingSidewaysD = (EditText)findViewById(R.id.editTextPercentRisingSidewaysD);
+        editTextProgressionRisingSidewaysD = (EditText)findViewById(R.id.editTextProgressionRisingSidewaysD);
+        editTextSeriesBicepsD = (EditText)findViewById(R.id.editTextSeriesBicepsD);
+        editTextRepsBicepsD = (EditText)findViewById(R.id. editTextRepsBicepsD);
+        editTextPercentBicepsD= (EditText)findViewById(R.id. editTextPercentBicepsD);
+        editTextProgressionBicepsD= (EditText)findViewById(R.id.editTextProgressionBicepsD);
+        editTextSeriesTricepsD= (EditText)findViewById(R.id.editTextSeriesTricepsD);
+        editTextRepsTricepsD= (EditText)findViewById(R.id.editTextRepsTricepsD);
+        editTextPercentTricepsD= (EditText)findViewById(R.id.editTextPercentTricepsD);
+        editTextProgressionTricepsD= (EditText)findViewById(R.id.editTextProgressionTricepsD);
+        editTextSeriesAllahsD= (EditText)findViewById(R.id.editTextSeriesAllahsD);
+        editTextRepsAllahsD= (EditText)findViewById(R.id.editTextRepsAllahsD);
+        editTextPercentAllahsD= (EditText)findViewById(R.id. editTextPercentAllahsD);
+        editTextProgressionAllahsD= (EditText)findViewById(R.id.editTextProgressionAllahsD);
+        editTextSeriesPlankD= (EditText)findViewById(R.id.editTextSeriesPlankD);
+        editTextSecondsPlankD= (EditText)findViewById(R.id.editTextSecondsPlankD);
+        editTextProgressionPlankD= (EditText)findViewById(R.id.editTextProgressionPlankD);
+        editTextSeriesCalvesD= (EditText)findViewById(R.id.editTextSeriesCalvesD);
+        editTextRepsCalvesD= (EditText)findViewById(R.id.editTextRepsCalvesD);
+        editTextPercentCalvesD= (EditText)findViewById(R.id.editTextPercentCalvesD);
+        editTextProgressionCalvesD= (EditText)findViewById(R.id.editTextProgressionCalvesD);
+        editTextSeriesYRaiseD= (EditText)findViewById(R.id.editTextSeriesYRaiseD);
+        editTextRepsYRaiseD= (EditText)findViewById(R.id.editTextRepsYRaiseD);
+        editTextPercentYRaiseD= (EditText)findViewById(R.id.editTextPercentYRaiseD);
+        editTextProgressionYRaiseD= (EditText)findViewById(R.id.editTextProgressionYRaiseD);
+        editTextSeriesFacepullD= (EditText)findViewById(R.id.editTextSeriesFacepullD);
+        editTextRepsFacepullD= (EditText)findViewById(R.id.editTextRepsFacepullD);
+        editTextPercentFacepullD= (EditText)findViewById(R.id.editTextPercentFacepullD);
+        editTextProgressionFacepullD= (EditText)findViewById(R.id.editTextProgressionFacepullD);
 
         prefs = getSharedPreferences("LastClick", Context.MODE_PRIVATE);
         editor= prefs.edit();
@@ -3550,12 +3725,12 @@ public class TrainingActivity extends AppCompatActivity
 
                  if (editTextProgressionOhp.getText().length() != 0) {
                      progressionOhp =  Float.parseFloat(editTextProgressionOhp.getText().toString());
-                     editor.putFloat("ProgressionsOhp", progressionOhp);
+                     editor.putFloat("ProgressionOhp", progressionOhp);
                      editor.commit();
                  }
 
                  if (editTextSeriesRowing.getText().length() != 0) {
-                     seriesOhp = Integer.parseInt(editTextSeriesRowing.getText().toString());
+                     seriesRowing = Integer.parseInt(editTextSeriesRowing.getText().toString());
                      editor.putInt("SeriesRowing", seriesRowing);
                      editor.commit();
                  }
@@ -3629,7 +3804,7 @@ public class TrainingActivity extends AppCompatActivity
                  }
 
                  if (editTextProgressionRisingSideways.getText().length() != 0) {
-                     progressionRisingSideways =  Float.parseFloat(editTextRisingSideways.getText().toString());
+                     progressionRisingSideways =  Float.parseFloat(editTextProgressionRisingSideways.getText().toString());
                      editor.putFloat("ProgressionRisingSideways", progressionRisingSideways);
                      editor.commit();
                  }
@@ -3642,7 +3817,7 @@ public class TrainingActivity extends AppCompatActivity
 
 
                  if (editTextRepsBiceps.getText().length() != 0) {
-                     repsBiceps = Integer.parseInt(editTextBiceps.getText().toString());
+                     repsBiceps = Integer.parseInt(editTextRepsBiceps.getText().toString());
                      editor.putInt("RepsBiceps", repsBiceps);
                      editor.commit();
                  }
@@ -3655,7 +3830,7 @@ public class TrainingActivity extends AppCompatActivity
                  }
 
                  if (editTextProgressionBiceps.getText().length() != 0) {
-                     progressionBiceps =  Float.parseFloat(editTextBiceps.getText().toString());
+                     progressionBiceps =  Float.parseFloat(editTextProgressionBiceps.getText().toString());
                      editor.putFloat("ProgressionBiceps", progressionBiceps);
                      editor.commit();
                  }
@@ -3670,7 +3845,7 @@ public class TrainingActivity extends AppCompatActivity
 
 
                  if (editTextRepsTriceps.getText().length() != 0) {
-                     repsTriceps = Integer.parseInt(editTextTriceps.getText().toString());
+                     repsTriceps = Integer.parseInt(editTextRepsTriceps.getText().toString());
                      editor.putInt("RepsTriceps", repsTriceps);
                      editor.commit();
                  }
@@ -3683,7 +3858,7 @@ public class TrainingActivity extends AppCompatActivity
                  }
 
                  if (editTextProgressionTriceps.getText().length() != 0) {
-                     progressionTriceps =  Float.parseFloat(editTextTriceps.getText().toString());
+                     progressionTriceps =  Float.parseFloat(editTextProgressionTriceps.getText().toString());
                      editor.putFloat("ProgressionTriceps", progressionTriceps);
                      editor.commit();
                  }
@@ -3749,7 +3924,6 @@ public class TrainingActivity extends AppCompatActivity
                      editor.commit();
                  }
 
-
                  if (editTextPercentCalves.getText().length() != 0) {
                      percentCalves = Integer.parseInt(editTextPercentCalves.getText().toString());
                      editor.putInt("PercentCalves", percentCalves);
@@ -3772,7 +3946,7 @@ public class TrainingActivity extends AppCompatActivity
 
                  if (editTextRepsYRaise.getText().length() != 0) {
                      repsYRaise = Integer.parseInt(editTextRepsYRaise.getText().toString());
-                     editor.putInt("RepsCalves", repsYRaise);
+                     editor.putInt("RepsYRaise", repsYRaise);
                      editor.commit();
                  }
 
@@ -3798,7 +3972,7 @@ public class TrainingActivity extends AppCompatActivity
 
 
                  if (editTextRepsFacepull.getText().length() != 0) {
-                     repsFacepull = Integer.parseInt(editTextFacepull.getText().toString());
+                     repsFacepull = Integer.parseInt(editTextRepsFacepull.getText().toString());
                      editor.putInt("RepsFacepull", repsFacepull);
                      editor.commit();
                  }
@@ -3916,7 +4090,7 @@ public class TrainingActivity extends AppCompatActivity
                  progressionBiceps = prefs.getFloat("ProgressionBicepss", 0.0f);
                  editTextSeriesBiceps.setText(String.valueOf(prefs.getInt("SeriesBiceps", 0)));
                  editTextRepsBiceps.setText(String.valueOf(prefs.getInt("RepsBiceps", 0)));
-                 editTextPercentBiceps.setText(String.valueOf(prefs.getInt("PercentBicepss", 0)));
+                 editTextPercentBiceps.setText(String.valueOf(prefs.getInt("PercentBiceps", 0)));
                  editTextProgressionBiceps.setText(String.valueOf(prefs.getFloat("ProgressionBiceps", 0.0f)));
 
                  seriesTriceps= prefs.getInt("SeriesTriceps", 0);
@@ -3971,21 +4145,7 @@ public class TrainingActivity extends AppCompatActivity
                  editTextPercentFacepull.setText(String.valueOf(prefs.getInt("PercentFacepull", 0)));
                  editTextProgressionFacepull.setText(String.valueOf(prefs.getFloat("ProgressionFacepull", 0.0f)));
 
-                 seriesSquatB = prefs.getInt("SeriesSquatB", 0);
-                 repsSquatB = prefs.getInt("RepsSquatB", 0);
-                 progressionSquatB = prefs.getFloat("ProgressionSquatB", 0.0f);
 
-                 if (seriesSquatB !=0){
-                     editTextSeriesSquatB.setText(String.valueOf(prefs.getInt("SeriesSquatB", 0)));
-                 }
-
-                 if (repsSquatB !=0){
-                     editTextRepsSquatB.setText(String.valueOf(prefs.getInt("RepsSquatB", 0)));
-                 }
-
-                 if (progressionSquatB !=0){
-                     editTextProgressionSquatB.setText(String.valueOf(prefs.getFloat("ProgressionSquatB", 0.0f)));
-                 }
              }
 
              public static double round(double unrounded, int precision, int roundingMode)
