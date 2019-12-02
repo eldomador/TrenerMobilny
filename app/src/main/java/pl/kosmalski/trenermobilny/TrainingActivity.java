@@ -654,6 +654,8 @@ public class TrainingActivity extends AppCompatActivity
                 linearLayoutTrainingConfigurationC.setVisibility(View.GONE);
                 linearLayoutTrainingConfigurationD.setVisibility(View.GONE);
                 buttonSaveTrainingConfiguration.setVisibility(View.GONE);
+                editor.putInt("LastCustomWorkoutState",0).commit();
+                LastCustomWorkoutState = prefs.getInt("LastCustomWorkoutState",0);
                 customWorkoutPrefs();
                 CustomWorkout();
                 calcWeightConfiguration();
@@ -3176,6 +3178,7 @@ public class TrainingActivity extends AppCompatActivity
              }
 
              private void calcWeightConfiguration() {
+
                  if (editTextSquat.getText().length() != 0 && checkBoxSquats.isChecked() && LastClick==1){
                      double n1 = Double.parseDouble(editTextSquat.getText().toString());
                      double nSeries = Math.round((n1*0.80)+2);
@@ -3201,7 +3204,7 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
-
+//własny trening wersja A przysiady
                  if (editTextSquat.getText().length() != 0 && checkBoxSquats.isChecked() && LastClick==2 && LastCustomWorkoutState == 0){
                      double n1 = Double.parseDouble(editTextSquat.getText().toString());
                      double nSeries = round((n1*percentSquat/100)+ progressionSquat, 3, BigDecimal.ROUND_HALF_UP);
@@ -3227,21 +3230,20 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
-
+//własny trening wersja B przysiady
                  if (editTextSquat.getText().length() != 0 && checkBoxSquats.isChecked() && LastClick==2 && LastCustomWorkoutState == 1){
                      double n1 = Double.parseDouble(editTextSquat.getText().toString());
-                     double nSeries = round((n1*0.80)+ progressionSquatB, 3, BigDecimal.ROUND_HALF_UP);
-                     double nMax = Math.round((nSeries/80)*100);
+                     double nSeries = round((n1*percentSquatB/100)+ progressionSquatB, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentSquatB)*100);
 
                      checkBoxSquats.setText("Przysiady "+ seriesSquatB +" x "+ repsSquatB +" x "+nSeries+"kg");
                      editTextSquat.setText(""+nMax);
-
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if (editTextSquat.getText().length() != 0 && !checkBoxSquats.isChecked() && LastClick==2 &&LastCustomWorkoutState == 1){
+                 else if (editTextSquat.getText().length() != 0 && !checkBoxSquats.isChecked() && LastClick==2 && LastCustomWorkoutState == 1){
                      double n1 = Double.parseDouble(editTextSquat.getText().toString());
-                     double nSeries = round((n1*0.80), 3, BigDecimal.ROUND_HALF_UP);
+                     double nSeries = round((n1*percentSquatB/100), 3, BigDecimal.ROUND_HALF_UP);
 //                     double nMax = Math.round((nSeries/80)*100);
 
                      checkBoxSquats.setText("Przysiady "+ seriesSquatB +" x "+ repsSquatB +" x "+nSeries+"kg");
@@ -3250,6 +3252,58 @@ public class TrainingActivity extends AppCompatActivity
                  }
 
                  else if(editTextSquat.getText().length() == 0 && LastClick==2 && LastCustomWorkoutState == 1) {
+                     checkBoxSquats.setText("brak konfiguracji obciążenia dla Przysiadów");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 //własny trening wersja C przysiady
+                 if (editTextSquat.getText().length() != 0 && checkBoxSquats.isChecked() && LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextSquat.getText().toString());
+                     double nSeries = round((n1*percentSquatC/100)+ progressionSquatC, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentSquatC)*100);
+
+                     checkBoxSquats.setText("Przysiady "+ seriesSquatC +" x "+ repsSquatC +" x "+nSeries+"kg");
+                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextSquat.getText().length() != 0 && !checkBoxSquats.isChecked() && LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextSquat.getText().toString());
+                     double nSeries = round((n1*percentSquatC/100), 3, BigDecimal.ROUND_HALF_UP);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxSquats.setText("Przysiady "+ seriesSquatC +" x "+ repsSquatC +" x "+nSeries+"kg");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextSquat.getText().length() == 0 && LastClick==2 && LastCustomWorkoutState == 2) {
+                     checkBoxSquats.setText("brak konfiguracji obciążenia dla Przysiadów");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 //własny trening wersja D przysiady
+                 if (editTextSquat.getText().length() != 0 && checkBoxSquats.isChecked() && LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextSquat.getText().toString());
+                     double nSeries = round((n1*percentSquatD/100)+ progressionSquatD, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentSquatD)*100);
+
+                     checkBoxSquats.setText("Przysiady "+ seriesSquatD +" x "+ repsSquatD +" x "+nSeries+"kg");
+                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextSquat.getText().length() != 0 && !checkBoxSquats.isChecked() && LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextSquat.getText().toString());
+                     double nSeries = round((n1*percentSquatD/100), 3, BigDecimal.ROUND_HALF_UP);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxSquats.setText("Przysiady "+ seriesSquatD +" x "+ repsSquatD +" x "+nSeries+"kg");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextSquat.getText().length() == 0 && LastClick==2 && LastCustomWorkoutState == 3) {
                      checkBoxSquats.setText("brak konfiguracji obciążenia dla Przysiadów");
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
