@@ -56,7 +56,7 @@ public class TrainingActivity extends AppCompatActivity
             checkBoxPlankConfD;
     private TextView textViewTrainingA,textViewTrainingB,textViewTrainingC,textViewTrainingD;
     private EditText editTextSquat,editTextBenchPress,editTextRowing,editTextRisingSideways,editTextBiceps,editTextTriceps,editTextAllahs,editTextFacepull,editTextDeadliftClassic,
-            editTextOhp,editTextPullingUpNarrow,editTextNarrowBenchPress,editTextYRaise,
+            editTextOhp,editTextPullingUpNarrow,editTextNarrowBenchPress,editTextYRaise,editTextCalves,
             editTextSeriesSquat,editTextRepsSquat,editTextPercentSquat,editTextProgressionSquat,
             editTextSeriesDeadliftClassic,editTextRepsDeadliftClassic,editTextPercentDeadliftClassic,editTextProgressionDeadliftClassic,
             editTextSeriesBenchPress,editTextRepsBenchPress,editTextPercentBenchPress,editTextProgressionBenchPress,
@@ -121,7 +121,7 @@ public class TrainingActivity extends AppCompatActivity
 
     private Button buttonWeightConfiguration,buttonTrainingConfiguration,buttonSaveWeightConfiguration,buttonFinishWorkout,buttonFinishWorkoutB,buttonFinishWorkoutC,buttonFinishWorkoutD,
             buttonSaveTrainingConfiguration,buttonNextTrainingConfiguration,buttonNextTrainingConfigurationB,buttonNextTrainingConfigurationC;
-    private int LastClick,LastCustomWorkoutState,
+    private int LastClick,LastCustomWorkoutState,secondsPlankFbw,
             seriesSquat,repsSquat,percentSquat,
             seriesDeadliftClassic,repsDeadliftClassic,percentDeadliftClassic,
             seriesBenchPress,repsBenchPress,percentBenchPress,
@@ -332,6 +332,7 @@ public class TrainingActivity extends AppCompatActivity
         editTextPullingUpNarrow = (EditText)findViewById(R.id.editTextPullingUpNarrow);
         editTextNarrowBenchPress = (EditText)findViewById(R.id.editTextNarrowBenchPress);
         editTextYRaise = (EditText)findViewById(R.id.editTextYRaise);
+        editTextCalves= (EditText)findViewById(R.id.editTextCalves);
 
         editTextSeriesSquat = (EditText)findViewById(R.id.editTextSeriesSquat);
         editTextRepsSquat = (EditText)findViewById(R.id.editTextRepsSquat);
@@ -2508,6 +2509,29 @@ public class TrainingActivity extends AppCompatActivity
             public void afterTextChanged(Editable s)
             {
                 prefsMax.edit().putString("autoSaveYRaiseMax", s.toString()).apply();
+            }
+
+        });
+
+
+        editTextCalves.setText(prefsMax.getString("autoSaveCalvesMax", ""));
+        editTextCalves.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before,
+                                      int count)
+            {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after)
+            {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+                prefsMax.edit().putString("autoSaveCalvesMax", s.toString()).apply();
             }
 
         });
@@ -5016,6 +5040,268 @@ public class TrainingActivity extends AppCompatActivity
                      checkBoxYRaise.setText("brak konfiguracji obciążenia dla Y-Raise");
                  }
 
+                 if (editTextCalves.getText().length() != 0 && checkBoxCalves.isChecked()&& LastClick==1){
+                     double n1 = Double.parseDouble(editTextCalves.getText().toString());
+                     double nSeries = Math.round((n1*0.80)+2);
+                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxCalves.setText("Łydki 5 x 5 x "+nSeries+"kg");
+                     editTextCalves.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextCalves.getText().length() != 0 && !checkBoxCalves.isChecked()&& LastClick==1){
+                     double n1 = Double.parseDouble(editTextCalves.getText().toString());
+                     double nSeries = Math.round(n1*0.80);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxCalves.setText("Łydki 5 x 5 x "+nSeries+"kg");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextCalves.getText().length() == 0 && LastClick==1) {
+                     checkBoxCalves.setText("brak konfiguracji obciążenia dla Łydkek");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+//custom A
+
+                 if((seriesCalves == 0 || repsCalves== 0 || percentCalves == 0 || progressionCalves == 0) && LastClick==2 && LastCustomWorkoutState == 0) {
+                     checkBoxCalves.setText("brak konfiguracji treningu dla Łydkek");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextCalves.getText().length() != 0 && checkBoxCalves.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextCalves.getText().toString());
+                     double nSeries = round((n1*percentCalves/100)+ progressionCalves, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentCalves)*100);
+
+                     checkBoxCalves.setText("Łydki "+ seriesCalves +" x "+ repsCalves +" x "+nSeries+"kg");
+                     editTextCalves.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextCalves.getText().length() != 0 && !checkBoxCalves.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextCalves.getText().toString());
+                     double nSeries = round((n1*percentCalves/100)+ progressionCalves, 3, BigDecimal.ROUND_HALF_UP);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxCalves.setText("Łydki "+ seriesCalves +" x "+ repsCalves +" x "+nSeries+"kg");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextCalves.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxCalves.setText("brak konfiguracji obciążenia dla Łydkek");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+//custom B
+                 if((seriesCalvesB == 0 || repsCalvesB == 0 || percentCalvesB == 0 || progressionCalvesB == 0) && LastClick==2 && LastCustomWorkoutState == 1) {
+                     checkBoxCalves.setText("brak konfiguracji treningu dla Łydkek");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextCalves.getText().length() != 0 && checkBoxCalves.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextCalves.getText().toString());
+                     double nSeries = round((n1*percentCalvesB/100)+ progressionCalvesB, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentCalvesB)*100);
+
+                     checkBoxCalves.setText("Łydki "+ seriesCalvesB +" x "+ repsCalvesB +" x "+nSeries+"kg");
+                     editTextCalves.setText(""+nMax);
+                 }
+
+                 else if (editTextCalves.getText().length() != 0 && !checkBoxCalves.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextCalves.getText().toString());
+                     double nSeries = round((n1*percentCalvesB/100)+ progressionCalvesB, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxCalves.setText("Łydki "+ seriesCalvesB +" x "+ repsCalvesB +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextCalves.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxCalves.setText("brak konfiguracji obciążenia dla Łydkek");
+                 }
+//custom C
+                 if((seriesCalvesC == 0 || repsCalvesC == 0 || percentCalvesC == 0 || progressionCalvesC == 0) && LastClick==2 && LastCustomWorkoutState == 2) {
+                     checkBoxCalves.setText("brak konfiguracji treningu dla Łydkek");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextCalves.getText().length() != 0 && checkBoxCalves.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextCalves.getText().toString());
+                     double nSeries = round((n1*percentCalvesC/100)+ progressionCalvesC, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentCalvesC)*100);
+
+                     checkBoxCalves.setText("Łydki "+ seriesCalvesC +" x "+ repsCalvesC +" x "+nSeries+"kg");
+                     editTextCalves.setText(""+nMax);
+                 }
+
+                 else if (editTextCalves.getText().length() != 0 && !checkBoxCalves.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextCalves.getText().toString());
+                     double nSeries = round((n1*percentCalvesC/100)+ progressionCalvesC, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxCalves.setText("Łydki "+ seriesCalvesC +" x "+ repsCalvesC +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextCalves.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 2) {
+                     checkBoxCalves.setText("brak konfiguracji obciążenia dla Łydkek");
+                 }
+
+
+                 //custom D
+                 if((seriesCalvesD == 0 || repsCalvesD == 0 || percentCalvesD == 0 || progressionCalvesD == 0) && LastClick==2 && LastCustomWorkoutState == 3) {
+                     checkBoxCalves.setText("brak konfiguracji treningu dla Łydkek");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextCalves.getText().length() != 0 && checkBoxCalves.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextCalves.getText().toString());
+                     double nSeries = round((n1*percentCalvesD/100)+ progressionCalvesD, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentCalvesD)*100);
+
+                     checkBoxCalves.setText("Łydki "+ seriesCalvesD +" x "+ repsCalvesD +" x "+nSeries+"kg");
+                     editTextCalves.setText(""+nMax);
+                 }
+
+                 else if (editTextCalves.getText().length() != 0 && !checkBoxCalves.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextCalves.getText().toString());
+                     double nSeries = round((n1*percentCalvesD/100)+ progressionCalvesD, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxCalves.setText("Łydki "+ seriesCalvesD +" x "+ repsCalvesD +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextCalves.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 3) {
+                     checkBoxCalves.setText("brak konfiguracji obciążenia dla Łydkek");
+                 }
+
+
+                 if (checkBoxPlank.isChecked()&& LastClick==1){
+                     secondsPlankFbw = prefs.getInt("SecondsPlankFbw", 30);
+                     int n1 = secondsPlankFbw;
+                     int nSeries = n1+2;
+
+                     checkBoxPlank.setText("Deska 5 x "+n1+" sek");
+                     editor.putInt("SecondsPlankFbw", nSeries );
+                     editor.commit();
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (!checkBoxBenchPress.isChecked()&& LastClick==1){
+                     secondsPlankFbw = prefs.getInt("SecondsPlankFbw", 30);
+                     int n1 = secondsPlankFbw;
+                     checkBoxPlank.setText("Deska 5 x "+n1+" sek");
+
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+
+
+//custom A
+
+                 if((seriesPlank == 0 || secondsPlank== 0 || progressionPlank == 0) && LastClick==2 && LastCustomWorkoutState == 0) {
+                     checkBoxPlank.setText("brak konfiguracji treningu dla Deski");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (checkBoxBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     secondsPlank = prefs.getInt("SecondsPlank", 0);
+                     int n1 = secondsPlank;
+                     int nSeries = (int) (n1+progressionPlank);
+
+                     checkBoxPlank.setText("Deska 5 "+seriesPlank+" "+n1+" sek");
+                     editor.putInt("SecondsPlank", nSeries );
+                     editor.commit();
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (!checkBoxBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     secondsPlank = prefs.getInt("SecondsPlank", 0);
+                     int n1 = secondsPlank;
+                     checkBoxPlank.setText("Deska "+seriesPlank+" x "+n1+" sek");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+
+//custom B
+                 if((seriesPlankB == 0 || secondsPlankB== 0 || progressionPlankB == 0) && LastClick==2 && LastCustomWorkoutState == 1) {
+                     checkBoxPlank.setText("brak konfiguracji treningu dla Deski");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (checkBoxBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     secondsPlankB = prefs.getInt("SecondsPlankB", 0);
+                     int n1 = secondsPlankB;
+                     int nSeries = (int) (n1+progressionPlankB);
+
+                     checkBoxPlank.setText("Deska "+seriesPlankB+" "+n1+" sek");
+                     editor.putInt("SecondsPlankB", nSeries );
+                     editor.commit();
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (!checkBoxBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     secondsPlankB = prefs.getInt("SecondsPlankB", 0);
+                     int n1 = secondsPlankB;
+                     checkBoxPlank.setText("Deska "+seriesPlankB+" "+n1+" sek");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+//custom C
+                 if((seriesPlankC == 0 || secondsPlankC== 0 || progressionPlankC == 0) && LastClick==2 && LastCustomWorkoutState == 2) {
+                     checkBoxPlank.setText("brak konfiguracji treningu dla Deski");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (checkBoxBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     secondsPlankC = prefs.getInt("SecondsPlankC", 0);
+                     int n1 = secondsPlankC;
+                     int nSeries = (int) (n1+progressionPlankC);
+
+                     checkBoxPlank.setText("Deska 5 "+seriesPlankC+" "+n1+" sek");
+                     editor.putInt("SecondsPlankC", nSeries );
+                     editor.commit();
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (!checkBoxBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     secondsPlankC = prefs.getInt("SecondsPlankC", 0);
+                     int n1 = secondsPlankC;
+                     checkBoxPlank.setText("Deska 5 "+seriesPlankC+" "+n1+" sek");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+
+                 //custom D
+                 if((seriesPlankD == 0 || secondsPlankD== 0 || progressionPlankD == 0) && LastClick==2 && LastCustomWorkoutState == 3) {
+                     checkBoxPlank.setText("brak konfiguracji treningu dla Deski");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (checkBoxBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     secondsPlankD = prefs.getInt("SecondsPlankD", 0);
+                     int n1 = secondsPlankD;
+                     int nSeries = (int) (n1+progressionPlankD);
+
+                     checkBoxPlank.setText("Deska 5 "+seriesPlankD+" "+n1+" sek");
+                     editor.putInt("SecondsPlankC", nSeries );
+                     editor.commit();
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (!checkBoxBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     secondsPlankD = prefs.getInt("SecondsPlankC", 0);
+                     int n1 = secondsPlankD;
+                     checkBoxPlank.setText("Deska 5 "+seriesPlankD+" "+n1+" sek");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
 
 
 

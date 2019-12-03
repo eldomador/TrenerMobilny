@@ -5013,6 +5013,21 @@
                     android:ems="10"
                     android:inputType="numberDecimal" />
 
+                <TextView
+                    android:id="@+id/textViewCalves"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Łydki2" />
+
+                <EditText
+                    android:id="@+id/editTextCalves"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="numberDecimal" />
+
                 <Button
                     android:id="@+id/buttonSaveWeightConfiguration"
                     android:layout_width="match_parent"
