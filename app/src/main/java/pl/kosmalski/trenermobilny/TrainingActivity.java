@@ -672,7 +672,7 @@ public class TrainingActivity extends AppCompatActivity
                else if (LastClick==2&&(checkBoxSquatsConfB.isChecked()||checkBoxDeadliftClassicConfB.isChecked()||checkBoxOhpConfB.isChecked()||checkBoxBenchPressConfB.isChecked()||
                         checkBoxNarrowBenchPressConfB.isChecked()||checkBoxRisingSidewaysConfB.isChecked()||checkBoxPullingUpNarrowConfB.isChecked()||checkBoxRisingSidewaysConfB.isChecked()||
                         checkBoxBicepsConfB.isChecked()||checkBoxTricepsConfB.isChecked()||checkBoxAllahsConfB.isChecked()||checkBoxPlankConfB.isChecked()|| checkBoxCalvesConfB.isChecked()||
-                        checkBoxYRaiseConfB.isChecked()||checkBoxFacepullConfB.isChecked())){
+                        checkBoxYRaiseConfB.isChecked()||checkBoxFacepullConfB.isChecked()||checkBoxRowingConfB.isChecked())){
                     CustomWorkoutB();
                     editor.putInt("LastCustomWorkoutState",1).commit();
                 }
@@ -701,7 +701,7 @@ public class TrainingActivity extends AppCompatActivity
                 else if (LastClick==2&&(checkBoxSquatsConfC.isChecked()||checkBoxDeadliftClassicConfC.isChecked()||checkBoxOhpConfC.isChecked()||checkBoxBenchPressConfC.isChecked()||
                         checkBoxNarrowBenchPressConfC.isChecked()||checkBoxRisingSidewaysConfC.isChecked()||checkBoxPullingUpNarrowConfC.isChecked()||checkBoxRisingSidewaysConfC.isChecked()||
                         checkBoxBicepsConfC.isChecked()||checkBoxTricepsConfC.isChecked()||checkBoxAllahsConfC.isChecked()||checkBoxPlankConfC.isChecked()|| checkBoxCalvesConfC.isChecked()||
-                        checkBoxYRaiseConfC.isChecked()||checkBoxFacepullConfC.isChecked())){
+                        checkBoxYRaiseConfC.isChecked()||checkBoxFacepullConfC.isChecked()||checkBoxRowingConfC.isChecked())){
                     CustomWorkoutC();
                     editor.putInt("LastCustomWorkoutState",2).commit();
                 }
@@ -725,7 +725,7 @@ public class TrainingActivity extends AppCompatActivity
                 if (LastClick==2&&(checkBoxSquatsConfD.isChecked()||checkBoxDeadliftClassicConfD.isChecked()||checkBoxOhpConfD.isChecked()||checkBoxBenchPressConfD.isChecked()||
                         checkBoxNarrowBenchPressConfD.isChecked()||checkBoxRisingSidewaysConfD.isChecked()||checkBoxPullingUpNarrowConfD.isChecked()||checkBoxRisingSidewaysConfD.isChecked()||
                         checkBoxBicepsConfD.isChecked()||checkBoxTricepsConfD.isChecked()||checkBoxAllahsConfD.isChecked()||checkBoxPlankConfD.isChecked()|| checkBoxCalvesConfD.isChecked()||
-                        checkBoxYRaiseConfD.isChecked()||checkBoxFacepullConfD.isChecked())){
+                        checkBoxYRaiseConfD.isChecked()||checkBoxFacepullConfD.isChecked()||checkBoxRowingConfD.isChecked())){
                     CustomWorkoutD();
                     editor.putInt("LastCustomWorkoutState",3).commit();
                 }
@@ -798,7 +798,6 @@ public class TrainingActivity extends AppCompatActivity
                         textViewTrainingC.setVisibility(View.GONE);
                         textViewTrainingD.setVisibility(View.GONE);
                         buttonSaveTrainingConfiguration.setVisibility(View.GONE);
-                        calcWeightConfiguration();
                         //CustomWorkout();
                         if (LastFbwWorkoutState==0){
 
@@ -816,14 +815,10 @@ public class TrainingActivity extends AppCompatActivity
                         editor.putInt("LastClick",1);
                         editor.commit();
                         LastClick = prefs.getInt("LastClick",0);
-                        //xd=1;
-                        //editor.putInt("LastClick",1).apply();
-                        //StateOne();
-                       // Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
+                        calcWeightConfiguration();
                         break;
 
                     case 2:
-                        calcWeightConfiguration();
                         //linearLayoutTrainingA.setVisibility(View.GONE);
                        // linearLayoutTrainingB.setVisibility(View.GONE);
                         buttonTrainingConfiguration.setVisibility(View.VISIBLE);
@@ -849,12 +844,7 @@ public class TrainingActivity extends AppCompatActivity
                         else if (LastCustomWorkoutState==3){
                             CustomWorkoutD();
                         }
-                        //xd=2;
-                        //StateTwo();
-                        //editor.putInt("LastClick",2).apply();
-                        // Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
-                       // Toast.makeText(getApplicationContext()," TEST "+LastClick,Toast.LENGTH_LONG).show();
-
+                        calcWeightConfiguration();
                         break;
                 }
 
@@ -2624,7 +2614,7 @@ public class TrainingActivity extends AppCompatActivity
                  if (LastClick==2&&checkBoxSquatsConf.isChecked()||checkBoxDeadliftClassicConf.isChecked()||checkBoxOhpConf.isChecked()||checkBoxBenchPressConf.isChecked()||
                          checkBoxNarrowBenchPressConf.isChecked()||checkBoxRisingSidewaysConf.isChecked()||checkBoxPullingUpNarrowConf.isChecked()||checkBoxRisingSidewaysConf.isChecked()||
                          checkBoxBicepsConf.isChecked()||checkBoxTricepsConf.isChecked()||checkBoxAllahsConf.isChecked()||checkBoxPlankConf.isChecked()|| checkBoxCalvesConf.isChecked()||
-                         checkBoxYRaiseConf.isChecked()||checkBoxFacepullConf.isChecked()) {
+                         checkBoxYRaiseConf.isChecked()||checkBoxFacepullConf.isChecked()||checkBoxRowingConf.isChecked() ) {
 
                      textViewTrainingA.setVisibility(View.VISIBLE);
                      textViewTrainingB.setVisibility(View.GONE);
@@ -3179,6 +3169,7 @@ public class TrainingActivity extends AppCompatActivity
 
              private void calcWeightConfiguration() {
 
+                 //fbw
                  if (editTextSquat.getText().length() != 0 && checkBoxSquats.isChecked() && LastClick==1){
                      double n1 = Double.parseDouble(editTextSquat.getText().toString());
                      double nSeries = Math.round((n1*0.80)+2);
@@ -3204,8 +3195,13 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
-//własny trening wersja A przysiady
-                 if (editTextSquat.getText().length() != 0 && checkBoxSquats.isChecked() && LastClick==2 && LastCustomWorkoutState == 0){
+//własny trening wersja A
+                 if((seriesSquat == 0 || repsSquat == 0 || percentSquat == 0 || progressionSquat == 0) && LastClick==2 && LastCustomWorkoutState == 0) {
+                     checkBoxSquats.setText("brak konfiguracji treningu dla Przysiadów");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextSquat.getText().length() != 0 && checkBoxSquats.isChecked() && LastClick==2 && LastCustomWorkoutState == 0){
                      double n1 = Double.parseDouble(editTextSquat.getText().toString());
                      double nSeries = round((n1*percentSquat/100)+ progressionSquat, 3, BigDecimal.ROUND_HALF_UP);
                      double nMax = Math.round((nSeries/percentSquat)*100);
@@ -3230,8 +3226,17 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
-//własny trening wersja B przysiady
-                 if (editTextSquat.getText().length() != 0 && checkBoxSquats.isChecked() && LastClick==2 && LastCustomWorkoutState == 1){
+
+
+
+//własny trening wersja B
+
+                 if((seriesSquatB == 0 || repsSquatB == 0 || percentSquatB == 0 || progressionSquatB == 0) && LastClick==2 && LastCustomWorkoutState == 1) {
+                     checkBoxSquats.setText("brak konfiguracji treningu dla Przysiadów");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextSquat.getText().length() != 0 && checkBoxSquats.isChecked() && LastClick==2 && LastCustomWorkoutState == 1){
                      double n1 = Double.parseDouble(editTextSquat.getText().toString());
                      double nSeries = round((n1*percentSquatB/100)+ progressionSquatB, 3, BigDecimal.ROUND_HALF_UP);
                      double nMax = Math.round((nSeries/percentSquatB)*100);
@@ -3256,8 +3261,14 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
-                 //własny trening wersja C przysiady
-                 if (editTextSquat.getText().length() != 0 && checkBoxSquats.isChecked() && LastClick==2 && LastCustomWorkoutState == 2){
+                 //własny trening wersja C
+
+                 if((seriesSquatC == 0 || repsSquatC == 0 || percentSquatC == 0 || progressionSquatC == 0) && LastClick==2 && LastCustomWorkoutState == 2) {
+                     checkBoxSquats.setText("brak konfiguracji treningu dla Przysiadów");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else  if (editTextSquat.getText().length() != 0 && checkBoxSquats.isChecked() && LastClick==2 && LastCustomWorkoutState == 2){
                      double n1 = Double.parseDouble(editTextSquat.getText().toString());
                      double nSeries = round((n1*percentSquatC/100)+ progressionSquatC, 3, BigDecimal.ROUND_HALF_UP);
                      double nMax = Math.round((nSeries/percentSquatC)*100);
@@ -3282,8 +3293,13 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
-                 //własny trening wersja D przysiady
-                 if (editTextSquat.getText().length() != 0 && checkBoxSquats.isChecked() && LastClick==2 && LastCustomWorkoutState == 3){
+                 //własny trening wersja D
+                 if((seriesSquatD == 0 || repsSquatD == 0 || percentSquatD == 0 || progressionSquatD == 0) && LastClick==2 && LastCustomWorkoutState == 3) {
+                     checkBoxSquats.setText("brak konfiguracji treningu dla Przysiadów");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextSquat.getText().length() != 0 && checkBoxSquats.isChecked() && LastClick==2 && LastCustomWorkoutState == 3){
                      double n1 = Double.parseDouble(editTextSquat.getText().toString());
                      double nSeries = round((n1*percentSquatD/100)+ progressionSquatD, 3, BigDecimal.ROUND_HALF_UP);
                      double nMax = Math.round((nSeries/percentSquatD)*100);
@@ -3310,8 +3326,8 @@ public class TrainingActivity extends AppCompatActivity
 
 
 
-
-                 if (editTextBenchPress.getText().length() != 0 && checkBoxBenchPress.isChecked()){
+//fbw
+                 if (editTextBenchPress.getText().length() != 0 && checkBoxBenchPress.isChecked()&& LastClick==1){
                      double n1 = Double.parseDouble(editTextBenchPress.getText().toString());
                      double nSeries = Math.round((n1*0.80)+2);
                      double nMax = Math.round((nSeries/80)*100);
@@ -3321,7 +3337,7 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if (editTextBenchPress.getText().length() != 0 && !checkBoxBenchPress.isChecked()){
+                 else if (editTextBenchPress.getText().length() != 0 && !checkBoxBenchPress.isChecked()&& LastClick==1){
                      double n1 = Double.parseDouble(editTextBenchPress.getText().toString());
                      double nSeries = Math.round(n1*0.80);
 //                     double nMax = Math.round((nSeries/80)*100);
@@ -3331,12 +3347,126 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if(editTextBenchPress.getText().length() == 0) {
+                 else if(editTextBenchPress.getText().length() == 0 && LastClick==1) {
                      checkBoxBenchPress.setText("brak konfiguracji obciążenia dla Wyciskania Leżąc");
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
-                 if (editTextRowing.getText().length() != 0 && checkBoxRowing.isChecked()){
+//custom A
+
+                 if((seriesBenchPress == 0 || repsBenchPress== 0 || percentBenchPress == 0 || progressionBenchPress == 0) && LastClick==2 && LastCustomWorkoutState == 0) {
+                     checkBoxBenchPress.setText("brak konfiguracji treningu dla Wyciskania Leżąc");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextBenchPress.getText().length() != 0 && checkBoxBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextBenchPress.getText().toString());
+                     double nSeries = round((n1*percentBenchPress/100)+ progressionBenchPress, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentBenchPress)*100);
+
+                     checkBoxBenchPress.setText("Wyciskanie Leżąc "+ seriesBenchPress +" x "+ repsBenchPress +" x "+nSeries+"kg");
+                     editTextBenchPress.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextBenchPress.getText().length() != 0 && !checkBoxBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextBenchPress.getText().toString());
+                     double nSeries = round((n1*percentBenchPress/100)+ progressionBenchPress, 3, BigDecimal.ROUND_HALF_UP);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxBenchPress.setText("Wyciskanie Leżąc "+ seriesBenchPress +" x "+ repsBenchPress +" x "+nSeries+"kg");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextBenchPress.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxBenchPress.setText("brak konfiguracji obciążenia dla Wyciskania Leżąc");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+//custom B
+                 if((seriesBenchPressB == 0 || repsBenchPressB == 0 || percentBenchPressB == 0 || progressionBenchPressB == 0) && LastClick==2 && LastCustomWorkoutState == 1) {
+                     checkBoxBenchPress.setText("brak konfiguracji treningu dla Wyciskania Leżąc");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextBenchPress.getText().length() != 0 && checkBoxBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextBenchPress.getText().toString());
+                     double nSeries = round((n1*percentBenchPressB/100)+ progressionBenchPressB, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentBenchPressB)*100);
+
+                     checkBoxBenchPress.setText("Wyciskanie Leżąc "+ seriesBenchPressB +" x "+ repsBenchPressB +" x "+nSeries+"kg");
+                     editTextBenchPress.setText(""+nMax);
+                 }
+
+                 else if (editTextBenchPress.getText().length() != 0 && !checkBoxBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextBenchPress.getText().toString());
+                     double nSeries = round((n1*percentBenchPressB/100)+ progressionBenchPressB, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxBenchPress.setText("Wyciskanie Leżąc "+ seriesBenchPressB +" x "+ repsBenchPressB +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextBenchPress.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxBenchPress.setText("brak konfiguracji obciążenia dla Wyciskania Leżąc");
+                 }
+//custom C
+                 if((seriesBenchPressC == 0 || repsBenchPressC == 0 || percentBenchPressC == 0 || progressionBenchPressC == 0) && LastClick==2 && LastCustomWorkoutState == 2) {
+                     checkBoxBenchPress.setText("brak konfiguracji treningu dla Wyciskania Leżąc");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextBenchPress.getText().length() != 0 && checkBoxBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextBenchPress.getText().toString());
+                     double nSeries = round((n1*percentBenchPressC/100)+ progressionBenchPressC, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentBenchPressC)*100);
+
+                     checkBoxBenchPress.setText("Wyciskanie Leżąc "+ seriesBenchPressC +" x "+ repsBenchPressC +" x "+nSeries+"kg");
+                     editTextBenchPress.setText(""+nMax);
+                 }
+
+                 else if (editTextBenchPress.getText().length() != 0 && !checkBoxBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextBenchPress.getText().toString());
+                     double nSeries = round((n1*percentBenchPressC/100)+ progressionBenchPressC, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxBenchPress.setText("Wyciskanie Leżąc "+ seriesBenchPressC +" x "+ repsBenchPressC +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextBenchPress.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 2) {
+                     checkBoxBenchPress.setText("brak konfiguracji obciążenia dla Wyciskania Leżąc");
+                 }
+
+
+                 //custom D
+                 if((seriesBenchPressD == 0 || repsBenchPressD == 0 || percentBenchPressD == 0 || progressionBenchPressD == 0) && LastClick==2 && LastCustomWorkoutState == 3) {
+                     checkBoxBenchPress.setText("brak konfiguracji treningu dla Wyciskania Leżąc");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextBenchPress.getText().length() != 0 && checkBoxBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextBenchPress.getText().toString());
+                     double nSeries = round((n1*percentBenchPressD/100)+ progressionBenchPressD, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentBenchPressD)*100);
+
+                     checkBoxBenchPress.setText("Wyciskanie Leżąc "+ seriesBenchPressD +" x "+ repsBenchPressD +" x "+nSeries+"kg");
+                     editTextBenchPress.setText(""+nMax);
+                 }
+
+                 else if (editTextBenchPress.getText().length() != 0 && !checkBoxBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextBenchPress.getText().toString());
+                     double nSeries = round((n1*percentBenchPressD/100)+ progressionBenchPressD, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxBenchPress.setText("Wyciskanie Leżąc "+ seriesBenchPressD +" x "+ repsBenchPressD +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextBenchPress.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 3) {
+                     checkBoxBenchPress.setText("brak konfiguracji obciążenia dla Wyciskania Leżąc");
+                 }
+
+                 //fbw
+                 if (editTextRowing.getText().length() != 0 && checkBoxRowing.isChecked()&& LastClick==1){
                      double n1 = Double.parseDouble(editTextRowing.getText().toString());
                      double nSeries = Math.round((n1*0.80)+2);
                      double nMax = Math.round((nSeries/80)*100);
@@ -3346,7 +3476,7 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if (editTextRowing.getText().length() != 0 && !checkBoxRowing.isChecked()){
+                 else if (editTextRowing.getText().length() != 0 && !checkBoxRowing.isChecked()&& LastClick==1){
                      double n1 = Double.parseDouble(editTextRowing.getText().toString());
                      double nSeries = Math.round(n1*0.80);
 //                     double nMax = Math.round((nSeries/80)*100);
@@ -3356,12 +3486,125 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if(editTextRowing.getText().length() == 0) {
+                 else if(editTextRowing.getText().length() == 0 && LastClick==1) {
                      checkBoxRowing.setText("brak konfiguracji obciążenia dla Wiosłowania");
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
-                 if (editTextRisingSideways.getText().length() != 0 && checkBoxRisingSideways.isChecked()){
+                 // custom a
+                 if((seriesRowing == 0 || repsRowing == 0 || percentRowing == 0 || progressionRowing == 0) && LastClick==2 && LastCustomWorkoutState == 0) {
+                     checkBoxRowing.setText("brak konfiguracji treningu dla  Wiosłowania");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextRowing.getText().length() != 0 && checkBoxRowing.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0) {
+                     double n1 = Double.parseDouble(editTextRowing.getText().toString());
+                     double nSeries = round((n1*percentRowing/100)+ progressionRowing, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentRowing)*100);
+
+                     checkBoxRowing.setText("Wiosłowanie "+ seriesRowing +" x "+ repsRowing +" x "+nSeries+"kg");
+                     editTextRowing.setText(""+nMax);
+                 }
+
+                 else if (editTextRowing.getText().length() != 0 && !checkBoxRowing.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextRowing.getText().toString());
+                     double nSeries = round((n1*percentRowing/100)+ progressionRowing, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxRowing.setText("Wiosłowanie "+ seriesRowing +" x "+ repsRowing +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextBenchPress.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 0) {
+                     checkBoxRowing.setText("brak konfiguracji obciążenia dla Wiosłowania");
+                 }
+
+                 // custom b
+                 if((seriesRowingB == 0 || repsRowingB == 0 || percentRowingB == 0 || progressionRowingB == 0) && LastClick==2 && LastCustomWorkoutState == 1) {
+                     checkBoxRowing.setText("brak konfiguracji treningu dla  Wiosłowania");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextRowing.getText().length() != 0 && checkBoxRowing.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1) {
+                     double n1 = Double.parseDouble(editTextRowing.getText().toString());
+                     double nSeries = round((n1*percentRowingB/100)+ progressionRowingB, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentRowingB)*100);
+
+                     checkBoxRowing.setText("Wiosłowanie "+ seriesRowingB +" x "+ repsRowingB +" x "+nSeries+"kg");
+                     editTextRowing.setText(""+nMax);
+                 }
+
+                 else if (editTextRowing.getText().length() != 0 && !checkBoxRowing.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextRowing.getText().toString());
+                     double nSeries = round((n1*percentRowingB/100)+ progressionRowingB, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxRowing.setText("Wiosłowanie "+ seriesRowingB +" x "+ repsRowingB +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextBenchPress.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxRowing.setText("brak konfiguracji obciążenia dla Wiosłowania");
+                 }
+
+                 // custom C
+                 if((seriesRowingC == 0 || repsRowingC == 0 || percentRowingC == 0 || progressionRowingC == 0) && LastClick==2 && LastCustomWorkoutState == 1) {
+                     checkBoxRowing.setText("brak konfiguracji treningu dla  Wiosłowania");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextRowing.getText().length() != 0 && checkBoxRowing.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1) {
+                     double n1 = Double.parseDouble(editTextRowing.getText().toString());
+                     double nSeries = round((n1*percentRowingC/100)+ progressionRowingC, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentRowingC)*100);
+
+                     checkBoxRowing.setText("Wiosłowanie "+ seriesRowingC +" x "+ repsRowingC +" x "+nSeries+"kg");
+                     editTextRowing.setText(""+nMax);
+                 }
+
+                 else if (editTextRowing.getText().length() != 0 && !checkBoxRowing.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextRowing.getText().toString());
+                     double nSeries = round((n1*percentRowingC/100)+ progressionRowingC, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxRowing.setText("Wiosłowanie "+ seriesRowingC +" x "+ repsRowingC +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextBenchPress.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxRowing.setText("brak konfiguracji obciążenia dla Wiosłowania");
+                 }
+
+
+//custom d
+
+                 if((seriesRowingD == 0 || repsRowingD == 0 || percentRowingD == 0 || progressionRowingD == 0) && LastClick==2 && LastCustomWorkoutState == 3) {
+                     checkBoxRowing.setText("brak konfiguracji treningu dla  Wiosłowania");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextRowing.getText().length() != 0 && checkBoxRowing.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3) {
+                     double n1 = Double.parseDouble(editTextRowing.getText().toString());
+                     double nSeries = round((n1*percentRowingD/100)+ progressionRowingD, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentRowingD)*100);
+
+                     checkBoxRowing.setText("Wiosłowanie "+ seriesRowingD +" x "+ repsRowingD +" x "+nSeries+"kg");
+                     editTextRowing.setText(""+nMax);
+                 }
+
+                 else if (editTextRowing.getText().length() != 0 && !checkBoxRowing.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextRowing.getText().toString());
+                     double nSeries = round((n1*percentRowingD/100)+ progressionRowingD, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxRowing.setText("Wiosłowanie "+ seriesRowingD +" x "+ repsRowingD +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextBenchPress.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 3) {
+                     checkBoxRowing.setText("brak konfiguracji obciążenia dla Wiosłowania");
+                 }
+
+
+                 //FBW WZNOSY BOKIEM
+
+                 if (editTextRisingSideways.getText().length() != 0 && checkBoxRisingSideways.isChecked()&& LastClick==1){
                      double n1 = Double.parseDouble(editTextRisingSideways.getText().toString());
                      double nSeries = Math.round((n1*0.80)+2);
                      double nMax = Math.round((nSeries/80)*100);
@@ -3371,7 +3614,7 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if (editTextRisingSideways.getText().length() != 0 && !checkBoxRisingSideways.isChecked()){
+                 else if (editTextRisingSideways.getText().length() != 0 && !checkBoxRisingSideways.isChecked()&& LastClick==1){
                      double n1 = Double.parseDouble(editTextRisingSideways.getText().toString());
                      double nSeries = Math.round(n1*0.80);
 //                     double nMax = Math.round((nSeries/80)*100);
@@ -3381,12 +3624,144 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if(editTextRisingSideways.getText().length() == 0) {
+                 else if(editTextRisingSideways.getText().length() == 0&& LastClick==1) {
                      checkBoxRisingSideways.setText("brak konfiguracji obciążenia dla Wznosów bokiem");
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
-                 if (editTextBiceps.getText().length() != 0 && checkBoxBiceps.isChecked()){
+                 //własny trening wersja A
+                 if((seriesRisingSideways == 0 || repsRisingSideways == 0 || percentRisingSideways == 0 || progressionRisingSideways == 0) && LastClick==2 && LastCustomWorkoutState == 0) {
+                     checkBoxRisingSideways.setText("brak konfiguracji treningu dla Przysiadów");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextRisingSideways.getText().length() != 0 && checkBoxRisingSideways.isChecked() && LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextRisingSideways.getText().toString());
+                     double nSeries = round((n1*percentRisingSideways/100)+ progressionRisingSideways, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentRisingSideways)*100);
+
+                     checkBoxRisingSideways.setText("Wznosy bokiem "+ seriesRisingSideways +" x "+ repsRisingSideways +" x "+nSeries+"kg");
+                     editTextRisingSideways.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextRisingSideways.getText().length() != 0 && !checkBoxRisingSideways.isChecked() && LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextRisingSideways.getText().toString());
+                     double nSeries = round((n1*percentRisingSideways/100), 3, BigDecimal.ROUND_HALF_UP);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxRisingSideways.setText("Wznosy bokiem "+ seriesRisingSideways +" x "+ repsRisingSideways +" x "+nSeries+"kg");
+//                     editTextRisingSideways.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextRisingSideways.getText().length() == 0 && LastClick==2 && LastCustomWorkoutState == 0) {
+                     checkBoxRisingSideways.setText("brak konfiguracji obciążenia dla Wznosów bokiem");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+
+
+
+//własny trening wersja B
+
+                 if((seriesRisingSidewaysB == 0 || repsRisingSidewaysB == 0 || percentRisingSidewaysB == 0 || progressionRisingSidewaysB == 0) && LastClick==2 && LastCustomWorkoutState == 1) {
+                     checkBoxRisingSideways.setText("brak konfiguracji treningu dla Wznów bokiem");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextRisingSideways.getText().length() != 0 && checkBoxRisingSideways.isChecked() && LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextRisingSideways.getText().toString());
+                     double nSeries = round((n1*percentRisingSidewaysB/100)+ progressionRisingSidewaysB, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentRisingSidewaysB)*100);
+
+                     checkBoxRisingSideways.setText("Wznosy bokiem"+ seriesRisingSidewaysB +" x "+ repsRisingSidewaysB +" x "+nSeries+"kg");
+                     editTextRisingSideways.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextRisingSideways.getText().length() != 0 && !checkBoxRisingSideways.isChecked() && LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextRisingSideways.getText().toString());
+                     double nSeries = round((n1*percentRisingSidewaysB/100), 3, BigDecimal.ROUND_HALF_UP);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxRisingSideways.setText("Wznosy bokiem"+ seriesRisingSidewaysB +" x "+ repsRisingSidewaysB +" x "+nSeries+"kg");
+//                     editTextRisingSideways.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextRisingSideways.getText().length() == 0 && LastClick==2 && LastCustomWorkoutState == 1) {
+                     checkBoxRisingSideways.setText("brak konfiguracji obciążenia dla Wznosów bokiem");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 //własny trening wersja C
+
+                 if((seriesRisingSidewaysC == 0 || repsRisingSidewaysC == 0 || percentRisingSidewaysC == 0 || progressionRisingSidewaysC == 0) && LastClick==2 && LastCustomWorkoutState == 2) {
+                     checkBoxRisingSideways.setText("brak konfiguracji treningu dla Wznosów bokiem");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else  if (editTextRisingSideways.getText().length() != 0 && checkBoxRisingSideways.isChecked() && LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextRisingSideways.getText().toString());
+                     double nSeries = round((n1*percentRisingSidewaysC/100)+ progressionRisingSidewaysC, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentRisingSidewaysC)*100);
+
+                     checkBoxRisingSideways.setText("Wznosy bokiem "+ seriesRisingSidewaysC +" x "+ repsRisingSidewaysC +" x "+nSeries+"kg");
+                     editTextRisingSideways.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextRisingSideways.getText().length() != 0 && !checkBoxRisingSideways.isChecked() && LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextRisingSideways.getText().toString());
+                     double nSeries = round((n1*percentRisingSidewaysC/100), 3, BigDecimal.ROUND_HALF_UP);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxRisingSideways.setText("Wznosy bokiem "+ seriesRisingSidewaysC +" x "+ repsRisingSidewaysC +" x "+nSeries+"kg");
+//                     editTextRisingSideways.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextRisingSideways.getText().length() == 0 && LastClick==2 && LastCustomWorkoutState == 2) {
+                     checkBoxRisingSideways.setText("brak konfiguracji obciążenia dla Wznosów bokiem");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 //własny trening wersja D
+                 if((seriesRisingSidewaysD == 0 || repsRisingSidewaysD == 0 || percentRisingSidewaysD == 0 || progressionRisingSidewaysD == 0) && LastClick==2 && LastCustomWorkoutState == 3) {
+                     checkBoxRisingSideways.setText("brak konfiguracji treningu dla Wznosów bokiem");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextRisingSideways.getText().length() != 0 && checkBoxRisingSideways.isChecked() && LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextRisingSideways.getText().toString());
+                     double nSeries = round((n1*percentRisingSidewaysD/100)+ progressionRisingSidewaysD, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentRisingSidewaysD)*100);
+
+                     checkBoxRisingSideways.setText("Wznosy bokiem "+ seriesRisingSidewaysD +" x "+ repsRisingSidewaysD +" x "+nSeries+"kg");
+                     editTextRisingSideways.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextRisingSideways.getText().length() != 0 && !checkBoxRisingSideways.isChecked() && LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextRisingSideways.getText().toString());
+                     double nSeries = round((n1*percentRisingSidewaysD/100), 3, BigDecimal.ROUND_HALF_UP);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxRisingSideways.setText("Wznosy bokiem "+ seriesRisingSidewaysD +" x "+ repsRisingSidewaysD +" x "+nSeries+"kg");
+//                     editTextRisingSideways.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextRisingSideways.getText().length() == 0 && LastClick==2 && LastCustomWorkoutState == 3) {
+                     checkBoxRisingSideways.setText("brak konfiguracji obciążenia dla Wznosów bokiem");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+
+// BICEPS
+                 //FBW
+                 if (editTextBiceps.getText().length() != 0 && checkBoxBiceps.isChecked()&& LastClick==1){
                      double n1 = Double.parseDouble(editTextBiceps.getText().toString());
                      double nSeries = Math.round((n1*0.80)+2);
                      double nMax = Math.round((nSeries/80)*100);
@@ -3396,7 +3771,7 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if (editTextBiceps.getText().length() != 0 && !checkBoxBiceps.isChecked()){
+                 else if (editTextBiceps.getText().length() != 0 && !checkBoxBiceps.isChecked()&& LastClick==1){
                      double n1 = Double.parseDouble(editTextBiceps.getText().toString());
                      double nSeries = Math.round(n1*0.80);
 //                     double nMax = Math.round((nSeries/80)*100);
@@ -3406,12 +3781,127 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if(editTextBiceps.getText().length() == 0) {
+                 else if(editTextBiceps.getText().length() == 0&& LastClick==1) {
                      checkBoxBiceps.setText("brak konfiguracji obciążenia dla Bicepsa");
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
-                 if (editTextTriceps.getText().length() != 0 && checkBoxTriceps.isChecked()){
+                 //custom A
+
+                 if((seriesBiceps == 0 || repsBiceps== 0 || percentBiceps == 0 || progressionBiceps == 0) && LastClick==2 && LastCustomWorkoutState == 0) {
+                     checkBoxBiceps.setText("brak konfiguracji treningu dla Bicepsa");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextBiceps.getText().length() != 0 && checkBoxBiceps.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextBiceps.getText().toString());
+                     double nSeries = round((n1*percentBiceps/100)+ progressionBiceps, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentBiceps)*100);
+
+                     checkBoxBiceps.setText("Biceps "+ seriesBiceps +" x "+ repsBiceps +" x "+nSeries+"kg");
+                     editTextBiceps.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextBiceps.getText().length() != 0 && !checkBoxBiceps.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextBiceps.getText().toString());
+                     double nSeries = round((n1*percentBiceps/100)+ progressionBiceps, 3, BigDecimal.ROUND_HALF_UP);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxBiceps.setText("Biceps "+ seriesBiceps +" x "+ repsBiceps +" x "+nSeries+"kg");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextBiceps.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxBiceps.setText("brak konfiguracji obciążenia dla Bicepsa");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+//custom B
+                 if((seriesBicepsB == 0 || repsBicepsB == 0 || percentBicepsB == 0 || progressionBicepsB == 0) && LastClick==2 && LastCustomWorkoutState == 1) {
+                     checkBoxBiceps.setText("brak konfiguracji treningu dla Bicepsa");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextBiceps.getText().length() != 0 && checkBoxBiceps.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextBiceps.getText().toString());
+                     double nSeries = round((n1*percentBicepsB/100)+ progressionBicepsB, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentBicepsB)*100);
+
+                     checkBoxBiceps.setText("Biceps "+ seriesBicepsB +" x "+ repsBicepsB +" x "+nSeries+"kg");
+                     editTextBiceps.setText(""+nMax);
+                 }
+
+                 else if (editTextBiceps.getText().length() != 0 && !checkBoxBiceps.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextBiceps.getText().toString());
+                     double nSeries = round((n1*percentBicepsB/100)+ progressionBicepsB, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxBiceps.setText("Biceps "+ seriesBicepsB +" x "+ repsBicepsB +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextBiceps.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxBiceps.setText("brak konfiguracji obciążenia dla Bicepsa");
+                 }
+//custom C
+                 if((seriesBicepsC == 0 || repsBicepsC == 0 || percentBicepsC == 0 || progressionBicepsC == 0) && LastClick==2 && LastCustomWorkoutState == 2) {
+                     checkBoxBiceps.setText("brak konfiguracji treningu dla Bicepsa");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextBiceps.getText().length() != 0 && checkBoxBiceps.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextBiceps.getText().toString());
+                     double nSeries = round((n1*percentBicepsC/100)+ progressionBicepsC, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentBicepsC)*100);
+
+                     checkBoxBiceps.setText("Biceps "+ seriesBicepsC +" x "+ repsBicepsC +" x "+nSeries+"kg");
+                     editTextBiceps.setText(""+nMax);
+                 }
+
+                 else if (editTextBiceps.getText().length() != 0 && !checkBoxBiceps.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextBiceps.getText().toString());
+                     double nSeries = round((n1*percentBicepsC/100)+ progressionBicepsC, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxBiceps.setText("Biceps "+ seriesBicepsC +" x "+ repsBicepsC +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextBiceps.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 2) {
+                     checkBoxBiceps.setText("brak konfiguracji obciążenia dla Bicepsa");
+                 }
+
+
+                 //custom D
+                 if((seriesBicepsD == 0 || repsBicepsD == 0 || percentBicepsD == 0 || progressionBicepsD == 0) && LastClick==2 && LastCustomWorkoutState == 3) {
+                     checkBoxBiceps.setText("brak konfiguracji treningu dla Bicepsa");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextBiceps.getText().length() != 0 && checkBoxBiceps.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextBiceps.getText().toString());
+                     double nSeries = round((n1*percentBicepsD/100)+ progressionBicepsD, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentBicepsD)*100);
+
+                     checkBoxBiceps.setText("Biceps "+ seriesBicepsD +" x "+ repsBicepsD +" x "+nSeries+"kg");
+                     editTextBiceps.setText(""+nMax);
+                 }
+
+                 else if (editTextBiceps.getText().length() != 0 && !checkBoxBiceps.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextBiceps.getText().toString());
+                     double nSeries = round((n1*percentBicepsD/100)+ progressionBicepsD, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxBiceps.setText("Biceps "+ seriesBicepsD +" x "+ repsBicepsD +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextBiceps.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 3) {
+                     checkBoxBiceps.setText("brak konfiguracji obciążenia dla Bicepsa");
+                 }
+
+
+//fbw
+                 if (editTextTriceps.getText().length() != 0 && checkBoxTriceps.isChecked()&&LastClick==1){
                      double n1 = Double.parseDouble(editTextTriceps.getText().toString());
                      double nSeries = Math.round((n1*0.80)+2);
                      double nMax = Math.round((nSeries/80)*100);
@@ -3421,7 +3911,7 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if (editTextTriceps.getText().length() != 0 && !checkBoxTriceps.isChecked()){
+                 else if (editTextTriceps.getText().length() != 0 && !checkBoxTriceps.isChecked()&&LastClick==1){
                      double n1 = Double.parseDouble(editTextTriceps.getText().toString());
                      double nSeries = Math.round(n1*0.80);
 //                     double nMax = Math.round((nSeries/80)*100);
@@ -3431,12 +3921,129 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if(editTextTriceps.getText().length() == 0) {
+                 else if(editTextTriceps.getText().length() == 0&&LastClick==1) {
                      checkBoxTriceps.setText("brak konfiguracji obciążenia dla Triceps");
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
-                 if (editTextAllahs.getText().length() != 0 && checkBoxAllahs.isChecked()){
+                 //custom A
+
+                 if((seriesTriceps == 0 || repsTriceps== 0 || percentTriceps == 0 || progressionTriceps == 0) && LastClick==2 && LastCustomWorkoutState == 0) {
+                     checkBoxTriceps.setText("brak konfiguracji treningu dla Tricepsa");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextTriceps.getText().length() != 0 && checkBoxTriceps.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextTriceps.getText().toString());
+                     double nSeries = round((n1*percentTriceps/100)+ progressionTriceps, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentTriceps)*100);
+
+                     checkBoxTriceps.setText("Triceps "+ seriesTriceps +" x "+ repsTriceps +" x "+nSeries+"kg");
+                     editTextTriceps.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextTriceps.getText().length() != 0 && !checkBoxTriceps.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextTriceps.getText().toString());
+                     double nSeries = round((n1*percentTriceps/100)+ progressionTriceps, 3, BigDecimal.ROUND_HALF_UP);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxTriceps.setText("Triceps "+ seriesTriceps +" x "+ repsTriceps +" x "+nSeries+"kg");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextTriceps.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxTriceps.setText("brak konfiguracji obciążenia dla Tricepsa");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+//custom B
+                 if((seriesTricepsB == 0 || repsTricepsB == 0 || percentTricepsB == 0 || progressionTricepsB == 0) && LastClick==2 && LastCustomWorkoutState == 1) {
+                     checkBoxTriceps.setText("brak konfiguracji treningu dla Tricepsa");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextTriceps.getText().length() != 0 && checkBoxTriceps.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextTriceps.getText().toString());
+                     double nSeries = round((n1*percentTricepsB/100)+ progressionTricepsB, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentTricepsB)*100);
+
+                     checkBoxTriceps.setText("Triceps "+ seriesTricepsB +" x "+ repsTricepsB +" x "+nSeries+"kg");
+                     editTextTriceps.setText(""+nMax);
+                 }
+
+                 else if (editTextTriceps.getText().length() != 0 && !checkBoxTriceps.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextTriceps.getText().toString());
+                     double nSeries = round((n1*percentTricepsB/100)+ progressionTricepsB, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxTriceps.setText("Triceps "+ seriesTricepsB +" x "+ repsTricepsB +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextTriceps.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxTriceps.setText("brak konfiguracji obciążenia dla Tricepsa");
+                 }
+//custom C
+                 if((seriesTricepsC == 0 || repsTricepsC == 0 || percentTricepsC == 0 || progressionTricepsC == 0) && LastClick==2 && LastCustomWorkoutState == 2) {
+                     checkBoxTriceps.setText("brak konfiguracji treningu dla Tricepsa");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextTriceps.getText().length() != 0 && checkBoxTriceps.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextTriceps.getText().toString());
+                     double nSeries = round((n1*percentTricepsC/100)+ progressionTricepsC, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentTricepsC)*100);
+
+                     checkBoxTriceps.setText("Triceps "+ seriesTricepsC +" x "+ repsTricepsC +" x "+nSeries+"kg");
+                     editTextTriceps.setText(""+nMax);
+                 }
+
+                 else if (editTextTriceps.getText().length() != 0 && !checkBoxTriceps.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextTriceps.getText().toString());
+                     double nSeries = round((n1*percentTricepsC/100)+ progressionTricepsC, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxTriceps.setText("Triceps "+ seriesTricepsC +" x "+ repsTricepsC +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextTriceps.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 2) {
+                     checkBoxTriceps.setText("brak konfiguracji obciążenia dla Tricepsa");
+                 }
+
+
+                 //custom D
+                 if((seriesTricepsD == 0 || repsTricepsD == 0 || percentTricepsD == 0 || progressionTricepsD == 0) && LastClick==2 && LastCustomWorkoutState == 3) {
+                     checkBoxTriceps.setText("brak konfiguracji treningu dla Tricepsa");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextTriceps.getText().length() != 0 && checkBoxTriceps.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextTriceps.getText().toString());
+                     double nSeries = round((n1*percentTricepsD/100)+ progressionTricepsD, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentTricepsD)*100);
+
+                     checkBoxTriceps.setText("Triceps "+ seriesTricepsD +" x "+ repsTricepsD +" x "+nSeries+"kg");
+                     editTextTriceps.setText(""+nMax);
+                 }
+
+                 else if (editTextTriceps.getText().length() != 0 && !checkBoxTriceps.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextTriceps.getText().toString());
+                     double nSeries = round((n1*percentTricepsD/100)+ progressionTricepsD, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxTriceps.setText("Triceps "+ seriesTricepsD +" x "+ repsTricepsD +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextTriceps.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 3) {
+                     checkBoxTriceps.setText("brak konfiguracji obciążenia dla Tricepsa");
+                 }
+
+
+
+
+
+                 if (editTextAllahs.getText().length() != 0 && checkBoxAllahs.isChecked()&&LastClick==1){
                      double n1 = Double.parseDouble(editTextAllahs.getText().toString());
                      double nSeries = Math.round((n1*0.80)+2);
                      double nMax = Math.round((nSeries/80)*100);
@@ -3446,7 +4053,7 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if (editTextAllahs.getText().length() != 0 && !checkBoxAllahs.isChecked()){
+                 else if (editTextAllahs.getText().length() != 0 && !checkBoxAllahs.isChecked()&&LastClick==1){
                      double n1 = Double.parseDouble(editTextAllahs.getText().toString());
                      double nSeries = Math.round(n1*0.80);
 //                     double nMax = Math.round((nSeries/80)*100);
@@ -3456,12 +4063,127 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if(editTextAllahs.getText().length() == 0) {
+                 else if(editTextAllahs.getText().length() == 0 &&LastClick==1) {
                      checkBoxAllahs.setText("brak konfiguracji obciążenia dla Allahów");
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
-                 if (editTextFacepull.getText().length() != 0 && checkBoxFacepull.isChecked()){
+                 //custom A
+
+                 if((seriesAllahs == 0 || repsAllahs== 0 || percentAllahs == 0 || progressionAllahs == 0) && LastClick==2 && LastCustomWorkoutState == 0) {
+                     checkBoxAllahs.setText("brak konfiguracji treningu dla Allahów");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextAllahs.getText().length() != 0 && checkBoxAllahs.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextAllahs.getText().toString());
+                     double nSeries = round((n1*percentAllahs/100)+ progressionAllahs, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentAllahs)*100);
+
+                     checkBoxAllahs.setText("Allahy "+ seriesAllahs +" x "+ repsAllahs +" x "+nSeries+"kg");
+                     editTextAllahs.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextAllahs.getText().length() != 0 && !checkBoxAllahs.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextAllahs.getText().toString());
+                     double nSeries = round((n1*percentAllahs/100)+ progressionAllahs, 3, BigDecimal.ROUND_HALF_UP);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxAllahs.setText("Allahy "+ seriesAllahs +" x "+ repsAllahs +" x "+nSeries+"kg");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextAllahs.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxAllahs.setText("brak konfiguracji obciążenia dla Allahów");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+//custom B
+                 if((seriesAllahsB == 0 || repsAllahsB == 0 || percentAllahsB == 0 || progressionAllahsB == 0) && LastClick==2 && LastCustomWorkoutState == 1) {
+                     checkBoxAllahs.setText("brak konfiguracji treningu dla Allahów");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextAllahs.getText().length() != 0 && checkBoxAllahs.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextAllahs.getText().toString());
+                     double nSeries = round((n1*percentAllahsB/100)+ progressionAllahsB, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentAllahsB)*100);
+
+                     checkBoxAllahs.setText("Allahy "+ seriesAllahsB +" x "+ repsAllahsB +" x "+nSeries+"kg");
+                     editTextAllahs.setText(""+nMax);
+                 }
+
+                 else if (editTextAllahs.getText().length() != 0 && !checkBoxAllahs.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextAllahs.getText().toString());
+                     double nSeries = round((n1*percentAllahsB/100)+ progressionAllahsB, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxAllahs.setText("Allahy "+ seriesAllahsB +" x "+ repsAllahsB +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextAllahs.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxAllahs.setText("brak konfiguracji obciążenia dla Allahów");
+                 }
+//custom C
+                 if((seriesAllahsC == 0 || repsAllahsC == 0 || percentAllahsC == 0 || progressionAllahsC == 0) && LastClick==2 && LastCustomWorkoutState == 2) {
+                     checkBoxAllahs.setText("brak konfiguracji treningu dla Allahów");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextAllahs.getText().length() != 0 && checkBoxAllahs.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextAllahs.getText().toString());
+                     double nSeries = round((n1*percentAllahsC/100)+ progressionAllahsC, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentAllahsC)*100);
+
+                     checkBoxAllahs.setText("Allahy "+ seriesAllahsC +" x "+ repsAllahsC +" x "+nSeries+"kg");
+                     editTextAllahs.setText(""+nMax);
+                 }
+
+                 else if (editTextAllahs.getText().length() != 0 && !checkBoxAllahs.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextAllahs.getText().toString());
+                     double nSeries = round((n1*percentAllahsC/100)+ progressionAllahsC, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxAllahs.setText("Allahy "+ seriesAllahsC +" x "+ repsAllahsC +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextAllahs.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 2) {
+                     checkBoxAllahs.setText("brak konfiguracji obciążenia dla Allahów");
+                 }
+
+
+                 //custom D
+                 if((seriesAllahsD == 0 || repsAllahsD == 0 || percentAllahsD == 0 || progressionAllahsD == 0) && LastClick==2 && LastCustomWorkoutState == 3) {
+                     checkBoxAllahs.setText("brak konfiguracji treningu dla Allahów");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextAllahs.getText().length() != 0 && checkBoxAllahs.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextAllahs.getText().toString());
+                     double nSeries = round((n1*percentAllahsD/100)+ progressionAllahsD, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentAllahsD)*100);
+
+                     checkBoxAllahs.setText("Allahy "+ seriesAllahsD +" x "+ repsAllahsD +" x "+nSeries+"kg");
+                     editTextAllahs.setText(""+nMax);
+                 }
+
+                 else if (editTextAllahs.getText().length() != 0 && !checkBoxAllahs.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextAllahs.getText().toString());
+                     double nSeries = round((n1*percentAllahsD/100)+ progressionAllahsD, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxAllahs.setText("Allahy "+ seriesAllahsD +" x "+ repsAllahsD +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextAllahs.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 3) {
+                     checkBoxAllahs.setText("brak konfiguracji obciążenia dla Allahów");
+                 }
+
+//Facepull
+                 //fbw
+                 if (editTextFacepull.getText().length() != 0 && checkBoxFacepull.isChecked()&&LastClick==1){
                      double n1 = Double.parseDouble(editTextFacepull.getText().toString());
                      double nSeries = Math.round((n1*0.80)+2);
                      double nMax = Math.round((nSeries/80)*100);
@@ -3471,7 +4193,7 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if (editTextFacepull.getText().length() != 0 && !checkBoxFacepull.isChecked()){
+                 else if (editTextFacepull.getText().length() != 0 && !checkBoxFacepull.isChecked()&&LastClick==1){
                      double n1 = Double.parseDouble(editTextFacepull.getText().toString());
                      double nSeries = Math.round(n1*0.80);
 //                     double nMax = Math.round((nSeries/80)*100);
@@ -3481,13 +4203,126 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if(editTextFacepull.getText().length() == 0) {
+                 else if(editTextFacepull.getText().length() == 0&&LastClick==1) {
                      checkBoxFacepull.setText("brak konfiguracji obciążenia dla Facepull");
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
+                 //custom A
 
-                 if (editTextDeadliftClassic.getText().length() != 0 && checkBoxDeadliftClassic.isChecked()){
+                 if((seriesFacepull == 0 || repsFacepull== 0 || percentFacepull == 0 || progressionFacepull == 0) && LastClick==2 && LastCustomWorkoutState == 0) {
+                     checkBoxFacepull.setText("brak konfiguracji treningu dla Facepull");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextFacepull.getText().length() != 0 && checkBoxFacepull.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextFacepull.getText().toString());
+                     double nSeries = round((n1*percentFacepull/100)+ progressionFacepull, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentFacepull)*100);
+
+                     checkBoxFacepull.setText("Facepull "+ seriesFacepull +" x "+ repsFacepull +" x "+nSeries+"kg");
+                     editTextFacepull.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextFacepull.getText().length() != 0 && !checkBoxFacepull.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextFacepull.getText().toString());
+                     double nSeries = round((n1*percentFacepull/100)+ progressionFacepull, 3, BigDecimal.ROUND_HALF_UP);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxFacepull.setText("Facepull "+ seriesFacepull +" x "+ repsFacepull +" x "+nSeries+"kg");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextFacepull.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxFacepull.setText("brak konfiguracji obciążenia dla Facepull");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+//custom B
+                 if((seriesFacepullB == 0 || repsFacepullB == 0 || percentFacepullB == 0 || progressionFacepullB == 0) && LastClick==2 && LastCustomWorkoutState == 1) {
+                     checkBoxFacepull.setText("brak konfiguracji treningu dla Facepull");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextFacepull.getText().length() != 0 && checkBoxFacepull.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextFacepull.getText().toString());
+                     double nSeries = round((n1*percentFacepullB/100)+ progressionFacepullB, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentFacepullB)*100);
+
+                     checkBoxFacepull.setText("Facepull "+ seriesFacepullB +" x "+ repsFacepullB +" x "+nSeries+"kg");
+                     editTextFacepull.setText(""+nMax);
+                 }
+
+                 else if (editTextFacepull.getText().length() != 0 && !checkBoxFacepull.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextFacepull.getText().toString());
+                     double nSeries = round((n1*percentFacepullB/100)+ progressionFacepullB, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxFacepull.setText("Facepull "+ seriesFacepullB +" x "+ repsFacepullB +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextFacepull.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxFacepull.setText("brak konfiguracji obciążenia dla Facepull");
+                 }
+//custom C
+                 if((seriesFacepullC == 0 || repsFacepullC == 0 || percentFacepullC == 0 || progressionFacepullC == 0) && LastClick==2 && LastCustomWorkoutState == 2) {
+                     checkBoxFacepull.setText("brak konfiguracji treningu dla Facepull");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextFacepull.getText().length() != 0 && checkBoxFacepull.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextFacepull.getText().toString());
+                     double nSeries = round((n1*percentFacepullC/100)+ progressionFacepullC, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentFacepullC)*100);
+
+                     checkBoxFacepull.setText("Facepull "+ seriesFacepullC +" x "+ repsFacepullC +" x "+nSeries+"kg");
+                     editTextFacepull.setText(""+nMax);
+                 }
+
+                 else if (editTextFacepull.getText().length() != 0 && !checkBoxFacepull.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextFacepull.getText().toString());
+                     double nSeries = round((n1*percentFacepullC/100)+ progressionFacepullC, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxFacepull.setText("Facepull "+ seriesFacepullC +" x "+ repsFacepullC +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextFacepull.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 2) {
+                     checkBoxFacepull.setText("brak konfiguracji obciążenia dla Facepull");
+                 }
+
+
+                 //custom D
+                 if((seriesFacepullD == 0 || repsFacepullD == 0 || percentFacepullD == 0 || progressionFacepullD == 0) && LastClick==2 && LastCustomWorkoutState == 3) {
+                     checkBoxFacepull.setText("brak konfiguracji treningu dla Facepull");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextFacepull.getText().length() != 0 && checkBoxFacepull.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextFacepull.getText().toString());
+                     double nSeries = round((n1*percentFacepullD/100)+ progressionFacepullD, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentFacepullD)*100);
+
+                     checkBoxFacepull.setText("Facepull "+ seriesFacepullD +" x "+ repsFacepullD +" x "+nSeries+"kg");
+                     editTextFacepull.setText(""+nMax);
+                 }
+
+                 else if (editTextFacepull.getText().length() != 0 && !checkBoxFacepull.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextFacepull.getText().toString());
+                     double nSeries = round((n1*percentFacepullD/100)+ progressionFacepullD, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxFacepull.setText("Facepull "+ seriesFacepullD +" x "+ repsFacepullD +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextFacepull.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 3) {
+                     checkBoxFacepull.setText("brak konfiguracji obciążenia dla Facepull");
+                 }
+
+
+                 if (editTextDeadliftClassic.getText().length() != 0 && checkBoxDeadliftClassic.isChecked()&&LastClick==1){
                      double n1 = Double.parseDouble(editTextDeadliftClassic.getText().toString());
                      double nSeries = Math.round((n1*0.80)+2);
                      double nMax = Math.round((nSeries/80)*100);
@@ -3497,7 +4332,7 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if (editTextDeadliftClassic.getText().length() != 0 && !checkBoxDeadliftClassic.isChecked()){
+                 else if (editTextDeadliftClassic.getText().length() != 0 && !checkBoxDeadliftClassic.isChecked()&&LastClick==1){
                      double n1 = Double.parseDouble(editTextDeadliftClassic.getText().toString());
                      double nSeries = Math.round(n1*0.80);
 //                     double nMax = Math.round((nSeries/80)*100);
@@ -3507,12 +4342,126 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if(editTextDeadliftClassic.getText().length() == 0) {
+                 else if(editTextDeadliftClassic.getText().length() == 0&&LastClick==1) {
                      checkBoxDeadliftClassic.setText("brak konfiguracji obciążenia dla Martwego Ciągu Klasycznego");
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
-                 if (editTextOhp.getText().length() != 0 && checkBoxOhp.isChecked()){
+                 //custom A
+
+                 if((seriesDeadliftClassic == 0 || repsDeadliftClassic== 0 || percentDeadliftClassic == 0 || progressionDeadliftClassic == 0) && LastClick==2 && LastCustomWorkoutState == 0) {
+                     checkBoxDeadliftClassic.setText("brak konfiguracji treningu dla Martwego Ciągu Klasycznego");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextDeadliftClassic.getText().length() != 0 && checkBoxDeadliftClassic.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextDeadliftClassic.getText().toString());
+                     double nSeries = round((n1*percentDeadliftClassic/100)+ progressionDeadliftClassic, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentDeadliftClassic)*100);
+
+                     checkBoxDeadliftClassic.setText("Martwy Ciąg Klasyczny "+ seriesDeadliftClassic +" x "+ repsDeadliftClassic +" x "+nSeries+"kg");
+                     editTextDeadliftClassic.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextDeadliftClassic.getText().length() != 0 && !checkBoxDeadliftClassic.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextDeadliftClassic.getText().toString());
+                     double nSeries = round((n1*percentDeadliftClassic/100)+ progressionDeadliftClassic, 3, BigDecimal.ROUND_HALF_UP);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxDeadliftClassic.setText("Martwy Ciąg Klasyczny "+ seriesDeadliftClassic +" x "+ repsDeadliftClassic +" x "+nSeries+"kg");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextDeadliftClassic.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxDeadliftClassic.setText("brak konfiguracji obciążenia dla Martwego Ciągu Klasycznego");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+//custom B
+                 if((seriesDeadliftClassicB == 0 || repsDeadliftClassicB == 0 || percentDeadliftClassicB == 0 || progressionDeadliftClassicB == 0) && LastClick==2 && LastCustomWorkoutState == 1) {
+                     checkBoxDeadliftClassic.setText("brak konfiguracji treningu dla Martwego Ciągu Klasycznego");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextDeadliftClassic.getText().length() != 0 && checkBoxDeadliftClassic.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextDeadliftClassic.getText().toString());
+                     double nSeries = round((n1*percentDeadliftClassicB/100)+ progressionDeadliftClassicB, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentDeadliftClassicB)*100);
+
+                     checkBoxDeadliftClassic.setText("Martwy Ciąg Klasyczny "+ seriesDeadliftClassicB +" x "+ repsDeadliftClassicB +" x "+nSeries+"kg");
+                     editTextDeadliftClassic.setText(""+nMax);
+                 }
+
+                 else if (editTextDeadliftClassic.getText().length() != 0 && !checkBoxDeadliftClassic.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextDeadliftClassic.getText().toString());
+                     double nSeries = round((n1*percentDeadliftClassicB/100)+ progressionDeadliftClassicB, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxDeadliftClassic.setText("Martwy Ciąg Klasyczny "+ seriesDeadliftClassicB +" x "+ repsDeadliftClassicB +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextDeadliftClassic.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxDeadliftClassic.setText("brak konfiguracji obciążenia dla Martwego Ciągu Klasycznego");
+                 }
+//custom C
+                 if((seriesDeadliftClassicC == 0 || repsDeadliftClassicC == 0 || percentDeadliftClassicC == 0 || progressionDeadliftClassicC == 0) && LastClick==2 && LastCustomWorkoutState == 2) {
+                     checkBoxDeadliftClassic.setText("brak konfiguracji treningu dla Martwego Ciągu Klasycznego");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextDeadliftClassic.getText().length() != 0 && checkBoxDeadliftClassic.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextDeadliftClassic.getText().toString());
+                     double nSeries = round((n1*percentDeadliftClassicC/100)+ progressionDeadliftClassicC, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentDeadliftClassicC)*100);
+
+                     checkBoxDeadliftClassic.setText("Martwy Ciąg Klasyczny "+ seriesDeadliftClassicC +" x "+ repsDeadliftClassicC +" x "+nSeries+"kg");
+                     editTextDeadliftClassic.setText(""+nMax);
+                 }
+
+                 else if (editTextDeadliftClassic.getText().length() != 0 && !checkBoxDeadliftClassic.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextDeadliftClassic.getText().toString());
+                     double nSeries = round((n1*percentDeadliftClassicC/100)+ progressionDeadliftClassicC, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxDeadliftClassic.setText("Martwy Ciąg Klasyczny "+ seriesDeadliftClassicC +" x "+ repsDeadliftClassicC +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextDeadliftClassic.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 2) {
+                     checkBoxDeadliftClassic.setText("brak konfiguracji obciążenia dla Martwego Ciągu Klasycznego");
+                 }
+
+
+                 //custom D
+                 if((seriesDeadliftClassicD == 0 || repsDeadliftClassicD == 0 || percentDeadliftClassicD == 0 || progressionDeadliftClassicD == 0) && LastClick==2 && LastCustomWorkoutState == 3) {
+                     checkBoxDeadliftClassic.setText("brak konfiguracji treningu dla Martwego Ciągu Klasycznego");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextDeadliftClassic.getText().length() != 0 && checkBoxDeadliftClassic.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextDeadliftClassic.getText().toString());
+                     double nSeries = round((n1*percentDeadliftClassicD/100)+ progressionDeadliftClassicD, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentDeadliftClassicD)*100);
+
+                     checkBoxDeadliftClassic.setText("Martwy Ciąg Klasyczny "+ seriesDeadliftClassicD +" x "+ repsDeadliftClassicD +" x "+nSeries+"kg");
+                     editTextDeadliftClassic.setText(""+nMax);
+                 }
+
+                 else if (editTextDeadliftClassic.getText().length() != 0 && !checkBoxDeadliftClassic.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextDeadliftClassic.getText().toString());
+                     double nSeries = round((n1*percentDeadliftClassicD/100)+ progressionDeadliftClassicD, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxDeadliftClassic.setText("Martwy Ciąg Klasyczny "+ seriesDeadliftClassicD +" x "+ repsDeadliftClassicD +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextDeadliftClassic.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 3) {
+                     checkBoxDeadliftClassic.setText("brak konfiguracji obciążenia dla Martwego Ciągu Klasycznego");
+                 }
+
+
+                 if (editTextOhp.getText().length() != 0 && checkBoxOhp.isChecked()&&LastClick==1){
                      double n1 = Double.parseDouble(editTextOhp.getText().toString());
                      double nSeries = Math.round((n1*0.80)+2);
                      double nMax = Math.round((nSeries/80)*100);
@@ -3521,8 +4470,8 @@ public class TrainingActivity extends AppCompatActivity
                      editTextOhp.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
-
-                 else if (editTextOhp.getText().length() != 0 && !checkBoxOhp.isChecked()){
+//fbw ohp
+                 else if (editTextOhp.getText().length() != 0 && !checkBoxOhp.isChecked()&&LastClick==1){
                      double n1 = Double.parseDouble(editTextOhp.getText().toString());
                      double nSeries = Math.round(n1*0.80);
 //                     double nMax = Math.round((nSeries/80)*100);
@@ -3532,47 +4481,136 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if(editTextOhp.getText().length() == 0) {
+                 else if(editTextOhp.getText().length() == 0&&LastClick==1) {
                      checkBoxOhp.setText("brak konfiguracji obciążenia dla Wyciskania Żołnierskiego");
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
-                 if (editTextOhp.getText().length() != 0 && checkBoxOhp.isChecked()){
-                     double n1 = Double.parseDouble(editTextOhp.getText().toString());
-                     double nSeries = Math.round((n1*0.80)+2);
-                     double nMax = Math.round((nSeries/80)*100);
+//custom A
 
-                     checkBoxOhp.setText("Wyciskanie Żołnierskie 5 x 5 x "+nSeries+"kg");
+                 if((seriesOhp == 0 || repsOhp== 0 || percentOhp == 0 || progressionOhp == 0) && LastClick==2 && LastCustomWorkoutState == 0) {
+                     checkBoxOhp.setText("brak konfiguracji treningu dla Wyciskania Żołnierskiego");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextOhp.getText().length() != 0 && checkBoxOhp.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextOhp.getText().toString());
+                     double nSeries = round((n1*percentOhp/100)+ progressionOhp, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentOhp)*100);
+
+                     checkBoxOhp.setText("Wyciskanie Żołnierskie "+ seriesOhp +" x "+ repsOhp +" x "+nSeries+"kg");
                      editTextOhp.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if (editTextOhp.getText().length() != 0 && !checkBoxOhp.isChecked()){
+                 else if (editTextOhp.getText().length() != 0 && !checkBoxOhp.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
                      double n1 = Double.parseDouble(editTextOhp.getText().toString());
-                     double nSeries = Math.round(n1*0.80);
+                     double nSeries = round((n1*percentOhp/100)+ progressionOhp, 3, BigDecimal.ROUND_HALF_UP);
 //                     double nMax = Math.round((nSeries/80)*100);
 
-                     checkBoxOhp.setText("Wyciskanie Żołnierskie 5 x 5 x "+nSeries+"kg");
+                     checkBoxOhp.setText("Wyciskanie Żołnierskie "+ seriesOhp +" x "+ repsOhp +" x "+nSeries+"kg");
 //                     editTextSquat.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if(editTextOhp.getText().length() == 0) {
+                 else if(editTextOhp.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
                      checkBoxOhp.setText("brak konfiguracji obciążenia dla Wyciskania Żołnierskiego");
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
-                 if (editTextPullingUpNarrow.getText().length() != 0 && checkBoxPullingUpNarrow.isChecked()){
+//custom B
+                 if((seriesOhpB == 0 || repsOhpB == 0 || percentOhpB == 0 || progressionOhpB == 0) && LastClick==2 && LastCustomWorkoutState == 1) {
+                     checkBoxOhp.setText("brak konfiguracji treningu dla Wyciskania Żołnierskiego");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextOhp.getText().length() != 0 && checkBoxOhp.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextOhp.getText().toString());
+                     double nSeries = round((n1*percentOhpB/100)+ progressionOhpB, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentOhpB)*100);
+
+                     checkBoxOhp.setText("Wyciskanie Żołnierskie "+ seriesOhpB +" x "+ repsOhpB +" x "+nSeries+"kg");
+                     editTextOhp.setText(""+nMax);
+                 }
+
+                 else if (editTextOhp.getText().length() != 0 && !checkBoxOhp.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextOhp.getText().toString());
+                     double nSeries = round((n1*percentOhpB/100)+ progressionOhpB, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxOhp.setText("Wyciskanie Żołnierskie "+ seriesOhpB +" x "+ repsOhpB +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextOhp.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxOhp.setText("brak konfiguracji obciążenia dla Wyciskania Żołnierskiego");
+                 }
+//custom C
+                 if((seriesOhpC == 0 || repsOhpC == 0 || percentOhpC == 0 || progressionOhpC == 0) && LastClick==2 && LastCustomWorkoutState == 2) {
+                     checkBoxOhp.setText("brak konfiguracji treningu dla Wyciskania Żołnierskiego");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextOhp.getText().length() != 0 && checkBoxOhp.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextOhp.getText().toString());
+                     double nSeries = round((n1*percentOhpC/100)+ progressionOhpC, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentOhpC)*100);
+
+                     checkBoxOhp.setText("Wyciskanie Żołnierskie "+ seriesOhpC +" x "+ repsOhpC +" x "+nSeries+"kg");
+                     editTextOhp.setText(""+nMax);
+                 }
+
+                 else if (editTextOhp.getText().length() != 0 && !checkBoxOhp.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextOhp.getText().toString());
+                     double nSeries = round((n1*percentOhpC/100)+ progressionOhpC, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxOhp.setText("Wyciskanie Żołnierskie "+ seriesOhpC +" x "+ repsOhpC +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextOhp.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 2) {
+                     checkBoxOhp.setText("brak konfiguracji obciążenia dla Wyciskania Żołnierskiego");
+                 }
+
+
+                 //custom D
+                 if((seriesOhpD == 0 || repsOhpD == 0 || percentOhpD == 0 || progressionOhpD == 0) && LastClick==2 && LastCustomWorkoutState == 3) {
+                     checkBoxOhp.setText("brak konfiguracji treningu dla Wyciskania Żołnierskiego");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextOhp.getText().length() != 0 && checkBoxOhp.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextOhp.getText().toString());
+                     double nSeries = round((n1*percentOhpD/100)+ progressionOhpD, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentOhpD)*100);
+
+                     checkBoxOhp.setText("Wyciskanie Żołnierskie "+ seriesOhpD +" x "+ repsOhpD +" x "+nSeries+"kg");
+                     editTextOhp.setText(""+nMax);
+                 }
+
+                 else if (editTextOhp.getText().length() != 0 && !checkBoxOhp.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextOhp.getText().toString());
+                     double nSeries = round((n1*percentOhpD/100)+ progressionOhpD, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxOhp.setText("Wyciskanie Żołnierskie "+ seriesOhpD +" x "+ repsOhpD +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextOhp.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 3) {
+                     checkBoxOhp.setText("brak konfiguracji obciążenia dla Wyciskania Żołnierskiego");
+                 }
+
+
+                 if (editTextPullingUpNarrow.getText().length() != 0 && checkBoxPullingUpNarrow.isChecked()&&LastClick==1){
                      double n1 = Double.parseDouble(editTextPullingUpNarrow.getText().toString());
                      double nSeries = Math.round((n1*0.80)+2);
                      double nMax = Math.round((nSeries/80)*100);
 
-                     checkBoxPullingUpNarrow.setText("WPodciąganie Wąsko 5 x 5 x "+nSeries+"kg");
+                     checkBoxPullingUpNarrow.setText("Podciąganie Wąsko 5 x 5 x "+nSeries+"kg");
                      editTextPullingUpNarrow.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if (editTextPullingUpNarrow.getText().length() != 0 && !checkBoxPullingUpNarrow.isChecked()){
+                 else if (editTextPullingUpNarrow.getText().length() != 0 && !checkBoxPullingUpNarrow.isChecked()&&LastClick==1){
                      double n1 = Double.parseDouble(editTextPullingUpNarrow.getText().toString());
                      double nSeries = Math.round(n1*0.80);
 //                     double nMax = Math.round((nSeries/80)*100);
@@ -3587,7 +4625,121 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
-                 if (editTextNarrowBenchPress.getText().length() != 0 && checkBoxNarrowBenchPress.isChecked()){
+                 //custom A
+
+                 if((seriesPullingUpNarrow == 0 || repsPullingUpNarrow== 0 || percentPullingUpNarrow == 0 || progressionPullingUpNarrow == 0) && LastClick==2 && LastCustomWorkoutState == 0) {
+                     checkBoxPullingUpNarrow.setText("brak konfiguracji treningu dla Podciągania Wąsko");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextPullingUpNarrow.getText().length() != 0 && checkBoxPullingUpNarrow.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextPullingUpNarrow.getText().toString());
+                     double nSeries = round((n1*percentPullingUpNarrow/100)+ progressionPullingUpNarrow, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentPullingUpNarrow)*100);
+
+                     checkBoxPullingUpNarrow.setText("Podciąganie Wąsko "+ seriesPullingUpNarrow +" x "+ repsPullingUpNarrow +" x "+nSeries+"kg");
+                     editTextPullingUpNarrow.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextPullingUpNarrow.getText().length() != 0 && !checkBoxPullingUpNarrow.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextPullingUpNarrow.getText().toString());
+                     double nSeries = round((n1*percentPullingUpNarrow/100)+ progressionPullingUpNarrow, 3, BigDecimal.ROUND_HALF_UP);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxPullingUpNarrow.setText("Podciąganie Wąsko "+ seriesPullingUpNarrow +" x "+ repsPullingUpNarrow +" x "+nSeries+"kg");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextPullingUpNarrow.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxPullingUpNarrow.setText("brak konfiguracji obciążenia dla Podciągania Wąsko");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+//custom B
+                 if((seriesPullingUpNarrowB == 0 || repsPullingUpNarrowB == 0 || percentPullingUpNarrowB == 0 || progressionPullingUpNarrowB == 0) && LastClick==2 && LastCustomWorkoutState == 1) {
+                     checkBoxPullingUpNarrow.setText("brak konfiguracji treningu dla Podciągania Wąsko");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextPullingUpNarrow.getText().length() != 0 && checkBoxPullingUpNarrow.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextPullingUpNarrow.getText().toString());
+                     double nSeries = round((n1*percentPullingUpNarrowB/100)+ progressionPullingUpNarrowB, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentPullingUpNarrowB)*100);
+
+                     checkBoxPullingUpNarrow.setText("Podciąganie Wąsko "+ seriesPullingUpNarrowB +" x "+ repsPullingUpNarrowB +" x "+nSeries+"kg");
+                     editTextPullingUpNarrow.setText(""+nMax);
+                 }
+
+                 else if (editTextPullingUpNarrow.getText().length() != 0 && !checkBoxPullingUpNarrow.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextPullingUpNarrow.getText().toString());
+                     double nSeries = round((n1*percentPullingUpNarrowB/100)+ progressionPullingUpNarrowB, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxPullingUpNarrow.setText("Podciąganie Wąsko "+ seriesPullingUpNarrowB +" x "+ repsPullingUpNarrowB +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextPullingUpNarrow.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxPullingUpNarrow.setText("brak konfiguracji obciążenia dla Podciągania Wąsko");
+                 }
+//custom C
+                 if((seriesPullingUpNarrowC == 0 || repsPullingUpNarrowC == 0 || percentPullingUpNarrowC == 0 || progressionPullingUpNarrowC == 0) && LastClick==2 && LastCustomWorkoutState == 2) {
+                     checkBoxPullingUpNarrow.setText("brak konfiguracji treningu dla Podciągania Wąsko");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextPullingUpNarrow.getText().length() != 0 && checkBoxPullingUpNarrow.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextPullingUpNarrow.getText().toString());
+                     double nSeries = round((n1*percentPullingUpNarrowC/100)+ progressionPullingUpNarrowC, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentPullingUpNarrowC)*100);
+
+                     checkBoxPullingUpNarrow.setText("Podciąganie Wąsko "+ seriesPullingUpNarrowC +" x "+ repsPullingUpNarrowC +" x "+nSeries+"kg");
+                     editTextPullingUpNarrow.setText(""+nMax);
+                 }
+
+                 else if (editTextPullingUpNarrow.getText().length() != 0 && !checkBoxPullingUpNarrow.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextPullingUpNarrow.getText().toString());
+                     double nSeries = round((n1*percentPullingUpNarrowC/100)+ progressionPullingUpNarrowC, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxPullingUpNarrow.setText("Podciąganie Wąsko "+ seriesPullingUpNarrowC +" x "+ repsPullingUpNarrowC +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextPullingUpNarrow.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 2) {
+                     checkBoxPullingUpNarrow.setText("brak konfiguracji obciążenia dla Podciągania Wąsko");
+                 }
+
+
+                 //custom D
+                 if((seriesPullingUpNarrowD == 0 || repsPullingUpNarrowD == 0 || percentPullingUpNarrowD == 0 || progressionPullingUpNarrowD == 0) && LastClick==2 && LastCustomWorkoutState == 3) {
+                     checkBoxPullingUpNarrow.setText("brak konfiguracji treningu dla Podciągania Wąsko");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextPullingUpNarrow.getText().length() != 0 && checkBoxPullingUpNarrow.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextPullingUpNarrow.getText().toString());
+                     double nSeries = round((n1*percentPullingUpNarrowD/100)+ progressionPullingUpNarrowD, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentPullingUpNarrowD)*100);
+
+                     checkBoxPullingUpNarrow.setText("Podciąganie Wąsko "+ seriesPullingUpNarrowD +" x "+ repsPullingUpNarrowD +" x "+nSeries+"kg");
+                     editTextPullingUpNarrow.setText(""+nMax);
+                 }
+
+                 else if (editTextPullingUpNarrow.getText().length() != 0 && !checkBoxPullingUpNarrow.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextPullingUpNarrow.getText().toString());
+                     double nSeries = round((n1*percentPullingUpNarrowD/100)+ progressionPullingUpNarrowD, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxPullingUpNarrow.setText("Podciąganie Wąsko "+ seriesPullingUpNarrowD +" x "+ repsPullingUpNarrowD +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextPullingUpNarrow.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 3) {
+                     checkBoxPullingUpNarrow.setText("brak konfiguracji obciążenia dla Podciągania Wąsko");
+                 }
+
+
+                 if (editTextNarrowBenchPress.getText().length() != 0 && checkBoxNarrowBenchPress.isChecked() &&LastClick==1){
                      double n1 = Double.parseDouble(editTextNarrowBenchPress.getText().toString());
                      double nSeries = Math.round((n1*0.80)+2);
                      double nMax = Math.round((nSeries/80)*100);
@@ -3597,7 +4749,7 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if (editTextNarrowBenchPress.getText().length() != 0 && !checkBoxNarrowBenchPress.isChecked()){
+                 else if (editTextNarrowBenchPress.getText().length() != 0 && !checkBoxNarrowBenchPress.isChecked()&&LastClick==1){
                      double n1 = Double.parseDouble(editTextNarrowBenchPress.getText().toString());
                      double nSeries = Math.round(n1*0.80);
 //                     double nMax = Math.round((nSeries/80)*100);
@@ -3607,12 +4759,126 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if(editTextNarrowBenchPress.getText().length() == 0) {
+                 else if(editTextNarrowBenchPress.getText().length() == 0&&LastClick==1) {
                      checkBoxNarrowBenchPress.setText("brak konfiguracji obciążenia dla Wyciskania Wąsko");
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
-                 if (editTextYRaise.getText().length() != 0 && checkBoxYRaise.isChecked()){
+                 //custom A
+
+                 if((seriesNarrowBenchPress == 0 || repsNarrowBenchPress== 0 || percentNarrowBenchPress == 0 || progressionNarrowBenchPress == 0) && LastClick==2 && LastCustomWorkoutState == 0) {
+                     checkBoxNarrowBenchPress.setText("brak konfiguracji treningu dla Wyciskania Wąsko");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextNarrowBenchPress.getText().length() != 0 && checkBoxNarrowBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextNarrowBenchPress.getText().toString());
+                     double nSeries = round((n1*percentNarrowBenchPress/100)+ progressionNarrowBenchPress, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentNarrowBenchPress)*100);
+
+                     checkBoxNarrowBenchPress.setText("Wyciskanie Wąsko"+ seriesNarrowBenchPress +" x "+ repsNarrowBenchPress +" x "+nSeries+"kg");
+                     editTextNarrowBenchPress.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextNarrowBenchPress.getText().length() != 0 && !checkBoxNarrowBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextNarrowBenchPress.getText().toString());
+                     double nSeries = round((n1*percentNarrowBenchPress/100)+ progressionNarrowBenchPress, 3, BigDecimal.ROUND_HALF_UP);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxNarrowBenchPress.setText("Wyciskanie Wąsko"+ seriesNarrowBenchPress +" x "+ repsNarrowBenchPress +" x "+nSeries+"kg");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextNarrowBenchPress.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxNarrowBenchPress.setText("brak konfiguracji obciążenia dla Wyciskania Wąsko");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+//custom B
+                 if((seriesNarrowBenchPressB == 0 || repsNarrowBenchPressB == 0 || percentNarrowBenchPressB == 0 || progressionNarrowBenchPressB == 0) && LastClick==2 && LastCustomWorkoutState == 1) {
+                     checkBoxNarrowBenchPress.setText("brak konfiguracji treningu dla Wyciskania Wąsko");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextNarrowBenchPress.getText().length() != 0 && checkBoxNarrowBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextNarrowBenchPress.getText().toString());
+                     double nSeries = round((n1*percentNarrowBenchPressB/100)+ progressionNarrowBenchPressB, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentNarrowBenchPressB)*100);
+
+                     checkBoxNarrowBenchPress.setText("Wyciskanie Wąsko"+ seriesNarrowBenchPressB +" x "+ repsNarrowBenchPressB +" x "+nSeries+"kg");
+                     editTextNarrowBenchPress.setText(""+nMax);
+                 }
+
+                 else if (editTextNarrowBenchPress.getText().length() != 0 && !checkBoxNarrowBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextNarrowBenchPress.getText().toString());
+                     double nSeries = round((n1*percentNarrowBenchPressB/100)+ progressionNarrowBenchPressB, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxNarrowBenchPress.setText("Wyciskanie Wąsko"+ seriesNarrowBenchPressB +" x "+ repsNarrowBenchPressB +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextNarrowBenchPress.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxNarrowBenchPress.setText("brak konfiguracji obciążenia dla Wyciskania Wąsko");
+                 }
+//custom C
+                 if((seriesNarrowBenchPressC == 0 || repsNarrowBenchPressC == 0 || percentNarrowBenchPressC == 0 || progressionNarrowBenchPressC == 0) && LastClick==2 && LastCustomWorkoutState == 2) {
+                     checkBoxNarrowBenchPress.setText("brak konfiguracji treningu dla Wyciskania Wąsko");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextNarrowBenchPress.getText().length() != 0 && checkBoxNarrowBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextNarrowBenchPress.getText().toString());
+                     double nSeries = round((n1*percentNarrowBenchPressC/100)+ progressionNarrowBenchPressC, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentNarrowBenchPressC)*100);
+
+                     checkBoxNarrowBenchPress.setText("Wyciskanie Wąsko"+ seriesNarrowBenchPressC +" x "+ repsNarrowBenchPressC +" x "+nSeries+"kg");
+                     editTextNarrowBenchPress.setText(""+nMax);
+                 }
+
+                 else if (editTextNarrowBenchPress.getText().length() != 0 && !checkBoxNarrowBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextNarrowBenchPress.getText().toString());
+                     double nSeries = round((n1*percentNarrowBenchPressC/100)+ progressionNarrowBenchPressC, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxNarrowBenchPress.setText("Wyciskanie Wąsko"+ seriesNarrowBenchPressC +" x "+ repsNarrowBenchPressC +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextNarrowBenchPress.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 2) {
+                     checkBoxNarrowBenchPress.setText("brak konfiguracji obciążenia dla Wyciskania Wąsko");
+                 }
+
+
+                 //custom D
+                 if((seriesNarrowBenchPressD == 0 || repsNarrowBenchPressD == 0 || percentNarrowBenchPressD == 0 || progressionNarrowBenchPressD == 0) && LastClick==2 && LastCustomWorkoutState == 3) {
+                     checkBoxNarrowBenchPress.setText("brak konfiguracji treningu dla Wyciskania Wąsko");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextNarrowBenchPress.getText().length() != 0 && checkBoxNarrowBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextNarrowBenchPress.getText().toString());
+                     double nSeries = round((n1*percentNarrowBenchPressD/100)+ progressionNarrowBenchPressD, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentNarrowBenchPressD)*100);
+
+                     checkBoxNarrowBenchPress.setText("Wyciskanie Wąsko"+ seriesNarrowBenchPressD +" x "+ repsNarrowBenchPressD +" x "+nSeries+"kg");
+                     editTextNarrowBenchPress.setText(""+nMax);
+                 }
+
+                 else if (editTextNarrowBenchPress.getText().length() != 0 && !checkBoxNarrowBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextNarrowBenchPress.getText().toString());
+                     double nSeries = round((n1*percentNarrowBenchPressD/100)+ progressionNarrowBenchPressD, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxNarrowBenchPress.setText("Wyciskanie Wąsko"+ seriesNarrowBenchPressD +" x "+ repsNarrowBenchPressD +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextNarrowBenchPress.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 3) {
+                     checkBoxNarrowBenchPress.setText("brak konfiguracji obciążenia dla Wyciskania Wąsko");
+                 }
+
+
+                 if (editTextYRaise.getText().length() != 0 && checkBoxYRaise.isChecked()&&LastClick==1){
                      double n1 = Double.parseDouble(editTextYRaise.getText().toString());
                      double nSeries = Math.round((n1*0.80)+2);
                      double nMax = Math.round((nSeries/80)*100);
@@ -3622,7 +4888,7 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if (editTextYRaise.getText().length() != 0 && !checkBoxYRaise.isChecked()){
+                 else if (editTextYRaise.getText().length() != 0 && !checkBoxYRaise.isChecked()&&LastClick==1){
                      double n1 = Double.parseDouble(editTextNarrowBenchPress.getText().toString());
                      double nSeries = Math.round(n1*0.80);
 //                     double nMax = Math.round((nSeries/80)*100);
@@ -3632,10 +4898,124 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if(editTextYRaise.getText().length() == 0) {
+                 else if(editTextYRaise.getText().length() == 0&&LastClick==1) {
                      checkBoxYRaise.setText("brak konfiguracji obciążenia dla Y-Raise");
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
+
+                 //custom A
+
+                 if((seriesYRaise == 0 || repsYRaise== 0 || percentYRaise == 0 || progressionYRaise == 0) && LastClick==2 && LastCustomWorkoutState == 0) {
+                     checkBoxYRaise.setText("brak konfiguracji treningu dla Y-Raise");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextYRaise.getText().length() != 0 && checkBoxYRaise.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextYRaise.getText().toString());
+                     double nSeries = round((n1*percentYRaise/100)+ progressionYRaise, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentYRaise)*100);
+
+                     checkBoxYRaise.setText("Y-Raise "+ seriesYRaise +" x "+ repsYRaise +" x "+nSeries+"kg");
+                     editTextYRaise.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextYRaise.getText().length() != 0 && !checkBoxYRaise.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                     double n1 = Double.parseDouble(editTextYRaise.getText().toString());
+                     double nSeries = round((n1*percentYRaise/100)+ progressionYRaise, 3, BigDecimal.ROUND_HALF_UP);
+//                     double nMax = Math.round((nSeries/80)*100);
+
+                     checkBoxYRaise.setText("Y-Raise "+ seriesYRaise +" x "+ repsYRaise +" x "+nSeries+"kg");
+//                     editTextSquat.setText(""+nMax);
+                     // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
+                 }
+
+                 else if(editTextYRaise.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxYRaise.setText("brak konfiguracji obciążenia dla Y-Raise");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+//custom B
+                 if((seriesYRaiseB == 0 || repsYRaiseB == 0 || percentYRaiseB == 0 || progressionYRaiseB == 0) && LastClick==2 && LastCustomWorkoutState == 1) {
+                     checkBoxYRaise.setText("brak konfiguracji treningu dla Y-Raise");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextYRaise.getText().length() != 0 && checkBoxYRaise.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextYRaise.getText().toString());
+                     double nSeries = round((n1*percentYRaiseB/100)+ progressionYRaiseB, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentYRaiseB)*100);
+
+                     checkBoxYRaise.setText("Y-Raise "+ seriesYRaiseB +" x "+ repsYRaiseB +" x "+nSeries+"kg");
+                     editTextYRaise.setText(""+nMax);
+                 }
+
+                 else if (editTextYRaise.getText().length() != 0 && !checkBoxYRaise.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                     double n1 = Double.parseDouble(editTextYRaise.getText().toString());
+                     double nSeries = round((n1*percentYRaiseB/100)+ progressionYRaiseB, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxYRaise.setText("Y-Raise "+ seriesYRaiseB +" x "+ repsYRaiseB +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextYRaise.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 1) {
+                     checkBoxYRaise.setText("brak konfiguracji obciążenia dla Y-Raise");
+                 }
+//custom C
+                 if((seriesYRaiseC == 0 || repsYRaiseC == 0 || percentYRaiseC == 0 || progressionYRaiseC == 0) && LastClick==2 && LastCustomWorkoutState == 2) {
+                     checkBoxYRaise.setText("brak konfiguracji treningu dla Y-Raise");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextYRaise.getText().length() != 0 && checkBoxYRaise.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextYRaise.getText().toString());
+                     double nSeries = round((n1*percentYRaiseC/100)+ progressionYRaiseC, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentYRaiseC)*100);
+
+                     checkBoxYRaise.setText("Y-Raise "+ seriesYRaiseC +" x "+ repsYRaiseC +" x "+nSeries+"kg");
+                     editTextYRaise.setText(""+nMax);
+                 }
+
+                 else if (editTextYRaise.getText().length() != 0 && !checkBoxYRaise.isChecked()&& LastClick==2 && LastCustomWorkoutState == 2){
+                     double n1 = Double.parseDouble(editTextYRaise.getText().toString());
+                     double nSeries = round((n1*percentYRaiseC/100)+ progressionYRaiseC, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxYRaise.setText("Y-Raise "+ seriesYRaiseC +" x "+ repsYRaiseC +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextYRaise.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 2) {
+                     checkBoxYRaise.setText("brak konfiguracji obciążenia dla Y-Raise");
+                 }
+
+
+                 //custom D
+                 if((seriesYRaiseD == 0 || repsYRaiseD == 0 || percentYRaiseD == 0 || progressionYRaiseD == 0) && LastClick==2 && LastCustomWorkoutState == 3) {
+                     checkBoxYRaise.setText("brak konfiguracji treningu dla Y-Raise");
+                     // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
+                 }
+
+                 else if (editTextYRaise.getText().length() != 0 && checkBoxYRaise.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextYRaise.getText().toString());
+                     double nSeries = round((n1*percentYRaiseD/100)+ progressionYRaiseD, 3, BigDecimal.ROUND_HALF_UP);
+                     double nMax = Math.round((nSeries/percentYRaiseD)*100);
+
+                     checkBoxYRaise.setText("Y-Raise "+ seriesYRaiseD +" x "+ repsYRaiseD +" x "+nSeries+"kg");
+                     editTextYRaise.setText(""+nMax);
+                 }
+
+                 else if (editTextYRaise.getText().length() != 0 && !checkBoxYRaise.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                     double n1 = Double.parseDouble(editTextYRaise.getText().toString());
+                     double nSeries = round((n1*percentYRaiseD/100)+ progressionYRaiseD, 3, BigDecimal.ROUND_HALF_UP);
+
+
+                     checkBoxYRaise.setText("Y-Raise "+ seriesYRaiseD +" x "+ repsYRaiseD +" x "+nSeries+"kg");
+                 }
+
+                 else if(editTextYRaise.getText().length() == 0 && LastClick==2&& LastCustomWorkoutState == 3) {
+                     checkBoxYRaise.setText("brak konfiguracji obciążenia dla Y-Raise");
+                 }
+
 
 
 
