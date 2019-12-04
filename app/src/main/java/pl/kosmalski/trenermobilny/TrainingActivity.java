@@ -5190,7 +5190,7 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if (!checkBoxBenchPress.isChecked()&& LastClick==1){
+                 else if (!checkBoxPlank.isChecked()&& LastClick==1){
                      secondsPlankFbw = prefs.getInt("SecondsPlankFbw", 30);
                      int n1 = secondsPlankFbw;
                      checkBoxPlank.setText("Deska 5 x "+n1+" sek");
@@ -5208,7 +5208,7 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
-                 else if (checkBoxBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                 else if (checkBoxPlank.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
                      secondsPlank = prefs.getInt("SecondsPlank", 0);
                      int n1 = secondsPlank;
                      int nSeries = (int) (n1+progressionPlank);
@@ -5219,7 +5219,7 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if (!checkBoxBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
+                 else if (!checkBoxPlank.isChecked()&& LastClick==2 && LastCustomWorkoutState == 0){
                      secondsPlank = prefs.getInt("SecondsPlank", 0);
                      int n1 = secondsPlank;
                      checkBoxPlank.setText("Deska "+seriesPlank+" x "+n1+" sek");
@@ -5234,7 +5234,7 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
-                 else if (checkBoxBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                 else if (checkBoxPlank.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
                      secondsPlankB = prefs.getInt("SecondsPlankB", 0);
                      int n1 = secondsPlankB;
                      int nSeries = (int) (n1+progressionPlankB);
@@ -5245,7 +5245,7 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if (!checkBoxBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
+                 else if (!checkBoxPlank.isChecked()&& LastClick==2 && LastCustomWorkoutState == 1){
                      secondsPlankB = prefs.getInt("SecondsPlankB", 0);
                      int n1 = secondsPlankB;
                      checkBoxPlank.setText("Deska "+seriesPlankB+" "+n1+" sek");
@@ -5284,7 +5284,7 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
-                 else if (checkBoxBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                 else if (checkBoxPlank.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
                      secondsPlankD = prefs.getInt("SecondsPlankD", 0);
                      int n1 = secondsPlankD;
                      int nSeries = (int) (n1+progressionPlankD);
@@ -5295,7 +5295,7 @@ public class TrainingActivity extends AppCompatActivity
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
-                 else if (!checkBoxBenchPress.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
+                 else if (!checkBoxPlank.isChecked()&& LastClick==2 && LastCustomWorkoutState == 3){
                      secondsPlankD = prefs.getInt("SecondsPlankC", 0);
                      int n1 = secondsPlankD;
                      checkBoxPlank.setText("Deska 5 "+seriesPlankD+" "+n1+" sek");

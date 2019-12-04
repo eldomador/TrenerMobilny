@@ -99,10 +99,15 @@ public class DietActivity extends AppCompatActivity
                     removeItem((long) viewHolder.itemView.getTag());
                     Toast.makeText(getApplicationContext(),"Usunięto",Toast.LENGTH_LONG).show();
                 }
-                if (direction==ItemTouchHelper.RIGHT){
+                if (direction==ItemTouchHelper.RIGHT && editTextGram.getText().length() != 0){
                     addItemMF((long) viewHolder.itemView.getTag());
 //                    String s = String.valueOf(viewHolder.itemView.getTag());
 //                    Toast.makeText(getApplicationContext(),"Dodano"+s,Toast.LENGTH_LONG).show();
+                }
+                else{
+
+                    mAdapter.swapCursor(getAllItems());
+                    Toast.makeText(getApplicationContext(),"Wpisz ilość gram produktu.",Toast.LENGTH_LONG).show();
                 }
             }
         }).attachToRecyclerView(recyclerView);
@@ -118,7 +123,7 @@ public class DietActivity extends AppCompatActivity
         dailyRecyclerView.setAdapter(mdAdapter);
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
-                ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+                ItemTouchHelper.LEFT) {
             @Override
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
                 return false;
