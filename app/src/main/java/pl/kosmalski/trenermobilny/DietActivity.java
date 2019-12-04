@@ -278,7 +278,7 @@ public class DietActivity extends AppCompatActivity
         float proteinDaily = (float) round((protein/100)*gram, 3, BigDecimal.ROUND_HALF_UP);
         float fatDaily = (float) round((fat/100)*gram, 3, BigDecimal.ROUND_HALF_UP);
         float carbDaily = (float) round((carb/100)*gram, 3, BigDecimal.ROUND_HALF_UP);
-        float kcalDaily = (float) round(proteinDaily*4+fatDaily*9+carbDaily *4, 3, BigDecimal.ROUND_HALF_UP);
+        float kcalDaily = (float) round((kcal/100)*gram, 3, BigDecimal.ROUND_HALF_UP);
 
 
 
