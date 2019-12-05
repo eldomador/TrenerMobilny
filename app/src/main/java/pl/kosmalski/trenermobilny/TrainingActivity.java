@@ -195,7 +195,6 @@ public class TrainingActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_training);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -772,6 +771,9 @@ public class TrainingActivity extends AppCompatActivity
                         buttonTrainingConfiguration.setVisibility(View.GONE);
                         buttonWeightConfiguration.setVisibility(View.GONE);
                         buttonFinishWorkout.setVisibility(View.GONE);
+                        buttonFinishWorkoutB.setVisibility(View.GONE);
+                        buttonFinishWorkoutC.setVisibility(View.GONE);
+                        buttonFinishWorkoutD.setVisibility(View.GONE);
                         linearLayoutWeightConfiguration.setVisibility(View.GONE);
                         linearLayoutTrainingConfiguration.setVisibility(View.GONE);
                         linearLayoutTrainingConfigurationB.setVisibility(View.GONE);

@@ -27,6 +27,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -55,6 +56,7 @@ public class DietActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diet);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -134,7 +136,6 @@ public class DietActivity extends AppCompatActivity
 
                 if (direction==ItemTouchHelper.LEFT){
                     removeDailyItem((long) viewHolder.itemView.getTag());
-                    Toast.makeText(getApplicationContext(),"Usunięto",Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -148,9 +149,19 @@ public class DietActivity extends AppCompatActivity
         fatSum = prefs.getFloat("fat", 0.0f);
         carbSum = prefs.getFloat("carb", 0.0f);
 
-        age = Float.parseFloat(prefs.getString("autoSaveAge", ""));
-        height = Float.parseFloat(prefs.getString("autoSaveHeight", ""));
-        weight = Float.parseFloat(prefs.getString("autoSaveWeight", ""));
+        if((prefs.getString("autoSaveAge", "0").length() != 0)){
+            age = Float.parseFloat(prefs.getString("autoSaveAge", "0"));
+        }
+
+        if((prefs.getString("autoSaveHeight", "0").length() != 0)){
+            height = Float.parseFloat(prefs.getString("autoSaveHeight", "0"));
+        }
+
+        if((prefs.getString("autoSaveWeight", "0").length() != 0)){
+            weight = Float.parseFloat(prefs.getString("autoSaveWeight", "0"));
+        }
+
+
 
         male  = prefs.getBoolean("ButtonStateMale", false);
         female = prefs.getBoolean("ButtonStateFemale", false);
@@ -182,13 +193,37 @@ public class DietActivity extends AppCompatActivity
         textViewCarbSum.setText("węglowodany: "+carbSum);
 
 
-        if (weight != 0 && height != 0 && age != 0 && male) {
+        if (weight != 0 && height != 0 && age != 0 && male && weightDecrease ) {
+            kcalmax = (66 + (13.7f *weight) + (5 * height) - (6.76f * age))-300;
+            textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
+        }
+
+        else if (weight != 0 && height != 0 && age != 0 && male && weightMaintain ) {
             kcalmax = 66 + (13.7f *weight) + (5 * height) - (6.76f * age);
             textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
         }
 
-        else if (weight != 0 && height != 0 && age != 0 && female) {
+        else if (weight != 0 && height != 0 && age != 0 && male && weightIncrease ) {
+            kcalmax = (66 + (13.7f *weight) + (5 * height) - (6.76f * age))+300;
+            textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
+        }
+
+        else if (weight != 0 && height != 0 && age != 0 && female && weightDecrease) {
+            kcalmax =(655 +(9.6f *weight)+(1.8f *height)-(4.7f* age))-250;
+            textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
+        }
+
+        else if (weight != 0 && height != 0 && age != 0 && female && weightMaintain) {
             kcalmax =655 +(9.6f *weight)+(1.8f *height)-(4.7f* age);
+            textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
+        }
+
+        else if (weight != 0 && height != 0 && age != 0 && female && weightDecrease) {
+            kcalmax =(655 +(9.6f *weight)+(1.8f *height)-(4.7f* age))+250;
+            textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
+        }
+
+        else {
             textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
         }
 
@@ -308,7 +343,7 @@ public class DietActivity extends AppCompatActivity
         carbSum = (float) round(carbSum +carbDaily, 3, BigDecimal.ROUND_HALF_UP);
         editor.putFloat("carb", carbSum);
         editor.commit();
-        textViewCarbSum.setText("węglowodant: "+carbSum);
+        textViewCarbSum.setText("węglowodany: "+carbSum);
 
 
         ContentValues cv = new ContentValues();
@@ -321,7 +356,7 @@ public class DietActivity extends AppCompatActivity
         mdDatabase.insert(DailyDietContract.DietEntry.TABLE_NAME,
                 null, cv);
         mdAdapter.swapCursor(getAllDailyItems());
-        Toast.makeText(getApplicationContext(),"Dodano "+name+kcal+protein+fat+carb,Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"Dodano "+name,Toast.LENGTH_LONG).show();
         mAdapter.swapCursor(getAllItems());
     }
 
@@ -336,8 +371,10 @@ public class DietActivity extends AppCompatActivity
         float protein = 0;
         float fat = 0;
         float carb = 0;
+        String name="";
         Cursor csr = mdDatabase.query(DailyDietContract.DietEntry.TABLE_NAME,null,"_ID="+id,null,null,null,null);
         if (csr.moveToFirst()) {
+            name = csr.getString(csr.getColumnIndex(DailyDietContract.DietEntry.COLUMN_NAME));
             kcal = csr.getFloat(csr.getColumnIndex(DailyDietContract.DietEntry.COLUMN_KCAL));
             protein = csr.getFloat(csr.getColumnIndex(DailyDietContract.DietEntry.COLUMN_PROTEIN));
             fat = csr.getFloat(csr.getColumnIndex(DailyDietContract.DietEntry.COLUMN_FAT));
@@ -377,7 +414,7 @@ public class DietActivity extends AppCompatActivity
         mdDatabase.delete(DailyDietContract.DietEntry.TABLE_NAME,
                 DailyDietContract.DietEntry._ID + "=" + id, null);
         mdAdapter.swapCursor(getAllDailyItems());
-
+        Toast.makeText(getApplicationContext(),"Usunięto "+name,Toast.LENGTH_LONG).show();
 
     }
 
@@ -394,7 +431,7 @@ public class DietActivity extends AppCompatActivity
                 null,
                 null,
                 null,
-                DietContract.DietEntry.COLUMN_NAME + " ASC"
+                DietContract.DietEntry.COLUMN_NAME + " ASC limit 10"
 
         );
     }
@@ -407,7 +444,7 @@ public class DietActivity extends AppCompatActivity
                 null,
                 null,
                 null,
-                DailyDietContract.DietEntry.COLUMN_NAME + " ASC"
+                DailyDietContract.DietEntry.COLUMN_NAME + " ASC limit 10"
 
         );
     }
@@ -421,7 +458,7 @@ public class DietActivity extends AppCompatActivity
                 null,
                 null,
                 null,
-                DietContract.DietEntry.COLUMN_NAME + " ASC"
+                DietContract.DietEntry.COLUMN_NAME + " ASC limit 10"
 
         );
     }
