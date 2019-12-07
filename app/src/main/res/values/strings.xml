@@ -10,8 +10,8 @@
     <string name="menu_profil">Profil</string>
     <string name="menu_dieta">Dieta</string>
     <string name="menu_trening">Trening</string>
-    <string name="title_activity_diet">DietActivity</string>
-    <string name="title_activity_training">TrainingActivity</string>
+    <string name="title_activity_diet">Dieta</string>
+    <string name="title_activity_training">Training</string>
 
     <string name="Mezczyzna">Mężczyzna</string>
     <string name="Kobieta">Kobieta</string>

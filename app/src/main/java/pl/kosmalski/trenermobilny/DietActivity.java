@@ -61,15 +61,6 @@ public class DietActivity extends AppCompatActivity
         setContentView(R.layout.activity_diet);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -99,12 +90,14 @@ public class DietActivity extends AppCompatActivity
 
                 if (direction==ItemTouchHelper.LEFT){
                     removeItem((long) viewHolder.itemView.getTag());
-                    Toast.makeText(getApplicationContext(),"Usunięto",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Usunięto z bazy produktów",Toast.LENGTH_LONG).show();
                 }
-                if (direction==ItemTouchHelper.RIGHT && editTextGram.getText().length() != 0){
+                else if (direction==ItemTouchHelper.RIGHT && editTextGram.getText().length() != 0){
                     addItemMF((long) viewHolder.itemView.getTag());
 //                    String s = String.valueOf(viewHolder.itemView.getTag());
 //                    Toast.makeText(getApplicationContext(),"Dodano"+s,Toast.LENGTH_LONG).show();
+                    editTextSearch.getText().clear();
+                    editTextGram.getText().clear();
                 }
                 else{
 
@@ -310,16 +303,16 @@ public class DietActivity extends AppCompatActivity
             carb = csr.getFloat(csr.getColumnIndex(DietContract.DietEntry.COLUMN_CARB));
         }
 
-        float proteinDaily = (float) round((protein/100)*gram, 3, BigDecimal.ROUND_HALF_UP);
-        float fatDaily = (float) round((fat/100)*gram, 3, BigDecimal.ROUND_HALF_UP);
-        float carbDaily = (float) round((carb/100)*gram, 3, BigDecimal.ROUND_HALF_UP);
-        float kcalDaily = (float) round((kcal/100)*gram, 3, BigDecimal.ROUND_HALF_UP);
+        float proteinDaily = (float) round((protein/100)*gram, 2, BigDecimal.ROUND_HALF_UP);
+        float fatDaily = (float) round((fat/100)*gram, 2, BigDecimal.ROUND_HALF_UP);
+        float carbDaily = (float) round((carb/100)*gram, 2, BigDecimal.ROUND_HALF_UP);
+        float kcalDaily = (float) round((kcal/100)*gram, 2, BigDecimal.ROUND_HALF_UP);
 
 
 
 
         kcalSum = prefs.getFloat("kcal", 0.0f);
-        kcalSum = (float) round(kcalSum + kcalDaily, 3, BigDecimal.ROUND_HALF_UP);
+        kcalSum = (float) round(kcalSum + kcalDaily, 2, BigDecimal.ROUND_HALF_UP);
         editor.putFloat("kcal", kcalSum);
         editor.commit();
         textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
@@ -327,20 +320,20 @@ public class DietActivity extends AppCompatActivity
 
 
         proteinSum = prefs.getFloat("protein", 0.0f);
-        proteinSum = (float) round(proteinSum + proteinDaily, 3, BigDecimal.ROUND_HALF_UP);
+        proteinSum = (float) round(proteinSum + proteinDaily, 2, BigDecimal.ROUND_HALF_UP);
         editor.putFloat("protein", proteinSum);
         editor.commit();
         textViewProteinSum.setText("białko: "+proteinSum);
 
         fatSum = prefs.getFloat("fat", 0.0f);
-        fatSum = (float) round(fatSum + fatDaily, 3, BigDecimal.ROUND_HALF_UP);
+        fatSum = (float) round(fatSum + fatDaily, 2, BigDecimal.ROUND_HALF_UP);
         editor.putFloat("fat", fatSum);
         editor.commit();
         textViewFatSum.setText("tłuszcze: "+fatSum);
 
 
         carbSum = prefs.getFloat("carb", 0.0f);
-        carbSum = (float) round(carbSum +carbDaily, 3, BigDecimal.ROUND_HALF_UP);
+        carbSum = (float) round(carbSum +carbDaily, 2, BigDecimal.ROUND_HALF_UP);
         editor.putFloat("carb", carbSum);
         editor.commit();
         textViewCarbSum.setText("węglowodany: "+carbSum);
@@ -383,28 +376,28 @@ public class DietActivity extends AppCompatActivity
 
 
         kcalSum = prefs.getFloat("kcal", 0.0f);
-        kcalSum = (float) round( kcalSum - kcal, 3, BigDecimal.ROUND_HALF_UP);
+        kcalSum = (float) round( kcalSum - kcal, 2, BigDecimal.ROUND_HALF_UP);
         editor.putFloat("kcal", kcalSum);
         editor.commit();
         textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
 
 
         proteinSum = prefs.getFloat("protein", 0.0f);
-        proteinSum = (float) round( proteinSum - protein, 3, BigDecimal.ROUND_HALF_UP);
+        proteinSum = (float) round( proteinSum - protein, 2, BigDecimal.ROUND_HALF_UP);
         editor.putFloat("protein", proteinSum);
         editor.commit();
         textViewProteinSum.setText("białko: "+proteinSum);
 
 
         fatSum = prefs.getFloat("fat", 0.0f);
-        fatSum = (float) round( fatSum - fat, 3, BigDecimal.ROUND_HALF_UP);
+        fatSum = (float) round( fatSum - fat, 2, BigDecimal.ROUND_HALF_UP);
         editor.putFloat("fat", fatSum);
         editor.commit();
         textViewFatSum.setText("tłuszcze: "+fatSum);
 
 
         carbSum = prefs.getFloat("carb", 0.0f);
-        carbSum = (float) round( carbSum - carb, 3, BigDecimal.ROUND_HALF_UP);
+        carbSum = (float) round( carbSum - carb, 2, BigDecimal.ROUND_HALF_UP);
         editor.putFloat("carb",carbSum);
         editor.commit();
         textViewCarbSum.setText("węglowodany: "+carbSum);
@@ -431,7 +424,7 @@ public class DietActivity extends AppCompatActivity
                 null,
                 null,
                 null,
-                DietContract.DietEntry.COLUMN_NAME + " ASC limit 10"
+                DietContract.DietEntry.COLUMN_NAME + " ASC limit 5"
 
         );
     }
@@ -444,7 +437,7 @@ public class DietActivity extends AppCompatActivity
                 null,
                 null,
                 null,
-                DailyDietContract.DietEntry.COLUMN_NAME + " ASC limit 10"
+                DailyDietContract.DietEntry.COLUMN_NAME + " ASC"
 
         );
     }
@@ -458,7 +451,7 @@ public class DietActivity extends AppCompatActivity
                 null,
                 null,
                 null,
-                DietContract.DietEntry.COLUMN_NAME + " ASC limit 10"
+                DietContract.DietEntry.COLUMN_NAME + " ASC limit 5"
 
         );
     }
