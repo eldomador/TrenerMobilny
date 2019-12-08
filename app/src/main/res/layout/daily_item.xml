@@ -2,47 +2,43 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp">
+    android:layout_margin="8dp"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/textview_name_item_daily"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name "
-        android:textSize="16sp"
-        />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textview_gram_item_daily"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="G:0 "
-        android:textSize="16sp"
-        />
+        android:text="G:0"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textview_kcal_item_daily"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="K:0 "
-        android:textSize="16sp"
-         />
+        android:text="K:0"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textview_protein_item_daily"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="B:0"
-        android:textSize="16sp"
-         />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textview_fat_item_daily"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="T:0 "
-        android:textSize="16sp"
-         />
+        android:text="T:0"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textview_carb_item_daily"

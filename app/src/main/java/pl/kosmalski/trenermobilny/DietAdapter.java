@@ -57,10 +57,10 @@ public class DietAdapter extends RecyclerView.Adapter<DietAdapter.DietViewHolder
         long id = mCursor.getLong(mCursor.getColumnIndex(DietContract.DietEntry._ID));
 
         holder.nameText.setText(name);
-        holder.kcalText.setText(" k:"+String.valueOf(kcal));
-        holder.proteinText.setText(" b:"+String.valueOf(protein));
-        holder.fatText.setText(" t:"+String.valueOf(fat));
-        holder.carbText.setText(" w:"+String.valueOf(carb));
+        holder.kcalText.setText("k:"+String.valueOf(kcal));
+        holder.proteinText.setText("b:"+String.valueOf(protein));
+        holder.fatText.setText("t:"+String.valueOf(fat));
+        holder.carbText.setText("w:"+String.valueOf(carb));
         holder.itemView.setTag(id);
     }
 

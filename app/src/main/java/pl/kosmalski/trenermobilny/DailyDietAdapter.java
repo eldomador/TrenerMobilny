@@ -60,11 +60,11 @@ public class DailyDietAdapter extends RecyclerView.Adapter<DailyDietAdapter.Dail
         long id = mdCursor.getLong(mdCursor.getColumnIndex(DailyDietContract.DietEntry._ID));
 
         holder.nameText.setText(name);
-        holder.kcalText.setText(" k:"+String.valueOf(kcal));
-        holder.proteinText.setText(" b:"+String.valueOf(protein));
-        holder.fatText.setText(" t:"+String.valueOf(fat));
-        holder.carbText.setText(" w:"+String.valueOf(carb));
-        holder.gramText.setText(" g:"+String.valueOf(gram));
+        holder.kcalText.setText("k:"+String.valueOf(kcal));
+        holder.proteinText.setText("b:"+String.valueOf(protein));
+        holder.fatText.setText("t:"+String.valueOf(fat));
+        holder.carbText.setText("w:"+String.valueOf(carb));
+        holder.gramText.setText("g:"+String.valueOf(gram));
         holder.itemView.setTag(id);
     }
 
