@@ -1,17 +1,11 @@
-package pl.kosmalski.trenermobilny;
+package pl.kosmalski.trenermobilny.activity;
 
 import android.content.ContentValues;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -35,6 +29,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.math.BigDecimal;
+
+import pl.kosmalski.trenermobilny.R;
+import pl.kosmalski.trenermobilny.adapter.DailyDietAdapter;
+import pl.kosmalski.trenermobilny.adapter.DietAdapter;
+import pl.kosmalski.trenermobilny.contract.DailyDietContract;
+import pl.kosmalski.trenermobilny.contract.DietContract;
+import pl.kosmalski.trenermobilny.helper.DailyDietDBHelper;
+import pl.kosmalski.trenermobilny.helper.DietDBHelper;
 
 
 public class DietActivity extends AppCompatActivity
@@ -492,7 +494,7 @@ public class DietActivity extends AppCompatActivity
 
         switch (id){
             case R.id.nav_profile:
-                Intent p = new Intent(DietActivity.this,MainActivity.class);
+                Intent p = new Intent(DietActivity.this, MainActivity.class);
                 startActivity(p);
                 break;
             case R.id.nav_diet:
@@ -500,7 +502,7 @@ public class DietActivity extends AppCompatActivity
                 startActivity(d);
                 break;
             case R.id.nav_trening:
-                Intent t = new Intent(DietActivity.this,TrainingActivity.class);
+                Intent t = new Intent(DietActivity.this, TrainingActivity.class);
                 startActivity(t);
                 break;
         }

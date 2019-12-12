@@ -1,12 +1,8 @@
-package pl.kosmalski.trenermobilny;
+package pl.kosmalski.trenermobilny.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -20,13 +16,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.WindowManager;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import pl.kosmalski.trenermobilny.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -456,11 +449,11 @@ public class MainActivity extends AppCompatActivity
                 startActivity(p);
                 break;
             case R.id.nav_diet:
-                Intent d = new Intent(MainActivity.this,DietActivity.class);
+                Intent d = new Intent(MainActivity.this, DietActivity.class);
                 startActivity(d);
                 break;
             case R.id.nav_trening:
-                Intent t = new Intent(MainActivity.this,TrainingActivity.class);
+                Intent t = new Intent(MainActivity.this, TrainingActivity.class);
                 startActivity(t);
                 break;
         }

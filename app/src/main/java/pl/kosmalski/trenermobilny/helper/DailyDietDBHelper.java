@@ -1,11 +1,11 @@
-package pl.kosmalski.trenermobilny;
+package pl.kosmalski.trenermobilny.helper;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import pl.kosmalski.trenermobilny.DailyDietContract.DietEntry;
-import static pl.kosmalski.trenermobilny.DailyDietContract.DietEntry.TABLE_NAME;
+import pl.kosmalski.trenermobilny.contract.DailyDietContract.DietEntry;
+import static pl.kosmalski.trenermobilny.contract.DailyDietContract.DietEntry.TABLE_NAME;
 
 
 public class DailyDietDBHelper extends SQLiteOpenHelper {

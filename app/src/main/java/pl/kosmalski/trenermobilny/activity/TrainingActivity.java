@@ -1,12 +1,10 @@
-package pl.kosmalski.trenermobilny;
+package pl.kosmalski.trenermobilny.activity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -29,9 +27,10 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.math.BigDecimal;
+
+import pl.kosmalski.trenermobilny.R;
 
 public class TrainingActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
@@ -7507,11 +7506,11 @@ public class TrainingActivity extends AppCompatActivity
 
         switch (id){
             case R.id.nav_profile:
-                Intent p = new Intent(TrainingActivity.this,MainActivity.class);
+                Intent p = new Intent(TrainingActivity.this, MainActivity.class);
                 startActivity(p);
                 break;
             case R.id.nav_diet:
-                Intent d = new Intent(TrainingActivity.this,DietActivity.class);
+                Intent d = new Intent(TrainingActivity.this, DietActivity.class);
                 startActivity(d);
                 break;
             case R.id.nav_trening:

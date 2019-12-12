@@ -1,4 +1,4 @@
-package pl.kosmalski.trenermobilny;
+package pl.kosmalski.trenermobilny.adapter;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -7,6 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import pl.kosmalski.trenermobilny.contract.DietContract;
+import pl.kosmalski.trenermobilny.R;
 
 public class DietAdapter extends RecyclerView.Adapter<DietAdapter.DietViewHolder> {
     private Context mContext;
