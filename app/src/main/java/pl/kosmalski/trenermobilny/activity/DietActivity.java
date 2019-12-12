@@ -35,14 +35,13 @@ import pl.kosmalski.trenermobilny.adapter.DailyDietAdapter;
 import pl.kosmalski.trenermobilny.adapter.DietAdapter;
 import pl.kosmalski.trenermobilny.contract.DailyDietContract;
 import pl.kosmalski.trenermobilny.contract.DietContract;
-import pl.kosmalski.trenermobilny.helper.DailyDietDBHelper;
 import pl.kosmalski.trenermobilny.helper.DietDBHelper;
 
 
 public class DietActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private SQLiteDatabase mDatabase, mdDatabase;
+    private SQLiteDatabase mDatabase;
     private DietAdapter mAdapter;
     private DailyDietAdapter mdAdapter;
     private String stringSearch;
@@ -110,9 +109,6 @@ public class DietActivity extends AppCompatActivity
         }).attachToRecyclerView(recyclerView);
 
 
-
-        DailyDietDBHelper dailyDietDBHelper = new DailyDietDBHelper(this);
-        mdDatabase = dailyDietDBHelper.getWritableDatabase();
 
         RecyclerView dailyRecyclerView = findViewById(R.id.recyclerviewDaily);
         dailyRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -348,7 +344,7 @@ public class DietActivity extends AppCompatActivity
         cv.put(DailyDietContract.DietEntry.COLUMN_FAT, fatDaily);
         cv.put(DailyDietContract.DietEntry.COLUMN_CARB, carbDaily);
         cv.put(DailyDietContract.DietEntry.COLUMN_GRAM, gram);
-        mdDatabase.insert(DailyDietContract.DietEntry.TABLE_NAME,
+        mDatabase.insert(DailyDietContract.DietEntry.TABLE_NAME,
                 null, cv);
         mdAdapter.swapCursor(getAllDailyItems());
         Toast.makeText(getApplicationContext(),"Dodano "+name,Toast.LENGTH_LONG).show();
@@ -367,7 +363,7 @@ public class DietActivity extends AppCompatActivity
         float fat = 0;
         float carb = 0;
         String name="";
-        Cursor csr = mdDatabase.query(DailyDietContract.DietEntry.TABLE_NAME,null,"_ID="+id,null,null,null,null);
+        Cursor csr = mDatabase.query(DailyDietContract.DietEntry.TABLE_NAME,null,"_ID="+id,null,null,null,null);
         if (csr.moveToFirst()) {
             name = csr.getString(csr.getColumnIndex(DailyDietContract.DietEntry.COLUMN_NAME));
             kcal = csr.getFloat(csr.getColumnIndex(DailyDietContract.DietEntry.COLUMN_KCAL));
@@ -406,7 +402,7 @@ public class DietActivity extends AppCompatActivity
 
 
 
-        mdDatabase.delete(DailyDietContract.DietEntry.TABLE_NAME,
+        mDatabase.delete(DailyDietContract.DietEntry.TABLE_NAME,
                 DailyDietContract.DietEntry._ID + "=" + id, null);
         mdAdapter.swapCursor(getAllDailyItems());
         Toast.makeText(getApplicationContext(),"Usunięto "+name,Toast.LENGTH_LONG).show();
@@ -432,7 +428,7 @@ public class DietActivity extends AppCompatActivity
     }
 
     private Cursor getAllDailyItems() {
-        return mdDatabase.query(
+        return mDatabase.query(
                 DailyDietContract.DietEntry.TABLE_NAME,
                 null,
                 null,
