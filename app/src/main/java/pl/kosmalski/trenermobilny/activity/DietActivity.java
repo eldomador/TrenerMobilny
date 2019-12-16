@@ -76,7 +76,7 @@ public class DietActivity extends AppCompatActivity
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mAdapter = new DietAdapter(this, getAllItems());
+        mAdapter = new DietAdapter(this, getNothing());
         recyclerView.setAdapter(mAdapter);
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
@@ -102,7 +102,7 @@ public class DietActivity extends AppCompatActivity
                 }
                 else{
 
-                    mAdapter.swapCursor(getAllItems());
+                    mAdapter.swapCursor(getNothing());
                     Toast.makeText(getApplicationContext(),"Wpisz ilość gram produktu.",Toast.LENGTH_LONG).show();
                 }
             }
@@ -209,7 +209,7 @@ public class DietActivity extends AppCompatActivity
             textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
         }
 
-        else if (weight != 0 && height != 0 && age != 0 && female && weightDecrease) {
+        else if (weight != 0 && height != 0 && age != 0 && female && weightIncrease) {
             kcalmax =(655 +(9.6f *weight)+(1.8f *height)-(4.7f* age))+250;
             textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
         }
@@ -240,8 +240,12 @@ public class DietActivity extends AppCompatActivity
 
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 stringSearch = editTextSearch.getText().toString();
-                mAdapter.swapCursor(getItems(stringSearch));
 
+                if (editTextSearch.getText().length() != 0) {
+                    mAdapter.swapCursor(getItems(stringSearch));
+                }
+                else
+                    mAdapter.swapCursor(getNothing());
             }
         });
 
@@ -273,7 +277,8 @@ public class DietActivity extends AppCompatActivity
         cv.put(DietContract.DietEntry.COLUMN_CARB, carb);
 
         mDatabase.insert(DietContract.DietEntry.TABLE_NAME, null, cv);
-        mAdapter.swapCursor(getAllItems());
+        mAdapter.swapCursor(getNothing());
+
 
         editTextName.getText().clear();
         editTextKcal.getText().clear();
@@ -348,13 +353,13 @@ public class DietActivity extends AppCompatActivity
                 null, cv);
         mdAdapter.swapCursor(getAllDailyItems());
         Toast.makeText(getApplicationContext(),"Dodano "+name,Toast.LENGTH_LONG).show();
-        mAdapter.swapCursor(getAllItems());
+        mAdapter.swapCursor(getNothing());
     }
 
     private void removeItem(long id) {
         mDatabase.delete(DietContract.DietEntry.TABLE_NAME,
                 DietContract.DietEntry._ID + "=" + id, null);
-        mAdapter.swapCursor(getAllItems());
+        mAdapter.swapCursor(getNothing());
     }
 
     private void removeDailyItem(long id) {
@@ -414,7 +419,7 @@ public class DietActivity extends AppCompatActivity
 
 
 
-    private Cursor getAllItems() {
+    private Cursor getNothing() {
         return mDatabase.query(
                 DietContract.DietEntry.TABLE_NAME,
                 null,
@@ -422,10 +427,11 @@ public class DietActivity extends AppCompatActivity
                 null,
                 null,
                 null,
-                DietContract.DietEntry.COLUMN_NAME + " ASC limit 5"
+                DietContract.DietEntry.COLUMN_NAME + " ASC limit 0"
 
         );
     }
+
 
     private Cursor getAllDailyItems() {
         return mDatabase.query(
@@ -442,16 +448,16 @@ public class DietActivity extends AppCompatActivity
 
 
     private Cursor getItems(String name) {
-        return mDatabase.query(
-                DietContract.DietEntry.TABLE_NAME,
-                null,
-                "name like " + "'%" +name+"%'",
-                null,
-                null,
-                null,
-                DietContract.DietEntry.COLUMN_NAME + " ASC limit 5"
+            return mDatabase.query(
+                    DietContract.DietEntry.TABLE_NAME,
+                    null,
+                    "name like " + "'%" + name + "%'",
+                    null,
+                    null,
+                    null,
+                    DietContract.DietEntry.COLUMN_NAME + " ASC limit 5"
 
-        );
+            );
     }
 
 
