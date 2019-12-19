@@ -32,6 +32,14 @@
                     android:hint="Znajdź produkt"
                     android:inputType="textCapSentences|textAutoCorrect" />
 
+                <EditText
+                    android:id="@+id/editTextGram"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="100 gram"
+                    android:inputType="numberDecimal" />
+
                 <Button
                     android:id="@+id/buttonAddCustomProduct"
                     android:layout_width="match_parent"
@@ -98,14 +106,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
             </android.support.v7.widget.RecyclerView>
-
-            <EditText
-                android:id="@+id/editTextGram"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="100 gram"
-                android:inputType="numberDecimal" />
 
             <TextView
                 android:id="@+id/textView"

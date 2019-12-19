@@ -3623,10 +3623,10 @@ public class TrainingActivity extends AppCompatActivity
 
                  if (editTextRisingSideways.getText().length() != 0 && checkBoxRisingSideways.isChecked()&& LastClick==1){
                      double n1 = Double.parseDouble(editTextRisingSideways.getText().toString());
-                     double nSeries = Math.round((n1*0.80)+2);
+                     double nSeries = Math.round((n1*0.80)+1);
                      double nMax = Math.round((nSeries/80)*100);
 
-                     checkBoxRisingSideways.setText("Wznosy bokiem 5 x 5 x "+nSeries+"kg");
+                     checkBoxRisingSideways.setText("Wznosy bokiem 3 x 8 x "+nSeries+"kg");
                      editTextRisingSideways.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
@@ -3636,7 +3636,7 @@ public class TrainingActivity extends AppCompatActivity
                      double nSeries = Math.round(n1*0.80);
 //                     double nMax = Math.round((nSeries/80)*100);
 
-                     checkBoxRisingSideways.setText("Wznosy bokiem 5 x 5 x "+nSeries+"kg");
+                     checkBoxRisingSideways.setText("Wznosy bokiem 3 x 8 x "+nSeries+"kg");
 //                     editTextSquat.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
@@ -3780,10 +3780,10 @@ public class TrainingActivity extends AppCompatActivity
                  //FBW
                  if (editTextBiceps.getText().length() != 0 && checkBoxBiceps.isChecked()&& LastClick==1){
                      double n1 = Double.parseDouble(editTextBiceps.getText().toString());
-                     double nSeries = Math.round((n1*0.80)+2);
+                     double nSeries = Math.round((n1*0.80)+1);
                      double nMax = Math.round((nSeries/80)*100);
 
-                     checkBoxBiceps.setText("Biceps 5 x 5 x "+nSeries+"kg");
+                     checkBoxBiceps.setText("Biceps 3 x 8 x "+nSeries+"kg");
                      editTextBiceps.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
@@ -3793,7 +3793,7 @@ public class TrainingActivity extends AppCompatActivity
                      double nSeries = Math.round(n1*0.80);
 //                     double nMax = Math.round((nSeries/80)*100);
 
-                     checkBoxBiceps.setText("Biceps 5 x 5 x "+nSeries+"kg");
+                     checkBoxBiceps.setText("Biceps 3 x 8 x "+nSeries+"kg");
 //                     editTextSquat.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
@@ -3920,10 +3920,10 @@ public class TrainingActivity extends AppCompatActivity
 //fbw
                  if (editTextTriceps.getText().length() != 0 && checkBoxTriceps.isChecked()&&LastClick==1){
                      double n1 = Double.parseDouble(editTextTriceps.getText().toString());
-                     double nSeries = Math.round((n1*0.80)+2);
+                     double nSeries = Math.round((n1*0.80)+1);
                      double nMax = Math.round((nSeries/80)*100);
 
-                     checkBoxTriceps.setText("Triceps 5 x 5 x "+nSeries+"kg");
+                     checkBoxTriceps.setText("Triceps 3 x 8 x "+nSeries+"kg");
                      editTextTriceps.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
@@ -3933,13 +3933,13 @@ public class TrainingActivity extends AppCompatActivity
                      double nSeries = Math.round(n1*0.80);
 //                     double nMax = Math.round((nSeries/80)*100);
 
-                     checkBoxTriceps.setText("Triceps 5 x 5 x "+nSeries+"kg");
+                     checkBoxTriceps.setText("Triceps 3 x 8 x "+nSeries+"kg");
 //                     editTextSquat.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
 
                  else if(editTextTriceps.getText().length() == 0&&LastClick==1) {
-                     checkBoxTriceps.setText("brak konfiguracji obciążenia dla Triceps");
+                     checkBoxTriceps.setText("brak konfiguracji obciążenia dla Tricepsa");
                      // Toast.makeText(getApplicationContext(),"TEST2",Toast.LENGTH_LONG).show();
                  }
 
@@ -4062,10 +4062,10 @@ public class TrainingActivity extends AppCompatActivity
 
                  if (editTextAllahs.getText().length() != 0 && checkBoxAllahs.isChecked()&&LastClick==1){
                      double n1 = Double.parseDouble(editTextAllahs.getText().toString());
-                     double nSeries = Math.round((n1*0.80)+2);
+                     double nSeries = Math.round((n1*0.80)+1);
                      double nMax = Math.round((nSeries/80)*100);
 
-                     checkBoxAllahs.setText("Allahy 5 x 5 x "+nSeries+"kg");
+                     checkBoxAllahs.setText("Allahy 3 x 8 x "+nSeries+"kg");
                      editTextAllahs.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
@@ -4075,7 +4075,7 @@ public class TrainingActivity extends AppCompatActivity
                      double nSeries = Math.round(n1*0.80);
 //                     double nMax = Math.round((nSeries/80)*100);
 
-                     checkBoxAllahs.setText("Allahy 5 x 5 x "+nSeries+"kg");
+                     checkBoxAllahs.setText("Allahy 3 x 8 x "+nSeries+"kg");
 //                     editTextSquat.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
@@ -4202,10 +4202,10 @@ public class TrainingActivity extends AppCompatActivity
                  //fbw
                  if (editTextFacepull.getText().length() != 0 && checkBoxFacepull.isChecked()&&LastClick==1){
                      double n1 = Double.parseDouble(editTextFacepull.getText().toString());
-                     double nSeries = Math.round((n1*0.80)+2);
+                     double nSeries = Math.round((n1*0.80)+1);
                      double nMax = Math.round((nSeries/80)*100);
 
-                     checkBoxFacepull.setText("Facepull 5 x 5 x "+nSeries+"kg");
+                     checkBoxFacepull.setText("Facepull 3 x 12 x "+nSeries+"kg");
                      editTextFacepull.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
@@ -4215,7 +4215,7 @@ public class TrainingActivity extends AppCompatActivity
                      double nSeries = Math.round(n1*0.80);
 //                     double nMax = Math.round((nSeries/80)*100);
 
-                     checkBoxFacepull.setText("Facepull 5 x 5 x "+nSeries+"kg");
+                     checkBoxFacepull.setText("Facepull 3 x 12 x "+nSeries+"kg");
 //                     editTextSquat.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
@@ -4619,7 +4619,7 @@ public class TrainingActivity extends AppCompatActivity
 
                  if (editTextPullingUpNarrow.getText().length() != 0 && checkBoxPullingUpNarrow.isChecked()&&LastClick==1){
                      double n1 = Double.parseDouble(editTextPullingUpNarrow.getText().toString());
-                     double nSeries = Math.round((n1*0.80)+2);
+                     double nSeries = Math.round((n1*0.80)+1);
                      double nMax = Math.round((nSeries/80)*100);
 
                      checkBoxPullingUpNarrow.setText("Podciąganie Wąsko 5 x 5 x "+nSeries+"kg");
@@ -4897,10 +4897,10 @@ public class TrainingActivity extends AppCompatActivity
 
                  if (editTextYRaise.getText().length() != 0 && checkBoxYRaise.isChecked()&&LastClick==1){
                      double n1 = Double.parseDouble(editTextYRaise.getText().toString());
-                     double nSeries = Math.round((n1*0.80)+2);
+                     double nSeries = Math.round((n1*0.80)+1);
                      double nMax = Math.round((nSeries/80)*100);
 
-                     checkBoxYRaise.setText("Y-Raise 5 x 5 x "+nSeries+"kg");
+                     checkBoxYRaise.setText("Y-Raise 3 x 12 x "+nSeries+"kg");
                      editTextYRaise.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
@@ -4910,7 +4910,7 @@ public class TrainingActivity extends AppCompatActivity
                      double nSeries = Math.round(n1*0.80);
 //                     double nMax = Math.round((nSeries/80)*100);
 
-                     checkBoxYRaise.setText("Y-Raise 5 x 5 x "+nSeries+"kg");
+                     checkBoxYRaise.setText("Y-Raise 3 x 12 x "+nSeries+"kg");
 //                     editTextSquat.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
@@ -5035,10 +5035,10 @@ public class TrainingActivity extends AppCompatActivity
 
                  if (editTextCalves.getText().length() != 0 && checkBoxCalves.isChecked()&& LastClick==1){
                      double n1 = Double.parseDouble(editTextCalves.getText().toString());
-                     double nSeries = Math.round((n1*0.80)+2);
+                     double nSeries = Math.round((n1*0.80)+1);
                      double nMax = Math.round((nSeries/80)*100);
 
-                     checkBoxCalves.setText("Łydki 5 x 5 x "+nSeries+"kg");
+                     checkBoxCalves.setText("Łydki 3 x 8 x "+nSeries+"kg");
                      editTextCalves.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
@@ -5048,7 +5048,7 @@ public class TrainingActivity extends AppCompatActivity
                      double nSeries = Math.round(n1*0.80);
 //                     double nMax = Math.round((nSeries/80)*100);
 
-                     checkBoxCalves.setText("Łydki 5 x 5 x "+nSeries+"kg");
+                     checkBoxCalves.setText("Łydki 3 x 8 x "+nSeries+"kg");
 //                     editTextSquat.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
                  }
@@ -5177,7 +5177,7 @@ public class TrainingActivity extends AppCompatActivity
                      int n1 = secondsPlankFbw;
                      int nSeries = n1+2;
 
-                     checkBoxPlank.setText("Deska 5 x "+n1+" sek");
+                     checkBoxPlank.setText("Deska 3 x "+n1+" sek");
                      editor.putInt("SecondsPlankFbw", nSeries );
                      editor.commit();
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();
@@ -5186,7 +5186,7 @@ public class TrainingActivity extends AppCompatActivity
                  else if (!checkBoxPlank.isChecked()&& LastClick==1){
                      secondsPlankFbw = prefs.getInt("SecondsPlankFbw", 30);
                      int n1 = secondsPlankFbw;
-                     checkBoxPlank.setText("Deska 5 x "+n1+" sek");
+                     checkBoxPlank.setText("Deska 3 x "+n1+" sek");
 
 //                     editTextSquat.setText(""+nMax);
                      // Toast.makeText(getApplicationContext(),nSeries+" TEST "+nMax,Toast.LENGTH_LONG).show();

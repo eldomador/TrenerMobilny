@@ -92,6 +92,8 @@ public class DietActivity extends AppCompatActivity
                 if (direction==ItemTouchHelper.LEFT){
                     removeItem((long) viewHolder.itemView.getTag());
                     Toast.makeText(getApplicationContext(),"Usunięto z bazy produktów",Toast.LENGTH_LONG).show();
+                    editTextSearch.getText().clear();
+                    editTextGram.getText().clear();
                 }
                 else if (direction==ItemTouchHelper.RIGHT && editTextGram.getText().length() != 0){
                     addItemMF((long) viewHolder.itemView.getTag());
@@ -183,34 +185,33 @@ public class DietActivity extends AppCompatActivity
         textViewFatSum.setText("tłuszcze: "+fatSum);
         textViewCarbSum.setText("węglowodany: "+carbSum);
 
-
         if (weight != 0 && height != 0 && age != 0 && male && weightDecrease ) {
-            kcalmax = (66 + (13.7f *weight) + (5 * height) - (6.76f * age))-300;
+            kcalmax = (float) round( (66 + (13.7f *weight) + (5 * height) - (6.76f * age))-300, 2, BigDecimal.ROUND_HALF_UP);
             textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
         }
 
         else if (weight != 0 && height != 0 && age != 0 && male && weightMaintain ) {
-            kcalmax = 66 + (13.7f *weight) + (5 * height) - (6.76f * age);
+            kcalmax = (float) round(66 + (13.7f *weight) + (5 * height) - (6.76f * age), 2, BigDecimal.ROUND_HALF_UP);
             textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
         }
 
         else if (weight != 0 && height != 0 && age != 0 && male && weightIncrease ) {
-            kcalmax = (66 + (13.7f *weight) + (5 * height) - (6.76f * age))+300;
+            kcalmax = (float) round((66 + (13.7f *weight) + (5 * height) - (6.76f * age))+300, 2, BigDecimal.ROUND_HALF_UP);
             textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
         }
 
         else if (weight != 0 && height != 0 && age != 0 && female && weightDecrease) {
-            kcalmax =(655 +(9.6f *weight)+(1.8f *height)-(4.7f* age))-250;
+            kcalmax =(float) round((655 +(9.6f *weight)+(1.8f *height)-(4.7f* age))-250, 2, BigDecimal.ROUND_HALF_UP);
             textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
         }
 
         else if (weight != 0 && height != 0 && age != 0 && female && weightMaintain) {
-            kcalmax =655 +(9.6f *weight)+(1.8f *height)-(4.7f* age);
+            kcalmax =(float) round(655 +(9.6f *weight)+(1.8f *height)-(4.7f* age), 2, BigDecimal.ROUND_HALF_UP);
             textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
         }
 
         else if (weight != 0 && height != 0 && age != 0 && female && weightIncrease) {
-            kcalmax =(655 +(9.6f *weight)+(1.8f *height)-(4.7f* age))+250;
+            kcalmax =(float) round((655 +(9.6f *weight)+(1.8f *height)-(4.7f* age))+250, 2, BigDecimal.ROUND_HALF_UP);
             textViewKcalSum.setText("kcal: "+kcalSum+"/"+kcalmax);
         }
 
